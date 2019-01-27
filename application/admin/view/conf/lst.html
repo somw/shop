@@ -1,0 +1,119 @@
+{include file="/common/_meta"}
+
+<body>
+{include file="/common/top"}
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+       {include file="/common/list"}
+        <!-- Page Content -->
+        <div class="page-content">
+
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="{:url('conf/lst')}">配置管理</a>
+                    </li>
+                    <li class="active">添加配置</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                <form action="" method="post">
+                <button type="button" tooltip="添加配置" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('conf/add')}'">添加配置
+                </button>
+                <button type="button" tooltip="添加配置" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('conf/add')}'">批量删除
+                </button>
+                <button type="submit" tooltip="添加配置" class="btn btn-sm btn-azure btn-addon">更新排序
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                            <tr>
+                                                <th class="text-center" width="4%">排序</th>
+                                                <th class="text-center" width="4%">ID</th>
+                                                <th class="text-center" width="8%">英文名称</th>
+                                                <th class="text-center" width="8%">中文名称</th>
+                                                <th class="text-center" width="6%">表单类型</th>
+                                                <th class="text-center" width="6%">配置类型</th>
+                                                <th class="text-center">默认值</th>
+                                                <th class="text-center">可选值</th>
+                                                <th class="text-center"  width="12%">操作</th>
+                                            </tr>
+                                        </thead>
+                                        {volist name="conflist" id="conf"}
+                                        <tbody>
+                                            <tr>
+                                                <td width="4%" align="center">
+                                                    <input type="text" style="width: 30px; text-align: center;" name="conf_sort[{$conf.conf_id}]"  value="{$conf.conf_sort}"  >
+                                                </td>
+                                                <td class="text-center">{$conf.conf_id}</td>
+                                                <td class="text-center">{$conf.conf_ename}</td>
+                                                <td align="center">{$conf.conf_cname}</td>
+                                                <td align="center">
+                                                {if condition="$conf['conf_formtype'] eq 'input'"}
+                                                input
+                                                {elseif condition="$conf['conf_formtype'] eq 'radio'"}
+                                                radio
+                                                {elseif condition="$conf['conf_formtype'] eq 'checkbox'"}
+                                                checkbox
+                                                {elseif condition="$conf['conf_formtype'] eq 'select'"}
+                                                select
+                                                {elseif condition="$conf['conf_formtype'] eq 'textarea'"}
+                                                textarea
+                                                {elseif condition="$conf['conf_formtype'] eq 'file'"}
+                                                file
+                                                {/if}
+                                                </td>
+
+                                                <td class="text-center">
+                                                {if condition="$conf['conf_conftype'] eq 1"}
+                                                    店铺配置
+                                                {else /}
+                                                    商品配置
+                                                {/if} 
+
+
+                                                </td>
+                                                <td class="text-center">{$conf.conf_default}</td>
+                                                <td>{$conf.conf_values}</td>
+                                                <td align="center">
+                                                    <a href="{:url('edit',array('conf_id'=>$conf['conf_id']))}" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <a href="#" onClick="warning('确实要删除吗', '{:url('del',array('conf_id'=>$conf['conf_id']))}')" class="btn btn-danger btn-sm shiny">
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        {/volist}
+                                    </table>
+                                </div>
+                                <div>{$conflist->render()}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+	</div>
+</div>
+
+{include file="common/_footer"}
+</body>
+</html>
