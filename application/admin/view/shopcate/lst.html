@@ -1,0 +1,107 @@
+{include file="/common/_meta"}
+</head>
+<body>
+{include file="/common/top"}
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+       {include file="/common/list"}
+        <!-- Page Content -->
+        <div class="page-content">
+
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="{:url('shopcate/lst')}">商品管理</a>
+                    </li>
+                    <li class="active">商品分类列表</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                <form action="" method="post">
+                <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('shopcate/add')}'"> <i class="fa fa-plus"></i>新增商品分类
+                </button>
+                <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('shopcate/add')}'">批量删除
+                </button>
+                <button type="submit" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" >更新排序
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                            <tr>
+                                                <th class="text-center" width="4%">排序</th>
+                                                <th class="text-center" width="6%">商品ID</th>
+                                                <th class="text-center">商品分类名称</th>
+                                                <th class="text-center">图片</th>
+                                                <th class="text-center">关键词</th>
+                                                <th class="text-center">描述</th>
+                                                <th class="text-center" width="6%">状态</th>
+                                                <th class="text-center" width="20%">操作</th>
+                                            </tr>
+                                        </thead>
+                                        {volist name="shopcatelist" id="shopcate"}
+                                        <tbody>
+                                            <tr>
+                                                <td width="4%" align="center"><input type="text" style="width: 30px; text-align: center;" name="shopcate_sort[{$shopcate.shopcate_id}]" value="{$shopcate.shopcate_sort}"></td>
+                                                <td align="center">{$shopcate.shopcate_id}</td>
+                                                <td><?php echo str_repeat('-',$shopcate['lever']*8)?>{$shopcate.shopcate_name}</td>
+                                                <td align="center">
+                                                {if condition="$shopcate['shopcate_img'] neq ''"}
+                                                    <img src="__UPLOADS__/{$shopcate.shopcate_img}" height="30">
+                                                {else/}
+                                                    暂无图片
+                                                {/if}
+
+                                                </td>
+                                                <td>{$shopcate.shopcate_keywords}</td>
+                                                <td>{$shopcate.shopcate_description}</td>
+                                                
+                                                <td align="center">
+                                                {if condition="$shopcate['shopcate_showshopcate'] eq 1"}
+                                                    显示
+                                                {else /}
+                                                    禁用
+                                                {/if}
+                                               
+
+                                                </td>
+                                                <td align="center">
+                                                    <a href="{:url('edit',array('shopcate_id'=>$shopcate['shopcate_id']))}" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <a href="#" onClick="warning('确实要删除吗', '{:url('del',array('shopcate_id'=>$shopcate['shopcate_id']))}')" class="btn btn-danger btn-sm shiny">
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        {/volist}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+	</div>	
+</div>
+
+{include file="common/_footer"}
+</body>
+</html>

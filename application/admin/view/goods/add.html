@@ -1,0 +1,295 @@
+{include file="/common/_meta"}
+</head>
+<body>
+{include file="/common/top"}
+<div class="main-container container-fluid">
+	<div class="page-container">
+		            <!-- Page Sidebar -->
+       {include file="/common/list"}
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="{:url('goods/lst')}">商品管理</a>
+                    </li>
+                    <li class="active">添加商品</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <!-- 商品列表开始 -->
+                            <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                            <div class="widget-body">
+                                <div class="docs-example">
+                                    <ul class="nav nav-tabs tabs-flat">
+                                        <li class="active"><a href="#basicinfo-tab" data-toggle="tab">基本信息</a></li>
+                                        <li class=""><a href="#goodsdes-tab" data-toggle="tab">描述信息</a></li>
+                                        <li class=""><a href="#mbprice-tab" data-toggle="tab">会员价格</a></li>
+                                         <li class=""><a href="#goodsattr-tab" data-toggle="tab">商品属性</a></li>
+                                        <li class=""><a href="#goodsimgs-tab" data-toggle="tab">商品相册</a></li> 
+                                    </ul>
+                                    <div class="tab-content tabs-flat">
+                                        <div class="tab-pane active" id="basicinfo-tab">
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">商品名称</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" name="gs_name" type="text">
+                                                </div>
+                                                <p class="help-block col-sm-4 red">* 必填</p>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">商品主图</label>
+                                                <div class="col-sm-6">
+                                                    <input  name="gs_img" type="file">
+                                                </div>
+                                            </div> 
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">上架</label>
+                                                <div class="col-sm-6">
+                                                    <div class="radio" style="float: left; padding-right: 10px;">
+                                                        <label>
+                                                            <input value="1" name="gs_onsale" class="colored-blue"  type="radio">
+                                                            <span class="text">是</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input value="0" name="gs_onsale" checked="checked" class="colored-blue" type="radio">
+                                                            <span class="text">否</span>
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">所属栏目</label>
+                                                <div class="col-sm-6">
+                                                    <select name="gs_shopcateid">
+                                                        <option>请选择</option>
+                                                        {volist name="shopcateRes" id="shopcate"}
+                                                        <option value="{$shopcate.shopcate_id}"><?php echo str_repeat('-',$shopcate['lever']*8)?>{$shopcate.shopcate_name}</option>
+                                                        {/volist}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">所属品牌</label>
+                                                <div class="col-sm-6">
+                                                    <select name="gs_brandid">
+                                                        <option>请选择</option>
+                                                        {volist name="brandRes" id="brand"}
+                                                        <option value="{$brand.brand_id}">{$brand.brand_name}</option>
+                                                        {/volist}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">市场价</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" id="username" name="gs_marktep"  type="text">
+                                                </div>
+                                                <p class="help-block col-sm-4 red">* 必填</p>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">本店价</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" id="username" name="gs_shopp"  type="text">
+                                                </div>
+                                                <p class="help-block col-sm-4 red">* 必填</p>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">重量</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" id="username" name="gs_weight" type="text" style="display: inline-block; width: 300px;">
+                                                    <select>
+                                                        <option>kg</option>
+                                                        <option value="">g</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="goodsdes-tab">
+                                            <div class="form-horizontal">
+                                                
+                                                <div class="form-group">
+                                                    <div class="col-sm-6">
+                                                        <textarea id="content" name="gs_des"></textarea>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="mbprice-tab">
+                                            {volist name="mlRes" id="level"}
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">{$level.level_name}</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" id="username" name="mp[{$level.level_id}]" type="text">
+                                                </div>
+                                            </div>
+                                            {/volist}
+                                                
+                                        </div>
+
+                                         <div class="tab-pane" id="goodsattr-tab">
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right">商品类型</label>
+                                                <div class="col-sm-6">
+                                                    <select name="attr_typeid">
+                                                        <option>请选择</option>
+                                                        {volist name="typeRes" id="type"}
+                                                        <option value="{$type.type_id}">{$type.type_name}</option>
+                                                        {/volist}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group" id="goodsattr">
+                                                
+                                            </div>
+                                            
+                                             
+
+                                        </div>
+
+                                        <div class="tab-pane" id="goodsimgs-tab">
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right"></label>
+
+                                                <div class="col-sm-6">
+                                                    <a href="#" onclick="addrow(this)" style="display: inline-block; width: 20px;margin-right: 20px; ">[+]</a>
+                                                    <input name="goods_img[]" type="file" class="form-group" style="border: none;box-shadow: none;width: 50%;display: inline-block;">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group" id="goodsimgs">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-lg-8 col-lg-offset-4">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                            <!-- 商品列表结束 -->
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+	</div>
+</div>
+
+{include file="common/_footer"}
+
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,toolbars:[['fullscreen','source','undo','redo','bold','italic','underline','fontborder','strikethrough','superscript','subscript','removeformat','formatmatch','autotypeset','blockquote','pasteplain','|','forecolor','backcolor','insertorderedlist','insertunorderedlist','selectall','cleardoc']]});
+</script>
+<script type="text/javascript">
+    //change()方法是当元素的值发生改变时，会发生change事件
+    $("select[name=attr_typeid]").change(function(){
+        var attr_typeids=$(this).val();//创建gs_typeid变量，$(this)是当前元素被jQuery处理的对象，val()方法是返回或者设置被选元素的值
+        $.ajax({
+            type:"POST",
+            url:"{:url('attr/ajaxGetAtter')}",
+            data:{attr_typeid:attr_typeids},
+            dataType:"json",
+            success:function(data){
+                //alert(data);
+                var html="";
+                //each()方法规定为每个匹配元素规定运行的函数,each(function(index,element))
+                $(data).each(function(k,v){
+                    //alert(v);
+                    if (v.attr_type == 1) {
+                        //单选处理
+                        //console.log(attrDefaultArr);
+                        html+="<div class='form-group'>";
+                        html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
+                        var attrDefaultArr=v.attr_default.split(",");//split()方法用于把一个字符串分割成字符串数组
+                        html+="<div class='col-sm-6'><a onclick='addrow(this)' href='#'>[+]</a>";
+                        html+="<select name='goods_attr["+v.gsattr_id+"][]'>";
+                        html+="<option value=''>请选择</option>"
+                        for (var i=0; i<attrDefaultArr.length; i++) {
+                            html+="<option value="+attrDefaultArr[i]+">"+attrDefaultArr[i]+"</option>";
+                        }
+                        html+="</select>";
+                        html+="<input class='form-control' name='gsattr_price[]' placeholder='价格' style='display:inline-block;width:200px;margin-left:10px;' type='text'>";
+                        html+="</div></div>";
+
+                    }else{
+                        //唯一处理
+                        if (v.attr_default) {
+                            html+="<div class='form-group'>";
+                            html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
+                            var attrDefaultArr=v.attr_default.split(",");//split()方法用于把一个字符串分割成字符串数组
+                            html+="<div class='col-sm-6'>";
+                            html+="<select name='goods_attr["+v.gsattr_id+"]'>";
+                            html+="<option value=''>请选择</option>"
+                            for (var i=0; i<attrDefaultArr.length; i++) {
+                                html+="<option value="+attrDefaultArr[i]+">"+attrDefaultArr[i]+"</option>";
+                            }
+                            html+="</select>";
+                            html+="</div></div>";
+                        }else{
+                            html+="<div class='form-group'>";
+                            html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
+                            html+="<div class='col-sm-6'>";
+                            html+=":<input class='form-control' name='goods_attr["+v.gsattr_id+"]' style='display:inline-block;width:200px;margin-left:10px;' type='text' />";
+                            html+="</div></div>";
+                        }
+                    }
+                });
+                $("#goodsattr").html(html);
+            }
+        });
+    });
+
+    function addrow(o){
+        var div=$(o).parent().parent();
+        if ($(o).html() == '[+]') {
+            var newdiv=div.clone();
+            newdiv.find('a').html('[-]');
+            div.after(newdiv);
+        }else{
+            div.remove();
+        }
+    }
+</script>
+</body>
+</html>
