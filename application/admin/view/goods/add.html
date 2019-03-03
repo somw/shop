@@ -243,7 +243,7 @@
                         html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
                         var attrDefaultArr=v.attr_default.split(",");//split()方法用于把一个字符串分割成字符串数组
                         html+="<div class='col-sm-6'><a onclick='addrow(this)' href='#'>[+]</a>";
-                        html+="<select name='goods_attr["+v.gsattr_id+"][]'>";
+                        html+="<select name='goods_attr["+v.attr_id+"][]'>";
                         html+="<option value=''>请选择</option>"
                         for (var i=0; i<attrDefaultArr.length; i++) {
                             html+="<option value="+attrDefaultArr[i]+">"+attrDefaultArr[i]+"</option>";
@@ -259,7 +259,7 @@
                             html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
                             var attrDefaultArr=v.attr_default.split(",");//split()方法用于把一个字符串分割成字符串数组
                             html+="<div class='col-sm-6'>";
-                            html+="<select name='goods_attr["+v.gsattr_id+"]'>";
+                            html+="<select name='goods_attr["+v.attr_id+"]'>";
                             html+="<option value=''>请选择</option>"
                             for (var i=0; i<attrDefaultArr.length; i++) {
                                 html+="<option value="+attrDefaultArr[i]+">"+attrDefaultArr[i]+"</option>";
@@ -270,7 +270,7 @@
                             html+="<div class='form-group'>";
                             html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
                             html+="<div class='col-sm-6'>";
-                            html+=":<input class='form-control' name='goods_attr["+v.gsattr_id+"]' style='display:inline-block;width:200px;margin-left:10px;' type='text' />";
+                            html+=":<input class='form-control' name='goods_attr["+v.attr_id+"]' style='display:inline-block;width:200px;margin-left:10px;' type='text' />";
                             html+="</div></div>";
                         }
                     }

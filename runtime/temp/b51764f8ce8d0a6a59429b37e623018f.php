@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\add.html";i:1548168560;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1547266340;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1547266340;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1547306096;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1547266340;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\add.html";i:1551592081;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1551575667;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1551575667;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1551575667;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1551575667;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -9,19 +9,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!--Basic Styles-->
-    <link href="/static/admin/style/bootstrap.css" rel="stylesheet">
-    <link href="/static/admin/style/font-awesome.css" rel="stylesheet">
-    <link href="/static/admin/style/weather-icons.css" rel="stylesheet">
+    <link href="/static/admin/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/admin/css/font-awesome.css" rel="stylesheet">
+    <link href="/static/admin/css/weather-icons.css" rel="stylesheet">
 
     <!--Beyond styles-->
-    <link id="beyond-link" href="/static/admin/style/beyond.css" rel="stylesheet" type="text/css">
-    <link href="/static/admin/style/demo.css" rel="stylesheet">
-    <link href="/static/admin/style/typicons.css" rel="stylesheet">
-    <link href="/static/admin/style/animate.css" rel="stylesheet">
+    <link id="beyond-link" href="/static/admin/css/beyond.css" rel="stylesheet" type="text/css">
+    <link href="/static/admin/css/demo.css" rel="stylesheet">
+    <link href="/static/admin/css/typicons.css" rel="stylesheet">
+    <link href="/static/admin/css/animate.css" rel="stylesheet">
 
-    <script src="/static/admin/style/jquery.js"></script>
-    <script src="/static/admin/style/jquery_002.js"></script>
-
+    <script src="/static/admin/js/jquery.js"></script>
+    <script src="/static/admin/js/jquery_002.js"></script>
+    <script src="/static/admin/js/LodopFuncs.js"></script>
     
     <script src="/static/plus/ueditor/ueditor.config.js"></script>
     <script src="/static/plus/ueditor/ueditor.all.min.js"></script>
@@ -522,9 +522,9 @@
 </div>
 
 <!--Basic Scripts-->
-<script src="/static/admin/style/bootstrap.js"></script>
+<script src="/static/admin/js/bootstrap.js"></script>
 <!--Beyond Scripts-->
-<script src="/static/admin/style/beyond.js"></script>
+<script src="/static/admin/js/beyond.js"></script>
 
 <script type="text/javascript">
 
@@ -554,7 +554,7 @@
                         html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
                         var attrDefaultArr=v.attr_default.split(",");//split()方法用于把一个字符串分割成字符串数组
                         html+="<div class='col-sm-6'><a onclick='addrow(this)' href='#'>[+]</a>";
-                        html+="<select name='goods_attr["+v.gsattr_id+"][]'>";
+                        html+="<select name='goods_attr["+v.attr_id+"][]'>";
                         html+="<option value=''>请选择</option>"
                         for (var i=0; i<attrDefaultArr.length; i++) {
                             html+="<option value="+attrDefaultArr[i]+">"+attrDefaultArr[i]+"</option>";
@@ -570,7 +570,7 @@
                             html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
                             var attrDefaultArr=v.attr_default.split(",");//split()方法用于把一个字符串分割成字符串数组
                             html+="<div class='col-sm-6'>";
-                            html+="<select name='goods_attr["+v.gsattr_id+"]'>";
+                            html+="<select name='goods_attr["+v.attr_id+"]'>";
                             html+="<option value=''>请选择</option>"
                             for (var i=0; i<attrDefaultArr.length; i++) {
                                 html+="<option value="+attrDefaultArr[i]+">"+attrDefaultArr[i]+"</option>";
@@ -581,7 +581,7 @@
                             html+="<div class='form-group'>";
                             html+="<label class='col-sm-2 control-label no-padding-right'>"+v.attr_name+"</label>";
                             html+="<div class='col-sm-6'>";
-                            html+=":<input class='form-control' name='goods_attr["+v.gsattr_id+"]' style='display:inline-block;width:200px;margin-left:10px;' type='text' />";
+                            html+=":<input class='form-control' name='goods_attr["+v.attr_id+"]' style='display:inline-block;width:200px;margin-left:10px;' type='text' />";
                             html+="</div></div>";
                         }
                     }

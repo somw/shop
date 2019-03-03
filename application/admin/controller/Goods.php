@@ -106,6 +106,21 @@ class Goods extends Controller
 
     }
 
+    public function product($gs_id){
+        $_radioAttrRed = db('goods_attr')->alias('g')->field('g.gsattr_id,g.gsattr_attrid,g.gsattr_value,a.attr_name')->join('attr a','g.gsattr_attrid=a.attr_id')->where(array('gsattr_goodsid'=>$gs_id,'a.attr_type'=>1))->select();
+        //数组格式双重
+        $radioAttrRed = array();
+        foreach ($_radioAttrRed as $k => $v) {
+            $radioAttrRed[$v['attr_name']][] = $v;
+        }
+        $this->assign([
+            'radioAttrRed'=>$radioAttrRed,
+        ]);
+
+        #dump($radioAttrRed);die;
+        return view();
+    }
+
     // public function upload(){
     //     // 获取表单上传文件 例如上传了001.jpg
     //     $file = request()->file('gs_img');

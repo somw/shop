@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\data\index.html";i:1551575667;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1551575667;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1551575667;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1551575667;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1551575667;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"B:\aaaweb\shop\public/../application/admin\view\goods\product_num.html";i:1551583759;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1551575667;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1551575667;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1551575667;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -325,171 +325,78 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="">链接管理</a>
+                        <a href="<?php echo url('goods/lst'); ?>">商品类型管理</a>
                     </li>
-                    <li class="active">添加链接</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                <a id="export" class="btn btn-sm btn-azure btn-addon" href="javascript:;" autocomplete="off">立即备份</a>
-                <a id="optimize" href="<?php echo url('data/optimize'); ?>" class="btn btn-sm btn-azure btn-addon">优化表</a>
-                <a id="repair" href="<?php echo url('data/repair'); ?>" class="btn btn-sm btn-azure btn-addon">修复表</a>
-                <a  href="<?php echo url('data/importlist'); ?>" class="btn btn-sm btn-azure btn-addon">还原数据库</a>
+
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-body">
                                 <div class="flip-scroll">
-                                    <form id="export-form" method="post" action="<?php echo url('data/export'); ?>">
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th style="width: 23px;" class="sorting_disabled">
-
-                                                    <label style="font-weight: 300; ">
-                                                        <input class="checkeds" checked="checked" type="checkbox" value="">
-                                                        <span class="text"></span>
-                                                    </label>
-
-                                                </th>
-                                                <th>表名</th>
-                                                <th>数据量</th>
-                                                <th>数据大小</th>
-                                                <th>创建时间</th>
-                                                <th>备份状态</th>
-                                                <th>操作</th>
-                                            </tr> 
-                                        </thead>
-                                        <tbody>
-                                            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): if( count($list)==0 ) : echo "" ;else: foreach($list as $key=>$table): ?>   
-                                            <tr>            
-                                                <td>
-                                                    <label>
-                                                    <input class="ids" checked="checked" type="checkbox" name="tables[]" value="<?php echo $table['name']; ?>"><span class="text"></span></label>
-                                                </td>
-                                                <td><?php echo $table['name']; ?></td>
-                                                <td><?php echo $table['rows']; ?></td>
-                                                <td><?php echo format_bytes($table['data_length']); ?></td>
-                                                <td><?php echo $table['create_time']; ?></td>
-                                                <td class="info" style="background: none;">未备份</td>
-                                                <td>
-                                                    <a href="<?php echo url('data/optimize',['tables'=>$table['name']]); ?>">优化表</a>&nbsp;
-                                                    <a href="<?php echo url('data/repair',['tables'=>$table['name']]); ?>">修复表</a>
-                                                </td>
+                                                <th class="text-center">颜色</th>
+                                                <th class="text-center">硬盘</th>
+                                                <th class="text-center">库存量</th>
+                                                <th class="text-center" width="10%">操作</th>
                                             </tr>
-                                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td align="center">
+                                                    <select>
+                                                        <option>黑色</option>
+                                                        <option>白色</option>
+                                                        <option>红色</option>
+                                                    </select>
+                                                </td>
+                                                <td align="center">
+                                                    <select>
+                                                        <option>128G</option>
+                                                        <option>256G</option>
+                                                        <option>512G</option>
+                                                    </select>
+                                                </td>
+                                                <td align="center"><input type="text" style="text-align: center;"></td>
+                                                <td align="center"><a href="javascript:;" onClick="addr(this)" class="btn btn-sm btn-azure btn-addon" >+</a></td>
+                                                
+                                            </tr>
                                         </tbody>
+
                                     </table>
-                                    </form>
                                 </div>
-                                <div></div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-
-    </div>
+	</div>	
 </div>
 
-    <!--Basic Scripts-->
-<script src="/static/admin/js/bootstrap.js"></script>
-<!--Beyond Scripts-->
-<script src="/static/admin/js/beyond.js"></script>
+<script type="text/javascript">
+    function addr(o){
+        var tr=$(o).parent().parent();
+        if ($(o).html() == '+') {
+            var newtr=tr.clone();
+            newtr.find('a').html('-');
+            tr.after(newtr);
+        }else{
+            tr.remove();
+        }
+    }
+</script>
 </body>
 </html>
 
-<script>
-    layui.use(['jquery','layer'],function(){
-        window.$ = layui.$;
-        var layer = layui.layer;
-        //备份表方法
-        $("#export").click(function(){
-            $(this).html("正在发送备份请求...");
-            $.post(
-                $("#export-form").attr("action"),
-                $("#export-form").serialize(), 
-                function(data){
-               
-                    if(data.code==1){
-                        $("#export").html( "开始备份，请不要关闭本页面！");
-                        backup(data.data.tab);
-                        window.onbeforeunload = function(){ return "正在备份数据库，请不要关闭！" }
-                    }else{
-                        layer.tips(data.msg, "#export", {
-                            tips: [1, '#3595CC'],
-                            time: 4000
-                        });
-                        $("#export").html("立即备份");
-                    }
-              
-            }, "json");
-            return false;  
-        }); 
-
-        //递归备份表
-        function backup(tab,status){
-            status && showmsg(tab.id, "开始备份...(0%)");
-            $.get( $("#export-form").attr("action"), tab, function(data){
-                // console.log(data)
-                if(data.code==1){
-                    showmsg(tab, data.msg);
-
-                    if(!$.isPlainObject(data.data.tab)){
-                        $("#export").html("备份完成");
-                        window.onbeforeunload = function(){ return null }
-                        return;
-                    } 
-
-                    backup(data.data.tab, tab.id != data.data.tab.id);
-                } else {
-                    $("#export").html("立即备份");
-                }
-            }, "json");
-        }
-
-        //修改备份状态
-        function showmsg(tab, msg){
-            $("table tbody tr").eq(tab.id).find(".info").html(msg)
-        }
-
-        //优化表
-        $("#optimize").click(function(){
-            $.post(this.href, $("#export-form").serialize(), function(data){
-           
-                layer.tips(data.msg, "#optimize", {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-    
-            }, "json");
-            return false;    
-        });
-
-        //修复表
-        $("#repair").on("click",function(e){
-
-            $.post(this.href, $("#export-form").serialize(), function(data){
-                layer.tips(data.msg, "#repair", {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-            }, "json");
-            return false; 
-        });
-    });
-
-    $(".checkeds").click(function(){
-        if ($(this).is(':checked')) {
-            $('.ids').prop('checked','checked');
-        } else{
-            $('.ids').prop('checked',false);
-        }
-    });
-</script>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\lst.html";i:1548175794;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1547266340;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1547266340;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1547306096;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1547266340;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\lst.html";i:1551587666;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1551575667;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1551575667;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1551575667;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1551575667;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -9,19 +9,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!--Basic Styles-->
-    <link href="/static/admin/style/bootstrap.css" rel="stylesheet">
-    <link href="/static/admin/style/font-awesome.css" rel="stylesheet">
-    <link href="/static/admin/style/weather-icons.css" rel="stylesheet">
+    <link href="/static/admin/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/admin/css/font-awesome.css" rel="stylesheet">
+    <link href="/static/admin/css/weather-icons.css" rel="stylesheet">
 
     <!--Beyond styles-->
-    <link id="beyond-link" href="/static/admin/style/beyond.css" rel="stylesheet" type="text/css">
-    <link href="/static/admin/style/demo.css" rel="stylesheet">
-    <link href="/static/admin/style/typicons.css" rel="stylesheet">
-    <link href="/static/admin/style/animate.css" rel="stylesheet">
+    <link id="beyond-link" href="/static/admin/css/beyond.css" rel="stylesheet" type="text/css">
+    <link href="/static/admin/css/demo.css" rel="stylesheet">
+    <link href="/static/admin/css/typicons.css" rel="stylesheet">
+    <link href="/static/admin/css/animate.css" rel="stylesheet">
 
-    <script src="/static/admin/style/jquery.js"></script>
-    <script src="/static/admin/style/jquery_002.js"></script>
-
+    <script src="/static/admin/js/jquery.js"></script>
+    <script src="/static/admin/js/jquery_002.js"></script>
+    <script src="/static/admin/js/LodopFuncs.js"></script>
     
     <script src="/static/plus/ueditor/ueditor.config.js"></script>
     <script src="/static/plus/ueditor/ueditor.all.min.js"></script>
@@ -335,6 +335,9 @@
             <div class="page-body">
                 <button type="button" tooltip="添加商品类型" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('goods/add'); ?>'"> <i class="fa fa-plus"></i> Add
                 </button>
+                <button type="button" tooltip="添加商品类型" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('goods/prints'); ?>'"> <i class="fa fa-print"></i>  打印
+                </button>
+
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
@@ -343,19 +346,19 @@
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th class="text-center" width="8%">ID</th>
+                                                <th class="text-center" width="4%">ID</th>
                                                 <th class="text-center" width="10%">属性名称</th>
                                                 <th class="text-center">商品编号</th>
-                                                <th class="text-center" width="15%">缩略图</th>
-                                                <th class="text-center">市场价</th>
-                                                <th class="text-center">本店价</th>
-                                                <th class="text-center">上架</th>
-                                                <th class="text-center">所属栏目</th>
-                                                <th class="text-center">所属品牌</th>
-                                                <th class="text-center">所属类型</th>
+                                                <th class="text-center" width="10%">缩略图</th>
+                                                <th class="text-center" width="6%">市场价</th>
+                                                <th class="text-center" width="6%">本店价</th>
+                                                <th class="text-center" width="6%">上架</th>
+                                                <th class="text-center" width="7%">所属栏目</th>
+                                                <th class="text-center" width="7%">所属品牌</th>
+                                                <th class="text-center" width="7%">所属类型</th>
                                                 <th class="text-center">重量</th>
-                                                <th class="text-center">单位</th>
-                                                <th class="text-center" width="18%">操作</th>
+                                                <th class="text-center" width="4%">单位</th>
+                                                <th class="text-center" width="22%">操作</th>
                                             </tr>
                                         </thead>
                                         <?php if(is_array($goodslist) || $goodslist instanceof \think\Collection || $goodslist instanceof \think\Paginator): $i = 0; $__LIST__ = $goodslist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$gs): $mod = ($i % 2 );++$i;?>
@@ -376,7 +379,7 @@
                                                 <td><?php echo $gs['gs_weight']; ?></td>
                                                 <td><?php echo $gs['gs_unit']; ?></td>
                                                 <td align="center">
-                                                    <a href="<?php echo url('attr/lst',array('type_id'=>$gs['gs_id'])); ?>" class="btn btn-warning btn-sm shiny">
+                                                    <a href="<?php echo url('goods/product',array('gs_id'=>$gs['gs_id'])); ?>" class="btn btn-warning btn-sm shiny">
                                                         <i class="fa fa-check-square-o"></i> 仓库量
                                                     </a>
                                                     <a href="<?php echo url('edit',array('type_id'=>$gs['gs_id'])); ?>" class="btn btn-primary btn-sm shiny">
@@ -405,8 +408,8 @@
 </div>
 
 <!--Basic Scripts-->
-<script src="/static/admin/style/bootstrap.js"></script>
+<script src="/static/admin/js/bootstrap.js"></script>
 <!--Beyond Scripts-->
-<script src="/static/admin/style/beyond.js"></script>
+<script src="/static/admin/js/beyond.js"></script>
 </body>
 </html>
