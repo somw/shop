@@ -50,7 +50,9 @@
                                                 <th class="text-center" width="7%">所属类型</th>
                                                 <th class="text-center">重量</th>
                                                 <th class="text-center" width="4%">单位</th>
+                                                <th class="text-center" width="4%">库存量</th>
                                                 <th class="text-center" width="22%">操作</th>
+                                                
                                             </tr>
                                         </thead>
                                         {volist name="goodslist" id="gs"}
@@ -70,9 +72,10 @@
                                                 <td>{$gs.type_name}</td>
                                                 <td>{$gs.gs_weight}</td>
                                                 <td>{$gs.gs_unit}</td>
+                                                <td>{if condition="$gs['gn']"}{$gs.gn}{else/}0{/if}</td>
                                                 <td align="center">
                                                     <a href="{:url('goods/product',array('gs_id'=>$gs['gs_id']))}" class="btn btn-warning btn-sm shiny">
-                                                        <i class="fa fa-check-square-o"></i> 仓库量
+                                                        <i class="fa fa-check-square-o"></i> 库存量
                                                     </a>
                                                     <a href="{:url('edit',array('type_id'=>$gs['gs_id']))}" class="btn btn-primary btn-sm shiny">
                                                         <i class="fa fa-edit"></i> 编辑

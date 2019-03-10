@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:69:"D:\aaaweb\shop\public/../application/admin\view\member_level\lst.html";i:1547266340;s:55:"D:\aaaweb\shop\application\admin\view\common\_meta.html";i:1547266340;s:53:"D:\aaaweb\shop\application\admin\view\common\top.html";i:1547266340;s:54:"D:\aaaweb\shop\application\admin\view\common\list.html";i:1547306096;s:57:"D:\aaaweb\shop\application\admin\view\common\_footer.html";i:1547266340;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\brand\edit.html";i:1552181903;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1552181903;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1552181903;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1552181903;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1552181903;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -9,19 +9,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!--Basic Styles-->
-    <link href="/static/admin/style/bootstrap.css" rel="stylesheet">
-    <link href="/static/admin/style/font-awesome.css" rel="stylesheet">
-    <link href="/static/admin/style/weather-icons.css" rel="stylesheet">
+    <link href="/static/admin/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/admin/css/font-awesome.css" rel="stylesheet">
+    <link href="/static/admin/css/weather-icons.css" rel="stylesheet">
 
     <!--Beyond styles-->
-    <link id="beyond-link" href="/static/admin/style/beyond.css" rel="stylesheet" type="text/css">
-    <link href="/static/admin/style/demo.css" rel="stylesheet">
-    <link href="/static/admin/style/typicons.css" rel="stylesheet">
-    <link href="/static/admin/style/animate.css" rel="stylesheet">
+    <link id="beyond-link" href="/static/admin/css/beyond.css" rel="stylesheet" type="text/css">
+    <link href="/static/admin/css/demo.css" rel="stylesheet">
+    <link href="/static/admin/css/typicons.css" rel="stylesheet">
+    <link href="/static/admin/css/animate.css" rel="stylesheet">
 
-    <script src="/static/admin/style/jquery.js"></script>
-    <script src="/static/admin/style/jquery_002.js"></script>
-
+    <script src="/static/admin/js/jquery.js"></script>
+    <script src="/static/admin/js/jquery_002.js"></script>
+    <script src="/static/admin/js/LodopFuncs.js"></script>
     
     <script src="/static/plus/ueditor/ueditor.config.js"></script>
     <script src="/static/plus/ueditor/ueditor.all.min.js"></script>
@@ -91,10 +91,9 @@
         </div>
     </div>
 </div>
-
 <div class="main-container container-fluid">
-    <div class="page-container">
-        <!-- Page Sidebar -->
+	<div class="page-container">
+		            <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -317,7 +316,6 @@
 <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
-
             <!-- Page Breadcrumb -->
             <div class="page-breadcrumbs">
                 <ul class="breadcrumb">
@@ -325,54 +323,91 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('memberLevel/lst'); ?>">会员级别管理</a>
+                        <a href="<?php echo url('brand/lst'); ?>">品牌管理</a>
                     </li>
+                    <li class="active">添加品牌</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                <button type="button" tooltip="添加会员级别" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('memberLevel/add'); ?>'"> <i class="fa fa-plus"></i> Add
-                </button>
+                
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">修改品牌</span>
+                            </div>
                             <div class="widget-body">
-                                <div class="flip-scroll">
-                                    <table class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center" width="8%">ID</th>
-                                                <th class="text-center">会员级别名称</th>
-                                                <th class="text-center">会员积分下限</th>
-                                                <th class="text-center">会员积分上限</th>
-                                                <th class="text-center">级别折扣率</th>
-                                                <th class="text-center" width="20%">操作</th>
-                                            </tr>
-                                        </thead>
-                                        <?php if(is_array($mblevellist) || $mblevellist instanceof \think\Collection || $mblevellist instanceof \think\Paginator): $i = 0; $__LIST__ = $mblevellist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$mblevel): $mod = ($i % 2 );++$i;?>
-                                        <tbody>
-                                            <tr>
-                                                <td align="center"><?php echo $mblevel['level_id']; ?></td>
-                                                <td align="center"><?php echo $mblevel['level_name']; ?></td>
-                                                <td align="center"><?php echo $mblevel['level_bompoint']; ?></td>
-                                                <td align="center"><?php echo $mblevel['level_toppoint']; ?></td>
-                                                <td align="center"><?php echo $mblevel['level_rate']; ?></td>
-                                                <td align="center">
-                                                    <a href="<?php echo url('edit',array('level_id'=>$mblevel['level_id'])); ?>" class="btn btn-primary btn-sm shiny">
-                                                        <i class="fa fa-edit"></i> 编辑
-                                                    </a>
-                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('level_id'=>$mblevel['level_id'])); ?>')" class="btn btn-danger btn-sm shiny">
-                                                        <i class="fa fa-trash-o"></i> 删除
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <?php endforeach; endif; else: echo "" ;endif; ?>
-                                    </table>
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                                    	<input type="hidden" name="brand_id" value="<?php echo $brandedit['brand_id']; ?>">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">品牌名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="brand_name" type="text" value="<?php echo $brandedit['brand_name']; ?>">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">品牌地址</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="brand_url" type="text" value="<?php echo $brandedit['brand_url']; ?>">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">品牌logo</label>
+                                            <div class="col-sm-6">
+                                                <input id="username" placeholder="" name="brand_img" type="file">
+                                                <input type="button" name="brand_img" <?php if($brandedit['brand_img'] != ''): ?> value="删除" <?php endif; ?>>
+                                                <?php if($brandedit['brand_img'] != ''): ?>
+                                                <img src="/static/uploads/<?php echo $brandedit['brand_img']; ?>" height="30">
+                                                <?php else: ?>
+                                                暂无图片
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">品牌描述</label>
+                                            <div class="col-sm-6">
+                                                <textarea class="form-control" name="brand_description"><?php echo $brandedit['brand_description']; ?></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">品牌状态</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio" style="float: left; padding-right: 10px;">
+                                                    <label>
+                                                        <input name="brand_status" class="colored-blue" value="1" <?php if($brandedit['brand_status'] == 1): ?> checked="checked" <?php endif; ?> type="radio">
+                                                        <span class="text">显示</span>
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="brand_status" class="colored-blue" value="0" <?php if($brandedit['brand_status'] == 0): ?> checked="checked" <?php endif; ?> type="radio">
+                                                        <span class="text">隐藏</span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                       
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div><?php echo $mblevellist->render(); ?></div>
                             </div>
                         </div>
                     </div>
@@ -386,8 +421,8 @@
 </div>
 
 <!--Basic Scripts-->
-<script src="/static/admin/style/bootstrap.js"></script>
+<script src="/static/admin/js/bootstrap.js"></script>
 <!--Beyond Scripts-->
-<script src="/static/admin/style/beyond.js"></script>
+<script src="/static/admin/js/beyond.js"></script>
 </body>
 </html>

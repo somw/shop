@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"B:\aaaweb\shop\public/../application/admin\view\goods\product.html";i:1551595314;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1551575667;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1551575667;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1551575667;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:66:"B:\aaaweb\shop\public/../application/admin\view\goods\product.html";i:1552210095;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1552181903;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1552181903;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1552181903;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -336,6 +336,7 @@
 
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <form action="" method="post">
                         <div class="widget">
                             <div class="widget-body">
                                 <div class="flip-scroll">
@@ -351,29 +352,63 @@
                                         </thead>
 
                                         <tbody>
+                                            <?php if($productstr):
+                                                foreach($productstr as $k0=>$v0):
+                                                
+                                            ?>
                                             <tr>
                                                 <?php foreach($radioAttrRed as $k=>$v):?>
                                                 <td align="center">
                                                     
-                                                    <select>
+                                                    <select name="product_attr[<?php echo $k; ?>][]">
                                                         <option>请选择</option>
-                                                        <?php foreach($v as $k1=>$v1):?>
-                                                        <option><?php echo $v1['gsattr_value']; ?></option>
+                                                        <?php foreach($v as $k1=>$v1):
+                                                            $arr = explode(',',$v0['prod_goods_attr']);
+                                                            if(in_array($v1['gsattr_id'],$arr)){
+                                                                $selected = 'selected="selected"';
+                                                            }else{
+                                                                $selected = '';
+                                                            }
+                                                        ?>
+                                                        <option value="<?php echo $v1['gsattr_id']?>" <?php echo $selected?>><?php echo $v1['gsattr_value']; ?></option>
                                                         <?php endforeach;?>
                                                     </select>
                                                     
                                                 </td>
                                                 <?php endforeach;?>
-                                                <td align="center"><input type="text" style="text-align: center;"></td>
-                                                <td align="center"><a href="javascript:;" onClick="addr(this)" class="btn btn-sm btn-azure btn-addon" >+</a></td>
-                                                
+                                                <td align="center"><input type="text" name="product_num[]" style="text-align: center;" value="<?php echo $v0['prod_goods_num']?>"></td>
+                                                <td align="center"><a href="javascript:;" onClick="addr(this)" class="btn btn-sm btn-azure btn-addon"><?php if($k0 == 0) {echo '+';} else {echo '-';}?></a></td>
                                             </tr>
+                                            <?php endforeach; else:?>
+                                            <tr>
+                                                <?php foreach($radioAttrRed as $k=>$v):?>
+                                                <td align="center">
+                                                    
+                                                    <select name="product_attr[<?php echo $k; ?>][]">
+                                                        <option>请选择</option>
+                                                        <?php foreach($v as $k1=>$v1):?>
+                                                        <option value="<?php echo $v1['gsattr_id']?>"><?php echo $v1['gsattr_value']; ?></option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                    
+                                                </td>
+                                                <?php endforeach;?>
+                                                <td align="center"><input type="text" name="product_num[]" style="text-align: center;"></td>
+                                                <td align="center"><a href="javascript:;" onClick="addr(this)" class="btn btn-sm btn-azure btn-addon" >+</a></td>
+                                            </tr>
+                                            <?php endif;?>
                                         </tbody>
 
                                     </table>
                                 </div>
+
+                                <div class="flip-scroll col-sm-offset-5" style="margin-top:10px ">
+                                    <button type="submit" class="btn btn-default">保存信息</button>
+                                </div>
+                      
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
 

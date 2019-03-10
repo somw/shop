@@ -11,8 +11,9 @@ class Goods extends Controller
             ['shopcate c','g.gs_shopcateid=c.shopcate_id'],
             ['brand b','g.gs_brandid=b.brand_id','LEFT'],
             ['type t','g.gs_typeid=t.type_id','LEFT'],
+            ['product p','g.gs_id=p.prod_goods_id','LEFT'],
         ];
-        $goodslist = db('goods') -> alias('g')-> field('g.*,c.shopcate_name,b.brand_name,t.type_name') -> join($join) ->order('g.gs_id desc') ->paginate(5);
+        $goodslist = db('goods') -> alias('g')-> field('g.*,c.shopcate_name,b.brand_name,t.type_name,SUM(p.prod_goods_num) gn') -> join($join) ->group('g.gs_id')->order('g.gs_id desc') ->paginate(5);
         $this->assign('goodslist', $goodslist);
         return view('lst');
 
@@ -107,17 +108,52 @@ class Goods extends Controller
     }
 
     public function product($gs_id){
+
+        if (request()->isPost()) {
+            db('product')->where('prod_goods_id','=',$gs_id)->delete();
+            $data=input('post.');
+            $goodsNum = $data['product_num'];
+            $goodsAttr = $data['product_attr'];
+            $product = db('product');
+            
+            foreach ($goodsNum as $k => $v) {
+                $strArr =array();
+                foreach ($goodsAttr as $k1 => $v1) {
+                    if (intval($v1[$k]<=0)) {
+                        continue 2;
+                    }
+                    $strArr[]=$v1[$k];
+
+                }
+                sort($strArr);
+                $strArr = implode(',', $strArr);
+                $product -> insert([
+                    'prod_goods_id' =>$gs_id,
+                    'prod_goods_num' =>$v,
+                    'prod_goods_attr'=>$strArr
+                ]);
+                //dump($strArr);die;
+            }
+            $this->success('提交成功！');
+            return;
+            //dump($product);die;
+        }
+       
+        
         $_radioAttrRed = db('goods_attr')->alias('g')->field('g.gsattr_id,g.gsattr_attrid,g.gsattr_value,a.attr_name')->join('attr a','g.gsattr_attrid=a.attr_id')->where(array('gsattr_goodsid'=>$gs_id,'a.attr_type'=>1))->select();
         //数组格式双重
         $radioAttrRed = array();
         foreach ($_radioAttrRed as $k => $v) {
             $radioAttrRed[$v['attr_name']][] = $v;
         }
+        //获取商品的库存信息
+        $productstr = db('product') ->where('prod_goods_id','=',$gs_id)->select();
         $this->assign([
             'radioAttrRed'=>$radioAttrRed,
+            'productstr'=>$productstr,
         ]);
 
-        #dump($radioAttrRed);die;
+        // dump($productstr);die;
         return view();
     }
 

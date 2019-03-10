@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\lst.html";i:1551587666;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1551575667;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1551575667;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1551575667;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1551575667;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\lst.html";i:1552212318;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1552181903;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1552181903;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1552181903;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1552181903;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -358,7 +358,9 @@
                                                 <th class="text-center" width="7%">所属类型</th>
                                                 <th class="text-center">重量</th>
                                                 <th class="text-center" width="4%">单位</th>
+                                                <th class="text-center" width="4%">库存量</th>
                                                 <th class="text-center" width="22%">操作</th>
+                                                
                                             </tr>
                                         </thead>
                                         <?php if(is_array($goodslist) || $goodslist instanceof \think\Collection || $goodslist instanceof \think\Paginator): $i = 0; $__LIST__ = $goodslist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$gs): $mod = ($i % 2 );++$i;?>
@@ -378,9 +380,10 @@
                                                 <td><?php echo $gs['type_name']; ?></td>
                                                 <td><?php echo $gs['gs_weight']; ?></td>
                                                 <td><?php echo $gs['gs_unit']; ?></td>
+                                                <td><?php if($gs['gn']): ?><?php echo $gs['gn']; else: ?>0<?php endif; ?></td>
                                                 <td align="center">
                                                     <a href="<?php echo url('goods/product',array('gs_id'=>$gs['gs_id'])); ?>" class="btn btn-warning btn-sm shiny">
-                                                        <i class="fa fa-check-square-o"></i> 仓库量
+                                                        <i class="fa fa-check-square-o"></i> 库存量
                                                     </a>
                                                     <a href="<?php echo url('edit',array('type_id'=>$gs['gs_id'])); ?>" class="btn btn-primary btn-sm shiny">
                                                         <i class="fa fa-edit"></i> 编辑
