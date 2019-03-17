@@ -65,31 +65,58 @@ class Goods extends Controller
     {
         if (request()->isPost()) {
             $data=input('post.');
-            //如果是多选，替换中文“，”
-            if ($data['goods_formtype']=='radio' || $data['goods_formtype']=='checkbox' || $data['goods_formtype']=='select') {
-                $data['goods_values']=str_replace('，', ',', $data['goods_values']);
-                $data['goods_default']=str_replace('，',',',$data['goods_default']);
-            }
+            //dump($data);die;
 
-            // $validate=validate('goods');
-            // if (!$validate->check($data)) {
-            //     $this->error($validate->getError());
-            // }
 
-            $save=db('goods')->update($data);
-            if($save) {
-                $this->success('修改商品成功!','lst');
+            $gedit=model('goods')->update($data);//insert()方法用于添加add，$data表示全部数据
+            if($gedit) {
+                $this->success('修改商品成功!');
             }else{
                 $this->error('修改商品失败!');
             }
-            return;
+
         }
 
-        $goodsid=input('gs_id');
-        $goodsedit=db('goods')->find($goodsid);
-        $this->assign('goodsedit',$goodsedit);
-        return view();
+        // 提取会员级别数据
+        $mlRes=db('member_level')->field('level_id,level_name')->select();
 
+        //获取商品类型
+        $typeRes=db('type')->select();
+
+        //商品栏目
+        $shopcate=new shopcatetree();
+        $shopcateRes=db('shopcate')->select();
+        $shopcateRes=$shopcate->shopcatetree($shopcateRes);
+
+        //品牌
+        $brandRes=db('brand')->field('brand_id,brand_name')->select();
+        
+        $gsid=input('gs_id');
+        //查找当前商品基本信息
+        $gsedit=db('goods')->find($gsid);
+        $_mledit=db('member_price')->where('price_goodsid','=',$gsid)->select();
+        $mledit=array();
+        foreach ($_mledit as $k => $v) {
+            $mledit[$v['price_mlevelid']]=$v;
+        }
+        //商品相册
+        $gphotos=db('goods_img')->where('img_goodsid','=',$gsid)->select();
+
+        //dump($mledit);die;
+
+        $this->assign([
+            'mlRes'=>$mlRes,
+            'typeRes'=>$typeRes,
+            'shopcateRes'=>$shopcateRes,
+            'brandRes'=>$brandRes,
+            'gsedit'=>$gsedit,
+            'mledit'=>$mledit,
+            'gphotos'=>$gphotos,
+
+        ]);
+
+
+        return view();
     }
 
     public function prints(){
@@ -155,6 +182,29 @@ class Goods extends Controller
 
         // dump($productstr);die;
         return view();
+    }
+
+    public function gsphotoajax($id){
+        $_gphoto=db('goods_img');
+        $gphoto=$_gphoto->find($id);
+        
+
+        $img_img =  IMG_UPLOADS.$gphoto['img_img'];
+        $img_smimg = IMG_UPLOADS.$gphoto['img_smimg'];
+        $img_midimg = IMG_UPLOADS.$gphoto['img_midimg'];
+        $img_bigimg = IMG_UPLOADS.$gphoto['img_bigimg'];
+        @unlink($img_img);
+        @unlink($img_smimg);
+        @unlink($img_midimg);
+        @unlink($img_bigimg);
+
+        $del =$_gphoto->delete($id);
+        if ($del) {
+            echo 1;
+        }else{
+            echo 2;
+        }
+        //dump($_gphoto);die;
     }
 
     // public function upload(){

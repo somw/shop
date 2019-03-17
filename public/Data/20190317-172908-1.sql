@@ -6,7 +6,7 @@
 -- Database : tpshop
 -- 
 -- Part : #1
--- Date : 2019-03-03 15:14:40
+-- Date : 2019-03-17 17:29:08
 -- -----------------------------
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -51,7 +51,7 @@ CREATE TABLE `tp_attr` (
   `attr_typeid` smallint(6) NOT NULL COMMENT '所属类型',
   PRIMARY KEY (`attr_id`),
   KEY `attr_typeid` (`attr_typeid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_attr`
@@ -79,12 +79,13 @@ CREATE TABLE `tp_brand` (
   `brand_sort` smallint(6) NOT NULL DEFAULT '50',
   `brand_status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`brand_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_brand`
 -- -----------------------------
 INSERT INTO `tp_brand` VALUES ('12', '苹果', 'http://vvvw.apple.com', '20180430\\433c47e217de338727a55db133f9833b.jpg', 'http://vvvw.apple.com', '50', '1');
+INSERT INTO `tp_brand` VALUES ('13', 'air jordan', 'http://aj', '20190317\\48b140c4976ce51313e0653bde9720d9.jpg', '2222222', '50', '1');
 
 -- -----------------------------
 -- Table structure for `tp_cate`
@@ -186,14 +187,16 @@ CREATE TABLE `tp_goods` (
   PRIMARY KEY (`gs_id`),
   KEY `gs_brandid` (`gs_brandid`),
   KEY `gs_shopcateid` (`gs_shopcateid`,`gs_brandid`,`gs_typeid`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_goods`
 -- -----------------------------
-INSERT INTO `tp_goods` VALUES ('46', '测试1', '155158916186143', '', '', '', '', '111.00', '11.00', '0', '3', '12', '0', '<p>1111<br/></p>', '1.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('46', '测试1', '155158916186143', '', '', '', '', '111.00', '11.00', '0', '3', '13', '0', '<p>1111<br/></p>', '1.00', 'kg');
 INSERT INTO `tp_goods` VALUES ('47', '测试2', '155159133533878', '', '', '', '', '354.00', '345.00', '1', '3', '12', '0', '<p>4<br/></p>', '4.00', 'kg');
 INSERT INTO `tp_goods` VALUES ('48', '测试3', '155159211813527', '', '', '', '', '453.00', '43534.00', '1', '3', '12', '0', '<p>3534<br/></p>', '343.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('49', '测试4', '155221168628211', '20190310\\d3e326b94171cada1b33ebb2b5498121.png', '20190310\\sm_d3e326b94171cada1b33ebb2b5498121.png', '20190310\\mid_d3e326b94171cada1b33ebb2b5498121.png', '20190310\\big_d3e326b94171cada1b33ebb2b5498121.png', '333.00', '33.00', '0', '3', '12', '0', '<p>3333<br/></p>', '33.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('50', '测试5', '155221183385804', '20190317\\3b953f035391a5aacf2b47c508114267.jpg', '20190317\\sm_3b953f035391a5aacf2b47c508114267.jpg', '20190317\\mid_3b953f035391a5aacf2b47c508114267.jpg', '20190317\\big_3b953f035391a5aacf2b47c508114267.jpg', '111.00', '11.00', '0', '3', '12', '0', '<p>111<br/></p>', '111.00', 'g');
 
 -- -----------------------------
 -- Table structure for `tp_goods_attr`
@@ -206,7 +209,7 @@ CREATE TABLE `tp_goods_attr` (
   `gsattr_price` decimal(10,2) NOT NULL COMMENT '属性价格',
   `gsattr_goodsid` mediumint(9) NOT NULL COMMENT '所属商品',
   PRIMARY KEY (`gsattr_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_goods_attr`
@@ -214,10 +217,19 @@ CREATE TABLE `tp_goods_attr` (
 INSERT INTO `tp_goods_attr` VALUES ('44', '9', '黑色', '111.00', '46');
 INSERT INTO `tp_goods_attr` VALUES ('45', '9', '白色', '0.00', '46');
 INSERT INTO `tp_goods_attr` VALUES ('46', '9', '黑色', '123.00', '47');
-INSERT INTO `tp_goods_attr` VALUES ('47', '6', '512g', '333.00', '48');
-INSERT INTO `tp_goods_attr` VALUES ('48', '6', '256g', '0.00', '48');
-INSERT INTO `tp_goods_attr` VALUES ('49', '6', '256g', '0.00', '48');
-INSERT INTO `tp_goods_attr` VALUES ('50', '9', '黑色', '33.00', '48');
+INSERT INTO `tp_goods_attr` VALUES ('47', '9', '白色', '333.00', '48');
+INSERT INTO `tp_goods_attr` VALUES ('48', '9', '黑色', '0.00', '48');
+INSERT INTO `tp_goods_attr` VALUES ('49', '6', '512g', '444.00', '48');
+INSERT INTO `tp_goods_attr` VALUES ('50', '6', '256g', '33.00', '48');
+INSERT INTO `tp_goods_attr` VALUES ('51', '6', '512g', '1123.00', '49');
+INSERT INTO `tp_goods_attr` VALUES ('52', '6', '256g', '1123.00', '49');
+INSERT INTO `tp_goods_attr` VALUES ('53', '7', '111', '0.00', '49');
+INSERT INTO `tp_goods_attr` VALUES ('54', '9', '黑色', '111.00', '49');
+INSERT INTO `tp_goods_attr` VALUES ('55', '9', '白色', '111.00', '49');
+INSERT INTO `tp_goods_attr` VALUES ('56', '6', '512g', '100.00', '50');
+INSERT INTO `tp_goods_attr` VALUES ('57', '6', '256g', '200.00', '50');
+INSERT INTO `tp_goods_attr` VALUES ('58', '9', '黑色', '100.00', '50');
+INSERT INTO `tp_goods_attr` VALUES ('59', '9', '白色', '100.00', '50');
 
 -- -----------------------------
 -- Table structure for `tp_goods_img`
@@ -232,7 +244,7 @@ CREATE TABLE `tp_goods_img` (
   `img_bigimg` varchar(100) NOT NULL COMMENT '大图',
   PRIMARY KEY (`img_id`),
   KEY `img_goodsid` (`img_goodsid`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------
@@ -287,7 +299,7 @@ CREATE TABLE `tp_member_price` (
   `price_mlevelid` smallint(6) NOT NULL COMMENT '会员级别',
   `price_goodsid` int(11) NOT NULL COMMENT '商品',
   PRIMARY KEY (`price_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_member_price`
@@ -304,6 +316,36 @@ INSERT INTO `tp_member_price` VALUES ('69', '433.00', '1', '48');
 INSERT INTO `tp_member_price` VALUES ('70', '3.00', '2', '48');
 INSERT INTO `tp_member_price` VALUES ('71', '3.00', '3', '48');
 INSERT INTO `tp_member_price` VALUES ('72', '3.00', '4', '48');
+INSERT INTO `tp_member_price` VALUES ('87', '3.00', '4', '49');
+INSERT INTO `tp_member_price` VALUES ('86', '33.00', '3', '49');
+INSERT INTO `tp_member_price` VALUES ('85', '333.00', '2', '49');
+INSERT INTO `tp_member_price` VALUES ('84', '3333.00', '1', '49');
+INSERT INTO `tp_member_price` VALUES ('99', '1.00', '4', '50');
+INSERT INTO `tp_member_price` VALUES ('98', '11.00', '3', '50');
+INSERT INTO `tp_member_price` VALUES ('97', '111.00', '2', '50');
+INSERT INTO `tp_member_price` VALUES ('96', '1111.00', '1', '50');
+
+-- -----------------------------
+-- Table structure for `tp_product`
+-- -----------------------------
+DROP TABLE IF EXISTS `tp_product`;
+CREATE TABLE `tp_product` (
+  `prod_id` mediumint(9) NOT NULL AUTO_INCREMENT COMMENT '库存量ID',
+  `prod_goods_id` mediumint(9) NOT NULL COMMENT '所属商品',
+  `prod_goods_num` int(11) NOT NULL COMMENT '库存量',
+  `prod_goods_attr` varchar(20) NOT NULL COMMENT '商品属性',
+  PRIMARY KEY (`prod_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+
+-- -----------------------------
+-- Records of `tp_product`
+-- -----------------------------
+INSERT INTO `tp_product` VALUES ('49', '49', '100', '52,55');
+INSERT INTO `tp_product` VALUES ('48', '49', '520', '51,54');
+INSERT INTO `tp_product` VALUES ('47', '48', '100', '47,49');
+INSERT INTO `tp_product` VALUES ('46', '48', '100', '47,50');
+INSERT INTO `tp_product` VALUES ('45', '48', '100', '48,49');
+INSERT INTO `tp_product` VALUES ('44', '48', '200', '48,50');
 
 -- -----------------------------
 -- Table structure for `tp_shopcate`

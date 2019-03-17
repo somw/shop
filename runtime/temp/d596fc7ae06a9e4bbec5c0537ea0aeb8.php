@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\lst.html";i:1552212318;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1552181903;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1552181903;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1552181903;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1552181903;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\lst.html";i:1552792210;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1552785390;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1552785390;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1552785390;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1552785390;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -385,7 +385,7 @@
                                                     <a href="<?php echo url('goods/product',array('gs_id'=>$gs['gs_id'])); ?>" class="btn btn-warning btn-sm shiny">
                                                         <i class="fa fa-check-square-o"></i> 库存量
                                                     </a>
-                                                    <a href="<?php echo url('edit',array('type_id'=>$gs['gs_id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                                    <a href="<?php echo url('edit',array('gs_id'=>$gs['gs_id'])); ?>" class="btn btn-primary btn-sm shiny">
                                                         <i class="fa fa-edit"></i> 编辑
                                                     </a>
                                                     <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('gs_id'=>$gs['gs_id'])); ?>')" class="btn btn-danger btn-sm shiny">

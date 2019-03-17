@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\add.html";i:1552181903;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1552181903;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1552181903;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1552181903;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1552181903;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\goods\edit.html";i:1552813580;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1552785390;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1552785390;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1552785390;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1552785390;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -92,8 +92,8 @@
     </div>
 </div>
 <div class="main-container container-fluid">
-	<div class="page-container">
-		            <!-- Page Sidebar -->
+    <div class="page-container">
+                    <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -323,9 +323,9 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('goods/lst'); ?>">商品管理</a>
+                        <a href="<?php echo url('goods/lst'); ?>">商品列表</a>
                     </li>
-                    <li class="active">添加商品</li>
+                    <li class="active">修改商品</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -348,11 +348,16 @@
                                         <li class=""><a href="#goodsimgs-tab" data-toggle="tab">商品相册</a></li> 
                                     </ul>
                                     <div class="tab-content tabs-flat">
+                                        <input type="hidden" name="gs_id" value="<?php echo $gsedit['gs_id']; ?>">
+                                        <input type="hidden" name="gs_img" value="<?php echo $gsedit['gs_img']; ?>">
+                                        <input type="hidden" name="gs_smimg" value="<?php echo $gsedit['gs_smimg']; ?>">
+                                        <input type="hidden" name="gs_midimg" value="<?php echo $gsedit['gs_midimg']; ?>">
+                                        <input type="hidden" name="gs_bigimg" value="<?php echo $gsedit['gs_bigimg']; ?>">
                                         <div class="tab-pane active" id="basicinfo-tab">
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">商品名称</label>
                                                 <div class="col-sm-6">
-                                                    <input class="form-control" name="gs_name" type="text">
+                                                    <input value="<?php echo $gsedit['gs_name']; ?>" class="form-control" name="gs_name" type="text">
                                                 </div>
                                                 <p class="help-block col-sm-4 red">* 必填</p>
                                             </div>
@@ -360,7 +365,12 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">商品主图</label>
                                                 <div class="col-sm-6">
-                                                    <input  name="gs_img" type="file">
+                                                    <input name="gs_img" type="file">
+                                                    <?php if($gsedit['gs_img'] != ''): ?>
+                                                        <img src="/static/uploads/<?php echo $gsedit['gs_img']; ?>" height="30">
+                                                    <?php else: ?>
+                                                        暂无图片
+                                                    <?php endif; ?>
                                                 </div>
                                             </div> 
 
@@ -369,13 +379,13 @@
                                                 <div class="col-sm-6">
                                                     <div class="radio" style="float: left; padding-right: 10px;">
                                                         <label>
-                                                            <input value="1" name="gs_onsale" class="colored-blue"  type="radio">
+                                                            <input <?php if($gsedit['gs_onsale'] == 1): ?> checked="checked" <?php endif; ?> name="gs_onsale" class="colored-blue"  type="radio">
                                                             <span class="text">是</span>
                                                         </label>
                                                     </div>
                                                     <div class="radio">
                                                         <label>
-                                                            <input value="0" name="gs_onsale" checked="checked" class="colored-blue" type="radio">
+                                                            <input <?php if($gsedit['gs_onsale'] == 0): ?> checked="checked" <?php endif; ?> name="gs_onsale" class="colored-blue" type="radio">
                                                             <span class="text">否</span>
                                                         </label>
                                                     </div>
@@ -390,7 +400,7 @@
                                                     <select name="gs_shopcateid">
                                                         <option>请选择</option>
                                                         <?php if(is_array($shopcateRes) || $shopcateRes instanceof \think\Collection || $shopcateRes instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcateRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
-                                                        <option value="<?php echo $shopcate['shopcate_id']; ?>"><?php echo str_repeat('-',$shopcate['lever']*8)?><?php echo $shopcate['shopcate_name']; ?></option>
+                                                        <option <?php if($gsedit['gs_shopcateid'] == $shopcate['shopcate_id']): ?> selected="selected" <?php endif; ?> value="<?php echo $shopcate['shopcate_id']; ?>"><?php echo str_repeat('-',$shopcate['lever']*8)?><?php echo $shopcate['shopcate_name']; ?></option>
                                                         <?php endforeach; endif; else: echo "" ;endif; ?>
                                                     </select>
                                                 </div>
@@ -402,7 +412,7 @@
                                                     <select name="gs_brandid">
                                                         <option>请选择</option>
                                                         <?php if(is_array($brandRes) || $brandRes instanceof \think\Collection || $brandRes instanceof \think\Paginator): $i = 0; $__LIST__ = $brandRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$brand): $mod = ($i % 2 );++$i;?>
-                                                        <option value="<?php echo $brand['brand_id']; ?>"><?php echo $brand['brand_name']; ?></option>
+                                                        <option <?php if($gsedit['gs_brandid'] == $brand['brand_id']): ?> selected="selected" <?php endif; ?> value="<?php echo $brand['brand_id']; ?>"><?php echo $brand['brand_name']; ?></option>
                                                         <?php endforeach; endif; else: echo "" ;endif; ?>
                                                     </select>
                                                 </div>
@@ -411,7 +421,7 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">市场价</label>
                                                 <div class="col-sm-6">
-                                                    <input class="form-control" id="username" name="gs_marktep"  type="text">
+                                                    <input value="<?php echo $gsedit['gs_marktep']; ?>" class="form-control" id="username" name="gs_marktep"  type="text">
                                                 </div>
                                                 <p class="help-block col-sm-4 red">* 必填</p>
                                             </div>
@@ -419,7 +429,7 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">本店价</label>
                                                 <div class="col-sm-6">
-                                                    <input class="form-control" id="username" name="gs_shopp"  type="text">
+                                                    <input value="<?php echo $gsedit['gs_shopp']; ?>" class="form-control" id="username" name="gs_shopp"  type="text">
                                                 </div>
                                                 <p class="help-block col-sm-4 red">* 必填</p>
                                             </div>
@@ -427,10 +437,11 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">重量</label>
                                                 <div class="col-sm-6">
-                                                    <input class="form-control" id="username" name="gs_weight" type="text" style="display: inline-block; width: 300px;">
+                                                    <input value="<?php echo $gsedit['gs_weight']; ?>" class="form-control" id="username" name="gs_weight" type="text" style="display: inline-block; width: 300px;">
                                                     <select>
-                                                        <option>kg</option>
-                                                        <option value="">g</option>
+                                                        <option <?php if($gsedit['gs_unit'] == 'kg'): ?> selected="selected" <?php endif; ?>>kg</option>
+                                                        <option <?php if($gsedit['gs_unit'] == 'g'): ?> selected="selected" <?php endif; ?>>g</option>
+                                                        {/if}
                                                     </select>
                                                 </div>
                                             </div>
@@ -441,7 +452,7 @@
                                                 
                                                 <div class="form-group">
                                                     <div class="col-sm-6">
-                                                        <textarea id="content" name="gs_des"></textarea>
+                                                        <textarea id="content" name="gs_des"><?php echo $gsedit['gs_des']; ?></textarea>
                                                     </div>
                                                 </div>
                                                 
@@ -453,7 +464,7 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right"><?php echo $level['level_name']; ?></label>
                                                 <div class="col-sm-6">
-                                                    <input class="form-control" id="username" name="mp[<?php echo $level['level_id']; ?>]" type="text">
+                                                    <input  value="<?php if(isset($mledit[$level['level_id']]['price_mpprice'])){ echo $mledit[$level['level_id']]['price_mpprice']; }else{ echo '';} ?>"  class="form-control" id="username" name="mp[<?php echo $level['level_id']; ?>]" type="text">
                                                 </div>
                                             </div>
                                             <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -484,9 +495,21 @@
 
                                         <div class="tab-pane" id="goodsimgs-tab">
 
+                                            <?php if(is_array($gphotos) || $gphotos instanceof \think\Collection || $gphotos instanceof \think\Paginator): $i = 0; $__LIST__ = $gphotos;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$gps): $mod = ($i % 2 );++$i;?>
+                                            <div id="<?php echo $gps['img_id']; ?>" class="form-group">
+                                                <label for="username" class="col-sm-2 control-label no-padding-right"></label>
+                                                <div class="col-sm-6">
+                                                    <a href="#" onclick="delrow(this)" style="display: inline-block; width: 20px;margin-right: 20px; ">[-]</a>
+                                                    <input name="goods_img[]" type="file" class="form-group" style="border: none;box-shadow: none;width: 50%;display: inline-block;">
+
+                                                        <img src="/static/uploads/<?php echo $gps['img_smimg']; ?>" height="50">
+
+                                                </div>
+                                            </div>
+                                            <?php endforeach; endif; else: echo "" ;endif; ?>
+
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right"></label>
-
                                                 <div class="col-sm-6">
                                                     <a href="#" onclick="addrow(this)" style="display: inline-block; width: 20px;margin-right: 20px; ">[+]</a>
                                                     <input name="goods_img[]" type="file" class="form-group" style="border: none;box-shadow: none;width: 50%;display: inline-block;">
@@ -518,7 +541,7 @@
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-	</div>
+    </div>
 </div>
 
 <!--Basic Scripts-->
@@ -599,6 +622,29 @@
             div.after(newdiv);
         }else{
             div.remove();
+        }
+    }
+
+    function delrow(o){
+        if (confirm('确定要删除该图吗？')) {
+            var div=$(o).parent().parent();
+            var id = div.attr('id');
+            $.ajax({
+                type:'POST',
+                data:{id:id},
+                url:"<?php echo url('goods/gsphotoajax'); ?>",
+                success:function(data){
+                    if (data == 1) {
+                        div.remove();
+                    }else{
+                        alert('删除失败');
+                    }
+                },
+                error:function(){
+                    alert('bbb');
+                }
+            });
+
         }
     }
 </script>
