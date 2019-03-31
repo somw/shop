@@ -157,7 +157,7 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">商品类型</label>
                                                 <div class="col-sm-6">
-                                                    <select name="attr_typeid">
+                                                    <select name="gs_typeid">
                                                         <option>请选择</option>
                                                         {volist name="typeRes" id="type"}
                                                         <option value="{$type.type_id}">{$type.type_name}</option>
@@ -223,12 +223,12 @@
 </script>
 <script type="text/javascript">
     //change()方法是当元素的值发生改变时，会发生change事件
-    $("select[name=attr_typeid]").change(function(){
-        var attr_typeids=$(this).val();//创建gs_typeid变量，$(this)是当前元素被jQuery处理的对象，val()方法是返回或者设置被选元素的值
+    $("select[name=gs_typeid]").change(function(){
+        var type_id=$(this).val();//创建gs_typeid变量，$(this)是当前元素被jQuery处理的对象，val()方法是返回或者设置被选元素的值
         $.ajax({
             type:"POST",
             url:"{:url('attr/ajaxGetAtter')}",
-            data:{attr_typeid:attr_typeids},
+            data:{gs_typeid:type_id},
             dataType:"json",
             success:function(data){
                 //alert(data);

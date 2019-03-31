@@ -91,8 +91,19 @@ class Attr extends Controller
 
     //异步获取指定类型下的属性
     public function ajaxGetAtter(){
-        $typeID=input('attr_typeid');
+        $typeID=input('gs_typeid');
         $attrRes=db('attr')->where(array('attr_typeid'=>$typeID))->select();
         echo json_encode($attrRes); //用于对变量进行 JSON 编码，该函数如果执行成功返回 JSON 数据，否则返回 FALSE
+    }
+
+
+    public function ajaxdelga(){
+        $del=db('goods_attr')->delete(input('gaid'));
+        
+        if ($del) {
+            echo 1;
+        }else{
+            echo 2;
+        }
     }
 }

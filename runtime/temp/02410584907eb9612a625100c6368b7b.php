@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\goods\edit.html";i:1552813580;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1552785390;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1552785390;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1552785390;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1552785390;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\goods\edit.html";i:1554029368;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1554012551;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1554012551;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1554012551;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1554012551;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -476,17 +476,56 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">商品类型</label>
                                                 <div class="col-sm-6">
-                                                    <select name="attr_typeid">
+                                                    <select name="gs_typeid" disabled="disabled">
                                                         <option>请选择</option>
                                                         <?php if(is_array($typeRes) || $typeRes instanceof \think\Collection || $typeRes instanceof \think\Paginator): $i = 0; $__LIST__ = $typeRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$type): $mod = ($i % 2 );++$i;?>
-                                                        <option value="<?php echo $type['type_id']; ?>"><?php echo $type['type_name']; ?></option>
+                                                        <option <?php if($gsedit['gs_typeid'] == $type['type_id']): ?> selected="selected" <?php endif; ?> value="<?php echo $type['type_id']; ?>"><?php echo $type['type_name']; ?></option>
                                                         <?php endforeach; endif; else: echo "" ;endif; ?>
                                                     </select>
                                                 </div>
                                             </div>
 
                                             <div class="form-group" id="goodsattr">
-                                                
+                                            <?php foreach($attredit as $k => $v): if($v['attr_type']==1):
+                                                            $attrs = explode(",",$v['attr_default']);
+                                                            
+                                                        ?>
+                                                    
+                                                        <!-- 单选 -->
+                                                        <!-- 循环显示当前商品所拥有的所有的单选属性 -->
+                                                        <?php foreach($gsattredit[$v['attr_id']] as $k0 => $v0):?>
+                                                            
+                                                            <div gaid="<?php echo $v0['gsattr_id'];?>" class="form-group"><label class="col-sm-2 control-label no-padding-right"><?php echo $v['attr_name']; ?></label><div class="col-sm-6"><a onclick="addrow(this)" href="#"><?php if($k0 == 0):?>[+]<?php else:?>[-]<?php endif;?></a>
+                                                                <select name="old_goods_attr[<?php echo $v['attr_id'];?>][]">
+                                                                    <?php foreach($attrs as $k1 => $v1):?>
+                                                                        <option <?php if($v1 == $v0['gsattr_value']){ echo 'selected="selected"';} ?> value="<?php echo $v1;?>"><?php echo $v1;?></option>
+                                                                    <?php endforeach;?>
+                                                                </select>
+                                                            <input class="form-control" name="old_gsattr_price[<?php echo $v0['gsattr_id']?>]" style="display:inline-block;width:200px;margin-left:10px;" type="text" value="<?php echo $v0['gsattr_price'];?>"></div></div>
+
+                                                        <?php endforeach;?>
+                                                    
+                                                    <!-- 唯一 -->
+                                                    <?php else:if(!$v['attr_default']):?>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label no-padding-right"><?php echo $v['attr_name']; ?></label>
+                                                                <div class="col-sm-6">:
+                                                                    <input name="old_goods_attr[<?php echo $v['attr_id'];?>]" value="<?php echo $gsattredit[$v['attr_id']][0]['gsattr_value'];?>" class="form-control" type="text" style="display:inline-block;width:200px;margin-left:10px;">
+                                                                    <input type="hidden" name="old_gsattr_price[<?php echo $gsattredit[$v['attr_id']][0]['gsattr_id'];?>]">
+                                                                </div>
+                                                            </div>
+                                                        <?php else:
+                                                            $attrss = explode(",",$v['attr_default']);
+                                                        ?>
+                                                            <div gaid="<?php echo $v0['gsattr_id'];?>" class="form-group"><label class="col-sm-2 control-label no-padding-right"><?php echo $v['attr_name']; ?></label><div class="col-sm-6">
+                                                                <select name="old_goods_attr[<?php echo $v['attr_id'];?>]">
+                                                                    <?php foreach($attrss as $k2 => $v2):?>
+                                                                        <option <?php if($v2 == $gsattredit[$v['attr_id']][0]['gsattr_value']){ echo 'selected="selected"';} ?>  value="<?php echo $v2;?>"><?php echo $v2;?></option>
+                                                                    <?php endforeach;?>
+                                                                </select>
+                                                            <input type="hidden" name="old_gsattr_price[<?php echo $gsattredit[$v['attr_id']][0]['gsattr_id'];?>]">
+                                                            </div></div>
+                                                        <?php endif;endif;endforeach;?>
                                             </div>
                                             
                                              
@@ -557,12 +596,12 @@
 </script>
 <script type="text/javascript">
     //change()方法是当元素的值发生改变时，会发生change事件
-    $("select[name=attr_typeid]").change(function(){
-        var attr_typeids=$(this).val();//创建gs_typeid变量，$(this)是当前元素被jQuery处理的对象，val()方法是返回或者设置被选元素的值
+    $("select[name=gs_typeid]").change(function(){
+        var type_id=$(this).val();//创建gs_typeid变量，$(this)是当前元素被jQuery处理的对象，val()方法是返回或者设置被选元素的值
         $.ajax({
             type:"POST",
             url:"<?php echo url('attr/ajaxGetAtter'); ?>",
-            data:{attr_typeid:attr_typeids},
+            data:{gs_typeid:type_id},
             dataType:"json",
             success:function(data){
                 //alert(data);
@@ -619,9 +658,35 @@
         if ($(o).html() == '[+]') {
             var newdiv=div.clone();
             newdiv.find('a').html('[-]');
+            // 修改old_gsattr_price[]为gsattr_price[]
+            newdiv.find(':text').attr('name','gsattr_price[]');
+            // 修改old_goods_attr[][]为goods_attr[][]
+            var sel = newdiv.find('select');
+            var oldname = sel.attr('name');
+            var newname = oldname.replace('old_','');
+            sel.attr('name',newname);
             div.after(newdiv);
         }else{
-            div.remove();
+            if (confirm('确定要删除属性吗？')) {
+                var div=$(o).parent().parent();
+                var gaid = div.attr('gaid');
+                $.ajax({
+                    type:'POST',
+                    data:{gaid:gaid},
+                    url:"<?php echo url('attr/ajaxdelga'); ?>",
+                    success:function(data){
+                        if (data == 1) {
+                            div.remove();
+                        }else{
+                            alert('删除失败');
+                        }
+                    },
+                    error:function(){
+                        alert('bbb');
+                    }
+                });
+
+            }
         }
     }
 

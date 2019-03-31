@@ -13,7 +13,7 @@ class Goods extends Controller
             ['type t','g.gs_typeid=t.type_id','LEFT'],
             ['product p','g.gs_id=p.prod_goods_id','LEFT'],
         ];
-        $goodslist = db('goods') -> alias('g')-> field('g.*,c.shopcate_name,b.brand_name,t.type_name,SUM(p.prod_goods_num) gn') -> join($join) ->group('g.gs_id')->order('g.gs_id desc') ->paginate(5);
+        $goodslist = db('goods') -> alias('g')-> field('g.*,c.shopcate_name,b.brand_name,t.type_name,SUM(p.prod_goods_num) gn') -> join($join) ->group('g.gs_id')->order('g.gs_id desc') ->paginate(15);
         $this->assign('goodslist', $goodslist);
         return view('lst');
 
@@ -65,7 +65,7 @@ class Goods extends Controller
     {
         if (request()->isPost()) {
             $data=input('post.');
-            //dump($data);die;
+            // dump($data);
 
 
             $gedit=model('goods')->update($data);//insert()方法用于添加add，$data表示全部数据
@@ -94,6 +94,21 @@ class Goods extends Controller
         $gsid=input('gs_id');
         //查找当前商品基本信息
         $gsedit=db('goods')->find($gsid);
+
+        //查找当前商品类型所有属性信息
+        $attredit=db('attr')->where('attr_typeid','=',$gsedit['gs_typeid'])->select();
+        //dump($attredit);die;
+        //查找当前商品属性信息goods_attr
+        $_gsattredit=db('goods_attr')->where('gsattr_goodsid','=',$gsedit['gs_id'])->select();
+        
+        //二维改三维
+        $gsattredit = array();
+        foreach ($_gsattredit as $k => $v) {
+            $gsattredit[$v['gsattr_attrid']][] = $v;
+        }
+        // dump($gsattredit);die;
+
+
         $_mledit=db('member_price')->where('price_goodsid','=',$gsid)->select();
         $mledit=array();
         foreach ($_mledit as $k => $v) {
@@ -112,6 +127,8 @@ class Goods extends Controller
             'gsedit'=>$gsedit,
             'mledit'=>$mledit,
             'gphotos'=>$gphotos,
+            'attredit'=>$attredit,
+            'gsattredit'=>$gsattredit
 
         ]);
 

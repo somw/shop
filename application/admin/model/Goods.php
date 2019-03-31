@@ -47,7 +47,67 @@ class Goods extends Model
 
         Goods::beforeUpdate(function ($goods) {
             //商店ID
-                $goodsId=$goods->gs_id;
+            $goodsId=$goods->gs_id;
+
+
+            //新增商品属性
+            $goodsData=input('post.');
+            // dump($goodsData);die;
+            if (isset($goodsData['goods_attr'])) {
+                $i=0;
+                foreach ($goodsData['goods_attr'] as $k => $v) {
+                    if (is_array($v)) {
+                       if (!empty($v)) {
+                           foreach ($v as $k1 => $v1) {
+                                if (!$v1) {
+                                    $i++;
+                                    continue;
+                                }
+                               db('goods_attr')->insert(['gsattr_attrid'=>$k,'gsattr_value'=>$v1,'gsattr_price'=>$goodsData['gsattr_price'][$i],'gsattr_goodsid'=>$goodsId]);
+                               $i++;
+                           }
+                       }
+                    }else{
+                        if (!empty($v)) {
+                            db('goods_attr')->insert(['gsattr_attrid'=>$k,'gsattr_value'=>$v,'gsattr_goodsid'=>$goodsId]);
+                        }
+                    }
+                        
+                }
+            }
+
+            //修改商品属性
+           
+            // dump($goodsData);die;
+            if (isset($goodsData['old_goods_attr'])) {
+                $oldgoodsprice = $goodsData['old_gsattr_price'];
+                $idsArr=array_keys($oldgoodsprice);
+                $valueArr = array_values($oldgoodsprice);
+                // dump($idsArr);
+                // dump($valueArr);die;
+                $i=0;
+                foreach ($goodsData['old_goods_attr'] as $k => $v) {
+                    if (is_array($v)) {
+                       if (!empty($v)) {
+                           foreach ($v as $k1 => $v1) {
+                                if (!$v1) {
+                                    $i++;
+                                    continue;
+                                }
+                               db('goods_attr')->where('gsattr_id','=',$idsArr[$i])->update(['gsattr_value'=>$v1,'gsattr_price'=>$valueArr[$i]]);
+                               $i++;
+                           }
+                       }
+                    }else{
+                        if (!empty($v)) {
+                            db('goods_attr')->where('gsattr_id','=',$idsArr[$i])->update(['gsattr_value'=>$v,'gsattr_price'=>$valueArr[$i]]);
+                            $i++;
+                        }
+                    }
+                        
+                }
+            }
+
             //商品相册处理
             if ($goods->_hasimgs($_FILES['goods_img']['tmp_name'])) {
                 // 获取表单上传文件
