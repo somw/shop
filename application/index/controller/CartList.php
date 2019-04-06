@@ -1,10 +1,10 @@
 <?php
 namespace app\index\controller;
 
-class Index
+class CartList
 {
     public function index()
     {
-        return view();
+        return view('cart_list');
     }
 }

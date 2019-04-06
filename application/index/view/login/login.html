@@ -1,0 +1,179 @@
+{include file="common/_meta"}
+<body class="bg-ligtGary" data-type="login1">
+    <div class="login">
+        <div class="loginRegister-header">
+            <div class="w w1200">
+				{include file="common/header"}
+            </div>
+        </div>
+        <div class="container">
+            <div class="login-wrap">
+				<div class="w w1200">
+				    <div class="login-form">
+				        <div class="coagent">
+				    		<div class="tit"><h3>用第三方账号直接登录</h3><span></span></div>
+				            <div class="coagent-warp">
+						        <a href="#" class="weibo"><b class="third-party-icon weibo-icon"></b></a>
+						        <a href="#" class="qq"><b class="third-party-icon qq-icon"></b></a>
+				        	</div>
+						</div>
+				        <div class="login-box">
+				            <div class="tit"><h3>账号登录</h3><span></span></div>
+				            <div class="msg-wrap">
+								<div class="msg-error" style="display:none">账户名与密码不匹配，请重新输入</div>
+				            </div>
+				            <div class="form">
+								<form name="formLogin" action="user.php" method="post" onSubmit="userLogin();return false;">
+								    <div class="item">
+								        <div class="item-info">
+								            <i class="iconfont icon-name"></i>
+								            <input type="text" id="username" name="username" class="text" value="" placeholder="用户名/邮箱/手机" autocomplete="off" />
+								        </div>
+								    </div>
+								    <div class="item">
+								        <div class="item-info">
+								            <i class="iconfont icon-password"></i>
+								            <input type="password" style="display:none"/>
+								            <input type="password" id="nloginpwd" name="password" class="text" value="" placeholder="密码" autocomplete="off" />
+								        </div>
+								    </div>
+								        <div class="item">
+								        <input id="remember" name="remember" type="checkbox" class="ui-checkbox">
+								        <label for="remember" class="ui-label">请保存我这次的登录信息。</label>
+								    </div>
+								    <div class="item item-button">
+										<input type="hidden" name="dsc_token" value="015596ebc0548cc4e216ba27981f5902" />
+								        <input type="hidden" name="act" value="act_login" />
+								        <input type="hidden" name="back_act" value="https%3A%2F%2Ftest.dscmall.cn%2Fgoods.php%3Fid%3D800" />
+								        <input type="submit" name="submit" id="loginSubmit" value="登&nbsp;&nbsp;录" class="btn sc-redBg-btn">
+								    </div>
+								    <a href="#" class="notpwd gary">忘记密码？</a>
+								</form>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<div class="login-banner" style="background:url(__INDEX__/img/1488936109167439630.jpg) center center no-repeat;">
+				    <div class="w w1200">
+				        <div class="banner-bg"></div>
+				    </div>
+				</div>
+  
+            </div>
+        </div>
+    </div>
+
+	<div class="footer user-footer">
+		<div class="dsc-copyright">
+			<div class="w w1200"> 
+				<p class="footer-ecscinfo pb10">
+					<a href="#" >首页</a> | <a href="#" >隐私保护</a> | <a href="#" >联系我们</a> | <a href="#" >免责条款</a> | <a href="#" >公司简介</a> | <a href="#" >意见反馈</a>
+				</p>
+				<p>
+					<span>©&nbsp;2015-2017&nbsp;tongpankt.com&nbsp;版权所有&nbsp;&nbsp;</span>
+				 	<span>ICP备案证书号:</span>
+				 	<a href="#">豫ICP备*****号-1</a>&nbsp;<a href="#">POWERED by童攀课堂</a>
+				 </p>
+			</div>
+		</div>
+	    <div class="hidden">
+	        <input type="hidden" name="seller_kf_IM" value="" rev="" ru_id="" />
+	        <input type="hidden" name="seller_kf_qq" value="349488953" />
+	        <input type="hidden" name="seller_kf_tel" value="4000-000-000" />
+	        <input type="hidden" name="user_id" value="0" />
+	    </div>
+	</div>
+
+
+	{include file="common/_footer"}
+
+
+<script type="text/javascript">
+	$(function(){
+		if(document.getElementById("seccode")){
+			$("#seccode").val(0);
+		}
+		
+		$("form[name='formUser'] :input[name='register_type']").val(1);
+		
+		//验证码切换
+		$(".changeNextone").click(function(){
+			$("#captcha_img").attr('src', 'captcha.php?'+Math.random());
+		});
+		$(".changeNexttwo").click(function(){
+			$("#authcode_img").attr('src', 'captcha.php?'+Math.random());
+		});
+		
+		var is_passwd_questions = $("form[name='getPassword'] :input[name='is_passwd_questions']").val();
+		
+		if(typeof(is_passwd_questions) == 'undefined'){
+			$("#form_getPassword1").hide();
+			$("#form_getPassword2").hide();
+			$("#form_getPassword1").siblings().css({'width':'50%'});
+		}
+		
+		/*$(".email_open").click(function(){
+			$("#email_yz").show();
+			$(this).parent().hide();
+			$("#email_yz").find(".tx_rm").show();
+		});
+		
+		$(".email_off").click(function(){
+			$("#email_yz").hide();
+			$(this).parent().hide();
+			$("#phone_yz").find(".tx_rm").show();
+		});*/
+		
+		$(".email_open").click(function(){
+		
+			var email = $("#regName").val();
+			
+			if(email){
+				checkEmail(email);
+			}else{
+				$("#phone_notice").html('');
+				$("#code_notice").html('');
+				$("#phone_verification").val(0);
+			}
+			
+			$("#mobile_phone").val("");
+			$("#email_yz").show();
+			$("#email_yz").find(".tx_rm").show();
+			
+			$("#phone_yz").hide();
+			$("#code_mobile").hide();
+			
+			$("form[name='formUser'] :input[name='register_type']").val(0);
+			$("#registsubmit").attr("disabled", false);
+		});
+		
+		$(".email_off").click(function(){
+			
+			var mobile_phone = $("#mobile_phone").val();
+			
+			if(mobile_phone){
+				checkPhone(mobile_phone);
+			}else{
+				$("#email_notice").html('');
+				$("#email_verification").val(0);
+			}
+			
+			$("#regName").val("");
+			$("#email_yz").hide();
+			$("#phone_yz").find(".tx_rm").show();
+			
+			$("#phone_yz").show();
+			$("#code_mobile").show();
+			
+			$("form[name='formUser'] :input[name='register_type']").val(1);
+			$("#registsubmit").attr("disabled", false);
+		});
+		
+		
+		$.divselect("#divselect","#passwd_quesetion");
+		$.divselect("#divselect2","#passwd_quesetion2");
+	});
+	</script>
+</body>
+</html>
+

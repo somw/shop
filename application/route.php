@@ -15,11 +15,11 @@
 // 	'article'=>['admin/article/edit'],
 // 	'article'=>['admin/article/add'],
 // ],[]);
-think\Route::group('index',[
+think\Route::group('aa',[
 	'/:num'=>'index1',
 	'/:str'=>'index2',
 	'/:bool'=>'index3',
-],['method'=>'get','prefix'=>'admin/index/'],['num'=>'\d{2,4}','str'=>'[a-zA-z]+','bool'=>'0|1']);
+],['method'=>'get','prefix'=>'admin/index/'],['num'=>'\d{2,5}','str'=>'[a-zA-z]+','bool'=>'0|1']);
 
 // think\Route::group('index',function(){
 // 	think\Route::get(':num','admin/index/index1',[],['num'=>'\d{2,4}']);

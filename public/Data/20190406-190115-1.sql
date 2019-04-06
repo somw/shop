@@ -6,7 +6,7 @@
 -- Database : tpshop
 -- 
 -- Part : #1
--- Date : 2019-03-10 18:35:17
+-- Date : 2019-04-06 19:01:15
 -- -----------------------------
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -51,7 +51,7 @@ CREATE TABLE `tp_attr` (
   `attr_typeid` smallint(6) NOT NULL COMMENT '所属类型',
   PRIMARY KEY (`attr_id`),
   KEY `attr_typeid` (`attr_typeid`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_attr`
@@ -65,6 +65,7 @@ INSERT INTO `tp_attr` VALUES ('6', '硬盘', '1', '512g,256g,128g', '3');
 INSERT INTO `tp_attr` VALUES ('7', '内存', '2', '', '3');
 INSERT INTO `tp_attr` VALUES ('8', 'T恤', '2', '', '2');
 INSERT INTO `tp_attr` VALUES ('9', '颜色', '1', '黑色,白色,红色', '3');
+INSERT INTO `tp_attr` VALUES ('11', 'cpu', '2', '奔腾,酷睿,AMD', '3');
 
 -- -----------------------------
 -- Table structure for `tp_brand`
@@ -79,12 +80,13 @@ CREATE TABLE `tp_brand` (
   `brand_sort` smallint(6) NOT NULL DEFAULT '50',
   `brand_status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`brand_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_brand`
 -- -----------------------------
 INSERT INTO `tp_brand` VALUES ('12', '苹果', 'http://vvvw.apple.com', '20180430\\433c47e217de338727a55db133f9833b.jpg', 'http://vvvw.apple.com', '50', '1');
+INSERT INTO `tp_brand` VALUES ('13', 'air jordan', 'http://aj', '20190317\\48b140c4976ce51313e0653bde9720d9.jpg', '2222222', '50', '1');
 
 -- -----------------------------
 -- Table structure for `tp_cate`
@@ -185,17 +187,21 @@ CREATE TABLE `tp_goods` (
   `gs_unit` varchar(10) NOT NULL DEFAULT 'kg' COMMENT '单位',
   PRIMARY KEY (`gs_id`),
   KEY `gs_brandid` (`gs_brandid`),
-  KEY `gs_shopcateid` (`gs_shopcateid`,`gs_brandid`,`gs_typeid`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+  KEY `gs_shopcateid` (`gs_shopcateid`,`gs_brandid`,`gs_typeid`) USING BTREE,
+  KEY `gs_typeid` (`gs_typeid`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_goods`
 -- -----------------------------
-INSERT INTO `tp_goods` VALUES ('46', '测试1', '155158916186143', '', '', '', '', '111.00', '11.00', '0', '3', '12', '0', '<p>1111<br/></p>', '1.00', 'kg');
-INSERT INTO `tp_goods` VALUES ('47', '测试2', '155159133533878', '', '', '', '', '354.00', '345.00', '1', '3', '12', '0', '<p>4<br/></p>', '4.00', 'kg');
-INSERT INTO `tp_goods` VALUES ('48', '测试3', '155159211813527', '', '', '', '', '453.00', '43534.00', '1', '3', '12', '0', '<p>3534<br/></p>', '343.00', 'kg');
-INSERT INTO `tp_goods` VALUES ('49', '测试4', '155221168628211', '20190310\\d3e326b94171cada1b33ebb2b5498121.png', '20190310\\sm_d3e326b94171cada1b33ebb2b5498121.png', '20190310\\mid_d3e326b94171cada1b33ebb2b5498121.png', '20190310\\big_d3e326b94171cada1b33ebb2b5498121.png', '333.00', '33.00', '1', '3', '12', '0', '<p>3333<br/></p>', '33.00', 'kg');
-INSERT INTO `tp_goods` VALUES ('50', '测试5', '155221183385804', '20190310\\ae0eaa329ce2a7469f443ca922708b6e.png', '20190310\\sm_ae0eaa329ce2a7469f443ca922708b6e.png', '20190310\\mid_ae0eaa329ce2a7469f443ca922708b6e.png', '20190310\\big_ae0eaa329ce2a7469f443ca922708b6e.png', '111.00', '11.00', '1', '3', '12', '0', '<p>111<br/></p>', '111.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('56', 'efdg', '155341789534195', '', '', '', '', '0.00', '0.00', '0', '3', '12', '3', '', '0.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('49', '测试4', '155221168628211', '20190310\\d3e326b94171cada1b33ebb2b5498121.png', '20190310\\sm_d3e326b94171cada1b33ebb2b5498121.png', '20190310\\mid_d3e326b94171cada1b33ebb2b5498121.png', '20190310\\big_d3e326b94171cada1b33ebb2b5498121.png', '333.00', '33.00', '0', '3', '12', '3', '<p>3333<br/></p>', '33.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('50', '测试5', '155221183385804', '20190317\\3b953f035391a5aacf2b47c508114267.jpg', '20190317\\sm_3b953f035391a5aacf2b47c508114267.jpg', '20190317\\mid_3b953f035391a5aacf2b47c508114267.jpg', '20190317\\big_3b953f035391a5aacf2b47c508114267.jpg', '111.00', '11.00', '0', '3', '12', '3', '<p>111<br/></p>', '111.00', 'g');
+INSERT INTO `tp_goods` VALUES ('51', '测试5', '155339655578249', '', '', '', '', '333.00', '33.00', '1', '11', '12', '0', '<p>333<br/></p>', '33.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('52', '测试6', '155339696481483', '', '', '', '', '333.00', '33.00', '0', '3', '12', '0', '<p>666<br/></p>', '33.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('53', '45343434', '155339731142955', '', '', '', '', '44343.00', '3443.00', '0', '3', '12', '0', '<p>34<br/></p>', '3434.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('54', '7777', '155339951940885', '', '', '', '', '666.00', '66.00', '0', '3', '12', '3', '<p>666<br/></p>', '66.00', 'kg');
+INSERT INTO `tp_goods` VALUES ('55', 'dgfdfds', '155340610441916', '', '', '', '', '0.00', '444.00', '0', '11', '12', '3', '<p>444<br/></p>', '444.00', 'kg');
 
 -- -----------------------------
 -- Table structure for `tp_goods_attr`
@@ -208,27 +214,38 @@ CREATE TABLE `tp_goods_attr` (
   `gsattr_price` decimal(10,2) NOT NULL COMMENT '属性价格',
   `gsattr_goodsid` mediumint(9) NOT NULL COMMENT '所属商品',
   PRIMARY KEY (`gsattr_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_goods_attr`
 -- -----------------------------
-INSERT INTO `tp_goods_attr` VALUES ('44', '9', '黑色', '111.00', '46');
-INSERT INTO `tp_goods_attr` VALUES ('45', '9', '白色', '0.00', '46');
-INSERT INTO `tp_goods_attr` VALUES ('46', '9', '黑色', '123.00', '47');
-INSERT INTO `tp_goods_attr` VALUES ('47', '9', '白色', '333.00', '48');
-INSERT INTO `tp_goods_attr` VALUES ('48', '9', '黑色', '0.00', '48');
-INSERT INTO `tp_goods_attr` VALUES ('49', '6', '512g', '444.00', '48');
-INSERT INTO `tp_goods_attr` VALUES ('50', '6', '256g', '33.00', '48');
+INSERT INTO `tp_goods_attr` VALUES ('78', '6', '256g', '0.00', '56');
 INSERT INTO `tp_goods_attr` VALUES ('51', '6', '512g', '1123.00', '49');
 INSERT INTO `tp_goods_attr` VALUES ('52', '6', '256g', '1123.00', '49');
-INSERT INTO `tp_goods_attr` VALUES ('53', '7', '111', '0.00', '49');
+INSERT INTO `tp_goods_attr` VALUES ('53', '7', '111', '111.00', '49');
 INSERT INTO `tp_goods_attr` VALUES ('54', '9', '黑色', '111.00', '49');
 INSERT INTO `tp_goods_attr` VALUES ('55', '9', '白色', '111.00', '49');
 INSERT INTO `tp_goods_attr` VALUES ('56', '6', '512g', '100.00', '50');
 INSERT INTO `tp_goods_attr` VALUES ('57', '6', '256g', '200.00', '50');
 INSERT INTO `tp_goods_attr` VALUES ('58', '9', '黑色', '100.00', '50');
 INSERT INTO `tp_goods_attr` VALUES ('59', '9', '白色', '100.00', '50');
+INSERT INTO `tp_goods_attr` VALUES ('60', '6', '512g', '33.00', '51');
+INSERT INTO `tp_goods_attr` VALUES ('61', '7', '333', '0.00', '51');
+INSERT INTO `tp_goods_attr` VALUES ('62', '9', '黑色', '333.00', '51');
+INSERT INTO `tp_goods_attr` VALUES ('63', '6', '512g', '666.00', '52');
+INSERT INTO `tp_goods_attr` VALUES ('64', '7', '66', '0.00', '52');
+INSERT INTO `tp_goods_attr` VALUES ('65', '9', '黑色', '66.00', '52');
+INSERT INTO `tp_goods_attr` VALUES ('66', '1', '1', '344343.00', '53');
+INSERT INTO `tp_goods_attr` VALUES ('67', '2', '2', '3434.00', '53');
+INSERT INTO `tp_goods_attr` VALUES ('68', '4', '4', '343.00', '53');
+INSERT INTO `tp_goods_attr` VALUES ('69', '6', '512g', '666.00', '54');
+INSERT INTO `tp_goods_attr` VALUES ('70', '7', '66', '0.00', '54');
+INSERT INTO `tp_goods_attr` VALUES ('71', '9', '黑色', '6.00', '54');
+INSERT INTO `tp_goods_attr` VALUES ('72', '6', '512g', '55465.00', '55');
+INSERT INTO `tp_goods_attr` VALUES ('73', '6', '256g', '456.00', '55');
+INSERT INTO `tp_goods_attr` VALUES ('75', '7', '456', '0.00', '55');
+INSERT INTO `tp_goods_attr` VALUES ('76', '9', '黑色', '5546.00', '55');
+INSERT INTO `tp_goods_attr` VALUES ('77', '11', 'AMD', '0.00', '55');
 
 -- -----------------------------
 -- Table structure for `tp_goods_img`
@@ -243,12 +260,8 @@ CREATE TABLE `tp_goods_img` (
   `img_bigimg` varchar(100) NOT NULL COMMENT '大图',
   PRIMARY KEY (`img_id`),
   KEY `img_goodsid` (`img_goodsid`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
--- -----------------------------
--- Records of `tp_goods_img`
--- -----------------------------
-INSERT INTO `tp_goods_img` VALUES ('22', '50', '20190310\\ad74cff5072c45592cc24efeced666ae.png', '20190310\\sm_ad74cff5072c45592cc24efeced666ae.png', '20190310\\mid_ad74cff5072c45592cc24efeced666ae.png', '20190310\\big_ad74cff5072c45592cc24efeced666ae.png');
 
 -- -----------------------------
 -- Table structure for `tp_link`
@@ -302,31 +315,39 @@ CREATE TABLE `tp_member_price` (
   `price_mlevelid` smallint(6) NOT NULL COMMENT '会员级别',
   `price_goodsid` int(11) NOT NULL COMMENT '商品',
   PRIMARY KEY (`price_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_member_price`
 -- -----------------------------
-INSERT INTO `tp_member_price` VALUES ('61', '1111.00', '1', '46');
-INSERT INTO `tp_member_price` VALUES ('62', '111.00', '2', '46');
-INSERT INTO `tp_member_price` VALUES ('63', '11.00', '3', '46');
-INSERT INTO `tp_member_price` VALUES ('64', '1.00', '4', '46');
-INSERT INTO `tp_member_price` VALUES ('65', '4.00', '1', '47');
-INSERT INTO `tp_member_price` VALUES ('66', '444.00', '2', '47');
-INSERT INTO `tp_member_price` VALUES ('67', '4.00', '3', '47');
-INSERT INTO `tp_member_price` VALUES ('68', '4.00', '4', '47');
-INSERT INTO `tp_member_price` VALUES ('69', '433.00', '1', '48');
-INSERT INTO `tp_member_price` VALUES ('70', '3.00', '2', '48');
-INSERT INTO `tp_member_price` VALUES ('71', '3.00', '3', '48');
-INSERT INTO `tp_member_price` VALUES ('72', '3.00', '4', '48');
-INSERT INTO `tp_member_price` VALUES ('73', '3333.00', '1', '49');
-INSERT INTO `tp_member_price` VALUES ('74', '333.00', '2', '49');
-INSERT INTO `tp_member_price` VALUES ('75', '33.00', '3', '49');
-INSERT INTO `tp_member_price` VALUES ('76', '33.00', '4', '49');
-INSERT INTO `tp_member_price` VALUES ('77', '1111.00', '1', '50');
-INSERT INTO `tp_member_price` VALUES ('78', '111.00', '2', '50');
-INSERT INTO `tp_member_price` VALUES ('79', '11.00', '3', '50');
-INSERT INTO `tp_member_price` VALUES ('80', '1.00', '4', '50');
+INSERT INTO `tp_member_price` VALUES ('87', '3.00', '4', '49');
+INSERT INTO `tp_member_price` VALUES ('86', '33.00', '3', '49');
+INSERT INTO `tp_member_price` VALUES ('85', '333.00', '2', '49');
+INSERT INTO `tp_member_price` VALUES ('84', '3333.00', '1', '49');
+INSERT INTO `tp_member_price` VALUES ('99', '1.00', '4', '50');
+INSERT INTO `tp_member_price` VALUES ('98', '11.00', '3', '50');
+INSERT INTO `tp_member_price` VALUES ('97', '111.00', '2', '50');
+INSERT INTO `tp_member_price` VALUES ('96', '1111.00', '1', '50');
+INSERT INTO `tp_member_price` VALUES ('100', '3333.00', '1', '51');
+INSERT INTO `tp_member_price` VALUES ('101', '333.00', '2', '51');
+INSERT INTO `tp_member_price` VALUES ('102', '33.00', '3', '51');
+INSERT INTO `tp_member_price` VALUES ('103', '3.00', '4', '51');
+INSERT INTO `tp_member_price` VALUES ('104', '3333.00', '1', '52');
+INSERT INTO `tp_member_price` VALUES ('105', '333.00', '2', '52');
+INSERT INTO `tp_member_price` VALUES ('106', '33.00', '3', '52');
+INSERT INTO `tp_member_price` VALUES ('107', '3.00', '4', '52');
+INSERT INTO `tp_member_price` VALUES ('108', '4343.00', '1', '53');
+INSERT INTO `tp_member_price` VALUES ('109', '343.00', '2', '53');
+INSERT INTO `tp_member_price` VALUES ('110', '343.00', '3', '53');
+INSERT INTO `tp_member_price` VALUES ('111', '34.00', '4', '53');
+INSERT INTO `tp_member_price` VALUES ('112', '655.00', '1', '54');
+INSERT INTO `tp_member_price` VALUES ('113', '6565.00', '2', '54');
+INSERT INTO `tp_member_price` VALUES ('114', '56.00', '3', '54');
+INSERT INTO `tp_member_price` VALUES ('115', '5.00', '4', '54');
+INSERT INTO `tp_member_price` VALUES ('116', '4354.00', '1', '55');
+INSERT INTO `tp_member_price` VALUES ('117', '345.00', '2', '55');
+INSERT INTO `tp_member_price` VALUES ('118', '345.00', '3', '55');
+INSERT INTO `tp_member_price` VALUES ('119', '34.00', '4', '55');
 
 -- -----------------------------
 -- Table structure for `tp_product`

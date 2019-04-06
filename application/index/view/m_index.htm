@@ -1,0 +1,800 @@
+{include file="common/_meta"}
+<body>
+	<div class="site-nav" id="site-nav">
+	    <div class="w w1200">
+	    	{include file="common/site-nav"}
+	    </div>
+	</div>
+<div class="header">
+    <div class="w w1200">
+<div class="logo">
+    <div class="logoImg"><a href="#"><img src="./img/logo.png" /></a></div>
+	</div>
+<div class="dsc-search">
+    <div class="form">
+<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="search-form">
+    <input autocomplete="off" onKeyUp="lookup(this.value);" name="keywords" type="text" id="keyword" value="手机" class="search-text"/>
+    <input type="hidden" name="store_search_cmt" value="0">
+    <button type="submit" class="button button-goods" onclick="checkstore_search_cmt(0)" >搜商品</button>
+</form>
+    <ul class="keyword">
+    <li><a href="#" target="_blank">周大福</a></li>
+    <li><a href="#" target="_blank">内衣</a></li>
+    <li><a href="#" target="_blank">Five Plus</a></li>
+    <li><a href="#" target="_blank">手机</a></li>
+    </ul>
+    
+<div class="suggestions_box" id="suggestions" style="display:none;">
+    <div class="suggestions_list" id="auto_suggestions_list">
+&nbsp;
+    </div>
+</div>
+
+    </div>
+</div>
+<div class="shopCart" data-ectype="dorpdown" id="ECS_CARTINFO" data-carteveval="0">
+
+<div class="shopCart-con dsc-cm">
+	<a href="#">
+<i class="iconfont icon-carts"></i>
+<span>我的购物车</span>
+<em class="count cart_num">2</em>
+	</a>
+</div>
+<div class="dorpdown-layer" ectype="dorpdownLayer">
+<div class="prompt"><div class="nogoods"><b></b><span>购物车中还没有商品，赶紧选购吧！</span></div></div>
+    </div>
+
+<script type="text/javascript">
+function changenum(rec_id, diff, warehouse_id, area_id)
+{
+	var cValue = $('#cart_value').val();
+    var goods_number =Number($('#goods_number_' + rec_id).text()) + Number(diff);
+ 
+	if(goods_number < 1)
+	{
+return false;	
+	}
+	else
+	{
+change_goods_number(rec_id,goods_number, warehouse_id, area_id, cValue);
+	}
+}
+function change_goods_number(rec_id, goods_number, warehouse_id, area_id, cValue)
+{
+	if(cValue != '' || cValue == 'undefined'){
+	   var cValue = $('#cart_value').val(); 
+	}   
+	Ajax.call('flow.php?step=ajax_update_cart', 'rec_id=' + rec_id +'&goods_number=' + goods_number +'&cValue=' + cValue +'&warehouse_id=' + warehouse_id +'&area_id=' + area_id, change_goods_number_response, 'POST','JSON');
+}
+function change_goods_number_response(result)
+{    
+	var rec_id = result.rec_id;   
+    if (result.error == 0)
+    {
+       $('#goods_number_' +rec_id).val(result.goods_number);//更新数量
+       $('#goods_subtotal_' +rec_id).html(result.goods_subtotal);//更新小计
+       if (result.goods_number <= 0)
+{
+	//数量为零则隐藏所在行
+    $('#tr_goods_' +rec_id).style.display = 'none';
+    $('#tr_goods_' +rec_id).innerHTML = '';
+}
+$('#total_desc').html(result.flow_info);//更新合计
+if($('ECS_CARTINFO'))
+{//更新购物车数量
+    $('#ECS_CARTINFO').html(result.cart_info);
+}
+
+if(result.group.length > 0){
+	for(var i=0; i<result.group.length; i++){
+$("#" + result.group[i].rec_group).html(result.group[i].rec_group_number);//配件商品数量
+$("#" + result.group[i].rec_group_talId).html(result.group[i].rec_group_subtotal);//配件商品金额
+	}
+}
+
+$("#goods_price_" + rec_id).html(result.goods_price);
+$(".cart_num").html(result.subtotal_number);
+	}
+	else if (result.message != '')
+	{
+$('#goods_number_' +rec_id).val(result.cart_Num);//更新数量
+alert(result.message);
+	}
+}
+
+function deleteCartGoods(rec_id,index)
+{
+	Ajax.call('delete_cart_goods.php', 'id='+rec_id+'&index='+index, deleteCartGoodsResponse, 'POST', 'JSON');
+}
+
+/**
+ * 接收返回的信息
+ */
+function deleteCartGoodsResponse(res)
+{
+  if (res.error)
+  {
+    alert(res.err_msg);
+  }
+  else if(res.index==1)
+  {
+Ajax.call('get_ajax_content.php?act=get_content', 'data_type=cart_list', return_cart_list, 'POST', 'JSON');
+  }
+  else
+  {
+	  $("#ECS_CARTINFO").html(res.content);
+	  $(".cart_num").html(res.cart_num);
+  }
+}
+
+function return_cart_list(result)
+{
+	$(".cart_num").html(result.cart_num);
+	$(".pop_panel").html(result.content);
+	tbplHeigth();
+}
+</script></div>
+    </div>
+</div>
+<div class="nav dsc-zoom" ectype="dscNav">
+    <div class="w w1200">
+<div class="categorys site-mast">
+    <div class="categorys-type"><a href="#" target="_blank">全部商品分类</a></div>
+    <div class="categorys-tab-content">
+    	<div class="categorys-items" id="cata-nav">
+    <div class="categorys-item" ectype="cateItem" data-id="858" data-eveval="0">
+<div class="item item-content">
+<i class="iconfont icon-ele"></i>
+<div class="categorys-title">
+<strong>
+    <a href="#" target="_blank">家用电器</a>
+    </strong>
+    <span>
+    <a href="#" target="_blank">大家电</a>
+    	
+    <a href="#" target="_blank">生活电器</a>
+    	
+    	
+    	
+    	
+</span>
+</div>
+</div>
+<div class="categorys-items-layer" ectype="cateLayer">
+    <div class="cate-layer-con clearfix">
+<div class="cate-layer-left">
+    <div class="cate_channel" ectype="channels_858"></div>
+    <div class="cate_detail" ectype="subitems_858"></div>
+</div>
+<div class="cate-layer-rihgt" ectype="brands_858"></div>
+    </div>
+</div>
+<div class="clear"></div>
+    </div>
+<div class="categorys-item" ectype="cateItem" data-id="3" data-eveval="0">
+<div class="item item-content">
+<i class="iconfont icon-digital"></i>
+<div class="categorys-title">
+<strong>
+    <a href="#" target="_blank" class="division_cat">手机</a>、<a href="#" target="_blank" class="division_cat">数码</a>、<a href="#" target="_blank" class="division_cat">通信</a>    </strong>
+    <span>
+    <a href="#" target="_blank">智能设备</a>
+    	
+    <a href="#" target="_blank">数码配件</a>
+    	
+    	
+    	
+    	
+    	
+    	
+</span>
+</div>
+</div>
+<div class="categorys-items-layer" ectype="cateLayer">
+    <div class="cate-layer-con clearfix">
+<div class="cate-layer-left">
+    <div class="cate_channel" ectype="channels_3"></div>
+    <div class="cate_detail" ectype="subitems_3"></div>
+</div>
+<div class="cate-layer-rihgt" ectype="brands_3"></div>
+    </div>
+</div>
+<div class="clear"></div>
+    </div>
+<div class="categorys-item" ectype="cateItem" data-id="4" data-eveval="0">
+<div class="item item-content">
+<i class="iconfont icon-computer"></i>
+<div class="categorys-title">
+<strong>
+    <a href="#" target="_blank">电脑、办公</a>
+    </strong>
+    <span>
+    <a href="#" target="_blank">服务产品</a>
+    	
+    <a href="#" target="_blank">电脑整机</a>
+    	
+    	
+    	
+    	
+    	
+</span>
+</div>
+</div>
+<div class="categorys-items-layer" ectype="cateLayer">
+    <div class="cate-layer-con clearfix">
+<div class="cate-layer-left">
+    <div class="cate_channel" ectype="channels_4"></div>
+    <div class="cate_detail" ectype="subitems_4"></div>
+</div>
+<div class="cate-layer-rihgt" ectype="brands_4"></div>
+    </div>
+</div>
+<div class="clear"></div>
+    </div>
+<div class="categorys-item" ectype="cateItem" data-id="5" data-eveval="0">
+<div class="item item-content">
+<i class="iconfont icon-bed"></i>
+<div class="categorys-title">
+<strong>
+    <a href="#" target="_blank">家居、家具、家装、厨具</a>
+    </strong>
+    <span>
+    <a href="#" target="_blank">厨具</a>
+    	
+    <a href="#" target="_blank">家装建材</a>
+    	
+    	
+    	
+    	
+    	
+</span>
+</div>
+</div>
+<div class="categorys-items-layer" ectype="cateLayer">
+    <div class="cate-layer-con clearfix">
+<div class="cate-layer-left">
+    <div class="cate_channel" ectype="channels_5"></div>
+    <div class="cate_detail" ectype="subitems_5"></div>
+</div>
+<div class="cate-layer-rihgt" ectype="brands_5"></div>
+    </div>
+</div>
+<div class="clear"></div>
+    </div>
+<div class="categorys-item" ectype="cateItem" data-id="6" data-eveval="0">
+<div class="item item-content">
+<i class="iconfont icon-clothes"></i>
+<div class="categorys-title">
+<strong>
+    <a href="#" target="_blank">男装、女装、内衣</a>
+    </strong>
+    <span>
+    <a href="#" target="_blank">女装</a>
+    	
+    <a href="#" target="_blank">男装</a>
+    	
+    	
+    	
+    	
+</span>
+</div>
+</div>
+<div class="categorys-items-layer" ectype="cateLayer">
+    <div class="cate-layer-con clearfix">
+<div class="cate-layer-left">
+    <div class="cate_channel" ectype="channels_6"></div>
+    <div class="cate_detail" ectype="subitems_6"></div>
+</div>
+<div class="cate-layer-rihgt" ectype="brands_6"></div>
+    </div>
+</div>
+<div class="clear"></div>
+    </div>
+<div class="categorys-item" ectype="cateItem" data-id="8" data-eveval="0">
+<div class="item item-content">
+<i class="iconfont icon-shoes"></i>
+<div class="categorys-title">
+<strong>
+    <a href="#" target="_blank">鞋靴、箱包、钟表、奢侈品</a>
+    </strong>
+    <span>
+    <a href="#" target="_blank">奢侈品</a>
+    	
+    <a href="#" target="_blank">功能箱包</a>
+    	
+    	
+    	
+    	
+    	
+    	
+</span>
+</div>
+</div>
+<div class="categorys-items-layer" ectype="cateLayer">
+    <div class="cate-layer-con clearfix">
+<div class="cate-layer-left">
+    <div class="cate_channel" ectype="channels_8"></div>
+    <div class="cate_detail" ectype="subitems_8"></div>
+</div>
+<div class="cate-layer-rihgt" ectype="brands_8"></div>
+    </div>
+</div>
+<div class="clear"></div>
+    </div>
+<div class="categorys-item" ectype="cateItem" data-id="860" data-eveval="0">
+<div class="item item-content">
+<i class="iconfont icon-heal"></i>
+<div class="categorys-title">
+<strong>
+    <a href="#" target="_blank">个人化妆、清洁用品</a>
+    </strong>
+    <span>
+    <a href="#" target="_blank">面部护肤</a>
+    	
+    <a href="#" target="_blank">洗发护发</a>
+    	
+    	
+    	
+    	
+    	
+    	
+</span>
+</div>
+</div>
+<div class="categorys-items-layer" ectype="cateLayer">
+    <div class="cate-layer-con clearfix">
+<div class="cate-layer-left">
+    <div class="cate_channel" ectype="channels_860"></div>
+    <div class="cate_detail" ectype="subitems_860"></div>
+</div>
+<div class="cate-layer-rihgt" ectype="brands_860"></div>
+    </div>
+</div>
+<div class="clear"></div>
+    </div>
+</div>    </div>
+</div>
+<div class="nav-main" id="nav">
+    <ul class="navitems">
+        <li><a href="#" class="curr">首页</a></li>
+        <li><a href="#"  >女装街</a></li>
+        <li><a href="#"  >男人柜</a></li>
+        <li><a href="#"  >品牌专区</a></li>
+        <li><a href="#"  >聚划算</a></li>
+        <li><a href="#"  >积分商城</a></li>
+	</ul>
+</div>
+    </div>
+</div>
+<div class="user-content clearfix">
+    <div class="user-side" ectype="userSide">
+<div class="user-mod user-perinfo">
+    <div class="profile clearfix">
+<div class="avatar">
+    <a href="#" class="u-pic">
+<img src="./img/touxiang.jpg" alt="">
+    </a>
+</div>
+<div class="name">
+    <h2>70769833-218428</h2>
+    <div class="user-rank user-rank-1">铜牌</div>
+</div>
+    </div>
+    <div class="account">
+<div class="item clearfix">
+    <div class="item-name">账户资料：</div>
+    <div class="item-main">
+<b class="integrity"><em style="width: 45%;"></em></b><span>45%</span>
+    </div>
+</div>
+<div class="item clearfix">
+    <div class="item-name">账户安全：</div>
+    <div class="item-main safe">
+<a href="#" class="iconfont icon-email "><span class="tip">邮箱未验证</span></a>
+<a href="#" class="iconfont icon-see "><span class="tip">实名认证未完成</span></a>
+<a href="#" class="iconfont icon-password active"><span class="tip">密码已设置</span></a>
+<a href="#" class="iconfont icon-mobile-phone active"><span class="tip">手机已验证</span></a>
+    </div>
+</div>
+    </div>
+</div>
+<div class="user-mod">
+    <div class="side-menu">
+	<dl>
+<dt><i class="square"></i><span>订单中心</span></dt>
+<dd>
+	<p><a href="#" target="_self">我的订单</a></p>
+	<p><a href="#" target="_self">收货地址</a></p>
+	<p><a href="#" target="_self">缺货登记</a></p>
+	<p><a href="#" target="_self">退换货订单</a></p>
+</dd>
+    </dl>
+    <dl>
+<dt><i class="square"></i><span>会员中心</span></dt>
+<dd>
+	<p><a href="#" target="_self">用户信息</a></p>
+	<p><a href="#" target="_self">账户安全</a></p>
+	<p><a href="#" target="_self">账号绑定</a></p>
+	<p><a href="#" target="_self">我的众筹</a></p>
+	<p><a href="#" target="_self">收藏/关注</a></p>
+<!--<p><a href="#" target="_self">关注品牌</a></p>-->
+	<p><a href="#" target="_self">我的留言</a></p>
+<p><a href="#" target="_self">我的推荐</a></p>
+<p><a href="#" target="_self">评论/晒单</a></p>
+	<p><a href="#"> 我的提货</a></p>
+	<p><a href="#"> 交易纠纷</a></p>
+	<p><a href="#"> 我的发票</a></p>
+	</dd>
+	</dl>
+    <dl>
+<dt><i class="square"></i><span>账户中心</span></dt>
+<dd>
+	<p><a href="#" target="_self">我的红包</a></p>
+<p><a href="#" target="_self">我的优惠券</a></p>
+	<p><a href="#" target="_self">跟踪包裹</a></p>
+	<p><a href="#" target="_self">资金管理</a></p>
+	<p><a href="#" target="_self">我的白条</a></p>
+</dd>
+    </dl>
+	<dl>
+<dt><i class="square"></i><span>活动中心</span></dt>
+<dd>
+	<p><a href="#" target="_self">拍卖活动</a></p>
+	<p><a href="#" target="_self">夺宝奇兵</a></p>
+</dd>
+    </dl>
+    </div></div>
+    </div>
+    <div class="user-main" ectype="userMain" data-action="default">
+
+
+<ul class="user-index-order-statu clearfix">
+    <li>
+<a href="#">
+<div class="circle"><i class="iconfont icon-columns"></i></div>
+<div class="info">
+    <p>待付款</p>
+    <div class="num">0</div>
+</div>
+</a>
+    </li>
+    <li>
+<a href="#">
+<div class="circle"><i class="iconfont icon-truck-alt"></i></div>
+<div class="info">
+    <p>待收货</p>
+    <div class="num">0</div>
+</div>
+</a>
+    </li>
+    <li>
+<a href="#">
+<div class="circle"><i class="iconfont icon-edit"></i></div>
+<div class="info">
+    <p>待评价</p>
+    <div class="num">0</div>
+</div>
+</a>
+    </li>
+    <li>
+<a href="#">
+<div class="circle"><i class="iconfont icon-complete"></i></div>
+<div class="info">
+    <p>已完成</p>
+    <div class="num">0</div>
+</div>
+</a>
+    </li>
+</ul>
+<ul class="user-index-wallet clearfix">
+    <li>
+<div class="words"></div>
+<div class="info info-line">
+    <a href="#"><em>¥</em>0.00</a>
+</div>
+    </li>
+    <li>
+<div class="words"></div>
+<div class="info info-line">
+    <a href="#">红包（<span class="red">0</span>）</a>
+    
+</div>
+    </li>
+    <li>
+<div class="words"></div>
+<div class="info">
+    <a href="#">优惠券（<span class="red">1</span>）</a><br>
+    <div class="num"><a href="#" target="_blank" class="line">领券</a></div>
+</div>
+    </li>
+    <li>
+<div class="words"></div>
+<div class="info info-line">
+    <a href="#">储值卡（<span class="red">0</span>）</a>
+</div>
+    </li>
+    <li>
+<div class="words"></div>
+<div class="info info-line"><a href="#">0</a></div>
+    </li>
+</ul>
+<div class="user-mod">
+    <div class="user-section">
+<div class="user-title">
+    <h2>我的订单</h2>
+    <a href="#" class="more">查看所有订单</a>
+</div>
+<div class="user-index-order-list">
+    <div class="no_records">
+<i class="no_icon"></i>
+<div class="no_info no_info_line">
+<h3>主人，您近期还没有购买任何商品哟~</h3>
+<div class="no_btn">
+    <a href="#" class="sc-btn sc-red-btn">去逛商城</a>
+</div>
+</div>
+    </div>
+</div>
+    </div>
+    
+    <div class="user-section">
+<div class="user-title">
+    <h2>近期收藏</h2>
+    <a href="#" class="more">查看所有收藏</a>
+</div>
+<div class="user-index-collection-list">
+    <div class="no_records">
+<i class="no_icon"></i>
+<div class="no_info">
+<h3>主人，您近期还没有收藏商品呦~</h3>
+</div>
+    </div>
+</div>
+    </div>
+    <div class="user-section">
+<div class="user-title">
+    <h2>帮助</h2>
+</div>
+<ul class="user-help-list clearfix">
+    <li><a href="#" class="ftx-05" target="_blank">售后服务保证</a></li>
+    <li><a href="#" class="ftx-05" target="_blank">退换货原则</a></li>
+    <li><a href="#" class="ftx-05" target="_blank">支付方式说明</a></li>
+    <li><a href="#" class="ftx-05" target="_blank">配送支付智能查询 </a></li>
+    <li><a href="#" class="ftx-05" target="_blank">货到付款区域</a></li>
+    <li><a href="#" class="ftx-05" target="_blank">订购方式</a></li>
+</ul>
+    </div>
+    </div>
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </div>
+</div>
+
+<div class="footer-new">
+    <div class="footer-new-top">
+    	<div class="w w1200">
+    <div class="service-list">
+<div class="service-item">
+    <i class="f-icon f-icon-qi"></i>
+    <span>七天包退</span>
+</div>
+<div class="service-item">
+    <i class="f-icon f-icon-zheng"></i>
+    <span>正品保障</span>
+</div>
+<div class="service-item">
+    <i class="f-icon f-icon-hao"></i>
+    <span>好评如潮</span>
+</div>
+<div class="service-item">
+    <i class="f-icon f-icon-shan"></i>
+    <span>闪电发货</span>
+</div>
+<div class="service-item">
+    <i class="f-icon f-icon-quan"></i>
+    <span>权威荣誉</span>
+</div>
+    </div>
+    <div class="contact">
+<div class="contact-item contact-item-first"><i class="f-icon f-icon-tel"></i><span>4000-000-000</span></div>
+<div class="contact-item">
+	    <a id="IM" IM_type="dsc" onclick="openWin(this)" href="javascript:;" class="btn-ctn"><i class="f-icon f-icon-kefu"></i><span>咨询客服</span></a>
+</div>
+    </div>
+</div>
+    </div>
+    <div class="footer-new-con">
+    	<div class="fnc-warp">
+    <div class="help-list">
+    <div class="help-item">
+    <h3>新手上路 </h3>
+    <ul>
+    <li><a href="#"  title="售后流程" target="_blank" rel="nofollow">售后流程</a></li>
+<li><a href="#"  title="购物流程" target="_blank" rel="nofollow">购物流程</a></li>
+<li><a href="#"  title="订购方式" target="_blank" rel="nofollow">订购方式</a></li>
+</ul>
+</dl>
+</div>
+<div class="help-item">
+    <h3>配送与支付 </h3>
+    <ul>
+    <li><a href="#"  title="货到付款区域" target="_blank" rel="nofollow">货到付款区域</a></li>
+<li><a href="#"  title="配送支付智能查询 " target="_blank" rel="nofollow">配送支付智能查询</a></li>
+<li><a href="#"  title="支付方式说明" target="_blank" rel="nofollow">支付方式说明</a></li>
+</ul>
+</dl>
+</div>
+<div class="help-item">
+    <h3>会员中心</h3>
+    <ul>
+    <li><a href="#"  title="资金管理" target="_blank" rel="nofollow">资金管理</a></li>
+<li><a href="#"  title="我的收藏" target="_blank" rel="nofollow">我的收藏</a></li>
+<li><a href="#"  title="我的订单" target="_blank" rel="nofollow">我的订单</a></li>
+    </ul>
+</dl>
+</div>
+<div class="help-item">
+    <h3>服务保证 </h3>
+    <ul>
+    <li><a href="#"  title="退换货原则" target="_blank" rel="nofollow">退换货原则</a></li>
+<li><a href="#"  title="售后服务保证" target="_blank" rel="nofollow">售后服务保证</a></li>
+<li><a href="#"  title="产品质量保证 " target="_blank" rel="nofollow">产品质量保证</a></li>
+    </ul>
+</dl>
+</div>
+<div class="help-item">
+    <h3>联系我们 </h3>
+    <ul>
+    <li><a href="#"  title="网站故障报告" target="_blank" rel="nofollow">网站故障报告</a></li>
+<li><a href="#"  title="选机咨询 " target="_blank" rel="nofollow">选机咨询</a></li>
+<li><a href="#"  title="投诉与建议 " target="_blank" rel="nofollow">投诉与建议</a></li>
+    </ul>
+</dl>
+</div>
+      
+    </div>
+    <div class="qr-code">
+<div class="qr-item qr-item-first">
+    <div class="code_img"><img src="./img/ecjia_qrcode.png"></div>
+    <div class="code_txt">官方网址</div>
+</div>
+<div class="qr-item">
+    <div class="code_img"><img src="./img/ectouch_qrcode.png"></div>
+    <div class="code_txt">在线课程</div>
+</div>
+    </div>
+    	</div>
+    </div>
+    <div class="footer-new-bot">
+    	<div class="w w1200">
+     
+    <p class="copyright_links">
+    <a href="#" rel="nofollow">首页</a>
+ 
+<span class="spacer"></span>
+ 
+    <a href="#" rel="nofollow">隐私保护</a>
+ 
+<span class="spacer"></span>
+ 
+    <a href="#" rel="nofollow">联系我们</a>
+ 
+<span class="spacer"></span>
+ 
+    <a href="#" rel="nofollow">免责条款</a>
+ 
+<span class="spacer"></span>
+ 
+    <a href="#" rel="nofollow">公司简介</a>
+ 
+<span class="spacer"></span>
+ 
+    <a href="#" rel="nofollow">意见反馈</a>
+ 
+ 
+    </p>
+
+<p><span>©&nbsp;2015-2017&nbsp;tongpankt.com&nbsp;版权所有&nbsp;&nbsp;</span><span>ICP备案证书号:</span><a href="#">豫ICP备*****号-1</a>&nbsp;<a href="#">POWERED by童攀课堂</a></p>
+
+<p class="copyright_auth">&nbsp;</p>
+    </div>
+    </div>
+    
+    
+    <div class="hide" id="pd_coupons">
+<span class="success-icon m-icon"></span>
+<div class="item-fore">
+    <h3>领取成功！感谢您的参与，祝您购物愉快~</h3>
+    <div class="txt ftx-03">本活动为概率性事件，不能保证所有客户成功领取优惠券</div>
+</div>
+    </div>
+    
+    
+    <div class="hidden">
+<input type="hidden" name="seller_kf_IM" value="" rev="" ru_id="" />
+<input type="hidden" name="seller_kf_qq" value="349488953" />
+<input type="hidden" name="seller_kf_tel" value="4000-000-000" />
+<input type="hidden" name="user_id" value="64" />
+    </div>
+</div>
+
+{include file="common/_footer"}
+<script type="text/javascript">
+function init() {
+    var clip = null;
+    var val = $("#affTextarea").text();
+    if(val){
+clip = new ZeroClipboard.Client();
+ZeroClipboard.setMoviePath("js/ZeroClipboard/ZeroClipboard.swf");
+clip.setHandCursor(true);   
+clip.addEventListener('mouseOver', function (client) {
+    clip.setText(val);
+});
+
+clip.addEventListener('complete', function (client, text){
+    pbDialog("复制成功","",1,"","",120);
+});
+clip.glue('clip_button', 'clip_container' );
+    }
+}
+
+$(window).load(function(){
+    init();
+})
+
+$(function(){
+    $(".nyroModal").nyroModal();
+});
+
+
+</script>
+    
+
+ 
+ 
+ 
+</body>
+</html>
