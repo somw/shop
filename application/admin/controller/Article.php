@@ -7,7 +7,7 @@ class Article extends Controller
 {
     public function lst()
     {
-        $arlist = db('article')->field('a.*,c.cate_name')->alias('a')->join('cate c',"a.ar_cateid=c.cate_id") ->order('ar_id desc') ->paginate(5);
+        $arlist = db('article')->field('a.*,c.cate_name')->alias('a')->join('cate c',"a.ar_cateid=c.cate_id") ->order('ar_id desc') ->paginate(15);
         $this->assign('arlist', $arlist);
         return view('lst');
 

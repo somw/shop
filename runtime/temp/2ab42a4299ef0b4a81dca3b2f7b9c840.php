@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\data\index.html";i:1555209593;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555209593;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555209593;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555209593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555209593;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:64:"B:\aaaweb\shop\public/../application/admin\view\article\add.html";i:1555213457;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555209593;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555209593;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555209593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555209593;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -35,6 +35,42 @@
     <style>
         .page-sidebar::before{left: 0px;width: 224px;}
     </style>
+    
+    <link href="/static/plus/uploadify/uploadify.css" rel="stylesheet">
+    <script src="/static/plus/uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $("#uploadify").uploadify({
+                //指定swf文件
+                'swf': '/static/plus/uploadify/uploadify.swf',
+                //后台处理的页面
+                'uploader': "<?php echo url('article/upload'); ?>",
+                'progressData' : 'speed',
+                //按钮显示的文字
+                'buttonText': '上传文件',
+                //显示的高度和宽度，默认 height 30；width 120
+                //'height': 15,
+                //'width': 80,
+                //上传文件的类型  默认为所有文件    'All Files'  ;  '*.*'
+                //在浏览窗口底部的文件类型下拉菜单中显示的文本
+                'fileTypeDesc': 'Image Files',
+                //允许上传的文件后缀
+                //'fileTypeExts': '*.gif; *.jpg; *.png',
+                // 'cancel': 'uploadfy/uploadify-cancel.png',
+                // //上传文件页面中，你想要用来作为文件队列的元素的id, 默认为false  自动生成,  不带#
+                // //'queueID': 'fileQueue',
+                // //选择文件后自动上传
+                // 'auto': true,
+                // //设置为true将允许多文件上传
+                // 'multi': true,
+                'onUploadComplete' : function(file,data,response) {
+                    
+                     alert(data);
+                 }
+            });
+        });
+
+</script>
 </head>
 <body>
 <!-- 头部 -->
@@ -91,10 +127,9 @@
         </div>
     </div>
 </div>
-
 <div class="main-container container-fluid">
-    <div class="page-container">
-        <!-- Page Sidebar -->
+	<div class="page-container">
+		            <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -317,7 +352,6 @@
 <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
-
             <!-- Page Breadcrumb -->
             <div class="page-breadcrumbs">
                 <ul class="breadcrumb">
@@ -325,171 +359,171 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="">链接管理</a>
+                        <a href="<?php echo url('article/lst'); ?>">文章管理</a>
                     </li>
-                    <li class="active">添加链接</li>
+                    <li class="active">新增文章</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                <a id="export" class="btn btn-sm btn-azure btn-addon" href="javascript:;" autocomplete="off">立即备份</a>
-                <a id="optimize" href="<?php echo url('data/optimize'); ?>" class="btn btn-sm btn-azure btn-addon">优化表</a>
-                <a id="repair" href="<?php echo url('data/repair'); ?>" class="btn btn-sm btn-azure btn-addon">修复表</a>
-                <a  href="<?php echo url('data/importlist'); ?>" class="btn btn-sm btn-azure btn-addon">还原数据库</a>
+                
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增文章</span>
+                            </div>
                             <div class="widget-body">
-                                <div class="flip-scroll">
-                                    <form id="export-form" method="post" action="<?php echo url('data/export'); ?>">
-                                    <table class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 23px;" class="sorting_disabled">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">上级分类</label>
+                                            <div class="col-sm-6">
+                                                <select name="ar_cateid" id="">
+                                                    <option>顶级分类</option>
+                                                    <?php if(is_array($catelist) || $catelist instanceof \think\Collection || $catelist instanceof \think\Paginator): $i = 0; $__LIST__ = $catelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate): $mod = ($i % 2 );++$i;?>
+                                                    <option value="<?php echo $cate['cate_id']; ?>"><?php echo str_repeat('-',$cate['lever']*8)?><?php echo $cate['cate_name']; ?></option>
+                                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                                                    <label style="font-weight: 300; ">
-                                                        <input class="checkeds" checked="checked" type="checkbox" value="">
-                                                        <span class="text"></span>
-                                                    </label>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">文章标题</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="ar_title"  type="text"  required="">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
 
-                                                </th>
-                                                <th>表名</th>
-                                                <th>数据量</th>
-                                                <th>数据大小</th>
-                                                <th>创建时间</th>
-                                                <th>备份状态</th>
-                                                <th>操作</th>
-                                            </tr> 
-                                        </thead>
-                                        <tbody>
-                                            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): if( count($list)==0 ) : echo "" ;else: foreach($list as $key=>$table): ?>   
-                                            <tr>            
-                                                <td>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
+                                            <div class="col-sm-6">
+                                                <textarea class="form-control" name="ar_keywords"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
+                                            <div class="col-sm-6">
+                                                <textarea class="form-control" name="ar_description"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">文章url</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="ar_url" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">图片</label>
+                                            <div class="col-sm-6">
+                                                <label>
+                                                    <span id="uploadify"></span>
+                                                    <span class="text"></span>
+                                                </label>
+                                                <input type="file" id="uploadify" class="btn-azure" name="ar_img">
+                                            </div>
+
+                                        </div> 
+                                        <div id="arimg"></div>                                    
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">日期</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="ar_addtime" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">内容</label>
+                                            <div class="col-sm-6">
+                                                <textarea id="content" name="ar_content"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">是否置顶</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio" style="float: left; padding-right: 10px;">
                                                     <label>
-                                                    <input class="ids" checked="checked" type="checkbox" name="tables[]" value="<?php echo $table['name']; ?>"><span class="text"></span></label>
-                                                </td>
-                                                <td><?php echo $table['name']; ?></td>
-                                                <td><?php echo $table['rows']; ?></td>
-                                                <td><?php echo format_bytes($table['data_length']); ?></td>
-                                                <td><?php echo $table['create_time']; ?></td>
-                                                <td class="info" style="background: none;">未备份</td>
-                                                <td>
-                                                    <a href="<?php echo url('data/optimize',['tables'=>$table['name']]); ?>">优化表</a>&nbsp;
-                                                    <a href="<?php echo url('data/repair',['tables'=>$table['name']]); ?>">修复表</a>
-                                                </td>
-                                            </tr>
-                                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                                        </tbody>
-                                    </table>
+                                                        <input value="1" name="ar_top" class="colored-blue"  type="radio">
+                                                        <span class="text">是</span>
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input value="0" name="ar_top" checked="checked" class="colored-blue" type="radio">
+                                                        <span class="text">否</span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">文章状态</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio" style="float: left; padding-right: 10px;">
+                                                    <label>
+                                                        <input value="1" name="ar_status" checked="checked" class="colored-blue"  type="radio">
+                                                        <span class="text">显示</span>
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input value="0" name="ar_status" class="colored-blue" type="radio">
+                                                        <span class="text">隐藏</span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                       
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
-                                <div></div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-
-    </div>
+	</div>	
 </div>
 
-    <!--Basic Scripts-->
+
+
+<!--Basic Scripts-->
 <script src="/static/admin/js/bootstrap.js"></script>
 <!--Beyond Scripts-->
 <script src="/static/admin/js/beyond.js"></script>
+
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});
+    
+
+
+</script>
 </body>
 </html>
-
-<script>
-    layui.use(['jquery','layer'],function(){
-        window.$ = layui.$;
-        var layer = layui.layer;
-        //备份表方法
-        $("#export").click(function(){
-            $(this).html("正在发送备份请求...");
-            $.post(
-                $("#export-form").attr("action"),
-                $("#export-form").serialize(), 
-                function(data){
-               
-                    if(data.code==1){
-                        $("#export").html( "开始备份，请不要关闭本页面！");
-                        backup(data.data.tab);
-                        window.onbeforeunload = function(){ return "正在备份数据库，请不要关闭！" }
-                    }else{
-                        layer.tips(data.msg, "#export", {
-                            tips: [1, '#3595CC'],
-                            time: 4000
-                        });
-                        $("#export").html("立即备份");
-                    }
-              
-            }, "json");
-            return false;  
-        }); 
-
-        //递归备份表
-        function backup(tab,status){
-            status && showmsg(tab.id, "开始备份...(0%)");
-            $.get( $("#export-form").attr("action"), tab, function(data){
-                // console.log(data)
-                if(data.code==1){
-                    showmsg(tab, data.msg);
-
-                    if(!$.isPlainObject(data.data.tab)){
-                        $("#export").html("备份完成");
-                        window.onbeforeunload = function(){ return null }
-                        return;
-                    } 
-
-                    backup(data.data.tab, tab.id != data.data.tab.id);
-                } else {
-                    $("#export").html("立即备份");
-                }
-            }, "json");
-        }
-
-        //修改备份状态
-        function showmsg(tab, msg){
-            $("table tbody tr").eq(tab.id).find(".info").html(msg)
-        }
-
-        //优化表
-        $("#optimize").click(function(){
-            $.post(this.href, $("#export-form").serialize(), function(data){
-           
-                layer.tips(data.msg, "#optimize", {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-    
-            }, "json");
-            return false;    
-        });
-
-        //修复表
-        $("#repair").on("click",function(e){
-
-            $.post(this.href, $("#export-form").serialize(), function(data){
-                layer.tips(data.msg, "#repair", {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-            }, "json");
-            return false; 
-        });
-    });
-
-    $(".checkeds").click(function(){
-        if ($(this).is(':checked')) {
-            $('.ids').prop('checked','checked');
-        } else{
-            $('.ids').prop('checked',false);
-        }
-    });
-</script>

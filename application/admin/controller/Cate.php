@@ -29,10 +29,10 @@ class Cate extends Controller
     	if (request()->isPost()) {
     		$data=input('post.');
             //判断是否可以添加子分类
-            if (in_array($data['cate_pid'], ['1','3'])) {
-                $this->error('ID=1或者ID=3分类不能作为上级分类！');
+            // if (in_array($data['cate_pid'], ['1','3'])) {
+            //     $this->error('ID=1或者ID=3分类不能作为上级分类！');
 
-            }
+            // }
 
             if ($data['cate_pid'] == 2) {
                 $data['cate_type']=3;

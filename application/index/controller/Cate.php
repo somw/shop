@@ -1,10 +1,10 @@
 <?php
 namespace app\index\controller;
 
-class Category
+class Cate
 {
     public function index()
     {
-        return view('category');
+        return view('cate');
     }
 }

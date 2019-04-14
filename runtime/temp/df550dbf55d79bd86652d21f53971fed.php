@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\data\index.html";i:1555209593;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555209593;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555209593;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555209593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555209593;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:64:"B:\aaaweb\shop\public/../application/admin\view\article\lst.html";i:1555209593;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555209593;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555209593;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555209593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555209593;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -325,171 +325,96 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="">链接管理</a>
+                        <a href="<?php echo url('article/lst'); ?>">文章管理</a>
                     </li>
-                    <li class="active">添加链接</li>
+                    <li class="active">添加文章</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                <a id="export" class="btn btn-sm btn-azure btn-addon" href="javascript:;" autocomplete="off">立即备份</a>
-                <a id="optimize" href="<?php echo url('data/optimize'); ?>" class="btn btn-sm btn-azure btn-addon">优化表</a>
-                <a id="repair" href="<?php echo url('data/repair'); ?>" class="btn btn-sm btn-azure btn-addon">修复表</a>
-                <a  href="<?php echo url('data/importlist'); ?>" class="btn btn-sm btn-azure btn-addon">还原数据库</a>
+                <button type="button" tooltip="添加文章" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('article/add'); ?>'">添加文章
+                </button>
+                <button type="submit" tooltip="添加文章" class="btn btn-sm btn-azure btn-addon"> 批量删除
+                </button>
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-body">
                                 <div class="flip-scroll">
-                                    <form id="export-form" method="post" action="<?php echo url('data/export'); ?>">
                                     <table class="table table-bordered table-hover">
-                                        <thead>
+                                        <thead class="">
                                             <tr>
-                                                <th style="width: 23px;" class="sorting_disabled">
-
-                                                    <label style="font-weight: 300; ">
-                                                        <input class="checkeds" checked="checked" type="checkbox" value="">
-                                                        <span class="text"></span>
-                                                    </label>
-
-                                                </th>
-                                                <th>表名</th>
-                                                <th>数据量</th>
-                                                <th>数据大小</th>
-                                                <th>创建时间</th>
-                                                <th>备份状态</th>
-                                                <th>操作</th>
-                                            </tr> 
+                                                <th class="text-center">ID</th>
+                                                <th class="text-center">文章标题</th>
+                                                <th class="text-center">所属栏目</th>
+                                                <th class="text-center">文章图片</th>
+                                                <th class="text-center">发布人</th>
+                                                <th class="text-center">发布时间</th>
+                                                <th class="text-center">是否顶置</th>
+                                                <th class="text-center">状态</th>
+                                                <th class="text-center">操作</th>
+                                            </tr>
                                         </thead>
+                                        <?php if(is_array($arlist) || $arlist instanceof \think\Collection || $arlist instanceof \think\Paginator): $i = 0; $__LIST__ = $arlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$article): $mod = ($i % 2 );++$i;?>
                                         <tbody>
-                                            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): if( count($list)==0 ) : echo "" ;else: foreach($list as $key=>$table): ?>   
-                                            <tr>            
-                                                <td>
-                                                    <label>
-                                                    <input class="ids" checked="checked" type="checkbox" name="tables[]" value="<?php echo $table['name']; ?>"><span class="text"></span></label>
+                                            <tr>
+                                                <td align="center"><?php echo $article['ar_id']; ?></td>
+                                                <td><?php echo $article['ar_title']; ?></td>
+                                                <td align="center"><?php echo $article['cate_name']; ?></td>
+                                                <td align="center">
+                                                <?php if($article['ar_img'] != ''): ?>
+                                                    <img height="30" src="/static/uploads/<?php echo $article['ar_img']; ?>">
+                                                 <?php else: ?>
+                                                    暂无图片
+                                                <?php endif; ?>
                                                 </td>
-                                                <td><?php echo $table['name']; ?></td>
-                                                <td><?php echo $table['rows']; ?></td>
-                                                <td><?php echo format_bytes($table['data_length']); ?></td>
-                                                <td><?php echo $table['create_time']; ?></td>
-                                                <td class="info" style="background: none;">未备份</td>
-                                                <td>
-                                                    <a href="<?php echo url('data/optimize',['tables'=>$table['name']]); ?>">优化表</a>&nbsp;
-                                                    <a href="<?php echo url('data/repair',['tables'=>$table['name']]); ?>">修复表</a>
+                                                <td align="center"><?php echo $article['ar_author']; ?></td>
+                                                <td><?php echo date('Y-d-m',$article['ar_addtime']); ?></td>
+                                                <td align="center">
+                                                <?php if($article['ar_top'] == 1): ?>
+                                                    是
+                                                <?php else: ?>
+                                                    否
+                                                <?php endif; ?>
+                                                </td>
+                                                <td align="center">
+                                                <?php if($article['ar_status'] == 1): ?>
+                                                    显示
+                                                <?php else: ?>
+                                                    禁用
+                                                <?php endif; ?>
+                                                </td>
+                                                <td align="center">
+                                                    <a href="<?php echo url('edit',array('ar_id'=>$article['ar_id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('ar_id'=>$article['ar_id'])); ?>')" class="btn btn-danger btn-sm shiny">
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
                                                 </td>
                                             </tr>
-                                            <?php endforeach; endif; else: echo "" ;endif; ?>
                                         </tbody>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </table>
-                                    </form>
                                 </div>
-                                <div></div>
+                                <div><?php echo $arlist->render(); ?></div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-
-    </div>
+	</div>	
 </div>
 
-    <!--Basic Scripts-->
+<!--Basic Scripts-->
 <script src="/static/admin/js/bootstrap.js"></script>
 <!--Beyond Scripts-->
 <script src="/static/admin/js/beyond.js"></script>
 </body>
 </html>
-
-<script>
-    layui.use(['jquery','layer'],function(){
-        window.$ = layui.$;
-        var layer = layui.layer;
-        //备份表方法
-        $("#export").click(function(){
-            $(this).html("正在发送备份请求...");
-            $.post(
-                $("#export-form").attr("action"),
-                $("#export-form").serialize(), 
-                function(data){
-               
-                    if(data.code==1){
-                        $("#export").html( "开始备份，请不要关闭本页面！");
-                        backup(data.data.tab);
-                        window.onbeforeunload = function(){ return "正在备份数据库，请不要关闭！" }
-                    }else{
-                        layer.tips(data.msg, "#export", {
-                            tips: [1, '#3595CC'],
-                            time: 4000
-                        });
-                        $("#export").html("立即备份");
-                    }
-              
-            }, "json");
-            return false;  
-        }); 
-
-        //递归备份表
-        function backup(tab,status){
-            status && showmsg(tab.id, "开始备份...(0%)");
-            $.get( $("#export-form").attr("action"), tab, function(data){
-                // console.log(data)
-                if(data.code==1){
-                    showmsg(tab, data.msg);
-
-                    if(!$.isPlainObject(data.data.tab)){
-                        $("#export").html("备份完成");
-                        window.onbeforeunload = function(){ return null }
-                        return;
-                    } 
-
-                    backup(data.data.tab, tab.id != data.data.tab.id);
-                } else {
-                    $("#export").html("立即备份");
-                }
-            }, "json");
-        }
-
-        //修改备份状态
-        function showmsg(tab, msg){
-            $("table tbody tr").eq(tab.id).find(".info").html(msg)
-        }
-
-        //优化表
-        $("#optimize").click(function(){
-            $.post(this.href, $("#export-form").serialize(), function(data){
-           
-                layer.tips(data.msg, "#optimize", {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-    
-            }, "json");
-            return false;    
-        });
-
-        //修复表
-        $("#repair").on("click",function(e){
-
-            $.post(this.href, $("#export-form").serialize(), function(data){
-                layer.tips(data.msg, "#repair", {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-            }, "json");
-            return false; 
-        });
-    });
-
-    $(".checkeds").click(function(){
-        if ($(this).is(':checked')) {
-            $('.ids').prop('checked','checked');
-        } else{
-            $('.ids').prop('checked',false);
-        }
-    });
-</script>
