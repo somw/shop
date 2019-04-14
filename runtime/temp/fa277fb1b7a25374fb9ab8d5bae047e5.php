@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:62:"B:\aaaweb\shop\public/../application/index\view\cate\cate.html";i:1555224403;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\cate_left.html";i:1555226704;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555224070;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:62:"B:\aaaweb\shop\public/../application/index\view\cate\cate.html";i:1555224403;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\cate_left.html";i:1555227593;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555224070;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -1173,12 +1173,12 @@ $(function(){
         <dt class="am-t"><a href="#">文章分类列表</a></dt>
         <dd class="am-c">
             <div class="menu-item active">
-                <div class="item-hd"><a href="">系统分类</a><i class="iconfont icon-down"></i></div>
+                <div class="item-hd"><a href="#">系统分类</a><i class="iconfont icon-down"></i></div>
                 <ul class="item-bd"></ul>
                 <?php if($helpCates): ?>
                 <ul class="item-bd">
                     <?php if(is_array($helpCates) || $helpCates instanceof \think\Collection || $helpCates instanceof \think\Paginator): $i = 0; $__LIST__ = $helpCates;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$three): $mod = ($i % 2 );++$i;?>
-                    <li><a href="#"><?php echo $three['cate_name']; ?> </a></li>
+                    <li><a href="<?php echo url('cate/index',array('cate_id'=>$three['cate_id'])); ?>"><?php echo $three['cate_name']; ?> </a></li>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </ul>
                 <?php endif; ?>
@@ -1188,11 +1188,11 @@ $(function(){
         <dd class="am-c">
             <?php if(is_array($comCates) || $comCates instanceof \think\Collection || $comCates instanceof \think\Paginator): $i = 0; $__LIST__ = $comCates;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cates): $mod = ($i % 2 );++$i;?>
             <div class="menu-item active">
-                <div class="item-hd"><a href="#"><?php echo $cates['cate_name']; ?></a><i class="iconfont icon-down"></i></div>
+                <div class="item-hd"><a href="<?php echo url('cate/index',array('cate_id'=>$cates['cate_id'])); ?>"><?php echo $cates['cate_name']; ?></a><i class="iconfont icon-down"></i></div>
                 <?php if($cates['children']): ?>
                 <ul class="item-bd">
                     <?php if(is_array($cates['children']) || $cates['children'] instanceof \think\Collection || $cates['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $cates['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$children): $mod = ($i % 2 );++$i;?>
-                    <li><a href="#"><?php echo $children['cate_name']; ?></a></li>
+                    <li><a href="<?php echo url('cate/index',array('cate_id'=>$children['cate_id'])); ?>"><?php echo $children['cate_name']; ?></a></li>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </ul>
                 <?php endif; ?>
