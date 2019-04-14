@@ -1,0 +1,52 @@
+{include file="common/_meta"}
+<body class="bg-ligtGary" data-type="article1">
+	<div class="site-nav" id="site-nav">
+	    <div class="w w1200">
+	    	{include file="common/site-nav"}
+	    </div>
+	</div>
+    <div class="header">
+        <div class="w w1200">
+            {include file="common/header"}
+        </div>
+    </div>
+    <div class="nav dsc-zoom" ectype="dscNav">
+        <div class="w w1200">
+            {include file="common/nav"}
+        </div>
+    </div>
+    <div class="content article-content">
+        <div class="w w1200 clearfix">
+            {include file="common/cate_left"}
+            <div class="article-main">
+                <div class="am-hd">
+                    <h2>{$arts.ar_title}</h2>
+                    <div class="extra">
+                        {volist name="position" id="cate"}
+                	    <a href="{:url('cate/index',array('cate_id'=>$cate['cate_id']))}">{$cate.cate_name}</a><i>&gt;</i>
+                        {/volist}
+                        <span>{$arts.ar_title}</span>
+                    </div>
+                </div>
+                <div class="am-bd">
+                    <div class="article-words">{$arts.ar_content}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-new">
+        {include file="common/footer"}
+    </div>
+
+    
+    
+    {include file="common/_footer"}
+    <script type="text/javascript">
+        $(function(){
+            $(".article-side .side-goods").slide({
+                effect: 'leftLoop'
+            });
+        });
+    </script>
+</body>
+</html>

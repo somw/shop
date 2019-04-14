@@ -37,7 +37,7 @@
                     <ul class="artilce-list">
                         {volist name="artRes" id="arts"}
                         <li>
-                            <h3><a href="#" title="{$arts.ar_title}">{$arts.ar_title}</a></h3>
+                            <h3><a title="{$arts.ar_title}" href="{if condition="$arts['ar_url']"} {$arts['ar_url']}" target="_black"> {else} {:url('article/index',array('ar_id'=>$arts['ar_id']))} "> {/if} {$arts.ar_title}</a></h3>
                             <p></p>
                         </li>
                         {/volist}

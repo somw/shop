@@ -23,7 +23,7 @@
 			    <h3>{$three.cate_name} </h3>
 			    <ul>
 			    	{volist name="three.arts" id="five"}
-			    	<li><a href="#">{$five.ar_title}</a></li>
+			    	<li><a href="{if condition="$five['ar_url']"} {$five.ar_url}" target="_black"> {else} {:url('article/index',array('ar_id'=>$five['ar_id']))}"> {/if} {$five.ar_title}</a></li>
 					{/volist}
 			    </ul>
 			</div>

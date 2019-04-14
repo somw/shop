@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1555221714;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\index_nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555224070;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1555221714;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\index_nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555235717;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -2187,7 +2187,7 @@ $(function(){
 			    <h3><?php echo $three['cate_name']; ?> </h3>
 			    <ul>
 			    	<?php if(is_array($three['arts']) || $three['arts'] instanceof \think\Collection || $three['arts'] instanceof \think\Paginator): $i = 0; $__LIST__ = $three['arts'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$five): $mod = ($i % 2 );++$i;?>
-			    	<li><a href="#"><?php echo $five['ar_title']; ?></a></li>
+			    	<li><a href="<?php if($five['ar_url']): ?> <?php echo $five['ar_url']; ?>" target="_black"> <?php else: ?> <?php echo url('article/index',array('ar_id'=>$five['ar_id'])); ?>"> <?php endif; ?> <?php echo $five['ar_title']; ?></a></li>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
 			    </ul>
 			</div>

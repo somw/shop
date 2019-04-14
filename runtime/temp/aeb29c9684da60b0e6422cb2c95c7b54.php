@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:62:"B:\aaaweb\shop\public/../application/index\view\cate\cate.html";i:1555236183;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\cate_left.html";i:1555227593;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555235717;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:68:"B:\aaaweb\shop\public/../application/index\view\article\article.html";i:1555243959;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\cate_left.html";i:1555227593;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555235717;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -213,7 +213,7 @@
 		</script>
 
 	</head>
-<body class="bg-ligtGary" data-type="category1">
+<body class="bg-ligtGary" data-type="article1">
 	<div class="site-nav" id="site-nav">
 	    <div class="w w1200">
 	    	<div class="fl">	
@@ -798,9 +798,9 @@
 </ul>
 	    </div>
 	</div>
-	<div class="header">
-	    <div class="w w1200">
-	        <div class="logo">
+    <div class="header">
+        <div class="w w1200">
+            <div class="logo">
     <div class="logoImg"><a href="#"><img src="/static/index/img/logo.png"></a></div>
     <div class="logoAdv"><!-- <a href="#"><img src="/static/index/img/ecsc-join.gif"></a> --></div>
 
@@ -975,8 +975,8 @@ $(function(){
 	}
 })
 </script>
-	    </div>
-	</div>
+        </div>
+    </div>
     <div class="nav dsc-zoom" ectype="dscNav">
         <div class="w w1200">
             <div class="categorys site-mast">
@@ -1203,35 +1203,22 @@ $(function(){
 </div>
             <div class="article-main">
                 <div class="am-hd">
-                    <h2><?php echo $cases['cate_name']; ?></h2>
-                    <div class="mod-list-sort fr mt10">
-                        <form action="" name="search_form" method="post" class="article_search">
-                            <div class="f-search">
-                                <input name="keywords" type="text" id="requirement" value="" class="text" placeholder="请填写搜索内容" />
-                                <input name="id" type="hidden" value="5" />
-                                <input name="cur_url" id="cur_url" type="hidden" value="" />
-                                <input type="submit" value="立即搜索" class="btn sc-redBg-btn ui-btn-submit" />
-                            </div>
-                        </form>
+                    <h2><?php echo $arts['ar_title']; ?></h2>
+                    <div class="extra">
+                        <?php if(is_array($position) || $position instanceof \think\Collection || $position instanceof \think\Paginator): $i = 0; $__LIST__ = $position;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate): $mod = ($i % 2 );++$i;?>
+                	    <a href="<?php echo url('cate/index',array('cate_id'=>$cate['cate_id'])); ?>"><?php echo $cate['cate_name']; ?></a><i>&gt;</i>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                        <span><?php echo $arts['ar_title']; ?></span>
                     </div>
                 </div>
-                
                 <div class="am-bd">
-                    <ul class="artilce-list">
-                        <?php if(is_array($artRes) || $artRes instanceof \think\Collection || $artRes instanceof \think\Paginator): $i = 0; $__LIST__ = $artRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arts): $mod = ($i % 2 );++$i;?>
-                        <li>
-                            <h3><a title="<?php echo $arts['ar_title']; ?>" href="<?php if($arts['ar_url']): ?> <?php echo $arts['ar_url']; ?>" target="_black"> <?php else: ?> <?php echo url('article/index',array('ar_id'=>$arts['ar_id'])); ?> "> <?php endif; ?> <?php echo $arts['ar_title']; ?></a></h3>
-                            <p></p>
-                        </li>
-                        <?php endforeach; endif; else: echo "" ;endif; ?>
-                    </ul>
+                    <div class="article-words"><?php echo $arts['ar_content']; ?></div>
                 </div>
             </div>
-            
         </div>
     </div>
-	<div class="footer-new">
-    	<div class="footer-new-top">
+    <div class="footer-new">
+        <div class="footer-new-top">
 	<div class="w w1200">
         <div class="service-list">
 			<div class="service-item"><i class="f-icon f-icon-qi"></i><span>七天包退</span></div>
@@ -1307,9 +1294,11 @@ $(function(){
     <input name="seller_kf_tel" value="4000-000-000" type="hidden">
     <input name="user_id" value="62" type="hidden">
 </div>
-	</div>
+    </div>
 
-    <script type="text/javascript" src="/static/index/js/suggest.js"></script>
+    
+    
+        <script type="text/javascript" src="/static/index/js/suggest.js"></script>
 	<script type="text/javascript" src="/static/index/js/scroll_city.js"></script>
 	<script type="text/javascript" src="/static/index/js/utils.js"></script>
 	<script type="text/javascript" src="/static/index/js/warehouse.js"></script>
@@ -1353,16 +1342,12 @@ $(function(){
     <script type="text/javascript" src="./js/ZeroClipboard.js"></script>
 
 
-
-<script type="text/javascript">
-	document.getElementById('cur_url').value = window.location.href;
-</script>
-<script type="text/javascript">
-	$(function(){
-		$(".article-side .side-goods").slide({
-			effect: 'leftLoop'
-		});
-	});
-</script>
+    <script type="text/javascript">
+        $(function(){
+            $(".article-side .side-goods").slide({
+                effect: 'leftLoop'
+            });
+        });
+    </script>
 </body>
 </html>

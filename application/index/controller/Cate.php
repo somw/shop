@@ -19,11 +19,15 @@ class Cate extends Base
     	$helpCates=model('cate')->showhelpCate();
     	$comCates=model('cate')->getcomCate();
     	//dump($comCates);die;
+        
+        
+
     	$this->assign([
     		'helpCates'=>$helpCates,
     		'comCates'=>$comCates,
     		'artRes'=>$artRes,//获取当前栏目及其子栏目id的文章
     		'cases'=>$cases,//获取当前基本信息
+            
     	]);
         return view('cate');
     }

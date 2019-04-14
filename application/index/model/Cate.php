@@ -20,4 +20,29 @@ class Cate extends Model
     	return $helpCates;
     }
 
+    //面包屑导航
+    public function position($cateID){
+        $data=$this->field('cate_id,cate_pid,cate_name')->select();
+        // dump($data);die;
+        return $this-> _position($data,$cateID);
+    }
+
+    private function _position($data,$cateID){
+        static $arr = array();
+        $cates = $this->field('cate_id,cate_pid,cate_name')->find($cateID);
+        // dump($cates);die;
+        if (empty($arr)) {
+            $arr[]=$cates;
+        }
+        foreach ($data as $k => $v) {
+            //dump($v);die;
+            if ($v['cate_id'] == $cates['cate_pid']) {
+                $arr[] =$v;
+                $this->_position($data,$v['cate_id']);
+                // dump($arr);die;
+            }
+        }
+        return array_reverse($arr);
+    }
+
 }
