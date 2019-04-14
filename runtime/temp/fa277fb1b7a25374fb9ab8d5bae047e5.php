@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:62:"B:\aaaweb\shop\public/../application/index\view\cate\cate.html";i:1555224403;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\cate_left.html";i:1555227593;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555224070;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:62:"B:\aaaweb\shop\public/../application/index\view\cate\cate.html";i:1555230822;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\cate_left.html";i:1555227593;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555224070;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -1203,7 +1203,7 @@ $(function(){
 </div>
             <div class="article-main">
                 <div class="am-hd">
-                    <h2>新手上路 </h2>
+                    <h2><?php echo $cases['cate_name']; ?></h2>
                     <div class="mod-list-sort fr mt10">
                         <form action="" name="search_form" method="post" class="article_search">
                             <div class="f-search">
@@ -1218,22 +1218,12 @@ $(function(){
                 
                 <div class="am-bd">
                     <ul class="artilce-list">
+                        <?php if(is_array($artRes) || $artRes instanceof \think\Collection || $artRes instanceof \think\Paginator): $i = 0; $__LIST__ = $artRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arts): $mod = ($i % 2 );++$i;?>
                         <li>
-                            <h3><a href="#" title="隐私声明">隐私声明</a></h3>
+                            <h3><a href="#" title="<?php echo $arts['ar_title']; ?>"><?php echo $arts['ar_title']; ?></a></h3>
                             <p></p>
                         </li>
-                        <li>
-                            <h3><a href="#" title="订购方式">订购方式</a></h3>
-                            <p></p>
-                        </li>
-                        <li>
-                            <h3><a href="#" title="购物流程">购物流程</a></h3>
-                            <p></p>
-                        </li>
-                        <li>
-                            <h3><a href="#" title="售后流程">售后流程</a></h3>
-                            <p></p>
-                        </li>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </ul>
                 </div>
             </div>

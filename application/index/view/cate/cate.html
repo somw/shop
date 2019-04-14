@@ -20,7 +20,7 @@
             {include file="common/cate_left"}
             <div class="article-main">
                 <div class="am-hd">
-                    <h2>新手上路 </h2>
+                    <h2>{$cases.cate_name}</h2>
                     <div class="mod-list-sort fr mt10">
                         <form action="" name="search_form" method="post" class="article_search">
                             <div class="f-search">
@@ -35,22 +35,12 @@
                 
                 <div class="am-bd">
                     <ul class="artilce-list">
+                        {volist name="artRes" id="arts"}
                         <li>
-                            <h3><a href="#" title="隐私声明">隐私声明</a></h3>
+                            <h3><a href="#" title="{$arts.ar_title}">{$arts.ar_title}</a></h3>
                             <p></p>
                         </li>
-                        <li>
-                            <h3><a href="#" title="订购方式">订购方式</a></h3>
-                            <p></p>
-                        </li>
-                        <li>
-                            <h3><a href="#" title="购物流程">购物流程</a></h3>
-                            <p></p>
-                        </li>
-                        <li>
-                            <h3><a href="#" title="售后流程">售后流程</a></h3>
-                            <p></p>
-                        </li>
+                        {/volist}
                     </ul>
                 </div>
             </div>
