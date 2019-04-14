@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:7:{s:62:"B:\aaaweb\shop\public/../application/index\view\cate\cate.html";i:1555209593;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555209593;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555209593;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555209593;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555209593;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555213682;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555209593;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:62:"B:\aaaweb\shop\public/../application/index\view\cate\cate.html";i:1555224403;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\cate_left.html";i:1555226704;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555224070;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -977,9 +977,9 @@ $(function(){
 </script>
 	    </div>
 	</div>
-<div class="nav dsc-zoom" ectype="dscNav">
-    <div class="w w1200">
-        <div class="categorys site-mast">
+    <div class="nav dsc-zoom" ectype="dscNav">
+        <div class="w w1200">
+            <div class="categorys site-mast">
     <div class="categorys-type"><a href="#" target="_blank">全部商品分类</a></div>
     <div class="categorys-tab-content">
     	<div class="categorys-items" id="cata-nav">
@@ -1164,132 +1164,82 @@ $(function(){
         <li><a href="#"  >积分商城</a></li>
 	</ul>
 </div>
+        </div>
     </div>
+    <div class="content article-content">
+        <div class="w w1200 clearfix">
+            <div class="article-side">
+    <dl class="article-menu">
+        <dt class="am-t"><a href="#">文章分类列表</a></dt>
+        <dd class="am-c">
+            <div class="menu-item active">
+                <div class="item-hd"><a href="">系统分类</a><i class="iconfont icon-down"></i></div>
+                <ul class="item-bd"></ul>
+                <?php if($helpCates): ?>
+                <ul class="item-bd">
+                    <?php if(is_array($helpCates) || $helpCates instanceof \think\Collection || $helpCates instanceof \think\Paginator): $i = 0; $__LIST__ = $helpCates;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$three): $mod = ($i % 2 );++$i;?>
+                    <li><a href="#"><?php echo $three['cate_name']; ?> </a></li>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
+                <?php endif; ?>
+            </div>
+        </dd>
+        
+        <dd class="am-c">
+            <?php if(is_array($comCates) || $comCates instanceof \think\Collection || $comCates instanceof \think\Paginator): $i = 0; $__LIST__ = $comCates;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cates): $mod = ($i % 2 );++$i;?>
+            <div class="menu-item active">
+                <div class="item-hd"><a href="#"><?php echo $cates['cate_name']; ?></a><i class="iconfont icon-down"></i></div>
+                <?php if($cates['children']): ?>
+                <ul class="item-bd">
+                    <?php if(is_array($cates['children']) || $cates['children'] instanceof \think\Collection || $cates['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $cates['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$children): $mod = ($i % 2 );++$i;?>
+                    <li><a href="#"><?php echo $children['cate_name']; ?></a></li>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
+                <?php endif; ?>
+            </div>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </dd>
+    </dl>
 </div>
-<div class="content article-content">
-    <div class="w w1200 clearfix">
-        <div class="article-side">
-            <dl class="article-menu">
-                <dt class="am-t"><a href="#">文章分类列表</a></dt>
-                <dd class="am-c">
-<div class="menu-item active">
-    <div class="item-hd"><a href="">系统分类</a><i class="iconfont icon-down"></i></div>
-        <ul class="item-bd">
-            </ul>
-        <ul class="item-bd">
-                <li><a href="#">新手上路 </a></li>
-                <li><a href="#">配送与支付 </a></li>
-                <li><a href="#">服务保证 </a></li>
-                <li><a href="#">联系我们 </a></li>
-                <li><a href="#">会员中心</a></li>
-            </ul>
-    </div>
-                </dd>
+            <div class="article-main">
+                <div class="am-hd">
+                    <h2>新手上路 </h2>
+                    <div class="mod-list-sort fr mt10">
+                        <form action="" name="search_form" method="post" class="article_search">
+                            <div class="f-search">
+                                <input name="keywords" type="text" id="requirement" value="" class="text" placeholder="请填写搜索内容" />
+                                <input name="id" type="hidden" value="5" />
+                                <input name="cur_url" id="cur_url" type="hidden" value="" />
+                                <input type="submit" value="立即搜索" class="btn sc-redBg-btn ui-btn-submit" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 
-                <dd class="am-c">
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">3G资讯</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">站内快讯</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">商城公告</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">商家入驻流程说明</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">商家入驻商家说明</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">App</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-                <li><a href="#">ios</a></li>
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">发票问题</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">公告</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">促销</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-<div class="menu-item active">
-    <div class="item-hd"><a href="#">微分销</a><i class="iconfont icon-down"></i></div>
-    <ul class="item-bd">
-            </ul>
-</div>
-                </dd>
-                
-            </dl>
-</div>
-        <div class="article-main">
-            <div class="am-hd">
-                <h2>新手上路 </h2>
-                <div class="mod-list-sort fr mt10">
-                <form action="" name="search_form" method="post" class="article_search">
-<div class="f-search">
-    <input name="keywords" type="text" id="requirement" value="" class="text" placeholder="请填写搜索内容" />
-    <input name="id" type="hidden" value="5" />
-    <input name="cur_url" id="cur_url" type="hidden" value="" />
-    <input type="submit" value="立即搜索" class="btn sc-redBg-btn ui-btn-submit" />
-</div>
-                </form>
+                <div class="am-bd">
+                    <ul class="artilce-list">
+                        <li>
+                            <h3><a href="#" title="隐私声明">隐私声明</a></h3>
+                            <p></p>
+                        </li>
+                        <li>
+                            <h3><a href="#" title="订购方式">订购方式</a></h3>
+                            <p></p>
+                        </li>
+                        <li>
+                            <h3><a href="#" title="购物流程">购物流程</a></h3>
+                            <p></p>
+                        </li>
+                        <li>
+                            <h3><a href="#" title="售后流程">售后流程</a></h3>
+                            <p></p>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="am-bd">
-                <ul class="artilce-list">
-<li>
-    <h3><a href="#" title="隐私声明">隐私声明</a></h3>
-    <p></p>
-</li>
-<li>
-    <h3><a href="#" title="订购方式">订购方式</a></h3>
-    <p></p>
-</li>
-<li>
-    <h3><a href="#" title="购物流程">购物流程</a></h3>
-    <p></p>
-</li>
-<li>
-    <h3><a href="#" title="售后流程">售后流程</a></h3>
-    <p></p>
-</li>
-                </ul>
-            </div>
-            
-<script type="Text/Javascript" language="JavaScript">
-<!--
-function selectPage(sel)
-{
-  sel.form.submit();
-}
-//-->
-</script>
         </div>
-        
     </div>
-</div>
 	<div class="footer-new">
     	<div class="footer-new-top">
 	<div class="w w1200">
@@ -1311,14 +1261,16 @@ function selectPage(sel)
 <div class="footer-new-con">
 	<div class="fnc-warp">
         <div class="help-list">
+        	<?php if(is_array($bases) || $bases instanceof \think\Collection || $bases instanceof \think\Paginator): $i = 0; $__LIST__ = $bases;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$three): $mod = ($i % 2 );++$i;?>
 			<div class="help-item">
-			    <h3>新手上路 </h3>
+			    <h3><?php echo $three['cate_name']; ?> </h3>
 			    <ul>
-			    	<li><a href="#">售后流程</a></li>
-					<li><a href="#">购物流程</a></li>
-					<li><a href="#">订购方式</a></li>
+			    	<?php if(is_array($three['arts']) || $three['arts'] instanceof \think\Collection || $three['arts'] instanceof \think\Paginator): $i = 0; $__LIST__ = $three['arts'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$five): $mod = ($i % 2 );++$i;?>
+			    	<li><a href="#"><?php echo $five['ar_title']; ?></a></li>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
 			    </ul>
 			</div>
+			<?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         <div class="qr-code">
 			<div class="qr-item qr-item-first">

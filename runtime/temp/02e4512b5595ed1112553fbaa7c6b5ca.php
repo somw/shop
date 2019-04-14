@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1554546703;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1554535899;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1554532484;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1554542303;s:59:"B:\aaaweb\shop\application\index\view\common\index_nav.html";i:1554543228;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1554546699;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1554545109;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1554525139;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1555221714;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555221714;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\index_nav.html";i:1555221714;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1555221714;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555224070;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555221714;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -2182,46 +2182,16 @@ $(function(){
 <div class="footer-new-con">
 	<div class="fnc-warp">
         <div class="help-list">
+        	<?php if(is_array($bases) || $bases instanceof \think\Collection || $bases instanceof \think\Paginator): $i = 0; $__LIST__ = $bases;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$three): $mod = ($i % 2 );++$i;?>
 			<div class="help-item">
-			    <h3>新手上路 </h3>
+			    <h3><?php echo $three['cate_name']; ?> </h3>
 			    <ul>
-			    	<li><a href="#">售后流程</a></li>
-					<li><a href="#">购物流程</a></li>
-					<li><a href="#">订购方式</a></li>
+			    	<?php if(is_array($three['arts']) || $three['arts'] instanceof \think\Collection || $three['arts'] instanceof \think\Paginator): $i = 0; $__LIST__ = $three['arts'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$five): $mod = ($i % 2 );++$i;?>
+			    	<li><a href="#"><?php echo $five['ar_title']; ?></a></li>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
 			    </ul>
 			</div>
-			<div class="help-item">
-			    <h3>配送与支付 </h3>
-			    <ul>
-			        <li><a href="#">货到付款区域</a></li>
-					<li><a href="#">配送支付智能查询</a></li>
-					<li><a href="#">支付方式说明</a></li>
-			    </ul>
-			</div>
-			<div class="help-item">
-			    <h3>会员中心</h3>
-			    <ul>
-			        <li><a href="#">资金管理</a></li>
-					<li><a href="#">我的收藏</a></li>
-					<li><a href="#">我的订单</a></li>
-			    </ul>
-			</div>
-			<div class="help-item">
-			    <h3>服务保证 </h3>
-			    <ul>
-			    	<li><a href="#">退换货原则</a></li>
-					<li><a href="#">售后服务保证</a></li>
-					<li><a href="#">产品质量保证</a></li>
-			    </ul>
-			</div>
-			<div class="help-item">
-			    <h3>联系我们 </h3>
-			    <ul>
-			    	<li><a href="#">网站故障报告</a></li>
-					<li><a href="#">选机咨询</a></li>
-					<li><a href="#">投诉与建议</a></li>
-				</ul>
-			</div>
+			<?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         <div class="qr-code">
 			<div class="qr-item qr-item-first">

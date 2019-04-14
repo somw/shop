@@ -18,14 +18,16 @@
 <div class="footer-new-con">
 	<div class="fnc-warp">
         <div class="help-list">
+        	{volist name="bases" id="three"}
 			<div class="help-item">
-			    <h3>新手上路 </h3>
+			    <h3>{$three.cate_name} </h3>
 			    <ul>
-			    	<li><a href="#">售后流程</a></li>
-					<li><a href="#">购物流程</a></li>
-					<li><a href="#">订购方式</a></li>
+			    	{volist name="three.arts" id="five"}
+			    	<li><a href="#">{$five.ar_title}</a></li>
+					{/volist}
 			    </ul>
 			</div>
+			{/volist}
         </div>
         <div class="qr-code">
 			<div class="qr-item qr-item-first">
