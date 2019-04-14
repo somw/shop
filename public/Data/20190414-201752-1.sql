@@ -6,7 +6,7 @@
 -- Database : tpshop
 -- 
 -- Part : #1
--- Date : 2019-04-06 19:01:15
+-- Date : 2019-04-14 20:17:52
 -- -----------------------------
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -31,13 +31,26 @@ CREATE TABLE `tp_article` (
   `ar_cateid` smallint(6) NOT NULL COMMENT '所属栏目',
   `ar_addtime` int(10) NOT NULL COMMENT '发布时间',
   PRIMARY KEY (`ar_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_article`
 -- -----------------------------
-INSERT INTO `tp_article` VALUES ('17', '爱爱爱', '', '', '', '', '', '20180429\\281efeb22e3dccd1c74cfd6166d012e9.jpg', '', '0', '0', '1', '1526433625');
-INSERT INTO `tp_article` VALUES ('18', '哈哈哈哈', '', '', '', '', '', '', '<p>gggg<br/></p><p><img src=\"/static/ueditor/image/20180502/1525263020139255.jpg\" style=\"\" title=\"1525263020139255.jpg\"/></p>', '0', '1', '3', '1525263509');
+INSERT INTO `tp_article` VALUES ('17', '售后流程', '', '', '', '', '', '20180429\\281efeb22e3dccd1c74cfd6166d012e9.jpg', '<p>售后流程<br/></p>', '0', '1', '3', '1555213229');
+INSERT INTO `tp_article` VALUES ('18', '购物流程', '', '', '', '', '', '', '<p>购物流程</p><p><img src=\"/static/ueditor/image/20180502/1525263020139255.jpg\" style=\"\" title=\"1525263020139255.jpg\"/></p>', '0', '1', '3', '1555213253');
+INSERT INTO `tp_article` VALUES ('19', '订购方式', '', '', '', '', '', '', '<p>订购方式<br/></p>', '0', '1', '3', '1555213489');
+INSERT INTO `tp_article` VALUES ('20', '货到付款区域', '', '', '', '', '', '', '<p>货到付款区域</p>', '0', '1', '4', '1555213535');
+INSERT INTO `tp_article` VALUES ('21', '配送支付智能查询', '', '', '', '', '', '', '<p>配送支付智能查询</p>', '0', '1', '4', '1555213550');
+INSERT INTO `tp_article` VALUES ('22', '支付方式说明', '', '', '', '', '', '', '<p>支付方式说明</p>', '0', '1', '4', '1555213562');
+INSERT INTO `tp_article` VALUES ('23', '资金管理', '', '', '', '', '', '', '<p>资金管理</p>', '0', '1', '5', '1555213572');
+INSERT INTO `tp_article` VALUES ('24', '我的收藏', '', '', '', '', '', '', '<p>我的收藏</p>', '0', '1', '5', '1555213581');
+INSERT INTO `tp_article` VALUES ('25', '我的订单', '', '', '', '', '', '', '<p>我的订单</p>', '0', '1', '5', '1555213591');
+INSERT INTO `tp_article` VALUES ('26', '退换货原则', '', '', '', '', '', '', '<p>退换货原则</p>', '0', '1', '10', '1555213601');
+INSERT INTO `tp_article` VALUES ('27', '售后服务保证', '', '', '', '', '', '', '<p>售后服务保证</p>', '0', '1', '10', '1555213611');
+INSERT INTO `tp_article` VALUES ('28', '产品质量保证', '', '', '', '', '', '', '<p>产品质量保证</p>', '0', '1', '10', '1555213621');
+INSERT INTO `tp_article` VALUES ('29', '网站故障报告', '', '', '', '', '', '', '<p>网站故障报告</p>', '0', '1', '11', '1555213632');
+INSERT INTO `tp_article` VALUES ('30', '选机咨询', '', '', '', '', '', '', '<p>选机咨询</p>', '0', '1', '11', '1555213642');
+INSERT INTO `tp_article` VALUES ('31', '投诉与建议', '', '', '', '', 'http://www.baidu.com', '', '<p>投诉与建议</p>', '0', '1', '11', '1555234824');
 
 -- -----------------------------
 -- Table structure for `tp_attr`
@@ -103,16 +116,30 @@ CREATE TABLE `tp_cate` (
   `cate_pid` tinyint(1) NOT NULL DEFAULT '0' COMMENT '上级栏目ID',
   `cate_son` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '1是 0 否   是否允许添加子栏目',
   PRIMARY KEY (`cate_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_cate`
 -- -----------------------------
-INSERT INTO `tp_cate` VALUES ('1', '系统', '1', '', '', '1', '50', '0', '1');
-INSERT INTO `tp_cate` VALUES ('2', '网店帮助分类', '2', '', '', '1', '50', '1', '1');
-INSERT INTO `tp_cate` VALUES ('3', '新手上路', '3', '', '', '1', '50', '2', '0');
-INSERT INTO `tp_cate` VALUES ('4', '配送与支付', '3', '', '', '0', '50', '2', '0');
-INSERT INTO `tp_cate` VALUES ('5', '网店信息', '4', '', '', '1', '50', '1', '0');
+INSERT INTO `tp_cate` VALUES ('1', '系统', '1', '', '', '1', '1', '0', '1');
+INSERT INTO `tp_cate` VALUES ('2', '网店帮助分类', '2', '', '', '1', '10', '1', '1');
+INSERT INTO `tp_cate` VALUES ('3', '新手上路', '3', '', '', '1', '11', '2', '0');
+INSERT INTO `tp_cate` VALUES ('4', '配送与支付', '3', '', '', '1', '12', '2', '0');
+INSERT INTO `tp_cate` VALUES ('5', '会员中心', '3', '', '', '1', '13', '2', '0');
+INSERT INTO `tp_cate` VALUES ('10', '服务保证', '3', '', '', '1', '14', '2', '1');
+INSERT INTO `tp_cate` VALUES ('11', '联系我们', '3', '', '', '1', '15', '2', '1');
+INSERT INTO `tp_cate` VALUES ('12', '3G资讯', '5', '', '', '1', '20', '0', '1');
+INSERT INTO `tp_cate` VALUES ('13', '站内快讯', '5', '', '', '1', '30', '0', '1');
+INSERT INTO `tp_cate` VALUES ('14', '商城公告', '5', '', '', '1', '40', '0', '1');
+INSERT INTO `tp_cate` VALUES ('15', '商家入驻流程说明', '5', '', '', '1', '50', '0', '1');
+INSERT INTO `tp_cate` VALUES ('16', '商家入驻商家说明', '5', '', '', '1', '60', '0', '1');
+INSERT INTO `tp_cate` VALUES ('17', 'App', '5', '', '', '1', '70', '0', '1');
+INSERT INTO `tp_cate` VALUES ('18', '发票问题', '5', '', '', '1', '80', '0', '1');
+INSERT INTO `tp_cate` VALUES ('19', '公告', '5', '', '', '1', '90', '0', '1');
+INSERT INTO `tp_cate` VALUES ('20', '促销', '5', '', '', '1', '100', '0', '1');
+INSERT INTO `tp_cate` VALUES ('21', '微分销', '5', '', '', '1', '110', '0', '1');
+INSERT INTO `tp_cate` VALUES ('22', 'ios', '5', '', '', '1', '71', '17', '1');
+INSERT INTO `tp_cate` VALUES ('23', 'android', '5', '', '', '1', '72', '17', '1');
 
 -- -----------------------------
 -- Table structure for `tp_cates`
