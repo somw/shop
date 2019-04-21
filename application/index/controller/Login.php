@@ -1,7 +1,7 @@
 <?php
 namespace app\index\controller;
 
-class Login
+class Login extends Base
 {
     public function index()
     {

@@ -44,15 +44,16 @@
 <div class="footer-new-bot">
 	<div class="w w1200">
         <p class="copyright_links">
-			<a href="{:url('index/Index/index')}">首页</a><span class="spacer"></span>
-			{volist name="navRes.bottom" id="nav_bottom"}
-			<a {if condition="$nav_bottom['nav_open'] eq 1"} target="_black" {/if} href="{$nav_bottom.nav_url}">{$nav_bottom.nav_name}</a><span class="spacer"></span>
+			<a href="{:url('index/Index/index')}">首页</a>
+			{volist name="infos" id="arts"}
+			<span class="spacer"></span>
+			<a {if condition="$arts['ar_url'] neq ''"} target="_black" {/if} href="{:url('index/Article/index',array('ar_id'=>$arts['ar_id']))}">{$arts.ar_title}</a>
 			{/volist}
         </p>
     
     	<p>
-    		<span>©&nbsp;2015-2017&nbsp;tongpankt.com&nbsp;版权所有&nbsp;&nbsp;</span><span>ICP备案证书号:</span>
-    		<a href="#">豫ICP备*****号-1</a>&nbsp;<a href="#">POWERED by童攀课堂</a>
+    		<span>{$configs.banquan}&nbsp;&nbsp;</span><span>{$configs.icpbenan}</span>
+    		<a href="#">{$configs.icp}</a>&nbsp;<a href="#">{$configs.powered}</a>
     	</p>
     	<p class="copyright_auth">&nbsp;</p>
 	</div>

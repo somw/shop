@@ -15,4 +15,11 @@ class Article extends Model
     	return $helpCateArs;
     }
 
+
+    public function getshowInfo(){
+        $getConf = $this->where('ar_cateid','=',24)->field('ar_id,ar_url,ar_title')->select();
+        return $getConf;
+    }
+
+
 }

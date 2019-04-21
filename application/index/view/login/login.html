@@ -67,12 +67,15 @@
 		<div class="dsc-copyright">
 			<div class="w w1200"> 
 				<p class="footer-ecscinfo pb10">
-					<a href="#" >首页</a> | <a href="#" >隐私保护</a> | <a href="#" >联系我们</a> | <a href="#" >免责条款</a> | <a href="#" >公司简介</a> | <a href="#" >意见反馈</a>
+					<a href="{:url('index/Index/index')}">首页</a>
+					{volist name="infos" id="arts"}
+					<span>| </span>
+					<a {if condition="$arts['ar_url'] neq ''"} target="_black" {/if} href="{:url('index/Article/index',array('ar_id'=>$arts['ar_id']))}">{$arts.ar_title}</a>
+					{/volist}
 				</p>
 				<p>
-					<span>©&nbsp;2015-2017&nbsp;tongpankt.com&nbsp;版权所有&nbsp;&nbsp;</span>
-				 	<span>ICP备案证书号:</span>
-				 	<a href="#">豫ICP备*****号-1</a>&nbsp;<a href="#">POWERED by童攀课堂</a>
+					<span>{$configs.banquan}&nbsp;&nbsp;</span><span>{$configs.icpbenan}</span>
+    				<a href="#">{$configs.icp}</a>&nbsp;<a href="#">{$configs.powered}</a>
 				 </p>
 			</div>
 		</div>

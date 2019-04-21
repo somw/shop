@@ -6,7 +6,7 @@
 -- Database : tpshop
 -- 
 -- Part : #1
--- Date : 2019-04-21 16:24:16
+-- Date : 2019-04-21 20:13:00
 -- -----------------------------
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -31,7 +31,7 @@ CREATE TABLE `tp_article` (
   `ar_cateid` smallint(6) NOT NULL COMMENT '所属栏目',
   `ar_addtime` int(10) NOT NULL COMMENT '发布时间',
   PRIMARY KEY (`ar_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_article`
@@ -51,6 +51,11 @@ INSERT INTO `tp_article` VALUES ('28', '产品质量保证', '', '', '', '', '',
 INSERT INTO `tp_article` VALUES ('29', '网站故障报告', '', '', '', '', '', '', '<p>网站故障报告</p>', '0', '1', '11', '1555213632');
 INSERT INTO `tp_article` VALUES ('30', '选机咨询', '', '', '', '', '', '', '<p>选机咨询</p>', '0', '1', '11', '1555213642');
 INSERT INTO `tp_article` VALUES ('31', '投诉与建议', '', '', '', '', 'http://www.baidu.com', '', '<p>投诉与建议</p>', '0', '1', '11', '1555234824');
+INSERT INTO `tp_article` VALUES ('32', '隐私保护 ', '', '', '', '', '', '', '<p>隐私保护 <br/>隐私保护 <br/>隐私保护 <br/>隐私保护 <br/><br/></p>', '0', '1', '24', '1555846252');
+INSERT INTO `tp_article` VALUES ('33', '联系我们', '', '', '', '', '', '', '<p>联系我们联系我们联系我们联系我们联系我们</p>', '0', '1', '24', '1555846280');
+INSERT INTO `tp_article` VALUES ('34', '免责条款', '', '', '', '', '', '', '<p>免责条款免责条款免责条款免责条款</p>', '0', '1', '24', '1555846300');
+INSERT INTO `tp_article` VALUES ('35', '公司简介', '', '', '', '', '', '', '<p><a target=\"_black\" href=\"http://m.com/\"></a>公司简介公司简介公司简介公司简介公司简介</p>', '0', '1', '24', '1555846321');
+INSERT INTO `tp_article` VALUES ('36', '意见反馈', '', '', '', '', '', '', '<p>意见反馈意见反馈意见反馈意见反馈</p>', '0', '1', '24', '1555846342');
 
 -- -----------------------------
 -- Table structure for `tp_attr`
@@ -116,7 +121,7 @@ CREATE TABLE `tp_cate` (
   `cate_pid` tinyint(1) NOT NULL DEFAULT '0' COMMENT '上级栏目ID',
   `cate_son` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '1是 0 否   是否允许添加子栏目',
   PRIMARY KEY (`cate_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_cate`
@@ -140,6 +145,7 @@ INSERT INTO `tp_cate` VALUES ('20', '促销', '5', '', '', '1', '100', '0', '1')
 INSERT INTO `tp_cate` VALUES ('21', '微分销', '5', '', '', '1', '110', '0', '1');
 INSERT INTO `tp_cate` VALUES ('22', 'ios', '5', '', '', '1', '71', '17', '1');
 INSERT INTO `tp_cate` VALUES ('23', 'android', '5', '', '', '1', '72', '17', '1');
+INSERT INTO `tp_cate` VALUES ('24', '网站信息', '4', '', '', '1', '50', '0', '1');
 
 -- -----------------------------
 -- Table structure for `tp_cates`
@@ -177,7 +183,7 @@ CREATE TABLE `tp_conf` (
   `conf_default` varchar(255) NOT NULL COMMENT '默认值',
   `conf_sort` varchar(255) NOT NULL DEFAULT '50',
   PRIMARY KEY (`conf_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_conf`
@@ -190,6 +196,12 @@ INSERT INTO `tp_conf` VALUES ('5', 'twowm', '二维码', 'file', '1', '', '20180
 INSERT INTO `tp_conf` VALUES ('6', 'LOGO', '网站LOGO', 'file', '1', '', '', '50');
 INSERT INTO `tp_conf` VALUES ('7', 'huiyuan', '会员注册', 'select', '1', '启动,关闭', '关闭', '50');
 INSERT INTO `tp_conf` VALUES ('8', 'selection', '多选测试', 'checkbox', '1', '选项1,选项2,选项3,选项4', '选项4', '50');
+INSERT INTO `tp_conf` VALUES ('9', 'search_keywords', '搜索关键词', 'textarea', '1', '', '周大福,内衣,Five Plus,手机', '50');
+INSERT INTO `tp_conf` VALUES ('10', 'search_value', '搜索框默认值', 'input', '1', '', '内衣111', '50');
+INSERT INTO `tp_conf` VALUES ('11', 'banquan', '版权所有', 'textarea', '1', '', '© 2015-2017 tongpankt.com 版权所有', '50');
+INSERT INTO `tp_conf` VALUES ('12', 'icpbenan', 'ICP备案名称', 'textarea', '1', '', 'ICP备案证书号:', '50');
+INSERT INTO `tp_conf` VALUES ('13', 'icp', 'ICP备案证书号', 'textarea', '1', '', '豫ICP备*****号-1', '50');
+INSERT INTO `tp_conf` VALUES ('14', 'powered', '网站作者', 'textarea', '1', '', 'POWERED by童攀课堂', '50');
 
 -- -----------------------------
 -- Table structure for `tp_goods`

@@ -1,12 +1,13 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1555832715;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555809110;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555830374;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555809110;s:59:"B:\aaaweb\shop\application\index\view\common\index_nav.html";i:1555832739;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1555809110;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555832040;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555809110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1555848227;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555841144;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555830374;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555847887;s:59:"B:\aaaweb\shop\application\index\view\common\index_nav.html";i:1555832739;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1555809110;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555847568;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555809110;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="Keywords" content="童攀课堂-php课堂-www.tongpankt.com" />
-		<meta name="Description" content="童攀课堂-php课堂-www.tongpankt.com" />
-		<title>交流群：383432579</title>
+		
+		<title><?php echo $configs['webname']; ?></title>
+		<meta name="Keywords" content="<?php echo $configs['webname']; ?>" />
+		<meta name="Description" content="<?php echo $configs['webname']; ?>" />
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="stylesheet" type="text/css" href="/static/index/css/base.css">
 		<link rel="stylesheet" type="text/css" href="/static/index/css/style.css">
@@ -807,7 +808,7 @@
 <div class="dsc-search">
 	<div class="form">
 		<form id="searchForm" name="searchForm" method="get" action="search.php" onsubmit="return checkSearchForm()" class="search-form">
-		    <input autocomplete="off" onkeyup="lookup(this.value);" name="keywords" id="keyword" value="内衣" class="search-text" type="text">
+		    <input autocomplete="off" onkeyup="lookup(this.value);" name="keywords" id="keyword" value="<?php echo $configs['search_value']; ?>" class="search-text" type="text">
 		    <input name="store_search_cmt" value="0" type="hidden">
 		    <button type="submit" class="button button-goods" onclick="checkstore_search_cmt(0)">搜商品</button>
 
@@ -816,10 +817,11 @@
 
 		</form>
 		<ul class="keyword">
-			<li><a href="#">周大福</a></li>
-			<li><a href="#">内衣</a></li>
-			<li><a href="#">Five Plus</a></li>
-			<li><a href="#">手机</a></li>
+			<?php 
+				$arr=explode(',',$configs['search_keywords']);
+				foreach($arr as $k => $v):?>
+			<li><a href="#"><?php echo $v;?></a></li>
+			<?php endforeach;?>
 		</ul>
 		<div class="suggestions_box" id="suggestions" style="display:none;">
 		    <div class="suggestions_list" id="auto_suggestions_list">
@@ -2198,15 +2200,16 @@ $(function(){
 <div class="footer-new-bot">
 	<div class="w w1200">
         <p class="copyright_links">
-			<a href="<?php echo url('index/Index/index'); ?>">首页</a><span class="spacer"></span>
-			<?php if(is_array($navRes['bottom']) || $navRes['bottom'] instanceof \think\Collection || $navRes['bottom'] instanceof \think\Paginator): $i = 0; $__LIST__ = $navRes['bottom'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav_bottom): $mod = ($i % 2 );++$i;?>
-			<a <?php if($nav_bottom['nav_open'] == 1): ?> target="_black" <?php endif; ?> href="<?php echo $nav_bottom['nav_url']; ?>"><?php echo $nav_bottom['nav_name']; ?></a><span class="spacer"></span>
+			<a href="<?php echo url('index/Index/index'); ?>">首页</a>
+			<?php if(is_array($infos) || $infos instanceof \think\Collection || $infos instanceof \think\Paginator): $i = 0; $__LIST__ = $infos;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arts): $mod = ($i % 2 );++$i;?>
+			<span class="spacer"></span>
+			<a <?php if($arts['ar_url'] != ''): ?> target="_black" <?php endif; ?> href="<?php echo url('index/Article/index',array('ar_id'=>$arts['ar_id'])); ?>"><?php echo $arts['ar_title']; ?></a>
 			<?php endforeach; endif; else: echo "" ;endif; ?>
         </p>
     
     	<p>
-    		<span>©&nbsp;2015-2017&nbsp;tongpankt.com&nbsp;版权所有&nbsp;&nbsp;</span><span>ICP备案证书号:</span>
-    		<a href="#">豫ICP备*****号-1</a>&nbsp;<a href="#">POWERED by童攀课堂</a>
+    		<span><?php echo $configs['banquan']; ?>&nbsp;&nbsp;</span><span><?php echo $configs['icpbenan']; ?></span>
+    		<a href="#"><?php echo $configs['icp']; ?></a>&nbsp;<a href="#"><?php echo $configs['powered']; ?></a>
     	</p>
     	<p class="copyright_auth">&nbsp;</p>
 	</div>
@@ -2273,62 +2276,63 @@ $(function(){
 
 
     
-    <script type="text/javascript">
-	$(function(){
-		//顶级分类页模板id
-		//tpl==0 默认模板、tpl==1 女装模板、tpl==2 家电模板、tpl==3 食品模板
-		var tpl = $("input[name='tpl']").val();
-		var length = $(".catetop-banner .bd").find("li").length;
-		
-		//轮播图
-		if(length>1){
-			if(tpl == 1){
-				$(".catetop-banner").slide({titCell:".cloth-hd ul",mainCell:".bd ul",effect:"fold",interTime:3500,delayTime:500,autoPlay:true,autoPage:true,trigger:"mouseover"});
-			}else if(tpl == 3){
-				$(".catetop-banner").slide({titCell:".food-hd ul",mainCell:".bd ul",effect:"fold",interTime:3500,delayTime:500,autoPlay:true,autoPage:true,trigger:"mouseover"});
-			}else{
-				$(".catetop-banner").slide({titCell:".hd ul",mainCell:".bd ul",effect:"fold",interTime:3500,delayTime:500,autoPlay:true,autoPage:true,trigger:"mouseover"});
-			}
-		}else{
-			$(".catetop-banner .hd").hide();
-		}
-		
-		if(tpl == 1){
-			//女装模板 精品大牌
-			var length2 = $(".selectbrand-slide .bd").find("li").length;
-			if(length2>5){
-				$(".selectbrand-slide").slide({mainCell:".bd ul",titCell:".hd ul",effect:"left",pnLoop: false,vis: 5,scroll: 5,autoPage:"<li></li>"});
-				$(".selectbrand-slide .prev,.selectbrand-slide .next").show();
-			}else{
-				$(".selectbrand-slide .prev,.selectbrand-slide .next").hide();
-			}
-		}else if(tpl == 2){
-			$(".hotrecommend").slide({hd:".hr-slide-hd ul",effect:"fold"});
-		}else if(tpl == 0){
-			$(".toprank").slide({effect:"fold",titCell:".hd ul li"});
-			$(".catetop-brand .brand-slide").slide({mainCell: '.bs-bd ul',effect: 'left',vis: 10,scroll: 10,autoPage: true});
-			$.catetopLift();
-			
-			if($("input[name='history']").val() == 0){
-				$(".lift-history").hide();
-			}else{
-				$(".lift-history").show();
-			}
-		}
-		
-		//随手购
-		if($(".atwillgo-slide .bd").find("li").length > 6){
-			$(".atwillgo-slide").slide({mainCell:".bd ul",titCell:".hd ul",effect:"left",pnLoop:false,vis: 6,scroll: 6,autoPage:"<li></li>"});
-		}else{
-			$(".atwillgo-slide").find(".prev,.next").hide();
-		}
-		
-		//楼层异步加载封装函数调用
-		if(tpl != 0){
-			$.catTopLoad(tpl);
-		}
-	});
-    </script>
 
 </body>
 </html>
+
+<script type="text/javascript">
+$(function(){
+	//顶级分类页模板id
+	//tpl==0 默认模板、tpl==1 女装模板、tpl==2 家电模板、tpl==3 食品模板
+	var tpl = $("input[name='tpl']").val();
+	var length = $(".catetop-banner .bd").find("li").length;
+	
+	//轮播图
+	if(length>1){
+		if(tpl == 1){
+			$(".catetop-banner").slide({titCell:".cloth-hd ul",mainCell:".bd ul",effect:"fold",interTime:3500,delayTime:500,autoPlay:true,autoPage:true,trigger:"mouseover"});
+		}else if(tpl == 3){
+			$(".catetop-banner").slide({titCell:".food-hd ul",mainCell:".bd ul",effect:"fold",interTime:3500,delayTime:500,autoPlay:true,autoPage:true,trigger:"mouseover"});
+		}else{
+			$(".catetop-banner").slide({titCell:".hd ul",mainCell:".bd ul",effect:"fold",interTime:3500,delayTime:500,autoPlay:true,autoPage:true,trigger:"mouseover"});
+		}
+	}else{
+		$(".catetop-banner .hd").hide();
+	}
+	
+	if(tpl == 1){
+		//女装模板 精品大牌
+		var length2 = $(".selectbrand-slide .bd").find("li").length;
+		if(length2>5){
+			$(".selectbrand-slide").slide({mainCell:".bd ul",titCell:".hd ul",effect:"left",pnLoop: false,vis: 5,scroll: 5,autoPage:"<li></li>"});
+			$(".selectbrand-slide .prev,.selectbrand-slide .next").show();
+		}else{
+			$(".selectbrand-slide .prev,.selectbrand-slide .next").hide();
+		}
+	}else if(tpl == 2){
+		$(".hotrecommend").slide({hd:".hr-slide-hd ul",effect:"fold"});
+	}else if(tpl == 0){
+		$(".toprank").slide({effect:"fold",titCell:".hd ul li"});
+		$(".catetop-brand .brand-slide").slide({mainCell: '.bs-bd ul',effect: 'left',vis: 10,scroll: 10,autoPage: true});
+		$.catetopLift();
+		
+		if($("input[name='history']").val() == 0){
+			$(".lift-history").hide();
+		}else{
+			$(".lift-history").show();
+		}
+	}
+	
+	//随手购
+	if($(".atwillgo-slide .bd").find("li").length > 6){
+		$(".atwillgo-slide").slide({mainCell:".bd ul",titCell:".hd ul",effect:"left",pnLoop:false,vis: 6,scroll: 6,autoPage:"<li></li>"});
+	}else{
+		$(".atwillgo-slide").find(".prev,.next").hide();
+	}
+	
+	//楼层异步加载封装函数调用
+	if(tpl != 0){
+		$.catTopLoad(tpl);
+	}
+});
+</script>
