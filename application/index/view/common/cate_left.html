@@ -8,7 +8,7 @@
                 {if condition="$helpCates"}
                 <ul class="item-bd">
                     {volist name="helpCates" id="three"}
-                    <li><a href="{:url('cate/index',array('cate_id'=>$three['cate_id']))}">{$three.cate_name} </a></li>
+                    <li><a href="{:url('index/cate/index',array('cate_id'=>$three['cate_id']))}">{$three.cate_name} </a></li>
                     {/volist}
                 </ul>
                 {/if}
@@ -18,11 +18,11 @@
         <dd class="am-c">
             {volist name ="comCates" id="cates"}
             <div class="menu-item active">
-                <div class="item-hd"><a href="{:url('cate/index',array('cate_id'=>$cates['cate_id']))}">{$cates.cate_name}</a><i class="iconfont icon-down"></i></div>
+                <div class="item-hd"><a href="{:url('index/cate/index',array('cate_id'=>$cates['cate_id']))}">{$cates.cate_name}</a><i class="iconfont icon-down"></i></div>
                 {if condition="$cates['children']"}
                 <ul class="item-bd">
                     {volist name="cates.children" id="children"}
-                    <li><a href="{:url('cate/index',array('cate_id'=>$children['cate_id']))}">{$children.cate_name}</a></li>
+                    <li><a href="{:url('index/cate/index',array('cate_id'=>$children['cate_id']))}">{$children.cate_name}</a></li>
                     {/volist}
                 </ul>
                 {/if}

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:61:"B:\aaaweb\shop\public/../application/admin\view\type\add.html";i:1555209593;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555209593;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555209593;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555209593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555209593;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:61:"B:\aaaweb\shop\public/../application/admin\view\nav\edit.html";i:1555826323;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555809110;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555809110;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555816801;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555809110;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -186,6 +186,27 @@
         <li>
             <a href="#" class="menu-dropdown">
                 <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">导航管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu" style="display: block;">
+                <li>
+                    <a href="<?php echo url('nav/lst'); ?>">
+                        <span class="menu-text">导航列表</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('nav/add'); ?>">
+                        <span class="menu-text">添加导航</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>             
+            </ul>                            
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
                 <span class="menu-text">会员管理</span>
                 <i class="menu-expand"></i>
             </a>
@@ -323,9 +344,9 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('type/lst'); ?>">商品类型管理</a>
+                        <a href="<?php echo url('nav/lst'); ?>">导航管理</a>
                     </li>
-                    <li class="active">新增商品类型</li>
+                    <li class="active">修改导航</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -337,35 +358,57 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">新增商品类型</span>
+                                <span class="widget-caption">修改导航</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
-                                    <form class="form-horizontal" role="form" method="post">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                                    	<input type="hidden" name="nav_id" value="<?php echo $navedit['nav_id']; ?>">
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">属性名称</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">导航名称</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="username" placeholder="" name="type_name"  type="text"  required="">
+                                                <input class="form-control" id="username" placeholder="" name="nav_name" type="text" value="<?php echo $navedit['nav_name']; ?>">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
-                                        
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">状态</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">导航地址</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="nav_url" type="text" value="<?php echo $navedit['nav_url']; ?>">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">新标签打开</label>
                                             <div class="col-sm-6">
                                                 <div class="radio" style="float: left; padding-right: 10px;">
                                                     <label>
-                                                        <input value="1" name="type_showtype" checked="checked" class="colored-blue"  type="radio">
-                                                        <span class="text">显示</span>
+                                                        <input name="nav_open" class="colored-blue" value="1" <?php if($navedit['nav_open'] == 1): ?> checked="checked" <?php endif; ?> type="radio">
+                                                        <span class="text">是</span>
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <input value="0" name="type_showtype" class="colored-blue" type="radio">
-                                                        <span class="text">隐藏</span>
+                                                        <input name="nav_open" class="colored-blue" value="2" <?php if($navedit['nav_open'] == 2): ?> checked="checked" <?php endif; ?> type="radio">
+                                                        <span class="text">否</span>
                                                     </label>
                                                 </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">导航位置</label>
+                                            <div class="col-sm-6">
+                                                <select name="nav_pos">
+                                                    <option value="">请选择</option>
+                                                    <option  <?php if($navedit['nav_pos'] == 'top'): ?> selected="selected" <?php endif; ?> value="top">顶部</option>
+                                                    <option  <?php if($navedit['nav_pos'] == 'mid'): ?> selected="selected" <?php endif; ?> value="mid">中间</option>
+                                                    <option  <?php if($navedit['nav_pos'] == 'bottom'): ?> selected="selected" <?php endif; ?> value="bottom">底部</option>
+                                                </select>
 
                                             </div>
 

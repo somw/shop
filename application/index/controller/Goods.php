@@ -2,7 +2,7 @@
 namespace app\index\controller;
 
 
-class Goods
+class Goods extends Base
 {
     public function index()
     {

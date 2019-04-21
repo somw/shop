@@ -173,13 +173,11 @@
 		</div>
 	</div>
 </div>
-<div class="nav-main" id="nav">
-    <ul class="navitems">
-        <li><a href="#" class="curr">首页</a></li>
-        <li><a href="#"  >女装街</a></li>
-        <li><a href="#"  >男人柜</a></li>
-        <li><a href="#"  >品牌专区</a></li>
-        <li><a href="#"  >聚划算</a></li>
-        <li><a href="#"  >积分商城</a></li>
+<div class="nav-main">
+	<ul class="navitems">
+        <li><a href="{:url('index/Index/index')}" class="curr">首页</a></li>
+        {volist name="navRes.mid" id="nav_mid"}
+        <li><a {if condition="$nav_mid['nav_open'] eq 1"} target="_black" {/if} href="{$nav_mid.nav_url}">{$nav_mid.nav_name}</a></li>
+        {/volist}
 	</ul>
 </div>

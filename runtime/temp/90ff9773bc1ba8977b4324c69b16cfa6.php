@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\goods\goods.html";i:1554545719;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1554535899;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1554532484;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1554542303;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1554544260;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1554545494;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1554545109;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1554525139;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\goods\goods.html";i:1555809110;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1555809110;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1555830374;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1555809110;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1555832525;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1555809110;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1555832040;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1555809110;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -755,22 +755,12 @@
     </div>
 </div>
 <ul class="quick-menu fr">
+	<?php if(is_array($navRes['top']) || $navRes['top'] instanceof \think\Collection || $navRes['top'] instanceof \think\Paginator): $i = 0; $__LIST__ = $navRes['top'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav_top): $mod = ($i % 2 );++$i;?>
 	<li>
-    	<div class="dt"><a href="#">我的订单</a></div>
+    	<div class="dt"><a <?php if($nav_top['nav_open'] == 1): ?> target="_black" <?php endif; ?> href="<?php echo $nav_top['nav_url']; ?>"><?php echo $nav_top['nav_name']; ?></a></div>
     </li>
-    <li class="spacer"></li>
-	<li>
-    	<div class="dt"><a href="#">我的浏览</a></div>
-    </li>
-    <li class="spacer"></li>
-	<li>
-    	<div class="dt"><a href="#">我的收藏</a></div>
-    </li>
-    <li class="spacer"></li>
-	<li>
-    	<div class="dt"><a href="#">客户服务</a></div>
-    </li>
-    <li class="spacer"></li>
+    <?php if($nav_top['nav_id'] != 0): ?><li class="spacer"></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+<!--     <li class="spacer"></li>
     <li class="li_dorpdown" data-ectype="dorpdown">
 		<div class="dt dsc-cm">网站导航<i class="iconfont icon-down"></i></div>
 		<div class="dd dorpdown-layer">
@@ -794,7 +784,7 @@
 				</dd>
 			</dl>
 		</div>
-	</li>
+	</li> -->
 </ul>
 	    </div>
 	</div>
@@ -1154,14 +1144,12 @@ $(function(){
 		</div>
 	</div>
 </div>
-<div class="nav-main" id="nav">
-    <ul class="navitems">
-        <li><a href="#" class="curr">首页</a></li>
-        <li><a href="#"  >女装街</a></li>
-        <li><a href="#"  >男人柜</a></li>
-        <li><a href="#"  >品牌专区</a></li>
-        <li><a href="#"  >聚划算</a></li>
-        <li><a href="#"  >积分商城</a></li>
+<div class="nav-main">
+	<ul class="navitems">
+        <li><a href="<?php echo url('index/Index/index'); ?>" class="curr">首页</a></li>
+        <?php if(is_array($navRes['mid']) || $navRes['mid'] instanceof \think\Collection || $navRes['mid'] instanceof \think\Paginator): $i = 0; $__LIST__ = $navRes['mid'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav_mid): $mod = ($i % 2 );++$i;?>
+        <li><a <?php if($nav_mid['nav_open'] == 1): ?> target="_black" <?php endif; ?> href="<?php echo $nav_mid['nav_url']; ?>"><?php echo $nav_mid['nav_name']; ?></a></li>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
 	</ul>
 </div>
     </div>
@@ -1988,47 +1976,47 @@ function goodsCollectionResponse(res){
         
         	 
 		
-<div class="duibi_box" id="slideTxtBox">
-    <div class="parWarp">
-        <div class="parTit">对比栏</div>
-        <div class="parBd">
-            <div class="slideBox5" id="duibilan">
-                <div id="diff-items" class="diff-items clearfix">
-<dl class="hasItem" id="compare_goods1">  
-    <dt><h1>1</h1></dt>
-    <dd><span class="ts">您还可以继续添加</span></dd>
-</dl>
-<dl class="hasItem" id="compare_goods2">  
-    <dt><h1>2</h1></dt>
-    <dd><span class="ts">您还可以继续添加</span></dd>
-</dl>
-<dl class="hasItem" id="compare_goods3">  
-    <dt><h1>3</h1></dt>
-    <dd><span class="ts">您还可以继续添加</span></dd>
-</dl>
-<dl class="hasItem" id="compare_goods4">  
-    <dt><h1>4</h1></dt>
-    <dd><span class="ts">您还可以继续添加</span></dd>
-</dl>
-                </div>
-                <div class="diff-operate">
-                	<a id="compare_button" class="compare-active"></a>
-					<a id="qingkong" class="del-items">清空对比栏</a>
-<a href="javascript:;" class="hide-me" ectype="db_hide">隐藏</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+		<div class="duibi_box" id="slideTxtBox">
+		    <div class="parWarp">
+		        <div class="parTit">对比栏</div>
+		        <div class="parBd">
+		            <div class="slideBox5" id="duibilan">
+		                <div id="diff-items" class="diff-items clearfix">
+							<dl class="hasItem" id="compare_goods1">  
+							    <dt><h1>1</h1></dt>
+							    <dd><span class="ts">您还可以继续添加</span></dd>
+							</dl>
+							<dl class="hasItem" id="compare_goods2">  
+							    <dt><h1>2</h1></dt>
+							    <dd><span class="ts">您还可以继续添加</span></dd>
+							</dl>
+							<dl class="hasItem" id="compare_goods3">  
+							    <dt><h1>3</h1></dt>
+							    <dd><span class="ts">您还可以继续添加</span></dd>
+							</dl>
+							<dl class="hasItem" id="compare_goods4">  
+							    <dt><h1>4</h1></dt>
+							    <dd><span class="ts">您还可以继续添加</span></dd>
+							</dl>
+		                </div>
+		                <div class="diff-operate">
+		                	<a id="compare_button" class="compare-active"></a>
+							<a id="qingkong" class="del-items">清空对比栏</a>
+							 <a href="javascript:;" class="hide-me" ectype="db_hide">隐藏</a>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
         
         
         
   
-<div class="tm-dl-overlay tm-dl-overlay-hidden">
-	<a href="javascript:void('close')" class="tm-dl-overlay-close"><b></b><i></i></a>
-  	<div class="tm-dl-overlay-content"></div>
-</div>
-<div class="tm-dl-overlay-mask"></div>
+		<div class="tm-dl-overlay tm-dl-overlay-hidden">
+			<a href="javascript:void('close')" class="tm-dl-overlay-close"><b></b><i></i></a>
+		  	<div class="tm-dl-overlay-content"></div>
+		</div>
+		<div class="tm-dl-overlay-mask"></div>
      </div>
 	
 	<div class="mui-mbar-tabs">
@@ -2061,6 +2049,12 @@ function goodsCollectionResponse(res){
 					            <div class="span">购物车</div>
 					            <span class="cart_num">0</span>
 					        </a>
+
+					        <!-- <a href="#" class="cart_list">
+								<i class="message"></i>
+								<div class="span">购物车</div>
+								<span class="cart_num">0</span>
+	                        </a> -->
 					    </li>
 					    <li>
 					        <a href="#"><i class="chongzhi"></i></a>
@@ -2122,16 +2116,17 @@ function goodsCollectionResponse(res){
 	    </div>
 	</div>
 </div>
-	
-	<div class="email_sub">
-		<div class="attached_bg"></div>
-		<div class="w1200">
-	        <div class="email_sub_btn">
-	            <input type="input" id="user_email" name="user_email" autocomplete="off" placeholder="请输入您的邮箱帐号">
-	            <a href="javascript:void(0);" onClick="add_email_list();" class="emp_btn">订阅</a>
-	        </div>
-	    </div>
-	</div>    
+
+<div class="email_sub">
+	<div class="attached_bg"></div>
+	<div class="w1200">
+        <div class="email_sub_btn">
+            <input id="user_email" name="user_email" autocomplete="off" placeholder="请输入您的邮箱帐号" type="input">
+            <a href="#">订阅</a>
+        </div>
+    </div>
+</div>
+
 	<div class="footer-new">
     	<div class="footer-new-top">
 	<div class="w w1200">
@@ -2153,46 +2148,16 @@ function goodsCollectionResponse(res){
 <div class="footer-new-con">
 	<div class="fnc-warp">
         <div class="help-list">
+        	<?php if(is_array($bases) || $bases instanceof \think\Collection || $bases instanceof \think\Paginator): $i = 0; $__LIST__ = $bases;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$three): $mod = ($i % 2 );++$i;?>
 			<div class="help-item">
-			    <h3>新手上路 </h3>
+			    <h3><?php echo $three['cate_name']; ?> </h3>
 			    <ul>
-			    	<li><a href="#">售后流程</a></li>
-					<li><a href="#">购物流程</a></li>
-					<li><a href="#">订购方式</a></li>
+			    	<?php if(is_array($three['arts']) || $three['arts'] instanceof \think\Collection || $three['arts'] instanceof \think\Paginator): $i = 0; $__LIST__ = $three['arts'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$five): $mod = ($i % 2 );++$i;?>
+			    	<li><a href="<?php if($five['ar_url']): ?> <?php echo $five['ar_url']; ?>" target="_black"> <?php else: ?> <?php echo url('index/article/index',array('ar_id'=>$five['ar_id'])); ?>"> <?php endif; ?> <?php echo $five['ar_title']; ?></a></li>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
 			    </ul>
 			</div>
-			<div class="help-item">
-			    <h3>配送与支付 </h3>
-			    <ul>
-			        <li><a href="#">货到付款区域</a></li>
-					<li><a href="#">配送支付智能查询</a></li>
-					<li><a href="#">支付方式说明</a></li>
-			    </ul>
-			</div>
-			<div class="help-item">
-			    <h3>会员中心</h3>
-			    <ul>
-			        <li><a href="#">资金管理</a></li>
-					<li><a href="#">我的收藏</a></li>
-					<li><a href="#">我的订单</a></li>
-			    </ul>
-			</div>
-			<div class="help-item">
-			    <h3>服务保证 </h3>
-			    <ul>
-			    	<li><a href="#">退换货原则</a></li>
-					<li><a href="#">售后服务保证</a></li>
-					<li><a href="#">产品质量保证</a></li>
-			    </ul>
-			</div>
-			<div class="help-item">
-			    <h3>联系我们 </h3>
-			    <ul>
-			    	<li><a href="#">网站故障报告</a></li>
-					<li><a href="#">选机咨询</a></li>
-					<li><a href="#">投诉与建议</a></li>
-				</ul>
-			</div>
+			<?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         <div class="qr-code">
 			<div class="qr-item qr-item-first">
@@ -2209,12 +2174,10 @@ function goodsCollectionResponse(res){
 <div class="footer-new-bot">
 	<div class="w w1200">
         <p class="copyright_links">
-			<a href="#">首页</a><span class="spacer"></span>
-			<a href="#">隐私保护</a><span class="spacer"></span>
-			<a href="#">联系我们</a><span class="spacer"></span>
-			<a href="#">免责条款</a><span class="spacer"></span>			 
-			<a href="#">公司简介</a><span class="spacer"></span>
-			<a href="#">意见反馈</a> 
+			<a href="<?php echo url('index/Index/index'); ?>">首页</a><span class="spacer"></span>
+			<?php if(is_array($navRes['bottom']) || $navRes['bottom'] instanceof \think\Collection || $navRes['bottom'] instanceof \think\Paginator): $i = 0; $__LIST__ = $navRes['bottom'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav_bottom): $mod = ($i % 2 );++$i;?>
+			<a <?php if($nav_bottom['nav_open'] == 1): ?> target="_black" <?php endif; ?> href="<?php echo $nav_bottom['nav_url']; ?>"><?php echo $nav_bottom['nav_name']; ?></a><span class="spacer"></span>
+			<?php endforeach; endif; else: echo "" ;endif; ?>
         </p>
     
     	<p>

@@ -23,7 +23,7 @@
                     <h2>{$arts.ar_title}</h2>
                     <div class="extra">
                         {volist name="position" id="cate"}
-                	    <a href="{:url('cate/index',array('cate_id'=>$cate['cate_id']))}">{$cate.cate_name}</a><i>&gt;</i>
+                	    <a href="{:url('index/cate/index',array('cate_id'=>$cate['cate_id']))}">{$cate.cate_name}</a><i>&gt;</i>
                         {/volist}
                         <span>{$arts.ar_title}</span>
                     </div>

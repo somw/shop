@@ -1,0 +1,101 @@
+{include file="/common/_meta"}
+</head>
+<body>
+{include file="/common/top"}
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+       {include file="/common/list"}
+        <!-- Page Content -->
+        <div class="page-content">
+
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="{:url('nav/lst')}">导航管理</a>
+                    </li>
+                    <li class="active">导航列表</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                <form action="" method="post">
+                <button type="button" tooltip="添加导航" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('nav/add')}'"> <i class="fa fa-plus"></i> Add
+                </button>
+                <button type="submit" tooltip="添加导航" class="btn btn-sm btn-azure btn-addon" >更新排序</button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                            <tr>
+                                                <th class="text-center" width="4%">导航ID</th>
+                                                <th class="text-center">导航名称</th>
+                                                <th class="text-center">导航地址</th>
+                                                <th class="text-center" width="6%">导航位置</th>
+                                                <th class="text-center" width="4%">排序</th>
+                                                <th class="text-center" width="4%">新标签</th>
+                                                <th class="text-center" width="10%">操作</th>
+                                            </tr>
+                                        </thead>
+                                        {volist name="navlist" id="nav"}
+                                        <tbody>
+                                            <tr>
+                                                <td align="center">{$nav.nav_id}</td>
+                                                <td>{$nav.nav_name}</td>
+                                                <td align="center">{$nav.nav_url}</td>
+                                                <td align="center">
+                                                {if condition="$nav['nav_pos'] eq 'top'"}
+                                                    顶部
+                                                {elseif condition="$nav['nav_pos'] eq 'mid'"}
+                                                    中间
+                                                {elseif condition="$nav['nav_pos'] eq 'bottom'"}
+                                                    底部
+                                                {/if}
+                                                </td>
+                                                <td width="4%" align="center"><input type="text" style="width: 30px; text-align: center;" name="nav_sort[{$nav.nav_id}]" value="{$nav.nav_sort}"></td>
+                                                <td align="center">
+                                                {if condition="$nav['nav_open'] eq 1"}
+                                                    是
+                                                {else /}
+                                                    否
+                                                {/if}
+                                                </td>
+                                                <td align="center">
+                                                    <a href="{:url('edit',array('nav_id'=>$nav['nav_id']))}" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <a href="#" onClick="warning('确实要删除吗', '{:url('del',array('nav_id'=>$nav['nav_id']))}')" class="btn btn-danger btn-sm shiny">
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        {/volist}
+                                    </table>
+                                </div>
+                                <div>{$navlist->render()}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+	</div>	
+</div>
+
+{include file="common/_footer"}
+</body>
+</html>

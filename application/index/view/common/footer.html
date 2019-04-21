@@ -23,7 +23,7 @@
 			    <h3>{$three.cate_name} </h3>
 			    <ul>
 			    	{volist name="three.arts" id="five"}
-			    	<li><a href="{if condition="$five['ar_url']"} {$five.ar_url}" target="_black"> {else} {:url('article/index',array('ar_id'=>$five['ar_id']))}"> {/if} {$five.ar_title}</a></li>
+			    	<li><a href="{if condition="$five['ar_url']"} {$five.ar_url}" target="_black"> {else} {:url('index/article/index',array('ar_id'=>$five['ar_id']))}"> {/if} {$five.ar_title}</a></li>
 					{/volist}
 			    </ul>
 			</div>
@@ -44,12 +44,10 @@
 <div class="footer-new-bot">
 	<div class="w w1200">
         <p class="copyright_links">
-			<a href="#">首页</a><span class="spacer"></span>
-			<a href="#">隐私保护</a><span class="spacer"></span>
-			<a href="#">联系我们</a><span class="spacer"></span>
-			<a href="#">免责条款</a><span class="spacer"></span>			 
-			<a href="#">公司简介</a><span class="spacer"></span>
-			<a href="#">意见反馈</a> 
+			<a href="{:url('index/Index/index')}">首页</a><span class="spacer"></span>
+			{volist name="navRes.bottom" id="nav_bottom"}
+			<a {if condition="$nav_bottom['nav_open'] eq 1"} target="_black" {/if} href="{$nav_bottom.nav_url}">{$nav_bottom.nav_name}</a><span class="spacer"></span>
+			{/volist}
         </p>
     
     	<p>

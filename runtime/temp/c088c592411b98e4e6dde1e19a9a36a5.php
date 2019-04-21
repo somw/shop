@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\lst.html";i:1555221714;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555221714;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555221714;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555221714;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555221714;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:60:"B:\aaaweb\shop\public/../application/admin\view\nav\lst.html";i:1555830587;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555809110;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555809110;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555816801;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555809110;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -187,6 +187,27 @@
         <li>
             <a href="#" class="menu-dropdown">
                 <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">导航管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu" style="display: block;">
+                <li>
+                    <a href="<?php echo url('nav/lst'); ?>">
+                        <span class="menu-text">导航列表</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('nav/add'); ?>">
+                        <span class="menu-text">添加导航</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>             
+            </ul>                            
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
                 <span class="menu-text">会员管理</span>
                 <i class="menu-expand"></i>
             </a>
@@ -325,70 +346,64 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('goods/lst'); ?>">商品类型管理</a>
+                        <a href="<?php echo url('nav/lst'); ?>">导航管理</a>
                     </li>
+                    <li class="active">导航列表</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                <button type="button" tooltip="添加商品类型" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('goods/add'); ?>'"> <i class="fa fa-plus"></i> Add
+                <form action="" method="post">
+                <button type="button" tooltip="添加导航" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('nav/add'); ?>'"> <i class="fa fa-plus"></i> Add
                 </button>
-                <button type="button" tooltip="添加商品类型" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('goods/prints'); ?>'"> <i class="fa fa-print"></i>  打印
-                </button>
-
+                <button type="submit" tooltip="添加导航" class="btn btn-sm btn-azure btn-addon" >更新排序</button>
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-body">
                                 <div class="flip-scroll">
                                     <table class="table table-bordered table-hover">
-                                        <thead>
+                                        <thead class="">
                                             <tr>
-                                                <th class="text-center" width="4%">ID</th>
-                                                <th class="text-center" width="10%">属性名称</th>
-                                                <th class="text-center">商品编号</th>
-                                                <th class="text-center" width="10%">缩略图</th>
-                                                <th class="text-center" width="6%">市场价</th>
-                                                <th class="text-center" width="6%">本店价</th>
-                                                <th class="text-center" width="6%">上架</th>
-                                                <th class="text-center" width="7%">所属栏目</th>
-                                                <th class="text-center" width="7%">所属品牌</th>
-                                                <th class="text-center" width="7%">所属类型</th>
-                                                <th class="text-center">重量</th>
-                                                <th class="text-center" width="4%">单位</th>
-                                                <th class="text-center" width="4%">库存量</th>
-                                                <th class="text-center" width="22%">操作</th>
-                                                
+                                                <th class="text-center" width="4%">导航ID</th>
+                                                <th class="text-center">导航名称</th>
+                                                <th class="text-center">导航地址</th>
+                                                <th class="text-center" width="6%">导航位置</th>
+                                                <th class="text-center" width="4%">排序</th>
+                                                <th class="text-center" width="4%">新标签</th>
+                                                <th class="text-center" width="10%">操作</th>
                                             </tr>
                                         </thead>
-                                        <?php if(is_array($goodslist) || $goodslist instanceof \think\Collection || $goodslist instanceof \think\Paginator): $i = 0; $__LIST__ = $goodslist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$gs): $mod = ($i % 2 );++$i;?>
+                                        <?php if(is_array($navlist) || $navlist instanceof \think\Collection || $navlist instanceof \think\Paginator): $i = 0; $__LIST__ = $navlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
                                         <tbody>
                                             <tr>
-                                                <td align="center"><?php echo $gs['gs_id']; ?></td>
-                                                <td><?php echo cut_str($gs['gs_name'],3); ?></td>
-                                                <td><?php echo $gs['gs_code']; ?></td>
+                                                <td align="center"><?php echo $nav['nav_id']; ?></td>
+                                                <td><?php echo $nav['nav_name']; ?></td>
+                                                <td align="center"><?php echo $nav['nav_url']; ?></td>
                                                 <td align="center">
-                                                <?php if($gs['gs_img'] != ''): ?><img src="/static/uploads/<?php echo $gs['gs_img']; ?>" height="30"><?php else: ?>无图片<?php endif; ?>
+                                                <?php if($nav['nav_pos'] == 'top'): ?>
+                                                    顶部
+                                                <?php elseif($nav['nav_pos'] == 'mid'): ?>
+                                                    中间
+                                                <?php elseif($nav['nav_pos'] == 'bottom'): ?>
+                                                    底部
+                                                <?php endif; ?>
                                                 </td>
-                                                <td><?php echo $gs['gs_marktep']; ?></td>
-                                                <td><?php echo $gs['gs_shopp']; ?></td>
-                                                <td><?php if($gs['gs_onsale'] == 1): ?>上架<?php else: ?>已下架<?php endif; ?></td>
-                                                <td><?php echo $gs['shopcate_name']; ?></td>
-                                                <td><?php echo $gs['brand_name']; ?></td>
-                                                <td><?php echo $gs['type_name']; ?></td>
-                                                <td><?php echo $gs['gs_weight']; ?></td>
-                                                <td><?php echo $gs['gs_unit']; ?></td>
-                                                <td><?php if($gs['gn']): ?><?php echo $gs['gn']; else: ?>0<?php endif; ?></td>
+                                                <td width="4%" align="center"><input type="text" style="width: 30px; text-align: center;" name="nav_sort[<?php echo $nav['nav_id']; ?>]" value="<?php echo $nav['nav_sort']; ?>"></td>
                                                 <td align="center">
-                                                    <a href="<?php echo url('goods/product',array('gs_id'=>$gs['gs_id'])); ?>" class="btn btn-warning btn-sm shiny">
-                                                        <i class="fa fa-check-square-o"></i> 库存量
-                                                    </a>
-                                                    <a href="<?php echo url('edit',array('gs_id'=>$gs['gs_id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                                <?php if($nav['nav_open'] == 1): ?>
+                                                    是
+                                                <?php else: ?>
+                                                    否
+                                                <?php endif; ?>
+                                                </td>
+                                                <td align="center">
+                                                    <a href="<?php echo url('edit',array('nav_id'=>$nav['nav_id'])); ?>" class="btn btn-primary btn-sm shiny">
                                                         <i class="fa fa-edit"></i> 编辑
                                                     </a>
-                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('gs_id'=>$gs['gs_id'])); ?>')" class="btn btn-danger btn-sm shiny">
+                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('nav_id'=>$nav['nav_id'])); ?>')" class="btn btn-danger btn-sm shiny">
                                                         <i class="fa fa-trash-o"></i> 删除
                                                     </a>
                                                 </td>
@@ -397,12 +412,12 @@
                                         <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </table>
                                 </div>
-                                <div><?php echo $goodslist->render(); ?></div>
+                                <div><?php echo $navlist->render(); ?></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                </form>
             </div>
             <!-- /Page Body -->
         </div>
