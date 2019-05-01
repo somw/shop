@@ -1,0 +1,85 @@
+{include file="/common/_meta"}
+</head>
+<body>
+{include file="/common/top"}
+<div class="main-container container-fluid">
+    <div class="page-container">
+                    <!-- Page Sidebar -->
+       {include file="/common/list"}
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="{:url('recpos/lst')}">推荐位管理</a>
+                    </li>
+                    <li class="active">修改推荐位</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">修改推荐位</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" method="post">
+                                        <input type="hidden" name="rec_id" value="{$recedit.rec_id}">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="rec_name"  type="text"  required="" value="{$recedit['rec_name']}">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位类型</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio" style="float: left; padding-right: 10px;">
+                                                    <label>
+                                                        <input name="rec_type"  type="radio" value="1" {if condition="$recedit['rec_type'] eq 1"} checked="checked" {/if} class="colored-blue">
+                                                        <span class="text">单选</span>
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="rec_type"  type="radio" value="2" {if condition="$recedit['rec_type'] eq 2"} checked="checked" {/if} class="colored-blue">
+                                                        <span class="text">唯一</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                            
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>  
+</div>
+
+{include file="common/_footer"}
+</body>
+</html>

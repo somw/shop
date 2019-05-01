@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\data\importlist.html";i:1555809110;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555809110;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555809110;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555816801;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555809110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\data\importlist.html";i:1556716114;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556716114;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556716114;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556718479;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556716114;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -182,6 +182,27 @@
                         <i class="menu-expand"></i>
                     </a>
                 </li>            
+            </ul>                            
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">推荐位管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu" style="display: block;">
+                <li>
+                    <a href="<?php echo url('recpos/lst'); ?>">
+                        <span class="menu-text">推荐位列表</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('recpos/add'); ?>">
+                        <span class="menu-text">推荐位导航</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>             
             </ul>                            
         </li>
         <li>
