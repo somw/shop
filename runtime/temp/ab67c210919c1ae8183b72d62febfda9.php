@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\data\importlist.html";i:1556716114;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556716114;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556716114;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556718479;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556716114;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\data\importlist.html";i:1556760608;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556760608;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556760608;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556786593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556760608;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -199,7 +199,7 @@
                 </li>
                 <li>
                     <a href="<?php echo url('recpos/add'); ?>">
-                        <span class="menu-text">推荐位导航</span>
+                        <span class="menu-text">新增推荐位</span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>             

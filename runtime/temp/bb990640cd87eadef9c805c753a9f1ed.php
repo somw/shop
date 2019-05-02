@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\recpos\add.html";i:1556719211;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556716114;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556716114;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556718479;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556716114;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\recpos\add.html";i:1556775568;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556760608;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556760608;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556786593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556760608;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -198,7 +198,7 @@
                 </li>
                 <li>
                     <a href="<?php echo url('recpos/add'); ?>">
-                        <span class="menu-text">推荐位导航</span>
+                        <span class="menu-text">新增推荐位</span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>             
@@ -398,13 +398,13 @@
                                                 <div class="radio" style="float: left; padding-right: 10px;">
                                                     <label>
                                                         <input name="rec_type"  type="radio" value="1" checked="checked" class="colored-blue">
-                                                        <span class="text">推荐位商品</span>
+                                                        <span class="text">商品</span>
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
                                                         <input name="rec_type"  type="radio" value="2" class="colored-blue">
-                                                        <span class="text">推荐位分类</span>
+                                                        <span class="text">分类</span>
                                                     </label>
                                                 </div>
                                             </div>

@@ -25,7 +25,7 @@ class Shopcate extends Controller
     public function add()
     {
         $shopcate=new shopcatetree();
-        $sortdb=db('shopcate');
+        $sortdb=model('shopcate');
     	if (request()->isPost()) {
     		$data=input('post.');
             // 处理图片上传
@@ -38,7 +38,7 @@ class Shopcate extends Controller
             //     $this->error($validate->getError());
             // }
 
-    		$add=$sortdb->insert($data);
+    		$add=$sortdb->save($data);
     		if($add) {
     			$this->success('添加栏目成功!','lst');
     		}else{
@@ -48,7 +48,14 @@ class Shopcate extends Controller
         $shopcatelist = $sortdb->select();
 
         $shopcatelist = $shopcate ->shopcatetree($shopcatelist);
-        $this->assign('shopcatelist', $shopcatelist);
+
+        //商品推荐位
+        $shopCateRecpos=db('recpos')->where('rec_type','=',2)->select();
+        // dump($shopCateRecpos);die;
+        $this->assign([
+            'shopcatelist'=>$shopcatelist,
+            'shopCateRecpos'=>$shopCateRecpos,
+        ]);
 
         return view();
 
@@ -58,7 +65,7 @@ class Shopcate extends Controller
     {
 
         $shopcate=new shopcatetree();
-        $sortdb=db('shopcate');
+        $sortdb=model('shopcate');
         if (request()->isPost()) {
             $data=input('post.');
             // 处理图片上传
@@ -92,7 +99,20 @@ class Shopcate extends Controller
         $shopcateedit=$sortdb->find($shopcateid);
 
         //var_dump($cateedit['cate_pid']);die;
-        $this->assign('shopcateedit',$shopcateedit);
+        
+        ////商品推荐位
+        $shopCateRecpos=db('recpos')->where('rec_type','=',2)->select();
+        $_sshopCateRecpos=db('recpos_item')->where(array('value_type'=>2,'value_id'=>input('shopcate_id')))->select();
+        $sshopCateRecpos=array();
+        foreach ($_sshopCateRecpos as $k => $v) {
+            $sshopCateRecpos[] = $v['recpos_id'];
+        }
+
+        $this->assign([
+            'shopcateedit'=>$shopcateedit,
+            'shopCateRecpos'=>$shopCateRecpos,
+            'sshopCateRecpos'=>$sshopCateRecpos,
+        ]);
         return view();
 
     }

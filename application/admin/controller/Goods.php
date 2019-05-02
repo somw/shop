@@ -46,6 +46,9 @@ class Goods extends Controller
         $shopcateRes=db('shopcate')->select();
         $shopcateRes=$shopcate->shopcatetree($shopcateRes);
 
+        //商品推荐位
+        $shopGoodsRecpos=db('recpos')->where('rec_type','=',1)->select();
+
         //品牌
         $brandRes=db('brand')->field('brand_id,brand_name')->select();
         $this->assign([
@@ -53,6 +56,7 @@ class Goods extends Controller
             'typeRes'=>$typeRes,
             'shopcateRes'=>$shopcateRes,
             'brandRes'=>$brandRes,
+            'shopGoodsRecpos'=>$shopGoodsRecpos,
 
         ]);
 
@@ -101,7 +105,7 @@ class Goods extends Controller
         //查找当前商品属性信息goods_attr
         $_gsattredit=db('goods_attr')->where('gsattr_goodsid','=',$gsedit['gs_id'])->select();
         
-        //二维改三维
+        //改写三维转二维
         $gsattredit = array();
         foreach ($_gsattredit as $k => $v) {
             $gsattredit[$v['gsattr_attrid']][] = $v;
@@ -118,6 +122,15 @@ class Goods extends Controller
         $gphotos=db('goods_img')->where('img_goodsid','=',$gsid)->select();
 
         //dump($mledit);die;
+        //
+        ////商品推荐位
+        $shopGoodsRecpos=db('recpos')->where('rec_type','=',1)->select();
+        $_sGoodsRecpos=db('recpos_item')->where(array('value_type'=>1,'value_id'=>$gsid))->select();
+        $sGoodsRecpos=array();
+        foreach ($_sGoodsRecpos as $k => $v) {
+            $sGoodsRecpos[] = $v['recpos_id'];
+        }
+        // dump($sGoodsRecpos);die;
 
         $this->assign([
             'mlRes'=>$mlRes,
@@ -128,7 +141,9 @@ class Goods extends Controller
             'mledit'=>$mledit,
             'gphotos'=>$gphotos,
             'attredit'=>$attredit,
-            'gsattredit'=>$gsattredit
+            'gsattredit'=>$gsattredit,
+            'shopGoodsRecpos'=>$shopGoodsRecpos,
+            'sGoodsRecpos'=>$sGoodsRecpos,
 
         ]);
 

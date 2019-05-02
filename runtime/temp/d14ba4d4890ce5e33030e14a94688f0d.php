@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\conf\edit.html";i:1555809110;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1555809110;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1555809110;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1555816801;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1555809110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:65:"B:\aaaweb\shop\public/../application/admin\view\shopcate\add.html";i:1556786878;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556760608;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556760608;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556786593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556760608;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -35,7 +35,7 @@
     <style>
         .page-sidebar::before{left: 0px;width: 224px;}
     </style>
-
+</head>
 <body>
 <!-- 头部 -->
 <div class="navbar">
@@ -92,8 +92,8 @@
     </div>
 </div>
 <div class="main-container container-fluid">
-    <div class="page-container">
-                    <!-- Page Sidebar -->
+	<div class="page-container">
+		            <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -181,6 +181,27 @@
                         <i class="menu-expand"></i>
                     </a>
                 </li>            
+            </ul>                            
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">推荐位管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu" style="display: block;">
+                <li>
+                    <a href="<?php echo url('recpos/lst'); ?>">
+                        <span class="menu-text">推荐位列表</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('recpos/add'); ?>">
+                        <span class="menu-text">新增推荐位</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>             
             </ul>                            
         </li>
         <li>
@@ -344,9 +365,9 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('conf/lst'); ?>">配置管理</a>
+                        <a href="<?php echo url('shopcate/lst'); ?>">商品管理</a>
                     </li>
-                    <li class="active">修改配置</li>
+                    <li class="active">新增商品分类</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -358,99 +379,86 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">修改配置</span>
+                                <span class="widget-caption">新增商品分类</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
                                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" name="conf_id" value="<?php echo $confedit['conf_id']; ?>">
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">中文名称</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">上级商品分类</label>
                                             <div class="col-sm-6">
-                                                <input value="<?php echo $confedit['conf_cname']; ?>" class="form-control" name="conf_cname" type="text" required="">
+                                                <select name="shopcate_pid" id="">
+                                                    <option>顶级商品分类</option>
+                                                    <?php if(is_array($shopcatelist) || $shopcatelist instanceof \think\Collection || $shopcatelist instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcatelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
+                                                    <option value="<?php echo $shopcate['shopcate_id']; ?>"><?php echo str_repeat('-',$shopcate['lever']*8)?><?php echo $shopcate['shopcate_name']; ?></option>
+                                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">商品分类名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="shopcate_name"  type="text" value="">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">英文名称</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位</label>
+                                            
                                             <div class="col-sm-6">
-                                                <input value="<?php echo $confedit['conf_ename']; ?>" class="form-control" name="conf_ename" type="text">
+                                                <?php if(is_array($shopCateRecpos) || $shopCateRecpos instanceof \think\Collection || $shopCateRecpos instanceof \think\Paginator): $i = 0; $__LIST__ = $shopCateRecpos;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcaterec): $mod = ($i % 2 );++$i;?>
+                                                <label style="padding-left: 5px;">
+                                                    <input type="checkbox" name="recpos[]" value="<?php echo $shopcaterec['rec_id']; ?>" class="colored-blue">
+                                                    <span class="text"><?php echo $shopcaterec['rec_name']; ?></span>
+                                                </label>
+                                                <?php endforeach; endif; else: echo "" ;endif; ?>
                                             </div>
+                                            
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">表单类型</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">商品图片</label>
                                             <div class="col-sm-6">
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input <?php if($confedit['conf_formtype'] == 'input'): ?> checked="checked" <?php endif; ?> value="input" name="conf_formtype" class="colored-blue"  type="radio">
-                                                        <span class="text">input</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input <?php if($confedit['conf_formtype'] == 'radio'): ?> checked="checked" <?php endif; ?> value="radio" name="conf_formtype" class="colored-blue" type="radio">
-                                                        <span class="text">radio</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input <?php if($confedit['conf_formtype'] == 'checkbox'): ?> checked="checked" <?php endif; ?> value="checkbox" name="conf_formtype" class="colored-blue" type="radio">
-                                                        <span class="text">checkbox</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input <?php if($confedit['conf_formtype'] == 'select'): ?> checked="checked" <?php endif; ?> value="select" name="conf_formtype" class="colored-blue" type="radio">
-                                                        <span class="text">select</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input <?php if($confedit['conf_formtype'] == 'textarea'): ?> checked="checked" <?php endif; ?> value="textarea" name="conf_formtype" class="colored-blue" type="radio">
-                                                        <span class="text">textarea</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input <?php if($confedit['conf_formtype'] == 'file'): ?> checked="checked" <?php endif; ?> value="file" name="conf_formtype" class="colored-blue" type="radio">
-                                                        <span class="text">file</span>
-                                                    </label>
-                                                </div>
+                                                <input name="shopcate_img" type="file">
                                             </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
+                                            <div class="col-sm-6">
+                                                <textarea class="form-control" name="shopcate_keywords"></textarea>
+                                            </div>
+
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">配置状态</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
+                                            <div class="col-sm-6">
+                                                <textarea class="form-control" name="shopcate_description"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">状态</label>
                                             <div class="col-sm-6">
                                                 <div class="radio" style="float: left; padding-right: 10px;">
                                                     <label>
-                                                        <input <?php if($confedit['conf_conftype'] == 1): ?> checked="checked" <?php endif; ?> value="1" name="conf_conftype" class="colored-blue"  type="radio">
-                                                        <span class="text">店铺配置</span>
+                                                        <input value="1" name="shopcate_showcates" checked="checked" class="colored-blue"  type="radio">
+                                                        <span class="text">显示</span>
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <input <?php if($confedit['conf_conftype'] == 0): ?> checked="checked" <?php endif; ?> value="0" name="conf_conftype" class="colored-blue" type="radio">
-                                                        <span class="text">商品配置</span>
+                                                        <input value="0" name="shopcate_showcates" class="colored-blue" type="radio">
+                                                        <span class="text">隐藏</span>
                                                     </label>
                                                 </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">可选值</label>
-                                            <div class="col-sm-6">
-                                                <input value="<?php echo $confedit['conf_values']; ?>" class="form-control" name="conf_values" type="text">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">默认值</label>
-                                            <div class="col-sm-6">
-                                                <input value="<?php echo $confedit['conf_default']; ?>" class="form-control" name="conf_default" type="text">
                                             </div>
 
                                         </div>
@@ -472,7 +480,7 @@
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-    </div>  
+	</div>	
 </div>
 
 <!--Basic Scripts-->

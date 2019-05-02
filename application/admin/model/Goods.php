@@ -53,6 +53,16 @@ class Goods extends Model
             //新增商品属性
             $goodsData=input('post.');
             // dump($goodsData);die;
+            
+             //处理商品推荐位
+            $recpos_item=db('recpos_item');
+            $recpos_item->where(array('value_type'=>1,'value_id'=>$goodsId))->delete();
+            if ($goodsData['recpos']) {
+                foreach ($goodsData['recpos'] as $k => $v) {
+                    $recpos_item->insert(['recpos_id'=>$v,'value_id'=>$goodsId,'value_type'=>1]);
+                }
+            }
+            
             if (isset($goodsData['goods_attr'])) {
                 $i=0;
                 foreach ($goodsData['goods_attr'] as $k => $v) {
@@ -241,9 +251,16 @@ class Goods extends Model
                 
             }
 
-
-            //处理商品属性
             $goodsData=input('post.');
+            //dump($goodsData['recpos']);die;
+            //处理商品推荐位
+            if ($goodsData['recpos']) {
+                foreach ($goodsData['recpos'] as $k => $v) {
+                    db('recpos_item')->insert(['recpos_id'=>$v,'value_id'=>$goodsId,'value_type'=>1]);
+                }
+            }
+            //处理商品属性
+
             $i=0;
             if (isset($goodsData['goods_attr'])) {
                 foreach ($goodsData['goods_attr'] as $k => $v) {

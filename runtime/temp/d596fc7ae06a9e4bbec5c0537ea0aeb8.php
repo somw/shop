@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:64:"B:\aaaweb\shop\public/../application/admin\view\recpos\edit.html";i:1556719026;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556716114;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556716114;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556718479;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556716114;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"B:\aaaweb\shop\public/../application/admin\view\goods\lst.html";i:1556760608;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556760608;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556760608;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556786593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556760608;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -91,9 +91,10 @@
         </div>
     </div>
 </div>
+
 <div class="main-container container-fluid">
     <div class="page-container">
-                    <!-- Page Sidebar -->
+        <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -198,7 +199,7 @@
                 </li>
                 <li>
                     <a href="<?php echo url('recpos/add'); ?>">
-                        <span class="menu-text">推荐位导航</span>
+                        <span class="menu-text">新增推荐位</span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>             
@@ -358,6 +359,7 @@
 <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
+
             <!-- Page Breadcrumb -->
             <div class="page-breadcrumbs">
                 <ul class="breadcrumb">
@@ -365,59 +367,79 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('recpos/lst'); ?>">推荐位管理</a>
+                        <a href="<?php echo url('goods/lst'); ?>">商品类型管理</a>
                     </li>
-                    <li class="active">修改推荐位</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                
+                <button type="button" tooltip="添加商品类型" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('goods/add'); ?>'"> <i class="fa fa-plus"></i> Add
+                </button>
+                <button type="button" tooltip="添加商品类型" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('goods/prints'); ?>'"> <i class="fa fa-print"></i>  打印
+                </button>
+
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
-                            <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">修改推荐位</span>
-                            </div>
                             <div class="widget-body">
-                                <div id="horizontal-form">
-                                    <form class="form-horizontal" role="form" method="post">
-                                        <input type="hidden" name="rec_id" value="<?php echo $recedit['rec_id']; ?>">
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位名称</label>
-                                            <div class="col-sm-6">
-                                                <input class="form-control" id="username" placeholder="" name="rec_name"  type="text"  required="" value="<?php echo $recedit['rec_name']; ?>">
-                                            </div>
-                                            <p class="help-block col-sm-4 red">* 必填</p>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位类型</label>
-                                            <div class="col-sm-6">
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input name="rec_type"  type="radio" value="1" <?php if($recedit['rec_type'] == 1): ?> checked="checked" <?php endif; ?> class="colored-blue">
-                                                        <span class="text">单选</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input name="rec_type"  type="radio" value="2" <?php if($recedit['rec_type'] == 2): ?> checked="checked" <?php endif; ?> class="colored-blue">
-                                                        <span class="text">唯一</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                                                            
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-default">保存信息</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" width="4%">ID</th>
+                                                <th class="text-center" width="10%">属性名称</th>
+                                                <th class="text-center">商品编号</th>
+                                                <th class="text-center" width="10%">缩略图</th>
+                                                <th class="text-center" width="6%">市场价</th>
+                                                <th class="text-center" width="6%">本店价</th>
+                                                <th class="text-center" width="6%">上架</th>
+                                                <th class="text-center" width="7%">所属栏目</th>
+                                                <th class="text-center" width="7%">所属品牌</th>
+                                                <th class="text-center" width="7%">所属类型</th>
+                                                <th class="text-center">重量</th>
+                                                <th class="text-center" width="4%">单位</th>
+                                                <th class="text-center" width="4%">库存量</th>
+                                                <th class="text-center" width="22%">操作</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <?php if(is_array($goodslist) || $goodslist instanceof \think\Collection || $goodslist instanceof \think\Paginator): $i = 0; $__LIST__ = $goodslist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$gs): $mod = ($i % 2 );++$i;?>
+                                        <tbody>
+                                            <tr>
+                                                <td align="center"><?php echo $gs['gs_id']; ?></td>
+                                                <td><?php echo cut_str($gs['gs_name'],3); ?></td>
+                                                <td><?php echo $gs['gs_code']; ?></td>
+                                                <td align="center">
+                                                <?php if($gs['gs_img'] != ''): ?><img src="/static/uploads/<?php echo $gs['gs_img']; ?>" height="30"><?php else: ?>无图片<?php endif; ?>
+                                                </td>
+                                                <td><?php echo $gs['gs_marktep']; ?></td>
+                                                <td><?php echo $gs['gs_shopp']; ?></td>
+                                                <td><?php if($gs['gs_onsale'] == 1): ?>上架<?php else: ?>已下架<?php endif; ?></td>
+                                                <td><?php echo $gs['shopcate_name']; ?></td>
+                                                <td><?php echo $gs['brand_name']; ?></td>
+                                                <td><?php echo $gs['type_name']; ?></td>
+                                                <td><?php echo $gs['gs_weight']; ?></td>
+                                                <td><?php echo $gs['gs_unit']; ?></td>
+                                                <td><?php if($gs['gn']): ?><?php echo $gs['gn']; else: ?>0<?php endif; ?></td>
+                                                <td align="center">
+                                                    <a href="<?php echo url('goods/product',array('gs_id'=>$gs['gs_id'])); ?>" class="btn btn-warning btn-sm shiny">
+                                                        <i class="fa fa-check-square-o"></i> 库存量
+                                                    </a>
+                                                    <a href="<?php echo url('edit',array('gs_id'=>$gs['gs_id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('gs_id'=>$gs['gs_id'])); ?>')" class="btn btn-danger btn-sm shiny">
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    </table>
                                 </div>
+                                <div><?php echo $goodslist->render(); ?></div>
                             </div>
                         </div>
                     </div>
@@ -427,7 +449,7 @@
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-    </div>  
+	</div>	
 </div>
 
 <!--Basic Scripts-->

@@ -55,6 +55,29 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位</label>
+
+                                            <div class="col-sm-6">
+                                                {volist name="shopCateRecpos" id="shopcaterec"}
+                                                <?php 
+                                                    if(in_array($shopcaterec['rec_id'],$sshopCateRecpos)){
+                                                        $checked = 'checked="checked"';
+                                                    }
+                                                    else{
+                                                        $checked = '';
+                                                
+                                                    }
+                                                ?>
+                                                <label style="padding-left: 5px;">
+                                                    <input type="checkbox" {$checked} name="recpos[]" value="{$shopcaterec.rec_id}" class="colored-blue">
+                                                    <span class="text">{$shopcaterec.rec_name}</span>
+                                                </label>
+                                                {/volist}
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="form-group">
                                             <label for="username" class="col-sm-2 control-label no-padding-right">商品图片</label>
                                             <div class="col-sm-6">
                                                 <input name="shopcate_img" type="file">
