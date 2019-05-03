@@ -20,7 +20,7 @@ class Shopcate extends Model
              //处理商店分类推荐位
             $recpos_item=db('recpos_item');
             $recpos_item->where(array('value_type'=>2,'value_id'=>$shopcateId))->delete();
-            if ($shopcateData['recpos']) {
+            if (isset($shopcateData['recpos'])) {
                 foreach ($shopcateData['recpos'] as $k => $v) {
                     $recpos_item->insert(['recpos_id'=>$v,'value_id'=>$shopcateId,'value_type'=>2]);
                 }
@@ -34,7 +34,7 @@ class Shopcate extends Model
             $shopcateData=input('post.');
             //dump($shopcateData['recpos']);die;
             //处理商店分类推荐位
-            if ($shopcateData['recpos']) {
+            if (isset($shopcateData['recpos'])) {
                 foreach ($shopcateData['recpos'] as $k => $v) {
                     db('recpos_item')->insert(['recpos_id'=>$v,'value_id'=>$shopcateId,'value_type'=>2]);
                 }

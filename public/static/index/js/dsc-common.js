@@ -100,21 +100,23 @@ $(function(){
 		
 		if(eveval != 1){
 			T.data('eveval', '1');
-			/*加载中by wu*/
-			layer.find("*[ectype='subitems_" + cat_id + "']").html('<img src="./img/loadGoods.gif" width="200" height="200" class="lazy">');
+			// 加载中图片路径拼装
+			html = '<img src="'+imgLoad+'" width="200" height="200" class="lazy">'
+			layer.find("*[ectype='subitems_" + cat_id + "']").html(html);
 			$.ajax({
-			   type: "GET",
-			   url: "ajax_dialog.php",
-			   data: "act=getCategoryCallback&cat_id=" + cat_id,
+			   type: "POST",
+			   url: ajaxShopcateurl,
 			   dataType:'json',
+			   data:{'shopcate_id':cat_id},
 			   success: function(data){
-					var strLength = Number(data.topic_content.length),
+			   		// alert('1111');
+					// var strLength = Number(data.topic_content.length),
 						channels = $("*[ectype='channels_" + data.cat_id + "']"),
 						subitems = $("*[ectype='subitems_" + data.cat_id + "']"),
 						brands = $("*[ectype='brands_" + data.cat_id + "']");
-					if(strLength == 2 || strLength == 0){
-						channels.hide();
-					}
+					// if(strLength == 2 || strLength == 0){
+					// 	channels.hide();
+					// }
 					channels.html(data.topic_content);
 					subitems.html(data.cat_content);
 					brands.html(data.brands_ad_content);

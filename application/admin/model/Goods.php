@@ -57,7 +57,7 @@ class Goods extends Model
              //处理商品推荐位
             $recpos_item=db('recpos_item');
             $recpos_item->where(array('value_type'=>1,'value_id'=>$goodsId))->delete();
-            if ($goodsData['recpos']) {
+            if (isset($goodsData['recpos'])) {
                 foreach ($goodsData['recpos'] as $k => $v) {
                     $recpos_item->insert(['recpos_id'=>$v,'value_id'=>$goodsId,'value_type'=>1]);
                 }
@@ -254,7 +254,7 @@ class Goods extends Model
             $goodsData=input('post.');
             //dump($goodsData['recpos']);die;
             //处理商品推荐位
-            if ($goodsData['recpos']) {
+            if (isset($goodsData['recpos'])) {
                 foreach ($goodsData['recpos'] as $k => $v) {
                     db('recpos_item')->insert(['recpos_id'=>$v,'value_id'=>$goodsId,'value_type'=>1]);
                 }

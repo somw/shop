@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1556760608;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1556760608;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1556760608;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1556760608;s:59:"B:\aaaweb\shop\application\index\view\common\index_nav.html";i:1556760608;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1556760608;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1556760608;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1556760608;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:8:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1556846906;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1556846906;s:58:"B:\aaaweb\shop\application\index\view\common\site-nav.html";i:1556846906;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1556876504;s:59:"B:\aaaweb\shop\application\index\view\common\index_nav.html";i:1556846906;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1556846906;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1556846906;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1556870918;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -845,92 +845,11 @@
     </div>
 
 	<script type="text/javascript">
-		function changenum(rec_id, diff, warehouse_id, area_id)
-		{
-			var cValue = $('#cart_value').val();
-		    var goods_number =Number($('#goods_number_' + rec_id).text()) + Number(diff);
-		 
-			if(goods_number < 1)
-			{
-				return false;	
-			}
-			else
-			{
-				change_goods_number(rec_id,goods_number, warehouse_id, area_id, cValue);
-			}
-		}
-		function change_goods_number(rec_id, goods_number, warehouse_id, area_id, cValue)
-		{
-			if(cValue != '' || cValue == 'undefined'){
-			   var cValue = $('#cart_value').val(); 
-			}   
-			Ajax.call('flow.php?step=ajax_update_cart', 'rec_id=' + rec_id +'&goods_number=' + goods_number +'&cValue=' + cValue +'&warehouse_id=' + warehouse_id +'&area_id=' + area_id, change_goods_number_response, 'POST','JSON');                
-		}
-		function change_goods_number_response(result)
-		{    
-			var rec_id = result.rec_id;           
-		    if (result.error == 0)
-		    {
-		       $('#goods_number_' +rec_id).val(result.goods_number);//更新数量
-		       $('#goods_subtotal_' +rec_id).html(result.goods_subtotal);//更新小计
-		       if (result.goods_number <= 0)
-		        {
-					//数量为零则隐藏所在行
-		            $('#tr_goods_' +rec_id).style.display = 'none';
-		            $('#tr_goods_' +rec_id).innerHTML = '';
-		        }
-		        $('#total_desc').html(result.flow_info);//更新合计
-		        if($('ECS_CARTINFO'))
-		        
-
-				if(result.group.length > 0){
-					for(var i=0; i<result.group.length; i++){
-						$("#" + result.group[i].rec_group).html(result.group[i].rec_group_number);//配件商品数量
-						$("#" + result.group[i].rec_group_talId).html(result.group[i].rec_group_subtotal);//配件商品金额
-					}
-				}
-
-				$("#goods_price_" + rec_id).html(result.goods_price);
-				$(".cart_num").html(result.subtotal_number);
-			}
-			else if (result.message != '')
-			{
-				$('#goods_number_' +rec_id).val(result.cart_Num);//更新数量
-				alert(result.message);
-			}                
-		}
-
-		function deleteCartGoods(rec_id,index)
-		{
-			Ajax.call('delete_cart_goods.php', 'id='+rec_id+'&index='+index, deleteCartGoodsResponse, 'POST', 'JSON');
-		}
-
-		/**
-		 * 接收返回的信息
-		 */
-		function deleteCartGoodsResponse(res)
-		{
-		  if (res.error)
-		  {
-		    alert(res.err_msg);
-		  }
-		  else if(res.index==1)
-		  {
-				Ajax.call('get_ajax_content.php?act=get_content', 'data_type=cart_list', return_cart_list, 'POST', 'JSON');
-		  }
-		  else
-		  {
-			  $("#ECS_CARTINFO").html(res.content);
-			  $(".cart_num").html(res.cart_num);
-		  }
-		}
-
-		function return_cart_list(result)
-		{
-			$(".cart_num").html(result.cart_num);
-			$(".pop_panel").html(result.content);
-			tbplHeigth();
-		}
+		//ajax异步获取顶级分类下的子分类、品牌、频道等相关信息在右侧菜单显示
+		var ajaxShopcateurl = "<?php echo url('shopcate/getShopcateinfo'); ?>";
+		// 加载中图片路径
+		var imgLoad = "/static/index/img/loadGoods.gif";
+		
 	</script>        
 </div>
 
@@ -2249,16 +2168,7 @@ $(function(){
     <script type="text/javascript" src="/static/index/js/common.js"></script>
     <script type="text/javascript" src="/static/index/js/compare.js"></script>
     <script type="text/javascript" src="/static/index/js/magiczoomplus.js"></script>
-    <script type="text/javascript" src="/static/index/js/calendar.php?lang="></script>
-    <script type="text/javascript" src="/static/index/js/perfect-scrollbar.min.js"></script>
     <script type="text/javascript" src="/static/index/js/goodsFittings.js"></script>
-
-
-
-    <!-- login -->
-    <script type="text/javascript" src="/static/index/js/user.js"></script>
-    <script type="text/javascript" src="/static/index/js/user_register.js"></script>
-    <script type="text/javascript" src="/static/index/js/sms.js"></script>
 
 
     <!-- cart_list -->
@@ -2268,12 +2178,7 @@ $(function(){
     <script type="text/javascript" src="/static/index/js/checkAll.js"></script>   
 
     <!-- category -->
-    <script type="text/javascript" src="./js/jd_choose.js"></script>
-
-    <!-- m_index -->
-    <script type="text/javascript" src="./js/jquery.validation.min.js"></script>
-    <script type="text/javascript" src="./js/ZeroClipboard.js"></script>
-
+    <script type="text/javascript" src="/static/index/js/jd_choose.js"></script>
 
     
 

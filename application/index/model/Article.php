@@ -2,7 +2,7 @@
 namespace app\index\model;
 use think\Model;
 
-header("Content-Type:text/html;charset=utf-8");
+
 class Article extends Model
 {
     public function getfooterArts(){

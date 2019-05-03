@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:64:"B:\aaaweb\shop\public/../application/admin\view\index\index.html";i:1556760608;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556760608;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556760608;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556786593;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556760608;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:61:"B:\aaaweb\shop\public/../application/admin\view\type\lst.html";i:1556846906;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556846906;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556846906;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556846906;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556846906;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -92,13 +92,10 @@
     </div>
 </div>
 
-
-
-	<!-- /头部 -->
-	
-	<div class="main-container container-fluid">
-		<div class="page-container">
-			<!-- Page Sidebar -->
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+       <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -360,32 +357,81 @@
     <!-- /Sidebar Menu -->
 </div>
 <!-- /Page Sidebar -->
-            <!-- Page Content -->
-            <div class="page-content">
-                <!-- Page Breadcrumb -->
-                <div class="page-breadcrumbs">
-                    <ul class="breadcrumb">
-                        <li class="active">控制面板</li>
-                    </ul>
-                </div>
-                <!-- /Page Breadcrumb -->
+        <!-- Page Content -->
+        <div class="page-content">
 
-                <!-- Page Body -->
-                <div class="page-body">
-                    
-				<div style="text-align:center; line-height:1000%; font-size:24px;">
-                童老师THinkPHP5第四季 实战开发大型B2C商城项目<br /><p style="color:#f00;">ThinkPHP交流群⑯：383432579</p></div>
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo url('type/lst'); ?>">商品类型管理</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                <button type="button" tooltip="添加商品类型" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('type/add'); ?>'"> <i class="fa fa-plus"></i> Add
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" width="8%">ID</th>
+                                                <th class="text-center">属性名称</th>
+                                                <th class="text-center" width="8%">状态</th>
+                                                <th class="text-center" width="25%">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <?php if(is_array($typelist) || $typelist instanceof \think\Collection || $typelist instanceof \think\Paginator): $i = 0; $__LIST__ = $typelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$type): $mod = ($i % 2 );++$i;?>
+                                        <tbody>
+                                            <tr>
+                                                <td align="center"><?php echo $type['type_id']; ?></td>
+                                                <td><?php echo $type['type_name']; ?></td>
+                                                <td align="center">
+                                                <?php if($type['type_showtype'] == 1): ?>
+                                                    显示
+                                                <?php else: ?>
+                                                    禁用
+                                                <?php endif; ?>
+                                                </td>
+                                                <td align="center">
+                                                    <a href="<?php echo url('attr/lst',array('type_id'=>$type['type_id'])); ?>" class="btn btn-warning btn-sm shiny">
+                                                        <i class="fa fa-check-square-o"></i> 属性列表
+                                                    </a>
+                                                    <a href="<?php echo url('edit',array('type_id'=>$type['type_id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('type_id'=>$type['type_id'])); ?>')" class="btn btn-danger btn-sm shiny">
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    </table>
+                                </div>
+                                <div><?php echo $typelist->render(); ?></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
 
             </div>
-                <!-- /Page Body -->
+            <!-- /Page Body -->
         </div>
-            <!-- /Page Content -->
+        <!-- /Page Content -->
 	</div>	
+</div>
 
-
-<!--Basic Scripts-->
 <!--Basic Scripts-->
 <script src="/static/admin/js/bootstrap.js"></script>
 <!--Beyond Scripts-->

@@ -2,174 +2,33 @@
     <div class="categorys-type"><a href="#" target="_blank">全部商品分类</a></div>
     <div class="categorys-tab-content">
     	<div class="categorys-items" id="cata-nav">
-            <div class="categorys-item" ectype="cateItem" data-id="858" data-eveval="0">
+    		{volist name="shopcateRes" id="shopcate"}
+            <div class="categorys-item" ectype="cateItem" data-id="{$shopcate.shopcate_id}" data-eveval="0">
 		        <div class="item item-content">
 		    		<i class="iconfont icon-ele"></i>
 		    		<div class="categorys-title">
-		                <strong><a href="#" target="_blank">家用电器</a></strong>
+		                <strong><a href="#" target="_blank">{$shopcate.shopcate_name}</a></strong>
 		            	<span>
-		            		<a href="#" target="_blank">大家电</a>
-		            		<a href="#" target="_blank">生活电器</a>
+		            		{volist name="shopcate['children']" id="son_shopcate"}
+		            		{if condition="$i lt 3"}
+		            		<a href="#" target="_blank">{$son_shopcate.shopcate_name}</a>
+		            		{/if}
+		            		{/volist}
 		            	</span>
 		            </div>
 		        </div>
 		        <div class="categorys-items-layer" ectype="cateLayer">
 		        	<div class="cate-layer-con clearfix">
 		        		<div class="cate-layer-left">
-		        			<div class="cate_channel" ectype="channels_858"></div>
-		        			<div class="cate_detail" ectype="subitems_858"></div>
+		        			<div class="cate_channel" ectype="channels_{$shopcate.shopcate_id}"></div>
+		        			<div class="cate_detail" ectype="subitems_{$shopcate.shopcate_id}"></div>
 		        		</div>
-		        		<div class="cate-layer-rihgt" ectype="brands_858"></div>
+		        		<div class="cate-layer-rihgt" ectype="brands_{$shopcate.shopcate_id}"></div>
 		        	</div>
 		        </div>
 		        <div class="clear"></div>
 		    </div>
-		    <div class="categorys-item" ectype="cateItem" data-id="3" data-eveval="0">
-		    	<div class="item item-content">
-		    		<i class="iconfont icon-digital"></i>
-		    		<div class="categorys-title">
-		    			<strong>
-		    				<a href="#" target="_blank" class="division_cat">手机</a>、
-		    				<a href="#" target="_blank" class="division_cat">数码</a>、
-		    				<a href="#" target="_blank" class="division_cat">通信</a>            
-		    			</strong>
-		    			<span>
-		    				<a href="#" target="_blank">智能设备</a>
-		    				<a href="#" target="_blank">数码配件</a>
-		    			</span>
-		    		</div>
-		    	</div>
-		    	<div class="categorys-items-layer" ectype="cateLayer">
-		    		<div class="cate-layer-con clearfix">
-		    			<div class="cate-layer-left">
-		    				<div class="cate_channel" ectype="channels_3"></div>
-		    				<div class="cate_detail" ectype="subitems_3"></div>
-		    			</div>
-		    			<div class="cate-layer-rihgt" ectype="brands_3"></div>
-		    		</div>
-		    	</div>
-		    	<div class="clear"></div>
-		    </div>
-		    <div class="categorys-item" ectype="cateItem" data-id="4" data-eveval="0">
-		    	<div class="item item-content">
-		    		<i class="iconfont icon-computer"></i>
-		    		<div class="categorys-title">
-		    			<strong>
-		    				<a href="#" target="_blank">电脑、办公</a>
-		    			</strong>
-		    			<span>
-		    				<a href="#" target="_blank">服务产品</a>
-		    				<a href="#" target="_blank">电脑整机</a>
-		    			</span>
-		    		</div>
-		    	</div>
-		    	<div class="categorys-items-layer" ectype="cateLayer">
-		    		<div class="cate-layer-con clearfix">
-		    			<div class="cate-layer-left">
-		    				<div class="cate_channel" ectype="channels_4"></div>
-		    				<div class="cate_detail" ectype="subitems_4"></div>
-		    			</div>
-		    			<div class="cate-layer-rihgt" ectype="brands_4"></div>
-		    		</div>
-		    	</div>
-		    	<div class="clear"></div>
-		    </div>
-		    <div class="categorys-item" ectype="cateItem" data-id="5" data-eveval="0">
-		    	<div class="item item-content">
-		    		<i class="iconfont icon-bed"></i>
-		    		<div class="categorys-title">
-		    			<strong>
-		    				<a href="#" target="_blank">家居、家具、家装、厨具</a>
-		    			</strong>
-		    			<span>
-		    				<a href="#" target="_blank">厨具</a>
-		    				<a href="#" target="_blank">家装建材</a>
-		    			</span>
-		    		</div>
-		    	</div>
-		    	<div class="categorys-items-layer" ectype="cateLayer">
-		    		<div class="cate-layer-con clearfix">
-		    			<div class="cate-layer-left">
-		    				<div class="cate_channel" ectype="channels_5"></div>
-		    				<div class="cate_detail" ectype="subitems_5"></div>
-		    			</div>
-		    			<div class="cate-layer-rihgt" ectype="brands_5"></div>
-		    		</div>
-		    	</div>
-		    	<div class="clear"></div>
-		    </div>
-		    <div class="categorys-item" ectype="cateItem" data-id="6" data-eveval="0">
-		    	<div class="item item-content">
-		    		<i class="iconfont icon-clothes"></i>
-		    		<div class="categorys-title">
-		    			<strong>
-		    				<a href="#" target="_blank">男装、女装、内衣</a>
-		    			</strong>
-		    			<span>
-		    				<a href="#" target="_blank">女装</a>
-		    				<a href="#" target="_blank">男装</a>
-		    			</span>
-		    		</div>
-		    	</div>
-		    	<div class="categorys-items-layer" ectype="cateLayer">
-		    		<div class="cate-layer-con clearfix">
-		    			<div class="cate-layer-left">
-		    				<div class="cate_channel" ectype="channels_6"></div>
-		    				<div class="cate_detail" ectype="subitems_6"></div>
-		    			</div>
-		    			<div class="cate-layer-rihgt" ectype="brands_6"></div>
-		    		</div>
-		    	</div>
-		    	<div class="clear"></div>
-		    </div>
-		    <div class="categorys-item" ectype="cateItem" data-id="8" data-eveval="0">
-		    	<div class="item item-content">
-		    		<i class="iconfont icon-shoes"></i>
-		    		<div class="categorys-title">
-		    			<strong>
-		    				<a href="#" target="_blank">鞋靴、箱包、钟表、奢侈品</a>
-		    			</strong>
-		    			<span>
-		    				<a href="#" target="_blank">奢侈品</a>
-		    				<a href="#" target="_blank">功能箱包</a>
-		    			</span>
-		    		</div>
-		    	</div>
-		    	<div class="categorys-items-layer" ectype="cateLayer">
-		    		<div class="cate-layer-con clearfix">
-		    			<div class="cate-layer-left">
-		    				<div class="cate_channel" ectype="channels_8"></div>
-		    				<div class="cate_detail" ectype="subitems_8"></div>
-		    			</div>
-		    			<div class="cate-layer-rihgt" ectype="brands_8"></div>
-		    		</div>
-		    	</div>
-		    	<div class="clear"></div>
-		    </div>
-		    <div class="categorys-item" ectype="cateItem" data-id="860" data-eveval="0">
-		    	<div class="item item-content">
-		    		<i class="iconfont icon-heal"></i>
-		    		<div class="categorys-title">
-		    			<strong>
-		    				<a href="#" target="_blank">个人化妆、清洁用品</a>
-		    			</strong>
-		    			<span>
-		    				<a href="#" target="_blank">面部护肤</a>
-		    				<a href="#" target="_blank">洗发护发</a>
-		    			</span>
-		    		</div>
-		    	</div>
-		    	<div class="categorys-items-layer" ectype="cateLayer">
-		    		<div class="cate-layer-con clearfix">
-		    			<div class="cate-layer-left">
-		    				<div class="cate_channel" ectype="channels_860"></div>
-		    				<div class="cate_detail" ectype="subitems_860"></div>
-		    			</div>
-		    			<div class="cate-layer-rihgt" ectype="brands_860"></div>
-		    		</div>
-		    	</div>
-		    	<div class="clear"></div>
-		    </div>
+			{/volist}
 		</div>
 	</div>
 </div>

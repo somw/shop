@@ -1,7 +1,7 @@
 <?php
 namespace app\index\controller;
 
-class GoodsList
+class GoodsList extends Base
 {
     public function index()
     {

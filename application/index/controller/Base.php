@@ -9,6 +9,15 @@ class Base extends Controller
         $this->_getfooterArts();//获取并分配底部网站帮助
         $this->_getNav();//获取并分配导航
         $this->_getConfs();//获取并分配配置项,为config赋值
+        $this->_getShopcates();
+    }
+
+    private function _getShopcates(){
+        $shopcateRes = model('shopcate')->getShopcates();
+        // dump($cateRes);die;
+        $this->assign([
+            'shopcateRes'=>$shopcateRes,
+        ]);
     }
 
     private function _getfooterArts(){

@@ -6,7 +6,6 @@ class Article extends Base
     public function index($ar_id)
     {
     	
-
         $arts=db('article')->find($ar_id);
     	// dump($arts);die;
     	$helpCates=model('cate')->showhelpCate();
