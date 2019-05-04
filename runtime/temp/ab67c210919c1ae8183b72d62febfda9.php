@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\data\importlist.html";i:1556846906;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556846906;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556846906;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556846906;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556846906;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\data\importlist.html";i:1556930863;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556930863;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556930863;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556944608;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556930863;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -108,7 +108,7 @@
     <ul class="nav sidebar-menu">
         <!--Dashboard-->
         <li>
-            <a href="https://www.whgvip.com" target="_blank">
+            <a href="/" target="_blank">
                 <i class="menu-icon fa fa-film"></i>
                 <span class="menu-text">网站首页</span>
                 <i class="menu-expand"></i>
@@ -200,6 +200,27 @@
                 <li>
                     <a href="<?php echo url('recpos/add'); ?>">
                         <span class="menu-text">新增推荐位</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>             
+            </ul>                            
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">关联管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu" style="display: block;">
+                <li>
+                    <a href="<?php echo url('shopcate_words/lst'); ?>">
+                        <span class="menu-text">关联列表</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('shopcate_words/add'); ?>">
+                        <span class="menu-text">添加关联词</span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>             

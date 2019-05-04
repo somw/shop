@@ -107,7 +107,7 @@ $(function(){
 			   type: "POST",
 			   url: ajaxShopcateurl,
 			   dataType:'json',
-			   data:{'shopcate_id':cat_id},
+			   data:{'id':cat_id},
 			   success: function(data){
 			   		// alert('1111');
 					// var strLength = Number(data.topic_content.length),

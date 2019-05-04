@@ -1,0 +1,107 @@
+{include file="/common/_meta"}
+</head>
+<body>
+{include file="/common/top"}
+<div class="main-container container-fluid">
+	<div class="page-container">
+		            <!-- Page Sidebar -->
+       {include file="/common/list"}
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="{:url('shopcate_words/lst')}">关联管理</a>
+                    </li>
+                    <li class="active">添加关联词</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增关联</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联词</label>
+                                            <div class="col-sm-6">
+                                                <select name="cw_shopcateid">
+                                                    {volist name="shopcateRes" id="scate"}
+                                                    <option value="{$scate.shopcate_id}">{$scate.shopcate_name}</option>
+                                                    {/volist}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联词</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="cw_word"  type="text"  required="">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联地址</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" name="cw_linkurl" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">状态</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio" style="float: left; padding-right: 10px;">
+                                                    <label>
+                                                        <input value="1" name="cw_status" checked="checked" class="colored-blue"  type="radio">
+                                                        <span class="text">显示</span>
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input value="0" name="cw_status" class="colored-blue" type="radio">
+                                                        <span class="text">隐藏</span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                       
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+	</div>	
+</div>
+
+{include file="common/_footer"}
+</body>
+</html>

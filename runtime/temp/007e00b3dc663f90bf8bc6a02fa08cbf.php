@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:61:"B:\aaaweb\shop\public/../application/admin\view\type\add.html";i:1556846906;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556846906;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556846906;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556846906;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556846906;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"B:\aaaweb\shop\public/../application/admin\view\shopcate_words\add.html";i:1556954816;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556930863;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556930863;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556944608;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556930863;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -107,7 +107,7 @@
     <ul class="nav sidebar-menu">
         <!--Dashboard-->
         <li>
-            <a href="https://www.whgvip.com" target="_blank">
+            <a href="/" target="_blank">
                 <i class="menu-icon fa fa-film"></i>
                 <span class="menu-text">网站首页</span>
                 <i class="menu-expand"></i>
@@ -199,6 +199,27 @@
                 <li>
                     <a href="<?php echo url('recpos/add'); ?>">
                         <span class="menu-text">新增推荐位</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>             
+            </ul>                            
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">关联管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu" style="display: block;">
+                <li>
+                    <a href="<?php echo url('shopcate_words/lst'); ?>">
+                        <span class="menu-text">关联列表</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('shopcate_words/add'); ?>">
+                        <span class="menu-text">添加关联词</span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>             
@@ -365,9 +386,9 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('type/lst'); ?>">商品类型管理</a>
+                        <a href="<?php echo url('shopcate_words/lst'); ?>">关联管理</a>
                     </li>
-                    <li class="active">新增商品类型</li>
+                    <li class="active">添加关联词</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -379,32 +400,51 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">新增商品类型</span>
+                                <span class="widget-caption">新增关联</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
-                                    <form class="form-horizontal" role="form" method="post">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">属性名称</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联词</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="username" placeholder="" name="type_name"  type="text"  required="">
+                                                <select name="cw_shopcateid">
+                                                    <?php if(is_array($shopcateRes) || $shopcateRes instanceof \think\Collection || $shopcateRes instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcateRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$scate): $mod = ($i % 2 );++$i;?>
+                                                    <option value="<?php echo $scate['shopcate_id']; ?>"><?php echo $scate['shopcate_name']; ?></option>
+                                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联词</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="cw_word"  type="text"  required="">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
-                                        
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联地址</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" name="cw_linkurl" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+
                                         <div class="form-group">
                                             <label for="username" class="col-sm-2 control-label no-padding-right">状态</label>
                                             <div class="col-sm-6">
                                                 <div class="radio" style="float: left; padding-right: 10px;">
                                                     <label>
-                                                        <input value="1" name="type_showtype" checked="checked" class="colored-blue"  type="radio">
+                                                        <input value="1" name="cw_status" checked="checked" class="colored-blue"  type="radio">
                                                         <span class="text">显示</span>
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <input value="0" name="type_showtype" class="colored-blue" type="radio">
+                                                        <input value="0" name="cw_status" class="colored-blue" type="radio">
                                                         <span class="text">隐藏</span>
                                                     </label>
                                                 </div>

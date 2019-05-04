@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:66:"B:\aaaweb\shop\public/../application/admin\view\shopcate\edit.html";i:1556846906;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556846906;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556846906;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556846906;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556846906;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:60:"B:\aaaweb\shop\public/../application/admin\view\nav\add.html";i:1556930863;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1556930863;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1556930863;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1556944399;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1556930863;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -92,8 +92,8 @@
     </div>
 </div>
 <div class="main-container container-fluid">
-    <div class="page-container">
-                    <!-- Page Sidebar -->
+	<div class="page-container">
+		            <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -107,7 +107,7 @@
     <ul class="nav sidebar-menu">
         <!--Dashboard-->
         <li>
-            <a href="https://www.whgvip.com" target="_blank">
+            <a href="/" target="_blank">
                 <i class="menu-icon fa fa-film"></i>
                 <span class="menu-text">网站首页</span>
                 <i class="menu-expand"></i>
@@ -199,6 +199,27 @@
                 <li>
                     <a href="<?php echo url('recpos/add'); ?>">
                         <span class="menu-text">新增推荐位</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>             
+            </ul>                            
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">关联管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu" style="display: block;">
+                <li>
+                    <a href="<?php echo url('nav/lst'); ?>">
+                        <span class="menu-text">关联列表</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('nav/add'); ?>">
+                        <span class="menu-text">添加关联词</span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>             
@@ -365,9 +386,9 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('shopcate/lst'); ?>">商品管理</a>
+                        <a href="<?php echo url('nav/lst'); ?>">导航管理</a>
                     </li>
-                    <li class="active">新增商品分类</li>
+                    <li class="active">添加导航</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -379,100 +400,56 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">新增商品分类</span>
+                                <span class="widget-caption">新增导航</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
                                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" name="shopcate_id" value="<?php echo $shopcateedit['shopcate_id']; ?>">
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">上级商品分类</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">导航名称</label>
                                             <div class="col-sm-6">
-                                                <select name="shopcate_pid">
-                                                    <option>顶级商品分类</option>
-                                                    <?php if(is_array($shopcatelist) || $shopcatelist instanceof \think\Collection || $shopcatelist instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcatelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
-                                                    <option <?php if($shopcateedit['shopcate_pid'] == $shopcate['shopcate_id']): ?> selected="selected" <?php endif; ?> value="<?php echo $shopcate['shopcate_id']; ?>" ><?php echo str_repeat('-',$shopcate['lever']*8)?><?php echo $shopcate['shopcate_name']; ?></option>
-                                                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">商品分类名称</label>
-                                            <div class="col-sm-6">
-                                                <input class="form-control" id="username" placeholder="" name="shopcate_name"  type="text" value="<?php echo $shopcateedit['shopcate_name']; ?>">
+                                                <input class="form-control" id="username" placeholder="" name="nav_name"  type="text"  required="">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位</label>
-
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">导航地址</label>
                                             <div class="col-sm-6">
-                                                <?php if(is_array($shopCateRecpos) || $shopCateRecpos instanceof \think\Collection || $shopCateRecpos instanceof \think\Paginator): $i = 0; $__LIST__ = $shopCateRecpos;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcaterec): $mod = ($i % 2 );++$i;
-                                                    if(in_array($shopcaterec['rec_id'],$sshopCateRecpos)){
-                                                        $checked = 'checked="checked"';
-                                                    }
-                                                    else{
-                                                        $checked = '';
-                                                
-                                                    }
-                                                ?>
-                                                <label style="padding-left: 5px;">
-                                                    <input type="checkbox" <?php echo $checked; ?> name="recpos[]" value="<?php echo $shopcaterec['rec_id']; ?>" class="colored-blue">
-                                                    <span class="text"><?php echo $shopcaterec['rec_name']; ?></span>
-                                                </label>
-                                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                                                <input class="form-control" name="nav_url" type="text">
                                             </div>
-                                            
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">商品图片</label>
-                                            <div class="col-sm-6">
-                                                <input name="shopcate_img" type="file">
-                                                <?php if($shopcateedit['shopcate_img'] != ''): ?>
-                                                <img src="/static/uploads/<?php echo $shopcateedit['shopcate_img']; ?>" height="30">
-                                                <?php else: ?>
-                                                暂无图片
-                                                <?php endif; ?>
-                                            </div>
-                                            <p class="help-block col-sm-4 red">* 必填</p>
-                                        </div>
-
-                                        
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
-                                            <div class="col-sm-6">
-                                                <textarea class="form-control" name="shopcate_keywords"><?php echo $shopcateedit['shopcate_keywords']; ?></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
-                                            <div class="col-sm-6">
-                                                <textarea class="form-control" name="shopcate_description"><?php echo $shopcateedit['shopcate_description']; ?></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">状态</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">新标签打开</label>
                                             <div class="col-sm-6">
                                                 <div class="radio" style="float: left; padding-right: 10px;">
                                                     <label>
-                                                        <input value="1" name="shopcate_showshopcate" <?php if($shopcateedit['shopcate_showshopcate'] == 1): ?> checked="checked" <?php endif; ?> class="colored-blue"  type="radio">
-                                                        <span class="text">显示</span>
+                                                        <input value="1" name="nav_open" checked="checked" class="colored-blue"  type="radio">
+                                                        <span class="text">是</span>
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <input value="0" name="cate_showcates" <?php if($shopcateedit['shopcate_showshopcate'] == 0): ?> checked="checked" <?php endif; ?> class="colored-blue" type="radio">
-                                                        <span class="text">隐藏</span>
+                                                        <input value="2" name="nav_open" class="colored-blue" type="radio">
+                                                        <span class="text">否</span>
                                                     </label>
                                                 </div>
 
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">导航位置</label>
+                                            <div class="col-sm-6">
+                                                <select name="nav_pos">
+                                                    <option value="">请选择</option>
+                                                    <option value="top">顶部</option>
+                                                    <option value="mid">中间</option>
+                                                    <option value="bottom">底部</option>
+                                                </select>
                                             </div>
 
                                         </div>
@@ -494,7 +471,7 @@
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-    </div>  
+	</div>	
 </div>
 
 <!--Basic Scripts-->
