@@ -28899,3 +28899,4260 @@
 [ sql ] [ SQL ] SHOW CREATE TABLE `tp_type` [ RunTime:0.000000s ]
 [ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_type` [ RunTime:0.000000s ]
 [ sql ] [ SQL ] SELECT * FROM `tp_type` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:05+08:00 ] 127.0.0.1 GET m.com/admin/data/index.html
+[运行时间：0.141000s] [吞吐率：7.09req/s] [内存消耗：1,758.48kb] [文件加载：49]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/importlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/index_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->index[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\index.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.004000s ]
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:05+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.022000s] [吞吐率：45.45req/s] [内存消耗：1,112.95kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 POST m.com/admin/data/export.html
+[运行时间：0.079000s] [吞吐率：12.66req/s] [内存消耗：1,403.87kb] [文件加载：42]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'content-length' => '507',
+  'x-requested-with' => 'XMLHttpRequest',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'tables' => 
+  array (
+    0 => 'sheet1',
+    1 => 'tp_article',
+    2 => 'tp_attr',
+    3 => 'tp_brand',
+    4 => 'tp_cate',
+    5 => 'tp_cates',
+    6 => 'tp_conf',
+    7 => 'tp_goods',
+    8 => 'tp_goods_attr',
+    9 => 'tp_goods_img',
+    10 => 'tp_link',
+    11 => 'tp_member_level',
+    12 => 'tp_member_price',
+    13 => 'tp_nav',
+    14 => 'tp_product',
+    15 => 'tp_recpos',
+    16 => 'tp_recpos_item',
+    17 => 'tp_shopcate',
+    18 => 'tp_shopcate_brand',
+    19 => 'tp_shopcate_words',
+    20 => 'tp_type',
+  ),
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=0&start=0
+[运行时间：0.031000s] [吞吐率：32.26req/s] [内存消耗：1,593.78kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '0',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `sheet1` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `sheet1` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `sheet1` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=1&start=0
+[运行时间：0.028000s] [吞吐率：35.71req/s] [内存消耗：1,600.27kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '1',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_article` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=2&start=0
+[运行时间：0.029000s] [吞吐率：34.48req/s] [内存消耗：1,585.74kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '2',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_attr` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_attr` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_attr` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=3&start=0
+[运行时间：0.030000s] [吞吐率：33.33req/s] [内存消耗：1,617.57kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '3',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_brand` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_brand` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=4&start=0
+[运行时间：0.030000s] [吞吐率：33.33req/s] [内存消耗：1,593.19kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '4',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_cate` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_cate` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=5&start=0
+[运行时间：0.031000s] [吞吐率：32.26req/s] [内存消耗：1,585.89kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '5',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_cates` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_cates` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cates` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=6&start=0
+[运行时间：0.030000s] [吞吐率：33.33req/s] [内存消耗：1,590.80kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '6',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_conf` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_conf` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_conf` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=7&start=0
+[运行时间：0.020000s] [吞吐率：50.00req/s] [内存消耗：1,598.36kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '7',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_goods` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_goods` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_goods` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=8&start=0
+[运行时间：0.031000s] [吞吐率：32.26req/s] [内存消耗：1,589.51kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '8',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_goods_attr` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_goods_attr` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_goods_attr` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=9&start=0
+[运行时间：0.028000s] [吞吐率：35.71req/s] [内存消耗：1,581.58kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '9',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_goods_img` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_goods_img` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=10&start=0
+[运行时间：0.020000s] [吞吐率：50.00req/s] [内存消耗：1,585.30kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '10',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_link` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_link` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_link` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=11&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,584.71kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '11',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_member_level` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_member_level` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_member_level` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=12&start=0
+[运行时间：0.030000s] [吞吐率：33.33req/s] [内存消耗：1,587.86kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '12',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_member_price` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_member_price` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_member_price` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=13&start=0
+[运行时间：0.030000s] [吞吐率：33.33req/s] [内存消耗：1,587.97kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '13',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_nav` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_nav` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_nav` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=14&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,584.20kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '14',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_product` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=15&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,583.30kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '15',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_recpos` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_recpos` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_recpos` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=16&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,583.30kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '16',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_recpos_item` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_recpos_item` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_recpos_item` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=17&start=0
+[运行时间：0.026000s] [吞吐率：38.46req/s] [内存消耗：1,769.45kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '17',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_shopcate` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_shopcate` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=18&start=0
+[运行时间：0.018000s] [吞吐率：55.56req/s] [内存消耗：1,586.02kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '18',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_shopcate_brand` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_shopcate_brand` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate_brand` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=19&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,592.55kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '19',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_shopcate_words` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_shopcate_words` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate_words` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:11+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=20&start=0
+[运行时间：0.029000s] [吞吐率：34.48req/s] [内存消耗：1,580.28kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '20',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_type` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_type` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:24+08:00 ] 127.0.0.1 GET m.com/admin/data/importlist.html
+[运行时间：0.023000s] [吞吐率：43.48req/s] [内存消耗：1,498.95kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'importlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/importlist_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->importlist[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\importlist.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:24+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,112.68kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:53:26+08:00 ] 127.0.0.1 GET m.com/admin/data/del/time/1555848780.html
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,439.87kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'del',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/importlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/del/time/1555848780_html' => '',
+  'time' => '1555848780',
+)
+[ info ] [ RUN ] app\admin\controller\Data->del[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:27+08:00 ] 127.0.0.1 GET m.com/admin/data/importlist.html
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,498.52kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'importlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/del/time/1555848780.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/importlist_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->importlist[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\importlist.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:27+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.016000s] [吞吐率：62.50req/s] [内存消耗：1,112.68kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:53:28+08:00 ] 127.0.0.1 GET m.com/admin/data/del/time/1556720203.html
+[运行时间：0.017000s] [吞吐率：58.82req/s] [内存消耗：1,439.87kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'del',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/importlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/del/time/1556720203_html' => '',
+  'time' => '1556720203',
+)
+[ info ] [ RUN ] app\admin\controller\Data->del[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:29+08:00 ] 127.0.0.1 GET m.com/admin/data/importlist.html
+[运行时间：0.018000s] [吞吐率：55.56req/s] [内存消耗：1,498.08kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'importlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/del/time/1556720203.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/importlist_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->importlist[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\importlist.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:30+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.016000s] [吞吐率：62.50req/s] [内存消耗：1,112.68kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:53:31+08:00 ] 127.0.0.1 GET m.com/admin/data/del/time/1556788391.html
+[运行时间：0.017000s] [吞吐率：58.82req/s] [内存消耗：1,439.87kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'del',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/importlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/del/time/1556788391_html' => '',
+  'time' => '1556788391',
+)
+[ info ] [ RUN ] app\admin\controller\Data->del[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:32+08:00 ] 127.0.0.1 GET m.com/admin/data/importlist.html
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,497.59kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'importlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/del/time/1556788391.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/importlist_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->importlist[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\importlist.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:32+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,112.68kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:53:37+08:00 ] 127.0.0.1 GET m.com/admin/data/del/time/1556884675.html
+[运行时间：0.016000s] [吞吐率：62.50req/s] [内存消耗：1,439.87kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'del',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/importlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/del/time/1556884675_html' => '',
+  'time' => '1556884675',
+)
+[ info ] [ RUN ] app\admin\controller\Data->del[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:38+08:00 ] 127.0.0.1 GET m.com/admin/data/importlist.html
+[运行时间：0.020000s] [吞吐率：50.00req/s] [内存消耗：1,497.06kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'importlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/del/time/1556884675.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/importlist_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->importlist[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\importlist.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:53:38+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.016000s] [吞吐率：62.50req/s] [内存消耗：1,112.68kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=ac0n2j2ep8nh3uqcnp6l399dg2',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:54:09+08:00 ] 127.0.0.1 GET m.com/article/5.html
+[运行时间：0.114000s] [吞吐率：8.77req/s] [内存消耗：2,784.80kb] [文件加载：57]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Article',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/article/5_html' => '',
+  'ar_id' => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Article->index[ B:\aaaweb\shop\application\index\controller\Article.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/index\view\article\article.html [ array (
+  0 => 'bases',
+  1 => 'infos',
+  2 => 'navRes',
+  3 => 'configs',
+  4 => 'shopcateRes',
+  5 => 'helpCates',
+  6 => 'comCates',
+  7 => 'arts',
+  8 => 'position',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cate` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_type` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_cateid` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_cateid` = 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_cateid` = 5 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_cateid` = 10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_cateid` = 11 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ar_id`,`ar_url`,`ar_title` FROM `tp_article` WHERE  `ar_cateid` = 24 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_nav` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_nav` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_conf` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `conf_ename`,`conf_default` FROM `tp_conf` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_shopcate` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` WHERE  `shopcate_pid` = 0 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` WHERE  `shopcate_pid` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` WHERE  `shopcate_pid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` WHERE  `shopcate_pid` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` WHERE  `shopcate_pid` = 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` WHERE  `shopcate_pid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` WHERE  `shopcate_pid` = 6 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` WHERE  `shopcate_pid` = 7 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 5 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_type` = 5  AND `cate_pid` = 0 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 12 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 13 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 14 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 15 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 16 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 17 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 18 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 19 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 20 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` WHERE  `cate_pid` = 21 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `cate_id`,`cate_pid`,`cate_name` FROM `tp_cate` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `cate_id`,`cate_pid`,`cate_name` FROM `tp_cate` LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:54:09+08:00 ] 127.0.0.1 GET m.com/article/favicon.ico
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,111.20kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'article',
+    1 => 'favicon.ico',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/article/favicon_ico' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:54:09+08:00 ] 127.0.0.1 POST m.com/article/flow.php?step=ajax_cart_goods_amount
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,111.62kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'article',
+    1 => 'flow.php',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '7',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'referer' => 'http://m.com/article/5.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/article/flow_php' => '',
+  'step' => 'ajax_cart_goods_amount',
+  'rec_id' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:54:13+08:00 ] 127.0.0.1 GET m.com/static/index/img/change_city.png
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,111.75kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'img',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/index/css/base.css',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/index/img/change_city_png' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:54:17+08:00 ] 127.0.0.1 GET m.com/admin/
+[运行时间：0.027000s] [吞吐率：37.04req/s] [内存消耗：1,471.74kb] [文件加载：42]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ B:\aaaweb\shop\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:54:17+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:54:43+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html
+[运行时间：0.159000s] [吞吐率：6.29req/s] [内存消耗：2,292.49kb] [文件加载：55]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 0,5 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:54:43+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:54:46+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=19
+[运行时间：0.036000s] [吞吐率：27.78req/s] [内存消耗：2,146.66kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '19',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 90,5 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:54:46+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:11+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=19
+[运行时间：0.035000s] [吞吐率：28.57req/s] [内存消耗：2,140.48kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '19',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 270,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:55:11+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,112.55kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:13+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=6
+[运行时间：0.027000s] [吞吐率：37.04req/s] [内存消耗：2,174.80kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=19',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '6',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 75,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:55:13+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490072746651935979.jpg
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=6',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490072746651935979_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:13+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:26+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=6
+[运行时间：0.035000s] [吞吐率：28.57req/s] [内存消耗：2,140.45kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=19',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '6',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 100,20 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:55:26+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.016000s] [吞吐率：62.50req/s] [内存消耗：1,112.55kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:29+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=4
+[运行时间：0.037000s] [吞吐率：27.03req/s] [内存消耗：2,192.99kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=6',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '4',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 60,20 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:55:29+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490227603513332911.jpg
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490227603513332911_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:30+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490227603513332911.jpg
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490227603513332911_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:31+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:31+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=5
+[运行时间：0.036000s] [吞吐率：27.78req/s] [内存消耗：2,174.81kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '5',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 80,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:55:31+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490072746651935979.jpg
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=5',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490072746651935979_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:32+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490072746651935979.jpg
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=5',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490072746651935979_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:55:33+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:57:38+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=5
+[运行时间：0.039000s] [吞吐率：25.64req/s] [内存消耗：2,175.13kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '5',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 80,20 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:57:38+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.016000s] [吞吐率：62.50req/s] [内存消耗：1,112.55kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:57:44+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=4
+[运行时间：0.027000s] [吞吐率：37.04req/s] [内存消耗：2,192.99kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=5',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '4',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 60,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:57:44+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490227603513332911.jpg
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490227603513332911_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:57:44+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490227603513332911.jpg
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490227603513332911_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:57:45+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:57:59+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=3
+[运行时间：0.036000s] [吞吐率：27.78req/s] [内存消耗：2,192.95kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '3',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 40,20 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:57:59+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490073616154966189.jpg
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490073616154966189_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:57:59+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490073616154966189.jpg
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490073616154966189_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:00+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:01+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=2
+[运行时间：0.036000s] [吞吐率：27.78req/s] [内存消耗：2,193.03kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '2',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 20,20 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:58:01+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:02+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=1
+[运行时间：0.027000s] [吞吐率：37.04req/s] [内存消耗：2,192.95kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 0,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:58:03+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:04+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=3
+[运行时间：0.037000s] [吞吐率：27.03req/s] [内存消耗：2,192.95kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '3',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 40,20 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:58:04+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490073616154966189.jpg
+[运行时间：0.017000s] [吞吐率：58.82req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490073616154966189_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:04+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490073616154966189.jpg
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490073616154966189_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:05+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:07+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=4
+[运行时间：0.037000s] [吞吐率：27.03req/s] [内存消耗：2,192.99kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '4',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 60,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:58:07+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490227603513332911.jpg
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490227603513332911_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:07+08:00 ] 127.0.0.1 GET m.com/static/uploads/20190504/1490227603513332911.jpg
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,111.87kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'uploads',
+    2 => '20190504',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'image/webp,*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/uploads/20190504/1490227603513332911_jpg' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:58:07+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.013000s] [吞吐率：76.92req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:59:14+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=4
+[运行时间：0.035000s] [吞吐率：28.57req/s] [内存消耗：2,193.30kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '4',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 60,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:14+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,112.55kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:59:18+08:00 ] 127.0.0.1 GET m.com/admin/brand/lst.html?page=3
+[运行时间：0.028000s] [吞吐率：35.71req/s] [内存消耗：2,192.95kb] [文件加载：53]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=4',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/brand/lst_html' => '',
+  'page' => '3',
+)
+[ info ] [ RUN ] app\admin\controller\Brand->lst[ B:\aaaweb\shop\application\admin\controller\Brand.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\brand\lst.html [ array (
+  0 => 'brandlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_brand` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_brand` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` ORDER BY `brand_id` DESC LIMIT 40,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:18+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:59:32+08:00 ] 127.0.0.1 GET m.com/admin/data/index.html
+[运行时间：0.024000s] [吞吐率：41.67req/s] [内存消耗：1,757.88kb] [文件加载：49]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/brand/lst.html?page=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/index_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->index[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\index.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW TABLE STATUS [ RunTime:0.003000s ]
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:32+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.014000s] [吞吐率：71.43req/s] [内存消耗：1,112.30kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 POST m.com/admin/data/export.html
+[运行时间：0.016000s] [吞吐率：62.50req/s] [内存消耗：1,403.52kb] [文件加载：42]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '507',
+  'x-requested-with' => 'XMLHttpRequest',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'tables' => 
+  array (
+    0 => 'sheet1',
+    1 => 'tp_article',
+    2 => 'tp_attr',
+    3 => 'tp_brand',
+    4 => 'tp_cate',
+    5 => 'tp_cates',
+    6 => 'tp_conf',
+    7 => 'tp_goods',
+    8 => 'tp_goods_attr',
+    9 => 'tp_goods_img',
+    10 => 'tp_link',
+    11 => 'tp_member_level',
+    12 => 'tp_member_price',
+    13 => 'tp_nav',
+    14 => 'tp_product',
+    15 => 'tp_recpos',
+    16 => 'tp_recpos_item',
+    17 => 'tp_shopcate',
+    18 => 'tp_shopcate_brand',
+    19 => 'tp_shopcate_words',
+    20 => 'tp_type',
+  ),
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=0&start=0
+[运行时间：0.028000s] [吞吐率：35.71req/s] [内存消耗：1,593.78kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '0',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `sheet1` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `sheet1` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `sheet1` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=1&start=0
+[运行时间：0.029000s] [吞吐率：34.48req/s] [内存消耗：1,600.27kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '1',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_article` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=2&start=0
+[运行时间：0.029000s] [吞吐率：34.48req/s] [内存消耗：1,585.74kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '2',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_attr` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_attr` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_attr` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=3&start=0
+[运行时间：0.020000s] [吞吐率：50.00req/s] [内存消耗：1,617.57kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '3',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_brand` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_brand` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_brand` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=4&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,593.19kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '4',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_cate` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_cate` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=5&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,585.89kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '5',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_cates` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_cates` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cates` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=6&start=0
+[运行时间：0.020000s] [吞吐率：50.00req/s] [内存消耗：1,590.80kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '6',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_conf` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_conf` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_conf` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=7&start=0
+[运行时间：0.020000s] [吞吐率：50.00req/s] [内存消耗：1,598.36kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '7',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_goods` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_goods` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_goods` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=8&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,589.51kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '8',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_goods_attr` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_goods_attr` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_goods_attr` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=9&start=0
+[运行时间：0.028000s] [吞吐率：35.71req/s] [内存消耗：1,581.58kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '9',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_goods_img` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_goods_img` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=10&start=0
+[运行时间：0.020000s] [吞吐率：50.00req/s] [内存消耗：1,585.30kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '10',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_link` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_link` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_link` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=11&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,584.71kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '11',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_member_level` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_member_level` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_member_level` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=12&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,587.86kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '12',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_member_price` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_member_price` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_member_price` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=13&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,587.97kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '13',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_nav` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_nav` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_nav` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=14&start=0
+[运行时间：0.018000s] [吞吐率：55.56req/s] [内存消耗：1,584.20kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '14',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_product` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_product` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=15&start=0
+[运行时间：0.028000s] [吞吐率：35.71req/s] [内存消耗：1,583.30kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '15',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_recpos` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_recpos` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_recpos` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=16&start=0
+[运行时间：0.018000s] [吞吐率：55.56req/s] [内存消耗：1,583.30kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '16',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_recpos_item` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_recpos_item` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_recpos_item` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=17&start=0
+[运行时间：0.025000s] [吞吐率：40.00req/s] [内存消耗：1,769.45kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '17',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_shopcate` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_shopcate` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=18&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,586.02kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '18',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_shopcate_brand` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_shopcate_brand` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate_brand` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=19&start=0
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,592.55kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '19',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_shopcate_words` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_shopcate_words` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_shopcate_words` LIMIT 0, 1000 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:34+08:00 ] 127.0.0.1 GET m.com/admin/data/export.html?id=20&start=0
+[运行时间：0.018000s] [吞吐率：55.56req/s] [内存消耗：1,580.28kb] [文件加载：46]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'export',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'x-requested-with' => 'XMLHttpRequest',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/export_html' => '',
+  'id' => '20',
+  'start' => '0',
+)
+[ info ] [ RUN ] app\admin\controller\Data->export[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW CREATE TABLE `tp_type` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS count FROM `tp_type` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` LIMIT 0, 1000 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:37+08:00 ] 127.0.0.1 GET m.com/admin/data/importlist.html
+[运行时间：0.019000s] [吞吐率：52.63req/s] [内存消耗：1,497.47kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'importlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/importlist_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->importlist[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\importlist.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:37+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,112.68kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-04T19:59:40+08:00 ] 127.0.0.1 GET m.com/admin/data/del/time/1556970791.html
+[运行时间：0.017000s] [吞吐率：58.82req/s] [内存消耗：1,439.87kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'del',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/importlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/del/time/1556970791_html' => '',
+  'time' => '1556970791',
+)
+[ info ] [ RUN ] app\admin\controller\Data->del[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:43+08:00 ] 127.0.0.1 GET m.com/admin/data/importlist.html
+[运行时间：0.020000s] [吞吐率：50.00req/s] [内存消耗：1,497.06kb] [文件加载：45]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'data',
+    2 => 'importlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/data/del/time/1556970791.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/data/importlist_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Data->importlist[ B:\aaaweb\shop\application\admin\controller\Data.php ]
+[ info ] [ VIEW ] B:\aaaweb\shop\public/../application/admin\view\data\importlist.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]fclose() expects parameter 1 to be resource, null given[B:\aaaweb\shop\extend\tp5er\Backup.php:428]
+---------------------------------------------------------------
+[ 2019-05-04T19:59:43+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.015000s] [吞吐率：66.67req/s] [内存消耗：1,112.68kb] [文件加载：35]
+[ info ] [ LANG ] B:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=0g9fclh8aar87bea4c37bqcku4',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
