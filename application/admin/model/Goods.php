@@ -39,7 +39,7 @@ class Goods extends Model
                 $goods->gs_smimg=$smThumb;
             }
             $goods->gs_code=time().rand(11111,99999);
-            
+
 
 
             //dump($ogThumb);die;
@@ -53,7 +53,7 @@ class Goods extends Model
             //新增商品属性
             $goodsData=input('post.');
             // dump($goodsData);die;
-            
+
              //处理商品推荐位
             $recpos_item=db('recpos_item');
             $recpos_item->where(array('value_type'=>1,'value_id'=>$goodsId))->delete();
@@ -62,7 +62,7 @@ class Goods extends Model
                     $recpos_item->insert(['recpos_id'=>$v,'value_id'=>$goodsId,'value_type'=>1]);
                 }
             }
-            
+
             if (isset($goodsData['goods_attr'])) {
                 $i=0;
                 foreach ($goodsData['goods_attr'] as $k => $v) {
@@ -82,12 +82,12 @@ class Goods extends Model
                             db('goods_attr')->insert(['gsattr_attrid'=>$k,'gsattr_value'=>$v,'gsattr_goodsid'=>$goodsId]);
                         }
                     }
-                        
+
                 }
             }
 
             //修改商品属性
-           
+
             // dump($goodsData);die;
             if (isset($goodsData['old_goods_attr'])) {
                 $oldgoodsprice = $goodsData['old_gsattr_price'];
@@ -114,7 +114,7 @@ class Goods extends Model
                             $i++;
                         }
                     }
-                        
+
                 }
             }
 
@@ -124,7 +124,7 @@ class Goods extends Model
                 $files = request()->file('goods_img');
                 foreach($files as $file){
                     $info = $file->validate(['ext'=>'jpg,png,gif'])->move(ROOT_PATH . 'public' . DS .'static' . DS . 'uploads');
-                    $imgName=$info->getFilename(); 
+                    $imgName=$info->getFilename();
                     $ogImg=date("Ymd").DS.$imgName;
                     $bigImg=date("Ymd").DS.'big_'.$imgName;
                     $midImg=date("Ymd").DS.'mid_'.$imgName;
@@ -154,7 +154,7 @@ class Goods extends Model
                     }
 
                 }
-                
+
             }
             if ($_FILES['gs_img']['tmp_name']) {
                 //如果存在就删除旧缩略图
@@ -235,7 +235,7 @@ class Goods extends Model
             //   [3] => string(1) "7"
             //   [4] => string(1) "7"
             // }
-            
+
             $goodsId=$goods->gs_id;
             //dump($goodsId);die;
 
@@ -248,11 +248,11 @@ class Goods extends Model
                     }
 
                 }
-                
+
             }
 
             $goodsData=input('post.');
-            //dump($goodsData['recpos']);die;
+            // dump($goodsData['recpos']);die;
             //处理商品推荐位
             if (isset($goodsData['recpos'])) {
                 foreach ($goodsData['recpos'] as $k => $v) {
@@ -280,7 +280,7 @@ class Goods extends Model
                             db('goods_attr')->insert(['gsattr_attrid'=>$k,'gsattr_value'=>$v,'gsattr_goodsid'=>$goodsId]);
                         }
                     }
-                        
+
                 }
             }
             //dump(input('post.'));
@@ -288,12 +288,12 @@ class Goods extends Model
             //商品相册处理
             //dump($_FILES);die;
             if ($goods->_hasimgs($_FILES['goods_img']['tmp_name'])) {
-                
+
                 // 获取表单上传文件
                 $files = request()->file('goods_img');
                 foreach($files as $file){
                     $info = $file->validate(['ext'=>'jpg,png,gif'])->move(ROOT_PATH . 'public' . DS .'static' . DS . 'uploads');
-                    $imgName=$info->getFilename(); 
+                    $imgName=$info->getFilename();
                     $ogImg=date("Ymd").DS.$imgName;
                     $bigImg=date("Ymd").DS.'big_'.$imgName;
                     $midImg=date("Ymd").DS.'mid_'.$imgName;

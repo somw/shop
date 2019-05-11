@@ -15,9 +15,9 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="{:url('shopcate_words/lst')}">关联管理</a>
+                        <a href="{:url('shopcate_brand/lst')}">关联管理</a>
                     </li>
-                    <li class="active">添加关联词</li>
+                    <li class="active">添加关联品牌</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -29,15 +29,15 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">新增关联</span>
+                                <span class="widget-caption">新增关联品牌</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
                                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联词</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联品牌</label>
                                             <div class="col-sm-6">
-                                                <select name="cw_shopcateid">
+                                                <select name="cb_shopcateid">
                                                     {volist name="shopcateRes" id="scate"}
                                                     <option value="{$scate.shopcate_id}">{$scate.shopcate_name}</option>
                                                     {/volist}
@@ -46,19 +46,29 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联词</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联品牌</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="username" placeholder="" name="cw_word"  type="text"  required="">
+                                                {volist name='brandRes' id='brand'}
+                                                <label style="padding-left: 5px;">
+                                                    <input type="checkbox" name="cb_brandid[]" value="{$brand.brand_id}" class="colored-blue">
+                                                    <span class="text">{$brand.brand_name}</span>
+                                                </label>
+                                                {/volist}
                                             </div>
-                                            <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联地址</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推广图</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="username" name="cw_linkurl" type="text">
+                                                <input id="username" name="cb_proimg" type="file">
                                             </div>
-                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推广图链接</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" name="cb_prourl" type="text">
+                                            </div>
                                         </div>
 
 
@@ -67,13 +77,13 @@
                                             <div class="col-sm-6">
                                                 <div class="radio" style="float: left; padding-right: 10px;">
                                                     <label>
-                                                        <input value="1" name="cw_status" checked="checked" class="colored-blue"  type="radio">
+                                                        <input value="1" name="cb_status" checked="checked" class="colored-blue"  type="radio">
                                                         <span class="text">显示</span>
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <input value="0" name="cw_status" class="colored-blue" type="radio">
+                                                        <input value="0" name="cb_status" class="colored-blue" type="radio">
                                                         <span class="text">隐藏</span>
                                                     </label>
                                                 </div>

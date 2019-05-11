@@ -37,7 +37,7 @@
                                         <li class=""><a href="#goodsdes-tab" data-toggle="tab">描述信息</a></li>
                                         <li class=""><a href="#mbprice-tab" data-toggle="tab">会员价格</a></li>
                                          <li class=""><a href="#goodsattr-tab" data-toggle="tab">商品属性</a></li>
-                                        <li class=""><a href="#goodsimgs-tab" data-toggle="tab">商品相册</a></li> 
+                                        <li class=""><a href="#goodsimgs-tab" data-toggle="tab">商品相册</a></li>
                                     </ul>
                                     <div class="tab-content tabs-flat">
                                         <input type="hidden" name="gs_id" value="{$gsedit.gs_id}">
@@ -59,13 +59,13 @@
 
                                                 <div class="col-sm-6">
                                                     {volist name="shopGoodsRecpos" id="goodsrec"}
-                                                    <?php 
+                                                    <?php
                                                         if(in_array($goodsrec['rec_id'],$sGoodsRecpos)){
                                                             $checked = 'checked="checked"';
                                                         }
                                                         else{
                                                             $checked = '';
-                                                    
+
                                                         }
                                                     ?>
                                                     <label style="padding-left: 5px;">
@@ -74,7 +74,7 @@
                                                     </label>
                                                     {/volist}
                                                 </div>
-                                                
+
                                             </div>
 
                                             <div class="form-group">
@@ -87,7 +87,7 @@
                                                         暂无图片
                                                     {/if}
                                                 </div>
-                                            </div> 
+                                            </div>
 
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">上架</label>
@@ -164,13 +164,13 @@
 
                                         <div class="tab-pane" id="goodsdes-tab">
                                             <div class="form-horizontal">
-                                                
+
                                                 <div class="form-group">
                                                     <div class="col-sm-6">
                                                         <textarea id="content" name="gs_des">{$gsedit.gs_des}</textarea>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
 
@@ -183,7 +183,7 @@
                                                 </div>
                                             </div>
                                             {/volist}
-                                                
+
                                         </div>
 
                                          <div class="tab-pane" id="goodsattr-tab">
@@ -202,17 +202,17 @@
 
                                             <div class="form-group" id="goodsattr">
                                             <?php foreach($attredit as $k => $v): ?>
-                                                
+
 
                                                     <?php if($v['attr_type']==1):
                                                             $attrs = explode(",",$v['attr_default']);
-                                                            
+
                                                         ?>
-                                                    
+
                                                         <!-- 单选 -->
                                                         <!-- 循环显示当前商品所拥有的所有的单选属性 -->
                                                         <?php foreach($gsattredit[$v['attr_id']] as $k0 => $v0):?>
-                                                            
+
                                                             <div gaid="<?php echo $v0['gsattr_id'];?>" class="form-group"><label class="col-sm-2 control-label no-padding-right">{$v.attr_name}</label><div class="col-sm-6"><a onclick="addrow(this)" href="#"><?php if($k0 == 0):?>[+]<?php else:?>[-]<?php endif;?></a>
                                                                 <select name="old_goods_attr[<?php echo $v['attr_id'];?>][]">
                                                                     <?php foreach($attrs as $k1 => $v1):?>
@@ -222,7 +222,7 @@
                                                             <input class="form-control" name="old_gsattr_price[<?php echo $v0['gsattr_id']?>]" style="display:inline-block;width:200px;margin-left:10px;" type="text" value="<?php echo $v0['gsattr_price'];?>"></div></div>
 
                                                         <?php endforeach;?>
-                                                    
+
                                                     <!-- 唯一 -->
                                                     <?php else:?>
                                                         <?php if(!$v['attr_default']):?>
@@ -246,11 +246,11 @@
                                                             </div></div>
                                                         <?php endif;?>
                                                     <?php endif;?>
-                                                
+
                                             <?php endforeach;?>
                                             </div>
-                                            
-                                             
+
+
 
                                         </div>
 
@@ -276,7 +276,7 @@
                                                     <input name="goods_img[]" type="file" class="form-group" style="border: none;box-shadow: none;width: 50%;display: inline-block;">
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="form-group" id="goodsimgs">
                                             </div>
 

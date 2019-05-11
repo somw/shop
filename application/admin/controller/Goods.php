@@ -94,7 +94,7 @@ class Goods extends Controller
 
         //品牌
         $brandRes=db('brand')->field('brand_id,brand_name')->select();
-        
+
         $gsid=input('gs_id');
         //查找当前商品基本信息
         $gsedit=db('goods')->find($gsid);
@@ -104,7 +104,7 @@ class Goods extends Controller
         //dump($attredit);die;
         //查找当前商品属性信息goods_attr
         $_gsattredit=db('goods_attr')->where('gsattr_goodsid','=',$gsedit['gs_id'])->select();
-        
+
         //改写三维转二维
         $gsattredit = array();
         foreach ($_gsattredit as $k => $v) {
@@ -174,7 +174,7 @@ class Goods extends Controller
             $goodsNum = $data['product_num'];
             $goodsAttr = $data['product_attr'];
             $product = db('product');
-            
+
             foreach ($goodsNum as $k => $v) {
                 $strArr =array();
                 foreach ($goodsAttr as $k1 => $v1) {
@@ -197,8 +197,8 @@ class Goods extends Controller
             return;
             //dump($product);die;
         }
-       
-        
+
+
         $_radioAttrRed = db('goods_attr')->alias('g')->field('g.gsattr_id,g.gsattr_attrid,g.gsattr_value,a.attr_name')->join('attr a','g.gsattr_attrid=a.attr_id')->where(array('gsattr_goodsid'=>$gs_id,'a.attr_type'=>1))->select();
         //数组格式双重
         $radioAttrRed = array();
@@ -219,7 +219,7 @@ class Goods extends Controller
     public function gsphotoajax($id){
         $_gphoto=db('goods_img');
         $gphoto=$_gphoto->find($id);
-        
+
 
         $img_img =  IMG_UPLOADS.$gphoto['img_img'];
         $img_smimg = IMG_UPLOADS.$gphoto['img_smimg'];
