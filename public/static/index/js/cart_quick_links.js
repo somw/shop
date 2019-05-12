@@ -75,8 +75,13 @@ jQuery(function($){
 			var fn = quickDataFns[type];
 			
 			quickShell.css({width:320});
-			
-			Ajax.call('get_ajax_content.php?act=get_content', 'data_type=' + type, return_content, 'POST', 'JSON');
+                        var goods_id = $("input[name='goods_id']").val();
+                        var where = '';
+                        
+                        if(goods_id && goods_id != 'undefind'){
+                            where = "&goods_id=" + goods_id;
+                        }
+			Ajax.call('get_ajax_content.php?act=get_content', 'data_type=' + type + where, return_content, 'POST', 'JSON');
 			
 			function return_content(result)
 			{

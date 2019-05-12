@@ -8,11 +8,12 @@ class ShopcateBrand extends Controller
     {
         $join = [
             ['shopcate s','s.shopcate_id=cb.cb_shopcateid'],
-            ['brand b','b.brand_id=cb.cb_brandid'],
+            ['brand b','find_in_set(b.brand_id,cb.cb_brandid)','LEFT'],
         ];
 
-        $cblist = db('shopcate_brand')->alias('cb')->field('cb.*,s.shopcate_name,b.brand_name')->join($join)->order('cb_id desc') ->paginate(15);
+        $cblist = db('shopcate_brand')->alias('cb')->field('cb.*,s.shopcate_name, GROUP_CONCAT(b.brand_name) brand_name')->join($join)->order('cb_id desc')->group('cb.cb_id')->paginate(15);
         #$_cb_listid = array_column($cb_brandid, 'cb_brandid');
+        // dump($cblist);die;
         $cb_listid = array();
         foreach ($cblist as $k => $v) {
             $cb_listid[$k] = $v['cb_brandid'];
@@ -73,6 +74,7 @@ class ShopcateBrand extends Controller
 
     public function edit()
     {
+        $cbedit=db('shopcate_brand')->find(input('cb_id'));
         if (request()->isPost()) {
             $data=input('post.');
             if ($data['cb_prourl'] && stripos($data['cb_prourl'],'http://') === false) {
@@ -88,6 +90,9 @@ class ShopcateBrand extends Controller
                 $data['cb_proimg'] = $this->upload();
             }
 
+            if (isset($data['cb_brandid'])){
+                $data['cb_brandid'] = implode(',', $data['cb_brandid']);
+            }
 
             // $validate=validate('link');
             // if (!$validate->check($data)) {
@@ -103,10 +108,8 @@ class ShopcateBrand extends Controller
             return;
         }
 
-
-        $cbedit=db('shopcate_brand')->find(input('cb_id'));
         $brandRes=db('brand')->where('brand_img','NEQ','')->select();
-        // dump($cbedit);die;
+        // dump($brandRes);die;
         $shopcateRes=model('shopcate')->where('shopcate_pid','=',0)->select();
         // dump($shopcateRes);die;
         $this->assign([

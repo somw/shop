@@ -12,6 +12,8 @@ class Shopcate extends Base
         
         $sonshopCates=model('shopcate')->getsonShopcates($id);
         $cwords=model('shopcate_words')->getshopcateWords($id);
+        $cbrand=model('shopcate_brand')->getshopcateBrand($id);
+
         // 商品top
         $channels='';
         foreach ($cwords as $k => $v) {
@@ -27,11 +29,22 @@ class Shopcate extends Base
             }
             $subitems.='</dd></dl><div class="item-brands"><ul></ul></div><div class="item-promotions"></div>';
         }
-        // dump($sonshopCates);die;
+        // dump($cbrand);die;
+        $brands ='';
+        $brands .='<div class="cate-brand">';
+        foreach ($cbrand['brand'] as $k => $v) {
+            $brands.='<div class="img"><a href="'.$v['brand_url'].'" target="_blank" title="'.$v['brand_name'].'"><img src="'.config('view_replace_str.__UPLOADS__').'/'.$v['brand_img'].'"></a></div>';
+        }
+        $brands.='</div><div class="cate-promotion">';
+        $brands.='<a href="'.$cbrand['pro']['cb_prourl'].'" target="_blank"><img src="'.config('view_replace_str.__UPLOADS__').'/'.$cbrand['pro']['cb_proimg'].'" width="199" height="97"></a>';
+        $brands.='</div>';
+
+        //商品品牌
+        
         $data = array();
     	$data['topic_content'] = $channels;
         $data['cat_content'] = $subitems;
-        $data['brands_ad_content'] = '333';
+        $data['brands_ad_content'] = $brands;
         $data['cat_id'] = $id;
         // dump($data);die;
         return json($data);
