@@ -6,67 +6,11 @@
 -- Database : tpshop
 -- 
 -- Part : #1
--- Date : 2019-05-04 16:31:34
+-- Date : 2019-05-25 02:55:47
 -- -----------------------------
 
 SET FOREIGN_KEY_CHECKS = 0;
 
-
--- -----------------------------
--- Table structure for `sheet1`
--- -----------------------------
-DROP TABLE IF EXISTS `sheet1`;
-CREATE TABLE `sheet1` (
-  `A` varchar(255) DEFAULT NULL,
-  `B` varchar(255) DEFAULT NULL,
-  `品牌日` varchar(255) DEFAULT NULL,
-  `D` varchar(255) DEFAULT NULL,
-  `E` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- -----------------------------
--- Records of `sheet1`
--- -----------------------------
-INSERT INTO `sheet1` VALUES ('1', '1', '品牌日', '', '1');
-INSERT INTO `sheet1` VALUES ('2', '2', '手机频道', '', '1');
-INSERT INTO `sheet1` VALUES ('4', '4', '家装城', '', '1');
-INSERT INTO `sheet1` VALUES ('3', '3', '本周热卖', '', '1');
-INSERT INTO `sheet1` VALUES ('5', '5', '男装', '', '1');
-INSERT INTO `sheet1` VALUES ('6', '6', '男鞋', '', '1');
-INSERT INTO `sheet1` VALUES ('7', '7', '清洁用品', '', '1');
-INSERT INTO `sheet1` VALUES ('8', '1', '家电城', '', '1');
-INSERT INTO `sheet1` VALUES ('9', '1', '智能生活馆', '', '1');
-INSERT INTO `sheet1` VALUES ('10', '1', '京东净化馆', '', '1');
-INSERT INTO `sheet1` VALUES ('11', '1', '京东帮服务店', '', '1');
-INSERT INTO `sheet1` VALUES ('12', '1', '值得买精选', '', '1');
-INSERT INTO `sheet1` VALUES ('13', '2', '网上营业厅', '', '1');
-INSERT INTO `sheet1` VALUES ('14', '2', '配件城', '', '1');
-INSERT INTO `sheet1` VALUES ('15', '2', '影像Club', '', '1');
-INSERT INTO `sheet1` VALUES ('16', '2', '手机社区', '', '1');
-INSERT INTO `sheet1` VALUES ('17', '2', '以旧换新', '', '1');
-INSERT INTO `sheet1` VALUES ('18', '3', '游戏部落', '', '1');
-INSERT INTO `sheet1` VALUES ('19', '3', '智能社区', '', '1');
-INSERT INTO `sheet1` VALUES ('20', '3', 'GAME+', '', '1');
-INSERT INTO `sheet1` VALUES ('21', '3', '装机大师', '', '1');
-INSERT INTO `sheet1` VALUES ('22', '3', '办公生活馆', '', '1');
-INSERT INTO `sheet1` VALUES ('23', '4', '居家日用', '', '1');
-INSERT INTO `sheet1` VALUES ('24', '4', '精品家具', '', '1');
-INSERT INTO `sheet1` VALUES ('25', '4', '家装建材', '', '1');
-INSERT INTO `sheet1` VALUES ('26', '4', '厨房达人', '', '1');
-INSERT INTO `sheet1` VALUES ('27', '4', '猫猫狗狗', '', '1');
-INSERT INTO `sheet1` VALUES ('28', '5', '女装', '', '1');
-INSERT INTO `sheet1` VALUES ('29', '5', '内衣', '', '1');
-INSERT INTO `sheet1` VALUES ('30', '5', '国际品牌', '', '1');
-INSERT INTO `sheet1` VALUES ('31', '6', '女鞋', '', '1');
-INSERT INTO `sheet1` VALUES ('32', '6', '箱包', '', '1');
-INSERT INTO `sheet1` VALUES ('33', '6', '钟表', '', '1');
-INSERT INTO `sheet1` VALUES ('34', '6', '奢侈品', '', '1');
-INSERT INTO `sheet1` VALUES ('35', '6', '女包', '', '1');
-INSERT INTO `sheet1` VALUES ('36', '7', '美妆商城', '', '1');
-INSERT INTO `sheet1` VALUES ('37', '7', '官方旗舰店', '', '1');
-INSERT INTO `sheet1` VALUES ('38', '7', '美妆特卖', '', '1');
-INSERT INTO `sheet1` VALUES ('39', '7', '妆比社', '', '1');
-INSERT INTO `sheet1` VALUES ('40', '7', '全球购美妆', '', '1');
 
 -- -----------------------------
 -- Table structure for `tp_article`
@@ -154,13 +98,106 @@ CREATE TABLE `tp_brand` (
   `brand_sort` smallint(6) NOT NULL DEFAULT '50',
   `brand_status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`brand_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_brand`
 -- -----------------------------
-INSERT INTO `tp_brand` VALUES ('12', '苹果', 'http://vvvw.apple.com', '20180430\\433c47e217de338727a55db133f9833b.jpg', 'http://vvvw.apple.com', '50', '1');
-INSERT INTO `tp_brand` VALUES ('13', 'air jordan', 'http://aj', '20190317\\48b140c4976ce51313e0653bde9720d9.jpg', '2222222', '50', '1');
+INSERT INTO `tp_brand` VALUES ('1', '金士顿', '', '20190504\\1490039286075654490.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('2', '同庆和堂', '', '20190504\\1490072850306019115.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('3', 'ELLE HOME', '', '20190504\\1490072313895957648.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('4', '她他/tata', '', '20190504\\1490072329183966195.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('5', '梦特娇', '', '20190504\\1490072344340492758.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('6', '阿迪达斯', '', '20190504\\1490072384627679069.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('7', '猫人', '', '20190504\\1490072399542595828.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('8', 'Dior', '', '20190504\\1490072417755830176.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('9', '同仁堂', '', '20190504\\1490072746651935979.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('10', '喜瑞', '', '20190504\\1490072756032175204.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('11', '汤臣倍健', '', '20190504\\1490072777790374054.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('12', '养生堂', '', '20190504\\1490072787223453617.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('13', '北大荒', '', '20190504\\1490072813729175306.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('14', '斯伯丁', '', '20190504\\1490072889090025069.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('15', '皮尔瑜伽', '', '20190504\\1490072898345358625.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('16', '乔山', '', '20190504\\1490072918339853569.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('17', '皮克朋', '', '20190504\\1490072931218635674.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('18', '欧亚马', '', '20190504\\1490072941526335126.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('19', '玛克家纺', '', '20190504\\1490072971610241726.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('20', '三星', '', '20190504\\1490296477657287023.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('21', '开普特', '', '20190504\\1490072981305868823.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('22', '迪士尼', '', '20190504\\1490073717776504773.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('23', '哥弟', '', '20190504\\1490073675778205608.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('24', '工银瑞信', '', '20190504\\1490073661335207841.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('25', '鸿星尔克', '', '20190504\\1490073591535005714.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('26', '华帝', '', '20190504\\1490073577683159021.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('27', '姬芮', '', '20190504\\1490073561018734078.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('28', '匡威', '', '20190504\\1490073529881448780.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('29', '耐克', '', '20190504\\1490073338357697604.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('30', '佳沪数码-华为', '', '20190504\\1490171981556005380.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('31', '苹果', '', '20190504\\1490073009638652059.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('32', '伊莱克斯', '', '20190504\\1490073109529817869.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('33', '帮宝适', '', '20190504\\1490075108722576375.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('34', '海飞丝', '', '20190504\\1490073648356663196.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('35', '海富通基金', '', '20190504\\1490227603513332911.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('36', '合生元', '', '20190504\\1490073616154966189.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('37', '李医生', '', '20190504\\1490227784119952387.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('38', '途牛', '', '20190504\\1490075080126940602.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('39', '磨铁图书', '', '20190504\\1490228262050567438.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('40', '养生堂', '', '20190504\\1490072787223453617.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('41', '一品玉', '', '20190504\\1490072835176110718.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('42', '亿健', '', '20190504\\1490073971637187496.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('43', 'ZIPPO', '', '20190504\\1490073919711003101.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('44', '帮宝适', '', '20190504\\1490075108722576375.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('45', '匡威', '', '20190504\\1490073529881448780.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('46', '美的', '', '20190504\\1490074901892372216.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('47', '魅族', '', '20190504\\1490073359611343586.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('48', '同庆和堂', '', '20190504\\1490072850306019115.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('49', 'esprit', '', '20190504\\1490071974970349584.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('50', 'ELLE HOME', '', '20190504\\1490072313895957648.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('51', '金利来', '', '20190504\\1490072373278367315.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('52', 'justyle', '', '20190504\\1490072677495061584.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('53', '李宁', '', '20190504\\1490072694695600078.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('54', '喜瑞', '', '20190504\\1490072756032175204.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('55', '康比特', '', '20190504\\1490072765604121481.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('56', '健安喜', '', '20190504\\1490072804442637685.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('57', '金奥力', '', '20190504\\1490072823106532144.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('58', '乐力', '', '20190504\\1490072860522023692.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('59', '金史密斯', '', '20190504\\1490072879222701895.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('60', '斯伯丁', '', '20190504\\1490072889090025069.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('61', '皮尔瑜伽', '', '20190504\\1490072898345358625.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('62', '乔山', '', '20190504\\1490072918339853569.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('63', '皮克朋', '', '20190504\\1490072931218635674.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('64', 'Masentek', '', '20190504\\1490072950580851309.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('65', '开普特', '', '20190504\\1490072981305868823.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('66', '三星', '', '20190504\\1490072993409028193.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('67', '苹果', '', '20190504\\1490073009638652059.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('68', '同庆和堂', '', '20190504\\1490072850306019115.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('69', '同仁堂', '', '20190504\\1490072746651935979.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('70', '喜瑞', '', '20190504\\1490072756032175204.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('71', '汤臣倍健', '', '20190504\\1490072777790374054.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('72', '养生堂', '', '20190504\\1490072787223453617.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('73', '一品玉', '', '20190504\\1490072835176110718.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('74', '西门子', '', '20190504\\1490074006660107941.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('75', '伊莱克斯', '', '20190504\\1490073109529817869.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('76', '亿健', '', '20190504\\1490073971637187496.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('77', 'TP-LINL', '', '20190504\\1490074180745676140.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('78', 'ZIPPO', '', '20190504\\1490073919711003101.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('79', '阿玛尼', '', '20190504\\1490073900838296364.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('80', '达利园', '', '20190504\\1490073731822160672.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('81', '迪士尼', '', '20190504\\1490073717776504773.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('82', '飞科', '', '20190504\\1490073705755280994.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('83', '匡威', '', '20190504\\1490073529881448780.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('84', '途牛', '', '20190504\\1490075080126940602.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('85', '文轩网', '', '20190504\\1490073253749057076.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('86', '新百伦', '', '20190504\\1490074308773778697.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('87', 'justyle', '', '20190504\\1490072677495061584.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('88', '宝姿', '', '20190504\\1490072685002270742.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('89', '欧亚马', '', '20190504\\1490072941526335126.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('90', 'NINE WEST', '', '20190504\\1490073930435480283.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('91', '飞利浦', '', '20190504\\1490073692774466710.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('92', '麦斯威尔', '', '20190504\\1490228075580091113.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('93', '美的', '', '20190504\\1490074901892372216.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('94', '耐克', '', '20190504\\1490073338357697604.jpg', '', '50', '1');
+INSERT INTO `tp_brand` VALUES ('95', '佳沪数码-华为', '', '20190504\\1490171981556005380.jpg', '', '50', '1');
 
 -- -----------------------------
 -- Table structure for `tp_cate`
@@ -202,28 +239,6 @@ INSERT INTO `tp_cate` VALUES ('21', '微分销', '5', '', '', '1', '110', '0', '
 INSERT INTO `tp_cate` VALUES ('22', 'ios', '5', '', '', '1', '71', '17', '1');
 INSERT INTO `tp_cate` VALUES ('23', 'android', '5', '', '', '1', '72', '17', '1');
 INSERT INTO `tp_cate` VALUES ('24', '网站信息', '4', '', '', '1', '50', '0', '1');
-
--- -----------------------------
--- Table structure for `tp_cates`
--- -----------------------------
-DROP TABLE IF EXISTS `tp_cates`;
-CREATE TABLE `tp_cates` (
-  `cates_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `cates_name` varchar(30) NOT NULL COMMENT '商品分类名称',
-  `cates_img` varchar(150) NOT NULL COMMENT '栏目banner',
-  `cates_keywords` varchar(50) NOT NULL COMMENT '关键词',
-  `cates_description` varchar(150) NOT NULL COMMENT '描述',
-  `cates_showcates` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT '1显示0隐藏',
-  `cates_sort` smallint(6) NOT NULL DEFAULT '50' COMMENT '排序',
-  `cates_pid` smallint(6) NOT NULL DEFAULT '0' COMMENT '上级栏目id',
-  PRIMARY KEY (`cates_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
--- -----------------------------
--- Records of `tp_cates`
--- -----------------------------
-INSERT INTO `tp_cates` VALUES ('3', '数码', '', '到底', '的', '0', '50', '0');
-INSERT INTO `tp_cates` VALUES ('11', '笔记本', '20180519\\59d379bf1168a2b32e49c23b946505c3.jpg', '啊啊', '啊啊', '1', '50', '3');
 
 -- -----------------------------
 -- Table structure for `tp_conf`
@@ -803,7 +818,7 @@ INSERT INTO `tp_shopcate` VALUES ('240', '交换机', '', '', '', '1', '50', '44
 INSERT INTO `tp_shopcate` VALUES ('241', '网络存储', '', '', '', '1', '50', '44');
 INSERT INTO `tp_shopcate` VALUES ('242', '4G/3G上网', '', '', '', '1', '50', '44');
 INSERT INTO `tp_shopcate` VALUES ('243', '网络盒子', '', '', '', '1', '50', '44');
-INSERT INTO `tp_shopcate` VALUES ('244', '网络配件', '', '', '', '1', '50', '45');
+INSERT INTO `tp_shopcate` VALUES ('244', '网络配件', '', '', '', '1', '50', '44');
 INSERT INTO `tp_shopcate` VALUES ('245', '一体机', '', '', '', '1', '50', '45');
 INSERT INTO `tp_shopcate` VALUES ('246', '投影机', '', '', '', '1', '50', '45');
 INSERT INTO `tp_shopcate` VALUES ('247', '投影配件', '', '', '', '1', '50', '45');
@@ -874,7 +889,6 @@ INSERT INTO `tp_shopcate` VALUES ('311', '浴室用品', '', '', '', '1', '50', 
 INSERT INTO `tp_shopcate` VALUES ('312', '缝纫/针织用品', '', '', '', '1', '50', '55');
 INSERT INTO `tp_shopcate` VALUES ('313', '洗晒/熨烫', '', '', '', '1', '50', '55');
 INSERT INTO `tp_shopcate` VALUES ('314', '净化除味', '', '', '', '1', '50', '55');
-INSERT INTO `tp_shopcate` VALUES ('315', '连衣裙', '', '', '', '1', '50', '16');
 INSERT INTO `tp_shopcate` VALUES ('316', '蕾丝/雪纺衫', '', '', '', '1', '50', '16');
 INSERT INTO `tp_shopcate` VALUES ('317', '衬衫', '', '', '', '1', '50', '16');
 INSERT INTO `tp_shopcate` VALUES ('318', 'T恤', '', '', '', '1', '50', '16');
@@ -978,14 +992,14 @@ INSERT INTO `tp_shopcate` VALUES ('415', '太阳镜/眼镜框', '', '', '', '1',
 INSERT INTO `tp_shopcate` VALUES ('416', '饰品', '', '', '', '1', '50', '18');
 INSERT INTO `tp_shopcate` VALUES ('417', '配件', '', '', '', '1', '50', '18');
 INSERT INTO `tp_shopcate` VALUES ('418', '旅行包', '', '', '', '1', '50', '19');
-INSERT INTO `tp_shopcate` VALUES ('419', '电脑包', '', '', '', '1', '50', '20');
-INSERT INTO `tp_shopcate` VALUES ('420', '休闲运动包', '', '', '', '1', '50', '21');
-INSERT INTO `tp_shopcate` VALUES ('421', '相机包', '', '', '', '1', '50', '22');
-INSERT INTO `tp_shopcate` VALUES ('422', '腰包/胸包', '', '', '', '1', '50', '23');
-INSERT INTO `tp_shopcate` VALUES ('423', '登山包', '', '', '', '1', '50', '24');
-INSERT INTO `tp_shopcate` VALUES ('424', '旅行配件', '', '', '', '1', '50', '25');
-INSERT INTO `tp_shopcate` VALUES ('425', '书包', '', '', '', '1', '50', '26');
-INSERT INTO `tp_shopcate` VALUES ('426', '妈咪包', '', '', '', '1', '50', '27');
+INSERT INTO `tp_shopcate` VALUES ('419', '电脑包', '', '', '', '1', '50', '19');
+INSERT INTO `tp_shopcate` VALUES ('420', '休闲运动包', '', '', '', '1', '50', '19');
+INSERT INTO `tp_shopcate` VALUES ('421', '相机包', '', '', '', '1', '50', '19');
+INSERT INTO `tp_shopcate` VALUES ('422', '腰包/胸包', '', '', '', '1', '50', '19');
+INSERT INTO `tp_shopcate` VALUES ('423', '登山包', '', '', '', '1', '50', '19');
+INSERT INTO `tp_shopcate` VALUES ('424', '旅行配件', '', '', '', '1', '50', '19');
+INSERT INTO `tp_shopcate` VALUES ('425', '书包', '', '', '', '1', '50', '19');
+INSERT INTO `tp_shopcate` VALUES ('426', '妈咪包', '', '', '', '1', '50', '19');
 INSERT INTO `tp_shopcate` VALUES ('427', '凉鞋/沙滩鞋', '', '', '', '1', '50', '70');
 INSERT INTO `tp_shopcate` VALUES ('428', '帆布鞋', '', '', '', '1', '50', '70');
 INSERT INTO `tp_shopcate` VALUES ('429', '商务休闲鞋', '', '', '', '1', '50', '70');
@@ -1079,6 +1093,31 @@ INSERT INTO `tp_shopcate` VALUES ('516', '家庭清洁', '', '', '', '1', '50', 
 INSERT INTO `tp_shopcate` VALUES ('517', '一次性用品', '', '', '', '1', '50', '86');
 INSERT INTO `tp_shopcate` VALUES ('518', '驱蚊用品', '', '', '', '1', '50', '86');
 INSERT INTO `tp_shopcate` VALUES ('519', '皮具护理', '', '', '', '1', '50', '86');
+
+-- -----------------------------
+-- Table structure for `tp_shopcate_brand`
+-- -----------------------------
+DROP TABLE IF EXISTS `tp_shopcate_brand`;
+CREATE TABLE `tp_shopcate_brand` (
+  `cb_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `cb_brandid` varchar(100) NOT NULL COMMENT '关联的品牌id列表',
+  `cb_proimg` varchar(60) NOT NULL COMMENT '推广图地址',
+  `cb_prourl` varchar(60) NOT NULL COMMENT '推广图链接',
+  `cb_shopcateid` mediumint(9) NOT NULL COMMENT '对应主栏目id',
+  `cb_status` tinyint(4) NOT NULL COMMENT '显示1 隐藏0',
+  PRIMARY KEY (`cb_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- -----------------------------
+-- Records of `tp_shopcate_brand`
+-- -----------------------------
+INSERT INTO `tp_shopcate_brand` VALUES ('1', '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20', '20190504\\1490847672639256000.jpg', 'https://www.dscmall.cn/', '1', '1');
+INSERT INTO `tp_shopcate_brand` VALUES ('2', '21,22,23,24,25,26,27,28,29,30', '20190504\\1490296477657287023.jpg', 'https://www.dscmall.cn/', '2', '1');
+INSERT INTO `tp_shopcate_brand` VALUES ('3', '31,32,33,34,35,36,37,38,39', '20190504\\1490296350661886591.jpg', 'https://www.dscmall.cn/', '3', '1');
+INSERT INTO `tp_shopcate_brand` VALUES ('4', '40,41,42,43,44,45,46,47', '20190504\\1490847695352345291.jpg', 'https://www.dscmall.cn/', '4', '1');
+INSERT INTO `tp_shopcate_brand` VALUES ('5', '48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67', '20190504\\1490296743207336995.jpg', 'https://www.dscmall.cn/', '5', '1');
+INSERT INTO `tp_shopcate_brand` VALUES ('6', '68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86', '20190504\\1490296765062943272.jpg', 'https://www.dscmall.cn/', '6', '1');
+INSERT INTO `tp_shopcate_brand` VALUES ('7', '87,88,89,90,91,92,93,94,95', '20190504\\1490847656340816332.jpg', 'https://www.dscmall.cn/', '7', '1');
 
 -- -----------------------------
 -- Table structure for `tp_shopcate_words`
