@@ -1,6 +1,6 @@
 <div class="categorys <?php if(!isset($show)) {echo 'site-mast';}  ?>">
     <div class="categorys-type"><a href="#" target="_blank">全部商品分类</a></div>
-    <div class="categorys-tab-content">
+    <div class="categorys-tab-content shownav">
     	<div class="categorys-items" id="cata-nav">
     		{volist name="shopcateRes" id="shopcate"}
             <div class="categorys-item" ectype="cateItem" data-id="{$shopcate.shopcate_id}" data-eveval="0">
@@ -31,12 +31,4 @@
 			{/volist}
 		</div>
 	</div>
-</div>
-<div class="nav-main">
-	<ul class="navitems">
-        <li><a href="{:url('index/Index/index')}" class="curr">首页</a></li>
-        {volist name="navRes.mid" id="nav_mid"}
-        <li><a {if condition="$nav_mid['nav_open'] eq 1"} target="_black" {/if} href="{$nav_mid.nav_url}">{$nav_mid.nav_name}</a></li>
-        {/volist}
-	</ul>
 </div>

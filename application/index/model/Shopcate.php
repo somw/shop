@@ -23,5 +23,20 @@ class Shopcate extends Model
         }
     return $sonshopCates;
     }
+
+    public function getRecShopcate($recpos_id,$pid=0){
+        $recShopcate = db('recpos_item')->where(array('recpos_id'=>$recpos_id,'value_type'=>2))->select();
+        // dump($recShopcate);die;
+        $recarr = array();
+        foreach ($recShopcate as $k => $v) {
+            $_recarr = $this->where(array('shopcate_id'=>$v['value_id'],'shopcate_pid'=>$pid))->find();
+            if ($_recarr) {
+                $recarr[] = $_recarr;
+            }
+        }
+        // dump($recarr);die;
+    return $recarr;
+
+    }
     
 }

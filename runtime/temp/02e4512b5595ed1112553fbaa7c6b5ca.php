@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:9:{s:64:"D:\aaaweb\shop\public/../application/index\view\index\index.html";i:1557661482;s:55:"D:\aaaweb\shop\application\index\view\common\_meta.html";i:1557661482;s:58:"D:\aaaweb\shop\application\index\view\common\site_nav.html";i:1557661482;s:56:"D:\aaaweb\shop\application\index\view\common\header.html";i:1557146175;s:53:"D:\aaaweb\shop\application\index\view\common\nav.html";i:1557661482;s:59:"D:\aaaweb\shop\application\index\view\common\homeindex.html";i:1557661482;s:59:"D:\aaaweb\shop\application\index\view\common\mui_right.html";i:1557146175;s:56:"D:\aaaweb\shop\application\index\view\common\footer.html";i:1557146175;s:57:"D:\aaaweb\shop\application\index\view\common\_footer.html";i:1557661482;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:9:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1558864702;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1558838559;s:58:"B:\aaaweb\shop\application\index\view\common\site_nav.html";i:1558838559;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1558838559;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1558854770;s:59:"B:\aaaweb\shop\application\index\view\common\homeindex.html";i:1558855802;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1558838559;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1558855066;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1558838559;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -911,7 +911,7 @@ $(function(){
     <div class="w w1200">
         <div class="categorys <?php if(!isset($show)) {echo 'site-mast';}  ?>">
     <div class="categorys-type"><a href="#" target="_blank">全部商品分类</a></div>
-    <div class="categorys-tab-content">
+    <div class="categorys-tab-content shownav">
     	<div class="categorys-items" id="cata-nav">
     		<?php if(is_array($shopcateRes) || $shopcateRes instanceof \think\Collection || $shopcateRes instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcateRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
             <div class="categorys-item" ectype="cateItem" data-id="<?php echo $shopcate['shopcate_id']; ?>" data-eveval="0">
@@ -941,14 +941,14 @@ $(function(){
 		</div>
 	</div>
 </div>
-<div class="nav-main">
-	<ul class="navitems">
-        <li><a href="<?php echo url('index/Index/index'); ?>" class="curr">首页</a></li>
-        <?php if(is_array($navRes['mid']) || $navRes['mid'] instanceof \think\Collection || $navRes['mid'] instanceof \think\Paginator): $i = 0; $__LIST__ = $navRes['mid'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav_mid): $mod = ($i % 2 );++$i;?>
-        <li><a <?php if($nav_mid['nav_open'] == 1): ?> target="_black" <?php endif; ?> href="<?php echo $nav_mid['nav_url']; ?>"><?php echo $nav_mid['nav_name']; ?></a></li>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
-	</ul>
-</div>
+        <div class="nav-main">
+			<ul class="navitems">
+		        <li><a href="<?php echo url('index/Index/index'); ?>" class="curr">首页</a></li>
+		        <?php if(is_array($navRes['mid']) || $navRes['mid'] instanceof \think\Collection || $navRes['mid'] instanceof \think\Paginator): $i = 0; $__LIST__ = $navRes['mid'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav_mid): $mod = ($i % 2 );++$i;?>
+		        <li><a <?php if($nav_mid['nav_open'] == 1): ?> target="_black" <?php endif; ?> href="<?php echo $nav_mid['nav_url']; ?>"><?php echo $nav_mid['nav_name']; ?></a></li>
+		        <?php endforeach; endif; else: echo "" ;endif; ?>
+			</ul>
+		</div>
     </div>
 </div>
         
@@ -977,104 +977,108 @@ $(function(){
                 </ul>
                 <div class="spec" data-spec=""></div>
             </div>
-            <div class="hd"><ul><li class="">1</li>
-                <li class="">2</li>
-                <li class="on">3</li>
-            </ul>
-        </div>
-        <div class="vip-outcon">
-            <div class="vip-con">
-                <div class="insertVipEdit" data-mode="insertVipEdit">
-                    <div ectype="user_info">
-                        <div class="avatar">
-                            <a href="https://demo.dscmall.cn/user.php?act=profile">
-                                <img src="/static/index/css/avatar.png">
-                            </a>
+            <div class="hd">
+                <ul>
+                    <li class="">1</li>
+                    <li class="">2</li>
+                    <li class="on">3</li>
+                </ul>
+            </div>
+            <div class="vip-outcon">
+                <div class="vip-con">
+                    <div class="insertVipEdit" data-mode="insertVipEdit">
+                        <div ectype="user_info">
+                            <div class="avatar">
+                                <a href="https://demo.dscmall.cn/user.php?act=profile">
+                                    <img src="/static/index/css/avatar.png">
+                                </a>
+                            </div>
+                            <div class="login-info">
+                                <span>Hi，欢迎来到大商创!</span>
+                                <a href="https://demo.dscmall.cn/user.php" class="login-button">请登录</a>
+                                <a href="https://demo.dscmall.cn/merchants.php" target="_blank" class="register_button">我要开店</a>
+                            </div>
+                            <input type="hidden" name="user_id" ectype="user_id" value="0">
                         </div>
-                        <div class="login-info">
-                            <span>Hi，欢迎来到大商创!</span>
-                            <a href="https://demo.dscmall.cn/user.php" class="login-button">请登录</a>
-                            <a href="https://demo.dscmall.cn/merchants.php" target="_blank" class="register_button">我要开店</a>
+                        <div class="vip-item">
+                            <div class="tit">
+                                <a href="javascript:void(0);" class="tab_head_item">公告</a>
+                                <a href="javascript:void(0);" class="tab_head_item">促销</a>
+                            </div>
+                            <div class="con">
+                                <ul>
+                                    <li><a href="https://demo.dscmall.cn/article.php?id=63" target="_blank">服务店突破2000多家</a></li>
+                                    <li><a href="https://demo.dscmall.cn/article.php?id=62" target="_blank">我们成为中国最大家电零售B2B2C系统</a></li>
+                                    <li><a href="https://demo.dscmall.cn/article.php?id=61" target="_blank">三大国际腕表品牌签约</a></li>
+                                </ul>
+                                <ul style="display:none;">
+                                    <li><a href="https://demo.dscmall.cn/article.php?id=60" target="_blank">春季家装季，家电买一送一</a></li>
+                                    <li><a href="https://demo.dscmall.cn/article.php?id=59" target="_blank">抢百元优惠券，享4.22%活期</a></li>
+                                    <li><a href="https://demo.dscmall.cn/article.php?id=58" target="_blank">Macbook最高返50000消费豆！</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <input type="hidden" name="user_id" ectype="user_id" value="0">
+                        <div class="vip-item">
+                            <div class="tit">快捷入口</div>
+                            <div class="kj_con">
+                                <div class="item item_1">
+                                    <a href="https://demo.dscmall.cn/history_list.php" target="_blank">
+                                        <i class="iconfont icon-browse"></i>
+                                        <span>我的浏览</span>
+                                    </a>
+                                </div>
+                                <div class="item item_2">
+                                    <a href="https://demo.dscmall.cn/user.php?act=collection_list" target="_blank">
+                                        <i class="iconfont icon-zan-alt"></i>
+                                        <span>我的收藏</span>
+                                    </a>
+                                </div>
+                                <div class="item item_3">
+                                    <a href="https://demo.dscmall.cn/user.php?act=order_list" target="_blank">
+                                        <i class="iconfont icon-order"></i>
+                                        <span>我的订单</span>
+                                    </a>
+                                </div>
+                                <div class="item item_4">
+                                    <a href="https://demo.dscmall.cn/user.php?act=account_safe" target="_blank">
+                                        <i class="iconfont icon-password-alt"></i>
+                                        <span>账号安全</span>
+                                    </a>
+                                </div>
+                                <div class="item item_5">
+                                    <a href="https://demo.dscmall.cn/user.php?act=affiliate" target="_blank">
+                                        <i class="iconfont icon-share-alt"></i>
+                                        <span>我要分享</span>
+                                    </a>
+                                </div>
+                                <div class="item item_6">
+                                    <a href="https://demo.dscmall.cn/merchants.php" target="_blank">
+                                        <i class="iconfont icon-settled"></i>
+                                        <span>商家入驻</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="vip-item">
-                        <div class="tit">
-                            <a href="javascript:void(0);" class="tab_head_item">公告</a>
-                            <a href="javascript:void(0);" class="tab_head_item">促销</a>
-                        </div>
-                        <div class="con">
-                            <ul>
-                                <li><a href="https://demo.dscmall.cn/article.php?id=63" target="_blank">服务店突破2000多家</a></li>
-                                <li><a href="https://demo.dscmall.cn/article.php?id=62" target="_blank">我们成为中国最大家电零售B2B2C系统</a></li>
-                                <li><a href="https://demo.dscmall.cn/article.php?id=61" target="_blank">三大国际腕表品牌签约</a></li>
-                            </ul>
-                            <ul style="display:none;">
-                                <li><a href="https://demo.dscmall.cn/article.php?id=60" target="_blank">春季家装季，家电买一送一</a></li>
-                                <li><a href="https://demo.dscmall.cn/article.php?id=59" target="_blank">抢百元优惠券，享4.22%活期</a></li>
-                                <li><a href="https://demo.dscmall.cn/article.php?id=58" target="_blank">Macbook最高返50000消费豆！</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="vip-item">
-                        <div class="tit">快捷入口</div>
-                        <div class="kj_con">
-                            <div class="item item_1">
-                                <a href="https://demo.dscmall.cn/history_list.php" target="_blank">
-                                    <i class="iconfont icon-browse"></i>
-                                    <span>我的浏览</span>
-                                </a>
-                            </div>
-                            <div class="item item_2">
-                                <a href="https://demo.dscmall.cn/user.php?act=collection_list" target="_blank">
-                                    <i class="iconfont icon-zan-alt"></i>
-                                    <span>我的收藏</span>
-                                </a>
-                            </div>
-                            <div class="item item_3">
-                                <a href="https://demo.dscmall.cn/user.php?act=order_list" target="_blank">
-                                    <i class="iconfont icon-order"></i>
-                                    <span>我的订单</span>
-                                </a>
-                            </div>
-                            <div class="item item_4">
-                                <a href="https://demo.dscmall.cn/user.php?act=account_safe" target="_blank">
-                                    <i class="iconfont icon-password-alt"></i>
-                                    <span>账号安全</span>
-                                </a>
-                            </div>
-                            <div class="item item_5">
-                                <a href="https://demo.dscmall.cn/user.php?act=affiliate" target="_blank">
-                                    <i class="iconfont icon-share-alt"></i>
-                                    <span>我要分享</span>
-                                </a>
-                            </div>
-                            <div class="item item_6">
-                                <a href="https://demo.dscmall.cn/merchants.php" target="_blank">
-                                    <i class="iconfont icon-settled"></i>
-                                    <span>商家入驻</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="spec" data-spec=""></div>
                 </div>
-                <div class="spec" data-spec=""></div>
             </div>
         </div>
     </div>
 </div>
-    </div>
 
-
-    <div class="visual-item w1200" data-mode="h-need" data-purebox="homeAdv" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
-        <div class="view">
-            <div class="need-channel clearfix" id="h-need_0" data-type="range" data-lift="推荐">
-                <div class="channel-column" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984987302153402.jpg) no-repeat;">
+   
+<div class="visual-item w1200" data-mode="h-need" data-purebox="homeAdv" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
+                                    
+                                    <div class="view">
+                                        <div class="need-channel clearfix" id="h-need_0" data-type="range" data-lift="推荐">
+ 
+<div class="channel-column" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984987302153402.jpg) no-repeat;">
     <div class="column-title">
             <h3 style="color: #ffffff">优质新品</h3>
         <p style="color: #ffffff">专注生活美学</p>
     </div>
-    <div class="column-img"><img src="/static/index/img/1494985002375136884.png"></div>
+    <div class="column-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985002375136884.png"></div>
     <a href="" target="_blank" class="column-btn">去看看</a>
 </div>
 <div class="channel-column" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984989930757668.jpg) no-repeat;">
@@ -1082,7 +1086,7 @@ $(function(){
             <h3 style="color: #ffffff">潮流女装</h3>
         <p style="color: #ffffff">春装流行款抢购</p>
     </div>
-    <div class="column-img"><img src="/static/index/img/1494984989766362152.png"></div>
+    <div class="column-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984989766362152.png"></div>
     <a href="" target="_blank" class="column-btn">去看看</a>
 </div>
 <div class="channel-column" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984989391013089.jpg) no-repeat;">
@@ -1090,7 +1094,7 @@ $(function(){
             <h3 style="color: #ffffff">人气美鞋</h3>
         <p style="color: #ffffff">新外貌“鞋”会</p>
     </div>
-    <div class="column-img"><img src="/static/index/img/1494984990383161028.png"></div>
+    <div class="column-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984990383161028.png"></div>
     <a href="" target="_blank" class="column-btn">去看看</a>
 </div>
 <div class="channel-column" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984987606903394.jpg) no-repeat;">
@@ -1098,7 +1102,7 @@ $(function(){
             <h3 style="color: #ffffff">品牌精选</h3>
         <p style="color: #ffffff">潮牌尖货 初春换新</p>
     </div>
-    <div class="column-img"><img src="/static/index/img/1494984988032635434.png"></div>
+    <div class="column-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984988032635434.png"></div>
     <a href="" target="_blank" class="column-btn">去看看</a>
 </div>
 <div class="channel-column" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984990175755536.jpg) no-repeat;">
@@ -1106,348 +1110,217 @@ $(function(){
             <h3 style="color: #ffffff">护肤彩妆</h3>
         <p style="color: #ffffff">春妆必买清单 低至3折</p>
     </div>
-    <div class="column-img"><img src="/static/index/img/1494984991251825734.png"></div>
+    <div class="column-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984991251825734.png"></div>
     <a href="" target="_blank" class="column-btn">去看看</a>
 </div>
 <div class="spec" data-spec="" data-title=""></div></div>
                                     </div>
-                                </div><div class="visual-item w1200 brandList" data-mode="h-brand" data-purebox="homeAdv" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
-                                    
-                                    <div class="view">
-                                        <div class="brand-channel clearfix" id="h-brand_0" data-type="range" data-lift="品牌">
- 
-<div class="home-brand-adv slide_lr_info">
-        <a href="" target="_blank"><img src="/static/index/img/1494984992104112514.jpg" class="slide_lr_img"></a>
-    </div>
-<div ectype="homeBrand"><div class="brand-list" id="recommend_brands">
-	<ul>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=204" target="_blank"><img src="/static/index/img/1490039286075654490.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="204" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=204" target="_blank">关注人数<br><div id="collect_count_204">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=93" target="_blank"><img src="/static/index/img/1490072850306019115.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="93" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=93" target="_blank">关注人数<br><div id="collect_count_93">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=73" target="_blank"><img src="/static/index/img/1490072329183966195.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="73" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=73" target="_blank">关注人数<br><div id="collect_count_73">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=76" target="_blank"><img src="/static/index/img/1490072373278367315.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="76" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=76" target="_blank">关注人数<br><div id="collect_count_76">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=79" target="_blank"><img src="/static/index/img/1490072677495061584.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="79" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=79" target="_blank">关注人数<br><div id="collect_count_79">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=82" target="_blank"><img src="/static/index/img/1490072694695600078.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="82" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=82" target="_blank">关注人数<br><div id="collect_count_82">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=85" target="_blank"><img src="/static/index/img/1490072756032175204.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="85" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=85" target="_blank">关注人数<br><div id="collect_count_85">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=95" target="_blank"><img src="/static/index/img/1490072870537181142.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="95" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=95" target="_blank">关注人数<br><div id="collect_count_95">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=98" target="_blank"><img src="/static/index/img/1490072898345358625.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="98" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=98" target="_blank">关注人数<br><div id="collect_count_98">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=101" target="_blank"><img src="/static/index/img/1490072931218635674.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="101" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=101" target="_blank">关注人数<br><div id="collect_count_101">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=105" target="_blank"><img src="/static/index/img/1490072971610241726.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="105" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=105" target="_blank">关注人数<br><div id="collect_count_105">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=110" target="_blank"><img src="/static/index/img/1490074043963552715.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="110" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=110" target="_blank">关注人数<br><div id="collect_count_110">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=113" target="_blank"><img src="/static/index/img/1490074030328949587.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="113" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=113" target="_blank">关注人数<br><div id="collect_count_113">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=116" target="_blank"><img src="/static/index/img/1490073109529817869.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="116" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=116" target="_blank">关注人数<br><div id="collect_count_116">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=122" target="_blank"><img src="/static/index/img/1490073982547710498.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="122" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=122" target="_blank">关注人数<br><div id="collect_count_122">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=126" target="_blank"><img src="/static/index/img/1490073943918274561.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="126" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=126" target="_blank">关注人数<br><div id="collect_count_126">0</div></a></div>
-			</div>
-		</li>
-				<li>
-			<div class="brand-img"><a href="https://demo.dscmall.cn/brandn.php?id=195" target="_blank"><img src="/static/index/img/1490075385239594909.jpg"></a></div>
-			<div class="brand-mash">
-				<div data-bid="195" ectype="coll_brand"><i class="iconfont icon-zan-alt"></i></div>
-				<div class="coupon"><a href="https://demo.dscmall.cn/brandn.php?id=195" target="_blank">关注人数<br><div id="collect_count_195">0</div></a></div>
-			</div>
-		</li>
-			</ul>
-	<input type="hidden" name="user_id" value="0">
-	<a href="javascript:void(0);" ectype="changeBrand" class="refresh-btn"><i class="iconfont icon-rotate-alt"></i><span>换一批</span></a>
-</div>
-</div>
-<div class="spec" data-spec="" data-title="undefined"></div></div>
-                                    </div>
-                                </div><div class="visual-item w1200" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
-                                    
-                                    <div class="view">
-                                        <div class="floor-content" data-type="range" id="homeFloor_0" data-lift="女装">
- 
-<div class="floor-line-con floorOne floor-color-type-1" data-title="男装女装" data-idx="1" id="floor_1" ectype="floorItem">
-    <div class="floor-hd" ectype="floorTit">
-    	<i class="box_hd_arrow"></i>
-    	<i class="box_hd_dec"></i>
-        <div class="hd-tit">男装、女装、内衣</div>
-        <div class="hd-tags">
-            <ul>
-                <li class="first current">
-                    <span>新品推荐</span>
-                    <i class="arrowImg"></i>
-                </li>
-                                                                <li data-catgoods="" class="first" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="6" data-id="347">
-                    <span>女装</span>
-                    <i class="arrowImg"></i>
-                </li>
-                                                                <li data-catgoods="" class="first" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="6" data-id="630">
-                    <span>服饰配件</span>
-                    <i class="arrowImg"></i>
-                </li>
-                                                                <li data-catgoods="" class="first" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="6" data-id="547">
-                    <span>内衣</span>
-                    <i class="arrowImg"></i>
-                </li>
-                                                                <li data-catgoods="" class="first" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="6" data-id="463">
-                    <span>男装</span>
-                    <i class="arrowImg"></i>
-                </li>
-                                                            </ul>
-        </div>
-    </div>
-    <div class="floor-bd bd-mode-01">
-        <div class="bd-left">
-                        <div class="floor-left-slide">
-                <div class="bd">
-                    <div class="tempWrap" style="overflow:hidden; position:relative; width:232px"><ul style="width: 696px; left: -232px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-                                                                        <li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255003388359.jpg"></a></li>
-                                                                                                <li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255671031591.jpg"></a></li>
-                                                                                                <li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255859372374.jpg"></a></li>
-                                                                    </ul></div>
-                </div>
-                <div class="hd"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div>
-            </div>
-                        
-            <div class="floor-left-adv">
-                                                <a href="" target="_blank"><img src="/static/index/img/1494984993812175408.jpg"></a>
-                                                                <a href="" target="_blank"><img src="/static/index/img/1494984993892207941.jpg"></a>
-                                            </div>
-            
-                    </div>
-        <div class="bd-right">
-            <div class="floor-tabs-content clearfix">
-                <div class="f-r-main f-r-m-adv">
-                                        <div class="f-r-m-item
-                                        	                    ">
-                        <a href="" target="_blank">
-                            <div class="title">
-                                <h3>毛衣</h3>
-                                <span>满100减10</span>
-                            </div>
-                            <img src="/static/index/img/1494984997173604814.jpg">
-                        </a>
-                    </div>
-                                        <div class="f-r-m-item
-                                        	                    ">
-                        <a href="" target="_blank">
-                            <div class="title">
-                                <h3>随意搭</h3>
-                                <span>来潮我看</span>
-                            </div>
-                            <img src="/static/index/img/1494985255611006354.png">
-                        </a>
-                    </div>
-                                        <div class="f-r-m-item
-                                        	                    ">
-                        <a href="" target="_blank">
-                            <div class="title">
-                                <h3>外套</h3>
-                                <span>大牌抢好货</span>
-                            </div>
-                            <img src="/static/index/img/1494985257076782520.png">
-                        </a>
-                    </div>
-                                        <div class="f-r-m-item
-                                        	                    ">
-                        <a href="" target="_blank">
-                            <div class="title">
-                                <h3>连衣裙</h3>
-                                <span>春季流行款抢购</span>
-                            </div>
-                            <img src="/static/index/img/1494985261416235695.jpg">
-                        </a>
-                    </div>
-                                        <div class="f-r-m-item
-                                        	 f-r-m-i-double                    ">
-                        <a href="" target="_blank">
-                            <div class="title">
-                                <h3>女士套装</h3>
-                                <span>新品低至5折</span>
-                            </div>
-                            <img src="/static/index/img/1494984998972685382.jpg">
-                        </a>
-                    </div>
-                                    </div>
-                                <div class="f-r-main" ectype="floor_cat_347" style="display: none;">
-                    <ul class="p-list"></ul>
-                </div>
-                                <div class="f-r-main" ectype="floor_cat_630" style="display: none;">
-                    <ul class="p-list"></ul>
-                </div>
-                                <div class="f-r-main" ectype="floor_cat_547" style="display: none;">
-                    <ul class="p-list"></ul>
-                </div>
-                                <div class="f-r-main" ectype="floor_cat_463" style="display: none;">
-                    <ul class="p-list"></ul>
-                </div>
-                            </div>
-        </div>
-    </div>
-        <div class="floor-fd">
-        <div class="floor-fd-brand clearfix">
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=72" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072313895957648.jpg" title="ELLE HOME"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=76" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072373278367315.jpg" title="金利来"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=79" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072677495061584.jpg" title="justyle"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=82" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072694695600078.jpg" title="李宁"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=86" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072765604121481.jpg" title="康比特"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=106" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072981305868823.jpg" title="开普特"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=122" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073982547710498.jpg" title="Five Plus"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=149" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073591535005714.jpg" title="鸿星尔克"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=152" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490228100138579787.jpg" title="杰克琼斯"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                        <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=154" target="_blank">
-                    <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073529881448780.jpg" title="匡威"></div>
-                    <div class="link"></div>
-                </a>
-            </div>
-                    </div>
-    </div>
-    </div>
-<div class="spec" data-spec="" data-title="undefined"></div></div>
-                                    </div>
-                                </div><div class="visual-item w1200" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme" data-diff="1" style="display: block; position: relative; opacity: 1; z-index: 0; left: 0px; top: 0px;">
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<?php foreach($recShopcate as $k => $v):?>
+		<div class="visual-item w1200" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
+			<div class="view">
+				<div class="floor-content" data-type="range" id="homeFloor_0" data-lift="女装">
+					<div class="floor-line-con floorOne floor-color-type-1" data-title="男装女装" data-idx="1" id="floor_1" ectype="floorItem">
+					    <div class="floor-hd" ectype="floorTit">
+					    	<i class="box_hd_arrow"></i>
+					    	<i class="box_hd_dec"></i>
+					        <div class="hd-tit"><?php echo $v['shopcate_name']; ?></div>
+					        <div class="hd-tags">
+					            <ul>
+					                <li class="first current">
+					                    <span>新品推荐</span>
+					                    <i class="arrowImg"></i>
+					                </li>
+					                <?php foreach($v['children'] as $k1 => $v1):?>
+					                <li data-catgoods="" class="first" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="6" data-id="347">
+					                	<span><?php echo $v1['shopcate_name']; ?></span>
+					                    <i class="arrowImg"></i>
+					                </li>
+					            	<?php endforeach;?>
+					            </ul>
+					        </div>
+					    </div>
+					    <div class="floor-bd bd-mode-01">
+					    	<div class="bd-left">
+					    		<div class="floor-left-slide">
+					    			<div class="bd">
+					    				<div class="tempWrap" style="overflow:hidden; position:relative; width:232px">
+					    					<ul style="width: 696px; left: -232px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
+					    						<li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255003388359.jpg"></a></li>
+					    						<li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255671031591.jpg"></a></li>
+					    						<li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255859372374.jpg"></a></li>
+					    					</ul>
+					    				</div>
+					    			</div>
+					    			<div class="hd"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div>
+					    		</div>
+					    		<div class="floor-left-adv">
+					    			<a href="" target="_blank"><img src="/static/index/img/1494984993812175408.jpg"></a>
+					    			<a href="" target="_blank"><img src="/static/index/img/1494984993892207941.jpg"></a>
+					    		</div>
+					    	</div>
+					    	<div class="bd-right">
+					    		<div class="floor-tabs-content clearfix">
+					    			<div class="f-r-main f-r-m-adv">
+					    				<div class="f-r-m-item">
+					    					<a href="" target="_blank">
+					    						<div class="title">
+					    							<h3>毛衣</h3>
+					    							<span>满100减10</span>
+					    						</div>
+					    						<img src="/static/index/img/1494984997173604814.jpg">
+					    					</a>
+					    				</div>
+					    				<div class="f-r-m-item">
+					    					<a href="" target="_blank">
+					    						<div class="title">
+					                                <h3>随意搭</h3>
+					                                <span>来潮我看</span>
+					                            </div>
+					                            <img src="/static/index/img/1494985255611006354.png">
+					                        </a>
+					                    </div>
+					                    <div class="f-r-m-item">
+					                        <a href="" target="_blank">
+					                            <div class="title">
+					                                <h3>外套</h3>
+					                                <span>大牌抢好货</span>
+					                            </div>
+					                            <img src="/static/index/img/1494985257076782520.png">
+					                        </a>
+					                    </div>
+					                    <div class="f-r-m-item">
+					                        <a href="" target="_blank">
+					                            <div class="title">
+					                                <h3>连衣裙</h3>
+					                                <span>春季流行款抢购</span>
+					                            </div>
+					                            <img src="/static/index/img/1494985261416235695.jpg">
+					                        </a>
+					                    </div>
+					                    <div class="f-r-m-item f-r-m-i-double">
+					                        <a href="" target="_blank">
+					                            <div class="title">
+					                                <h3>女士套装</h3>
+					                                <span>新品低至5折</span>
+					                            </div>
+					                            <img src="/static/index/img/1494984998972685382.jpg">
+					                        </a>
+					                    </div>
+					                </div>
+					                <div class="f-r-main" ectype="floor_cat_347" style="display: none;">
+					                    <ul class="p-list"></ul>
+					                </div>
+					                <div class="f-r-main" ectype="floor_cat_630" style="display: none;">
+					                    <ul class="p-list"></ul>
+					                </div>
+					                <div class="f-r-main" ectype="floor_cat_547" style="display: none;">
+					                    <ul class="p-list"></ul>
+					                </div>
+					                <div class="f-r-main" ectype="floor_cat_463" style="display: none;">
+					                    <ul class="p-list"></ul>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+				        <div class="floor-fd">
+				        	<div class="floor-fd-brand clearfix">
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=72" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490072313895957648.jpg" title="ELLE HOME"></div>
+					                    <div class="link"></div>
+					                </a>
+					            </div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=76" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490072373278367315.jpg" title="金利来"></div>
+					                    <div class="link"></div>
+					                </a>
+					            </div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=79" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490072677495061584.jpg" title="justyle"></div>
+					                    <div class="link"></div>
+					                </a>
+		            			</div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=82" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490072694695600078.jpg" title="李宁"></div>
+					                    <div class="link"></div>
+					                </a>
+					            </div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=86" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490072765604121481.jpg" title="康比特"></div>
+					                    <div class="link"></div>
+					                </a>
+		            			</div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=106" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490072981305868823.jpg" title="开普特"></div>
+					                    <div class="link"></div>
+					                </a>
+					            </div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=122" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490073982547710498.jpg" title="Five Plus"></div>
+					                    <div class="link"></div>
+					                </a>
+					            </div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=149" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490073591535005714.jpg" title="鸿星尔克"></div>
+					                    <div class="link"></div>
+					                </a>
+					            </div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=152" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490228100138579787.jpg" title="杰克琼斯"></div>
+					                    <div class="link"></div>
+					                </a>
+					            </div>
+		                        <div class="item">
+					                <a href="https://demo.dscmall.cn/brandn.php?id=154" target="_blank">
+					                    <div class="link-l"></div>
+					                    <div class="img"><img src="/static/index/img/1490073529881448780.jpg" title="匡威"></div>
+					                    <div class="link"></div>
+					                </a>
+					            </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="spec" data-spec="" data-title="undefined"></div>
+		        </div>
+		    </div>
+		</div>
+		<?php endforeach;?>
+
+
+
+
+<div class="visual-item w1200" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme" data-diff="1" style="display: block; position: relative; opacity: 1; z-index: 0; left: 0px; top: 0px;">
                                     
                                     <div class="view">
                                         <div class="floor-content" data-type="range" id="homeFloor_1" data-lift="鞋靴">
@@ -1487,17 +1360,17 @@ $(function(){
                         <div class="floor-left-slide">
                 <div class="bd">
                     <div class="tempWrap" style="overflow:hidden; position:relative; width:474px"><ul style="width: 1422px; left: -474px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-                                                                        <li style="float: left; width: 474px;"><a href=""><img src="/static/index/img/1494984993525657918.jpg"></a></li>
-                                                                                                <li style="float: left; width: 474px;"><a href=""><img src="/static/index/img/1494985258163076122.jpg"></a></li>
-                                                                                                <li style="float: left; width: 474px;"><a href=""><img src="/static/index/img/1494985258841930385.jpg"></a></li>
+                                                                        <li style="float: left; width: 474px;"><a href=""><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984993525657918.jpg"></a></li>
+                                                                                                <li style="float: left; width: 474px;"><a href=""><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985258163076122.jpg"></a></li>
+                                                                                                <li style="float: left; width: 474px;"><a href=""><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985258841930385.jpg"></a></li>
                                                                     </ul></div>
                 </div>
-                <div class="hd"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div>
+                <div class="hd"><ul><li class="">1</li><li class="on">2</li><li>3</li></ul></div>
             </div>
                         
             <div class="floor-left-adv">
-                                                <a href="" target="_blank"><img src="/static/index/img/1494984994714366758.jpg"></a>
-                                                                <a href="" target="_blank"><img src="/static/index/img/1494984994759822929.jpg"></a>
+                                                <a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984994714366758.jpg"></a>
+                                                                <a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984994759822929.jpg"></a>
                                             </div>
             
                     </div>
@@ -1511,7 +1384,8 @@ $(function(){
                                 <h3>商务出差必备</h3>
                                 <span>磨砂登机箱</span>
                             </div>
-                            <img src="/static/index/img/1494985264048620039.jpg">
+                            <img src="
+                            	                                	                            			https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985264048620039.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1521,7 +1395,8 @@ $(function(){
                                 <h3>防水斜挎包</h3>
                                 <span>商城自营，闪电发货</span>
                             </div>
-                            <img src="/static/index/img/1494985259325736762.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985259325736762.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1531,7 +1406,8 @@ $(function(){
                                 <h3>欧时纳女包</h3>
                                 <span>跨万店三免一</span>
                             </div>
-                            <img src="/static/index/img/1494985254984045600.png">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985254984045600.png                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1541,7 +1417,8 @@ $(function(){
                                 <h3>大牌精选</h3>
                                 <span>满199减100</span>
                             </div>
-                            <img src="/static/index/img/1494985261810426955.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985261810426955.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1551,7 +1428,8 @@ $(function(){
                                 <h3>纪梵希</h3>
                                 <span>大牌上新</span>
                             </div>
-                            <img src="/static/index/img/1495042209788792159.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1495042209788792159.jpg                                                                                                ">
                         </a>
                     </div>
                                     </div>
@@ -1573,72 +1451,72 @@ $(function(){
         <div class="floor-fd">
         <div class="floor-fd-brand clearfix">
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=93" target="_blank">
+                <a href="brandn.php?id=93" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072850306019115.jpg" title="同庆和堂"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490072850306019115.jpg" title="同庆和堂"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=115" target="_blank">
+                <a href="brandn.php?id=115" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074006660107941.jpg" title="西门子"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074006660107941.jpg" title="西门子"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=130" target="_blank">
+                <a href="brandn.php?id=130" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074180745676140.jpg" title="TP-LINL"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074180745676140.jpg" title="TP-LINL"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=131" target="_blank">
+                <a href="brandn.php?id=131" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073919711003101.jpg" title="ZIPPO"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073919711003101.jpg" title="ZIPPO"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=132" target="_blank">
+                <a href="brandn.php?id=132" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073900838296364.jpg" title="阿玛尼"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073900838296364.jpg" title="阿玛尼"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=138" target="_blank">
+                <a href="brandn.php?id=138" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073717776504773.jpg" title="迪士尼"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073717776504773.jpg" title="迪士尼"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=139" target="_blank">
+                <a href="brandn.php?id=139" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073705755280994.jpg" title="飞科"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073705755280994.jpg" title="飞科"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=154" target="_blank">
+                <a href="brandn.php?id=154" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073529881448780.jpg" title="匡威"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073529881448780.jpg" title="匡威"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=178" target="_blank">
+                <a href="brandn.php?id=178" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073253749057076.jpg" title="文轩网"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073253749057076.jpg" title="文轩网"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=186" target="_blank">
+                <a href="brandn.php?id=186" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074308773778697.jpg" title="新百伦"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074308773778697.jpg" title="新百伦"></div>
                     <div class="link"></div>
                 </a>
             </div>
@@ -1647,7 +1525,10 @@ $(function(){
     </div>
 <div class="spec" data-spec="" data-title="undefined"></div></div>
                                     </div>
-                                </div><div class="visual-item w1200" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme" data-diff="2" style="display: block;">
+                                </div>
+
+
+                                <div class="visual-item w1200" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme" data-diff="2" style="display: block;">
                                     
                                     <div class="view">
                                         <div class="floor-content" data-type="range" id="homeFloor_2" data-lift="食品">
@@ -1690,8 +1571,8 @@ $(function(){
         <div class="bd-left">
                         
             <div class="floor-left-adv">
-                                                <a href="" target="_blank"><img src="/static/index/img/1494984995376315298.jpg"></a>
-                                                                <a href="" target="_blank"><img src="/static/index/img/1494984995451465490.jpg"></a>
+                                                <a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984995376315298.jpg"></a>
+                                                                <a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984995451465490.jpg"></a>
                                             </div>
             
                     </div>
@@ -1705,7 +1586,8 @@ $(function(){
                                 <h3>李锦记</h3>
                                 <span>商城自营好物低价</span>
                             </div>
-                            <img src="/static/index/img/1494985253313357913.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985253313357913.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1715,7 +1597,8 @@ $(function(){
                                 <h3>金锣火腿肠</h3>
                                 <span>方便食品</span>
                             </div>
-                            <img src="/static/index/img/1494985009349965302.jpg">
+                            <img src="
+                            	                                	                            			https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985009349965302.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1725,7 +1608,8 @@ $(function(){
                                 <h3>酸辣牛肉味五连包</h3>
                                 <span>五件包39.9选14</span>
                             </div>
-                            <img src="/static/index/img/1494985008433437711.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985008433437711.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1735,7 +1619,8 @@ $(function(){
                                 <h3>香茉莉香米</h3>
                                 <span>满76香米1KG</span>
                             </div>
-                            <img src="/static/index/img/1494985262035088187.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985262035088187.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1745,7 +1630,8 @@ $(function(){
                                 <h3>魔力紫</h3>
                                 <span>尽享休闲时光</span>
                             </div>
-                            <img src="/static/index/img/1494985264023870581.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985264023870581.jpg                                                                                                ">
                         </a>
                     </div>
                                     </div>
@@ -1770,72 +1656,72 @@ $(function(){
         <div class="floor-fd">
         <div class="floor-fd-brand clearfix">
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=73" target="_blank">
+                <a href="brandn.php?id=73" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072329183966195.jpg" title="她他/tata"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490072329183966195.jpg" title="她他/tata"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=81" target="_blank">
+                <a href="brandn.php?id=81" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072685002270742.jpg" title="宝姿"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490072685002270742.jpg" title="宝姿"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=83" target="_blank">
+                <a href="brandn.php?id=83" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072728394097278.jpg" title="白兰氏"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490072728394097278.jpg" title="白兰氏"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=102" target="_blank">
+                <a href="brandn.php?id=102" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072941526335126.jpg" title="欧亚马"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490072941526335126.jpg" title="欧亚马"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=107" target="_blank">
+                <a href="brandn.php?id=107" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072993409028193.jpg" title="三星"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490072993409028193.jpg" title="三星"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=117" target="_blank">
+                <a href="brandn.php?id=117" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073123533047769.jpg" title="阿尔卡特"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073123533047769.jpg" title="阿尔卡特"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=130" target="_blank">
+                <a href="brandn.php?id=130" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074180745676140.jpg" title="TP-LINL"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074180745676140.jpg" title="TP-LINL"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=136" target="_blank">
+                <a href="brandn.php?id=136" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490227517695746097.jpg" title="博时基金"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490227517695746097.jpg" title="博时基金"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=137" target="_blank">
+                <a href="brandn.php?id=137" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073731822160672.jpg" title="达利园"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073731822160672.jpg" title="达利园"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=141" target="_blank">
+                <a href="brandn.php?id=141" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074990110164877.jpg" title="钙尔奇"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074990110164877.jpg" title="钙尔奇"></div>
                     <div class="link"></div>
                 </a>
             </div>
@@ -1844,7 +1730,11 @@ $(function(){
     </div>
 <div class="spec" data-spec="" data-title="undefined"></div></div>
                                     </div>
-                                </div><div class="visual-item w1200" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme" data-diff="3" style="display: block;">
+                                </div>
+
+
+
+                                <div class="visual-item w1200" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme" data-diff="3" style="display: block;">
                                     
                                     <div class="view">
                                         <div class="floor-content" data-type="range" id="homeFloor_3" data-lift="家用">
@@ -1883,19 +1773,19 @@ $(function(){
         <div class="bd-left">
                         
             <div class="floor-left-adv">
-                                                <a href="" target="_blank"><img src="/static/index/img/1494985252213529452.jpg"></a>
-                                                                <a href="" target="_blank"><img src="/static/index/img/1494985263907218565.jpg"></a>
+                                                <a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985252213529452.jpg"></a>
+                                                                <a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985263907218565.jpg"></a>
                                             </div>
             
                         <div class="floor-left-slide">
                 <div class="bd">
-                    <div class="tempWrap" style="overflow:hidden; position:relative; width:474px"><ul style="width: 1422px; left: -474px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-                                                <li style="float: left; width: 474px;"><a href=""><img src="/static/index/img/1494985258768732496.jpg"></a></li>
-                                                <li style="float: left; width: 474px;"><a href=""><img src="/static/index/img/1494985266144681478.png"></a></li>
-                                                <li style="float: left; width: 474px;"><a href=""><img src="/static/index/img/1494985266980557091.png"></a></li>
+                    <div class="tempWrap" style="overflow:hidden; position:relative; width:474px"><ul style="width: 1422px; left: 0px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
+                                                <li style="float: left; width: 474px;"><a href=""><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985258768732496.jpg"></a></li>
+                                                <li style="float: left; width: 474px;"><a href=""><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985266144681478.png"></a></li>
+                                                <li style="float: left; width: 474px;"><a href=""><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985266980557091.png"></a></li>
                                             </ul></div>
                 </div>
-                <div class="hd"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div>
+                <div class="hd"><ul><li class="on">1</li><li class="">2</li><li class="">3</li></ul></div>
             </div>
                     </div>
         <div class="bd-right">
@@ -1908,7 +1798,8 @@ $(function(){
                                 <h3>海信55英寸</h3>
                                 <span>买既得无线鼠标一个</span>
                             </div>
-                            <img src="/static/index/img/1494985010017482916.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985010017482916.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1918,7 +1809,8 @@ $(function(){
                                 <h3>欧景除湿器</h3>
                                 <span>洗化干衣一体</span>
                             </div>
-                            <img src="/static/index/img/1494985252050215807.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985252050215807.jpg                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1928,7 +1820,8 @@ $(function(){
                                 <h3>智能音箱</h3>
                                 <span>满100减19</span>
                             </div>
-                            <img src="/static/index/img/1494985253347581677.JPG">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985253347581677.JPG                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1938,7 +1831,8 @@ $(function(){
                                 <h3>美的电饭煲</h3>
                                 <span>给力“实”惠</span>
                             </div>
-                            <img src="/static/index/img/1494985267962226313.JPG">
+                            <img src="
+                            	                                	                            			https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985267962226313.JPG                                                                                                ">
                         </a>
                     </div>
                                         <div class="f-r-m-item
@@ -1948,7 +1842,8 @@ $(function(){
                                 <h3>极客系列</h3>
                                 <span>定金100减300</span>
                             </div>
-                            <img src="/static/index/img/1494985260469428998.jpg">
+                            <img src="
+                            	                                	                                        https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985260469428998.jpg                                                                                                ">
                         </a>
                     </div>
                                     </div>
@@ -1970,72 +1865,72 @@ $(function(){
         <div class="floor-fd">
         <div class="floor-fd-brand clearfix">
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=72" target="_blank">
+                <a href="brandn.php?id=72" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072313895957648.jpg" title="ELLE HOME"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490072313895957648.jpg" title="ELLE HOME"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=73" target="_blank">
+                <a href="brandn.php?id=73" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490072329183966195.jpg" title="她他/tata"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490072329183966195.jpg" title="她他/tata"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=109" target="_blank">
+                <a href="brandn.php?id=109" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074056964147533.jpg" title="诺基亚"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074056964147533.jpg" title="诺基亚"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=110" target="_blank">
+                <a href="brandn.php?id=110" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074043963552715.jpg" title="松下电器"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074043963552715.jpg" title="松下电器"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=115" target="_blank">
+                <a href="brandn.php?id=115" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074006660107941.jpg" title="西门子"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074006660107941.jpg" title="西门子"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=125" target="_blank">
+                <a href="brandn.php?id=125" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073960166035363.jpg" title="华为"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073960166035363.jpg" title="华为"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=130" target="_blank">
+                <a href="brandn.php?id=130" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490074180745676140.jpg" title="TP-LINL"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490074180745676140.jpg" title="TP-LINL"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=139" target="_blank">
+                <a href="brandn.php?id=139" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073705755280994.jpg" title="飞科"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073705755280994.jpg" title="飞科"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=148" target="_blank">
+                <a href="brandn.php?id=148" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073603108687350.jpg" title="宏基"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073603108687350.jpg" title="宏基"></div>
                     <div class="link"></div>
                 </a>
             </div>
                         <div class="item">
-                <a href="https://demo.dscmall.cn/brandn.php?id=150" target="_blank">
+                <a href="brandn.php?id=150" target="_blank">
                     <div class="link-l"></div>
-                    <div class="img"><img src="/static/index/img/1490073577683159021.jpg" title="华帝"></div>
+                    <div class="img"><img src="https://demo.dscmall.cn/data/brandlogo/1490073577683159021.jpg" title="华帝"></div>
                     <div class="link"></div>
                 </a>
             </div>
@@ -2044,7 +1939,19 @@ $(function(){
     </div>
 <div class="spec" data-spec="" data-title="undefined"></div></div>
                                     </div>
-                                </div><div class="visual-item w1200" data-mode="h-master" data-purebox="homeAdv" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="visual-item w1200" data-mode="h-master" data-purebox="homeAdv" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
                                     
                                     <div class="view">
                                         <div class="master-channel" id="h-master_0" data-type="range" data-lift="达人">
@@ -2059,7 +1966,7 @@ $(function(){
             </div>
             <a href="" class="m-c-btn" target="_blank">去见识</a>
         </div>
-        <div class="img"><a href="" target="_blank"><img src="/static/index/img/1494985002918483191.png"></a></div>
+        <div class="img"><a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985002918483191.png"></a></div>
     </div>
                 <div class="m-c-item m-c-i-2" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985006392060862.jpg) center center no-repeat;">
         <div class="m-c-main">
@@ -2069,7 +1976,7 @@ $(function(){
             </div>
             <a href="" class="m-c-btn" target="_blank">去见识</a>
         </div>
-        <div class="img"><a href="" target="_blank"><img src="/static/index/img/1494985002435254172.png"></a></div>
+        <div class="img"><a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985002435254172.png"></a></div>
     </div>
                 <div class="m-c-item m-c-i-3" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985006452127966.jpg) center center no-repeat;">
         <div class="m-c-main">
@@ -2079,7 +1986,7 @@ $(function(){
             </div>
             <a href="" class="m-c-btn" target="_blank">去见识</a>
         </div>
-        <div class="img"><a href="" target="_blank"><img src="/static/index/img/1494985003577610926.png"></a></div>
+        <div class="img"><a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985003577610926.png"></a></div>
     </div>
                 <div class="m-c-item m-c-i-4" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985006427221958.jpg) center center no-repeat;">
         <div class="m-c-main">
@@ -2089,7 +1996,7 @@ $(function(){
             </div>
             <a href="" class="m-c-btn" target="_blank">去见识</a>
         </div>
-        <div class="img"><a href="" target="_blank"><img src="/static/index/img/1494985003958834850.png"></a></div>
+        <div class="img"><a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985003958834850.png"></a></div>
     </div>
                 <div class="m-c-item m-c-i-5" style="background:url(https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985005357290375.jpg) center center no-repeat;">
         <div class="m-c-main">
@@ -2099,12 +2006,14 @@ $(function(){
             </div>
             <a href="" class="m-c-btn" target="_blank">去见识</a>
         </div>
-        <div class="img"><a href="" target="_blank"><img src="/static/index/img/1494985004056329811.png"></a></div>
+        <div class="img"><a href="" target="_blank"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985004056329811.png"></a></div>
     </div>
         </div>
 <div class="spec" data-spec="" data-title="达人"></div></div>
                                     </div>
-                                </div><div class="visual-item w1200" data-mode="h-storeRec" data-purebox="homeAdv" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
+                                </div>
+
+<div class="visual-item w1200" data-mode="h-storeRec" data-purebox="homeAdv" data-li="1" ectype="visualItme" data-diff="0" style="display: block;">
                                     
                                     <div class="view">
                                         <div class="store-channel" id="h-storeRec_0" data-type="range" data-lift="店铺">
@@ -2113,9 +2022,9 @@ $(function(){
 <div class="rec-store-list">
             <div class="rec-store-item opacity_img">
         <a href="" target="_blank">
-            <div class="p-img"><img src="/static/index/img/1494985261279846913.png"></div>
+            <div class="p-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985261279846913.png"></div>
             <div class="info">
-                <div class="s-logo"><div class="img"><img src="/static/index/img/1494985267980096546.png"></div></div>
+                <div class="s-logo"><div class="img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985267980096546.png"></div></div>
                 <div class="s-title">
                     <div class="tit">美宝莲</div>
                     <div class="ui-tit">纽约高潮街装</div>
@@ -2125,9 +2034,9 @@ $(function(){
     </div>
                 <div class="rec-store-item opacity_img">
         <a href="" target="_blank">
-            <div class="p-img"><img src="/static/index/img/1494985257347489575.png"></div>
+            <div class="p-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985257347489575.png"></div>
             <div class="info">
-                <div class="s-logo"><div class="img"><img src="/static/index/img/1494985265619204005.png"></div></div>
+                <div class="s-logo"><div class="img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985265619204005.png"></div></div>
                 <div class="s-title">
                     <div class="tit">三只松鼠</div>
                     <div class="ui-tit">就是这个味</div>
@@ -2137,9 +2046,9 @@ $(function(){
     </div>
                 <div class="rec-store-item opacity_img">
         <a href="" target="_blank">
-            <div class="p-img"><img src="/static/index/img/1494985254811159847.png"></div>
+            <div class="p-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985254811159847.png"></div>
             <div class="info">
-                <div class="s-logo"><div class="img"><img src="/static/index/img/1494985265516324065.png"></div></div>
+                <div class="s-logo"><div class="img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985265516324065.png"></div></div>
                 <div class="s-title">
                     <div class="tit">绿联旗舰店</div>
                     <div class="ui-tit">给生活多点色彩</div>
@@ -2149,9 +2058,9 @@ $(function(){
     </div>
                 <div class="rec-store-item opacity_img">
         <a href="" target="_blank">
-            <div class="p-img"><img src="/static/index/img/1494985263326444094.png"></div>
+            <div class="p-img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985263326444094.png"></div>
             <div class="info">
-                <div class="s-logo"><div class="img"><img src="/static/index/img/1494985267537609679.jpg"></div></div>
+                <div class="s-logo"><div class="img"><img src="https://demo.dscmall.cn/data/gallery_album/2/original_img/1494985267537609679.jpg"></div></div>
                 <div class="s-title">
                     <div class="tit">韩都衣舍</div>
                     <div class="ui-tit">满249减50</div>
@@ -2162,7 +2071,10 @@ $(function(){
         </div>
 <div class="spec" data-spec="" data-title="店铺"></div></div>
                                     </div>
-                                </div><div class="visual-item w1200" data-mode="guessYouLike" data-purebox="goods" ectype="visualItme" data-diff="0" style="display: block;">
+                                </div>
+
+
+<div class="visual-item w1200" data-mode="guessYouLike" data-purebox="goods" ectype="visualItme" data-diff="0" style="display: block;">
                                     
                                     <div class="view">
                                         <div class="lift-channel clearfix" id="guessYouLike" data-type="range" data-lift="商品">
@@ -2170,8 +2082,8 @@ $(function(){
                                             <ul>
  
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=620" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489098265067.jpg"></div>
+    <a href="goods.php?id=620" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489098265067.jpg"></div>
         <div class="p-name" title="新品HYC 2k显示器32寸电脑显示器无边框HDMI液晶显示器IPS显示屏 2K高清屏IPS 超薄 厚6mm 无边框">新品HYC 2k显示器32寸电脑显示器无边框HDMI液晶显示器IPS显示屏 2K高清屏IPS 超薄 厚6mm 无边框</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2181,8 +2093,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=621" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489098360804.jpg"></div>
+    <a href="goods.php?id=621" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489098360804.jpg"></div>
         <div class="p-name" title="三星C24F396FH曲面显示器23.5英寸电脑显示器24液晶显示屏幕超22">三星C24F396FH曲面显示器23.5英寸电脑显示器24液晶显示屏幕超22</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2192,8 +2104,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=622" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489098597912.jpg"></div>
+    <a href="goods.php?id=622" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489098597912.jpg"></div>
         <div class="p-name" title="Apple/苹果 27” Retina 5K显示屏 iMac:3.3GHz处理器2TB存储">Apple/苹果 27” Retina 5K显示屏 iMac:3.3GHz处理器2TB存储</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2203,8 +2115,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=624" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489099128797.jpg"></div>
+    <a href="goods.php?id=624" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489099128797.jpg"></div>
         <div class="p-name" title="名龙堂i7 6700升7700 GTX1060 6G台式电脑主机DIY游戏组装整机 升6GB独显 送正版WIN10 一年上门">名龙堂i7 6700升7700 GTX1060 6G台式电脑主机DIY游戏组装整机 升6GB独显 送正版WIN10 一年上门</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2214,8 +2126,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=625" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489099437211.jpg"></div>
+    <a href="goods.php?id=625" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489099437211.jpg"></div>
         <div class="p-name" title="秋季新款男士套头卫衣印花外套韩版简约百搭潮流男生上衣服">秋季新款男士套头卫衣印花外套韩版简约百搭潮流男生上衣服</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2225,8 +2137,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=627" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489099773629.jpg"></div>
+    <a href="goods.php?id=627" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489099773629.jpg"></div>
         <div class="p-name" title="2017春装新款男士卫衣套头圆领韩版潮流时尚男生休闲外套">2017春装新款男士卫衣套头圆领韩版潮流时尚男生休闲外套</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2236,8 +2148,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=633" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489102299856.jpg"></div>
+    <a href="goods.php?id=633" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489102299856.jpg"></div>
         <div class="p-name" title="新款学院风韩版时尚太空棉宽松长袖印花圆领卫衣女">新款学院风韩版时尚太空棉宽松长袖印花圆领卫衣女</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2247,8 +2159,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=634" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489102753231.jpg"></div>
+    <a href="goods.php?id=634" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489102753231.jpg"></div>
         <div class="p-name" title="新款韩版chic学生宽松短款外套上衣字母长袖连帽套头卫衣女潮">新款韩版chic学生宽松短款外套上衣字母长袖连帽套头卫衣女潮</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2258,8 +2170,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=635" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489102950633.jpg"></div>
+    <a href="goods.php?id=635" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489102950633.jpg"></div>
         <div class="p-name" title="韩都衣舍2017韩版女装新款黑白拼接插肩棒球服春季短外套HH5597妠 朴信惠同款 黑白拼接 插肩袖 棒球服">韩都衣舍2017韩版女装新款黑白拼接插肩棒球服春季短外套HH5597妠 朴信惠同款 黑白拼接 插肩袖 棒球服</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2269,8 +2181,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=636" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489103412794.jpg"></div>
+    <a href="goods.php?id=636" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489103412794.jpg"></div>
         <div class="p-name" title="The Face Shop 水光无瑕气垫CC霜 裸妆隔离保湿补水持久遮瑕强 韩式裸妆 打造水嫩遮瑕 光润亮彩">The Face Shop 水光无瑕气垫CC霜 裸妆隔离保湿补水持久遮瑕强 韩式裸妆 打造水嫩遮瑕 光润亮彩</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2280,8 +2192,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=637" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489103674623.jpg"></div>
+    <a href="goods.php?id=637" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489103674623.jpg"></div>
         <div class="p-name" title="一叶子补水面膜女保湿控油深层清洁收毛孔护肤面膜贴套装专柜正品 补水保湿 清洁控油">一叶子补水面膜女保湿控油深层清洁收毛孔护肤面膜贴套装专柜正品 补水保湿 清洁控油</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2291,8 +2203,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=638" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489104168209.jpg"></div>
+    <a href="goods.php?id=638" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489104168209.jpg"></div>
         <div class="p-name" title="美宝莲绝色持久唇膏 粉红警报 魅惑炫亮润泽 唇彩口红">美宝莲绝色持久唇膏 粉红警报 魅惑炫亮润泽 唇彩口红</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2302,8 +2214,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=639" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489104534699.jpg"></div>
+    <a href="goods.php?id=639" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489104534699.jpg"></div>
         <div class="p-name" title="美宝莲绝色持久唇膏 粉红警报 魅惑炫亮润泽 唇彩口红">美宝莲绝色持久唇膏 粉红警报 魅惑炫亮润泽 唇彩口红</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2313,8 +2225,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=640" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489104621775.jpg"></div>
+    <a href="goods.php?id=640" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489104621775.jpg"></div>
         <div class="p-name" title="花美时三合一自动旋转双头眉笔眉粉染眉膏画眉持久防水防汗不脱色 防水防汗 持久不晕染 正品包邮">花美时三合一自动旋转双头眉笔眉粉染眉膏画眉持久防水防汗不脱色 防水防汗 持久不晕染 正品包邮</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2324,8 +2236,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=642" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489104935834.jpg"></div>
+    <a href="goods.php?id=642" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489104935834.jpg"></div>
         <div class="p-name" title="一叶子面膜女补水保湿收缩毛孔控油玻尿酸面膜专柜正品 共28片">一叶子面膜女补水保湿收缩毛孔控油玻尿酸面膜专柜正品 共28片</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2335,8 +2247,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=644" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489105021484.jpg"></div>
+    <a href="goods.php?id=644" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489105021484.jpg"></div>
         <div class="p-name" title="欧莱雅男士水能保湿化妆护肤品套装深层补水滋润洗面奶爽肤水乳液">欧莱雅男士水能保湿化妆护肤品套装深层补水滋润洗面奶爽肤水乳液</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2346,8 +2258,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=645" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489105083498.jpg"></div>
+    <a href="goods.php?id=645" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489105083498.jpg"></div>
         <div class="p-name" title="杰威尔发胶定型喷雾男士干胶头发持久定型造型啫喱水发蜡蓬松清香 快速定型，蓬松清香，不起白屑，买2送1">杰威尔发胶定型喷雾男士干胶头发持久定型造型啫喱水发蜡蓬松清香 快速定型，蓬松清香，不起白屑，买2送1</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2357,8 +2269,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=646" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489105134405.jpg"></div>
+    <a href="goods.php?id=646" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489105134405.jpg"></div>
         <div class="p-name" title="美的电磁炉Midea/美的 WK2102电磁炉特价家用触摸屏电池炉灶正品 已爆售百万多台 防滑触摸屏 一键爆炒">美的电磁炉Midea/美的 WK2102电磁炉特价家用触摸屏电池炉灶正品 已爆售百万多台 防滑触摸屏 一键爆炒</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2368,8 +2280,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=647" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489105175252.jpg"></div>
+    <a href="goods.php?id=647" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489105175252.jpg"></div>
         <div class="p-name" title="志高嵌入式电陶炉家用双头双灶镶嵌式电磁炉双眼光波炉特价正品 不挑锅可烧烤 三环猛火 嵌入式双灶">志高嵌入式电陶炉家用双头双灶镶嵌式电磁炉双眼光波炉特价正品 不挑锅可烧烤 三环猛火 嵌入式双灶</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2379,8 +2291,8 @@ $(function(){
     </a>
 </li>
 <li class="opacity_img">
-    <a href="https://demo.dscmall.cn/goods.php?id=648" target="_blank">
-        <div class="p-img"><img src="/static/index/img/0_thumb_G_1489105257655.jpg"></div>
+    <a href="goods.php?id=648" target="_blank">
+        <div class="p-img"><img src="https://demo.dscmall.cn/images/201703/thumb_img/0_thumb_G_1489105257655.jpg"></div>
         <div class="p-name" title="Midea/美的 MB-WFS5017TM电饭煲5L智能正品电饭锅家用3-4-6-7-8人 下单立减20 精研柴火饭 涡轮防溢">Midea/美的 MB-WFS5017TM电饭煲5L智能正品电饭锅家用3-4-6-7-8人 下单立减20 精研柴火饭 涡轮防溢</div>
         <div class="p-price">
             <div class="shop-price">
@@ -2392,727 +2304,237 @@ $(function(){
 </ul>
                                         <div class="spec" data-spec=""></div></div>
                                     </div>
-                                </div></div>                            
-                                                                        
-                                                                        
-                                                                        
-                                            
-        <div class="attached-search-container" ectype="suspColumn">
-            <div class="w w1200">
-                <div class="categorys site-mast">
-                    <div class="categorys-type"><a href="https://demo.dscmall.cn/categoryall.php" target="_blank">全部商品分类</a></div>
-                    <div class="categorys-tab-content">
-                        <div class="categorys-items" id="cata-nav">
-                <div class="categorys-item" ectype="cateItem" data-id="858" data-eveval="0">
-        <div class="item item-content">
-                        <i class="iconfont icon-ele"></i>
-                        <div class="categorys-title">
-                <strong>
-                                <a href="https://demo.dscmall.cn/category.php?id=858" target="_blank">家用电器</a>
-                                </strong>
-                                <span>
-                                                            <a href="https://demo.dscmall.cn/category.php?id=1105" target="_blank">大家电</a>
-                    	
-                                                            <a href="https://demo.dscmall.cn/category.php?id=1115" target="_blank">生活电器</a>
-                    	
-                                        	
-                                        	
-                                        	
-                                    </span>
-                            </div>
-        </div>
-        <div class="categorys-items-layer" ectype="cateLayer">
-            <div class="cate-layer-con clearfix" ectype="cateLayerCon_858"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-                <div class="categorys-item" ectype="cateItem" data-id="3" data-eveval="0">
-        <div class="item item-content">
-                        <i class="iconfont icon-digital"></i>
-                        <div class="categorys-title">
-                <strong>
-                                <a href="https://demo.dscmall.cn/category.php?id=33" target="_blank" class="division_cat">手机</a>、<a href="https://demo.dscmall.cn/category.php?id=64" target="_blank" class="division_cat">数码</a>、<a href="https://demo.dscmall.cn/category.php?id=37" target="_blank" class="division_cat">通信</a>                                </strong>
-                                <span>
-                                                            <a href="https://demo.dscmall.cn/category.php?id=112" target="_blank">智能设备</a>
-                    	
-                                                            <a href="https://demo.dscmall.cn/category.php?id=76" target="_blank">数码配件</a>
-                    	
-                                        	
-                                        	
-                                        	
-                                        	
-                                        	
-                                    </span>
-                            </div>
-        </div>
-        <div class="categorys-items-layer" ectype="cateLayer">
-            <div class="cate-layer-con clearfix" ectype="cateLayerCon_3"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-                <div class="categorys-item" ectype="cateItem" data-id="4" data-eveval="0">
-        <div class="item item-content">
-                        <i class="iconfont icon-computer"></i>
-                        <div class="categorys-title">
-                <strong>
-                                <a href="https://demo.dscmall.cn/category.php?id=4" target="_blank">电脑、办公</a>
-                                </strong>
-                                <span>
-                                                            <a href="https://demo.dscmall.cn/category.php?id=158" target="_blank">服务产品</a>
-                    	
-                                                            <a href="https://demo.dscmall.cn/category.php?id=132" target="_blank">电脑整机</a>
-                    	
-                                        	
-                                        	
-                                        	
-                                        	
-                                    </span>
-                            </div>
-        </div>
-        <div class="categorys-items-layer" ectype="cateLayer">
-            <div class="cate-layer-con clearfix" ectype="cateLayerCon_4"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-                <div class="categorys-item" ectype="cateItem" data-id="5" data-eveval="0">
-        <div class="item item-content">
-                        <i class="iconfont icon-bed"></i>
-                        <div class="categorys-title">
-                <strong>
-                                <a href="https://demo.dscmall.cn/category.php?id=5" target="_blank">家居、家具、家装、厨具</a>
-                                </strong>
-                                <span>
-                                                            <a href="https://demo.dscmall.cn/category.php?id=143" target="_blank">厨具</a>
-                    	
-                                                            <a href="https://demo.dscmall.cn/category.php?id=159" target="_blank">家装建材</a>
-                    	
-                                        	
-                                        	
-                                        	
-                                        	
-                                    </span>
-                            </div>
-        </div>
-        <div class="categorys-items-layer" ectype="cateLayer">
-            <div class="cate-layer-con clearfix" ectype="cateLayerCon_5"><div class="cate-layer-left">
-        <div class="cate_channel">
-                <a href="#" target="_blank">家装城</a>
-                <a href="#" target="_blank">居家日用</a>
-                <a href="#" target="_blank">精品家具</a>
-                <a href="#" target="_blank">家装建材</a>
-                <a href="#" target="_blank">厨房达人</a>
-                <a href="#" target="_blank">猫猫狗狗</a>
-            </div>
-        <div class="cate_detail">
-                <dl class="dl_fore1">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=143" target="_blank">厨具</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=146" target="_blank">烹饪锅具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=149" target="_blank">刀剪菜板</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=152" target="_blank">厨房配件</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=153" target="_blank">水具酒具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=154" target="_blank">餐具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=156" target="_blank">茶具/咖啡具</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore2">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=159" target="_blank">家装建材</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=160" target="_blank">灯饰照明</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=161" target="_blank">厨房卫浴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=163" target="_blank">五金工具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=165" target="_blank">电工电料</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=167" target="_blank">墙地面材料</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=169" target="_blank">装饰材料</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=172" target="_blank">装修服务</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=175" target="_blank">吸顶灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=176" target="_blank">淋浴花洒</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=179" target="_blank">开关插座</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=182" target="_blank">油漆涂料</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=184" target="_blank">龙头</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore3">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=188" target="_blank">家纺</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=190" target="_blank">床品套件</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=191" target="_blank">被子</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=192" target="_blank">蚊帐</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=193" target="_blank">凉席</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=194" target="_blank">床单被罩</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=195" target="_blank">枕芯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=196" target="_blank">毛巾浴巾</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=197" target="_blank">布艺软饰</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=198" target="_blank">毯子</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=199" target="_blank">抱枕靠垫</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=200" target="_blank">床垫/床褥</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=201" target="_blank">窗帘/窗纱</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=202" target="_blank">电热毯</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore4">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=205" target="_blank">家具</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=206" target="_blank">卧室家具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=207" target="_blank">客厅家具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=209" target="_blank">餐厅家具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=210" target="_blank">书房家具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=211" target="_blank">储物家具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=212" target="_blank">阳台/户外</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=214" target="_blank">商业办公</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=217" target="_blank">床</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=219" target="_blank">床垫</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=221" target="_blank">沙发</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=223" target="_blank">电脑椅</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=226" target="_blank">衣柜</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=227" target="_blank">茶几</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=229" target="_blank">电视柜</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=230" target="_blank">餐桌</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=231" target="_blank">电脑桌</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=232" target="_blank">鞋架/衣帽架</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore5">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=233" target="_blank">灯具</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=235" target="_blank">台灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=237" target="_blank">吸顶灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=238" target="_blank">筒灯射灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=240" target="_blank">LED灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=242" target="_blank">节能灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=243" target="_blank">落地灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=244" target="_blank">五金电器</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=246" target="_blank">应急灯/手电</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=248" target="_blank">装饰灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=250" target="_blank">吊灯</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=252" target="_blank">氛围照明</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore6">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=255" target="_blank">生活日用</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=257" target="_blank">收纳用品</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=259" target="_blank">雨伞雨具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=261" target="_blank">浴室用品</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=263" target="_blank">缝纫/针织用品</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=264" target="_blank">洗晒/熨烫</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=266" target="_blank">净化除味</a>
-                            </dd>
-        </dl>
-        
-        <div class="item-brands">
-            <ul>
-                            </ul>
-        </div>
-        <div class="item-promotions">
-                    </div>
-    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+    <div class="attached-search-container show" ectype="suspColumn">
+        <div class="w w1200">
+            <div class="categorys <?php if(!isset($show)) {echo 'site-mast';}  ?>">
+    <div class="categorys-type"><a href="#" target="_blank">全部商品分类</a></div>
+    <div class="categorys-tab-content shownav">
+    	<div class="categorys-items" id="cata-nav">
+    		<?php if(is_array($shopcateRes) || $shopcateRes instanceof \think\Collection || $shopcateRes instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcateRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
+            <div class="categorys-item" ectype="cateItem" data-id="<?php echo $shopcate['shopcate_id']; ?>" data-eveval="0">
+		        <div class="item item-content">
+		    		<i class="iconfont icon-ele"></i>
+		    		<div class="categorys-title">
+		                <strong><a href="#" target="_blank"><?php echo $shopcate['shopcate_name']; ?></a></strong>
+		            	<span>
+		            		<?php if(is_array($shopcate['children']) || $shopcate['children'] instanceof \think\Collection || $shopcate['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcate['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son_shopcate): $mod = ($i % 2 );++$i;if($i < 3): ?>
+		            		<a href="#" target="_blank"><?php echo $son_shopcate['shopcate_name']; ?></a>
+		            		<?php endif; endforeach; endif; else: echo "" ;endif; ?>
+		            	</span>
+		            </div>
+		        </div>
+		        <div class="categorys-items-layer" ectype="cateLayer">
+		        	<div class="cate-layer-con clearfix">
+		        		<div class="cate-layer-left">
+		        			<div class="cate_channel" ectype="channels_<?php echo $shopcate['shopcate_id']; ?>"></div>
+		        			<div class="cate_detail" ectype="subitems_<?php echo $shopcate['shopcate_id']; ?>"></div>
+		        		</div>
+		        		<div class="cate-layer-rihgt" ectype="brands_<?php echo $shopcate['shopcate_id']; ?>"></div>
+		        	</div>
+		        </div>
+		        <div class="clear"></div>
+		    </div>
+			<?php endforeach; endif; else: echo "" ;endif; ?>
+		</div>
+	</div>
 </div>
-<div class="cate-layer-rihgt">
-    <div class="cate-brand">
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=5&amp;brand=88" target="_blank" title="养生堂"><img src="/static/index/img/1490072787223453617.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=5&amp;brand=92" target="_blank" title="一品玉"><img src="/static/index/img/1490072835176110718.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=5&amp;brand=124" target="_blank" title="亿健"><img src="/static/index/img/1490073971637187496.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=5&amp;brand=131" target="_blank" title="ZIPPO"><img src="/static/index/img/1490073919711003101.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=5&amp;brand=134" target="_blank" title="帮宝适"><img src="/static/index/img/1490075108722576375.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=5&amp;brand=154" target="_blank" title="匡威"><img src="/static/index/img/1490073529881448780.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=5&amp;brand=160" target="_blank" title="美的"><img src="/static/index/img/1490074901892372216.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=5&amp;brand=163" target="_blank" title="魅族"><img src="/static/index/img/1490073359611343586.jpg"></a></div>
-            </div>
-        <div class="cate-promotion">
-                <a href="https://www.dscmall.cn/" target="_blank"><img src="/static/index/img/1490847695352345291.jpg" width="199" height="97"></a>
-            </div>
-    </div>
-</div>
-        </div>
-        <div class="clear"></div>
-    </div>
-                <div class="categorys-item" ectype="cateItem" data-id="6" data-eveval="0">
-        <div class="item item-content">
-                        <i class="iconfont icon-clothes"></i>
-                        <div class="categorys-title">
-                <strong>
-                                <a href="https://demo.dscmall.cn/category.php?id=6" target="_blank">男装、女装、内衣</a>
-                                </strong>
-                                <span>
-                                                            <a href="https://demo.dscmall.cn/category.php?id=347" target="_blank">女装</a>
-                    	
-                                                            <a href="https://demo.dscmall.cn/category.php?id=463" target="_blank">男装</a>
-                    	
-                                        	
-                                        	
-                                        	
-                                    </span>
-                            </div>
-        </div>
-        <div class="categorys-items-layer" ectype="cateLayer">
-            <div class="cate-layer-con clearfix" ectype="cateLayerCon_6"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-                <div class="categorys-item" ectype="cateItem" data-id="8" data-eveval="0">
-        <div class="item item-content">
-                        <i class="iconfont icon-shoes"></i>
-                        <div class="categorys-title">
-                <strong>
-                                <a href="https://demo.dscmall.cn/category.php?id=8" target="_blank">鞋靴、箱包、钟表、奢侈品</a>
-                                </strong>
-                                <span>
-                                                            <a href="https://demo.dscmall.cn/category.php?id=362" target="_blank">奢侈品</a>
-                    	
-                                                            <a href="https://demo.dscmall.cn/category.php?id=360" target="_blank">功能箱包</a>
-                    	
-                                        	
-                                        	
-                                        	
-                                        	
-                                        	
-                                    </span>
-                            </div>
-        </div>
-        <div class="categorys-items-layer" ectype="cateLayer">
-            <div class="cate-layer-con clearfix" ectype="cateLayerCon_8"><div class="cate-layer-left">
-        <div class="cate_channel">
-                <a href="#" target="_blank">男鞋</a>
-                <a href="#" target="_blank">女鞋</a>
-                <a href="#" target="_blank">箱包</a>
-                <a href="#" target="_blank">钟表</a>
-                <a href="#" target="_blank">奢侈品</a>
-                <a href="#" target="_blank">女包</a>
-            </div>
-        <div class="cate_detail">
-                <dl class="dl_fore1">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=362" target="_blank">奢侈品</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=443" target="_blank">鞋靴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=439" target="_blank">箱包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=440" target="_blank">钱包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=441" target="_blank">服饰</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=442" target="_blank">腰带</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=445" target="_blank">太阳镜/眼镜框</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=446" target="_blank">饰品</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=447" target="_blank">配件</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore2">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=360" target="_blank">功能箱包</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=427" target="_blank">拉杆箱/拉杆包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=428" target="_blank">旅行包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=430" target="_blank">电脑包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=432" target="_blank">休闲运动包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=433" target="_blank">相机包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=434" target="_blank">腰包/胸包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=435" target="_blank">登山包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=436" target="_blank">旅行配件</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=437" target="_blank">书包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=438" target="_blank">妈咪包</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore3">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=355" target="_blank">流行男鞋</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=399" target="_blank">休闲鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=401" target="_blank">凉鞋/沙滩鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=402" target="_blank">帆布鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=403" target="_blank">商务休闲鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=404" target="_blank">正装鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=405" target="_blank">增高鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=406" target="_blank">拖鞋/人字拖</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=407" target="_blank">工装鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=408" target="_blank">男靴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=409" target="_blank">传统布鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=410" target="_blank">功能鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=411" target="_blank">鞋配件</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=412" target="_blank">定制鞋</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore4">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=353" target="_blank">时尚女鞋</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=368" target="_blank">凉鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=371" target="_blank">单鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=373" target="_blank">高跟鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=375" target="_blank">坡跟鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=376" target="_blank">松糕鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=378" target="_blank">鱼嘴鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=380" target="_blank">休闲鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=382" target="_blank">帆布鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=384" target="_blank">拖鞋/人字拖</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=386" target="_blank">妈妈鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=387" target="_blank">防水台</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=389" target="_blank">雨鞋/雨靴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=391" target="_blank">内增高</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=392" target="_blank">布鞋/绣花鞋</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=393" target="_blank">女靴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=394" target="_blank">雪地靴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=396" target="_blank">踝靴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=397" target="_blank">马丁靴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=398" target="_blank">鞋配件</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore5">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=357" target="_blank">潮流女包</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=413" target="_blank">单肩包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=414" target="_blank">手提包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=415" target="_blank">斜跨包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=416" target="_blank">双肩包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=417" target="_blank">钱包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=418" target="_blank">手拿包/晚宴包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=419" target="_blank">卡包/零钱包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=420" target="_blank">钥匙包</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore6">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=359" target="_blank">精品男包</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=421" target="_blank">商务公文包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=422" target="_blank">单肩/斜跨包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=423" target="_blank">男生手包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=424" target="_blank">双肩包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=425" target="_blank">钱包/卡包</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=426" target="_blank">钥匙包</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore7">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=364" target="_blank">钟表</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=449" target="_blank">男表</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=450" target="_blank">女表</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=452" target="_blank">儿童表</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=453" target="_blank">座钟挂钟</a>
-                            </dd>
-        </dl>
-        
-        <div class="item-brands">
-            <ul>
-                            </ul>
-        </div>
-        <div class="item-promotions">
-                    </div>
-    </div>
-</div>
-<div class="cate-layer-rihgt">
-    <div class="cate-brand">
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=93" target="_blank" title="同庆和堂"><img src="/static/index/img/1490072850306019115.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=84" target="_blank" title="同仁堂"><img src="/static/index/img/1490072746651935979.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=85" target="_blank" title="喜瑞"><img src="/static/index/img/1490072756032175204.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=87" target="_blank" title="汤臣倍健"><img src="/static/index/img/1490072777790374054.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=88" target="_blank" title="养生堂"><img src="/static/index/img/1490072787223453617.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=92" target="_blank" title="一品玉"><img src="/static/index/img/1490072835176110718.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=115" target="_blank" title="西门子"><img src="/static/index/img/1490074006660107941.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=116" target="_blank" title="伊莱克斯"><img src="/static/index/img/1490073109529817869.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=124" target="_blank" title="亿健"><img src="/static/index/img/1490073971637187496.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=130" target="_blank" title="TP-LINL"><img src="/static/index/img/1490074180745676140.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=131" target="_blank" title="ZIPPO"><img src="/static/index/img/1490073919711003101.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=132" target="_blank" title="阿玛尼"><img src="/static/index/img/1490073900838296364.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=137" target="_blank" title="达利园"><img src="/static/index/img/1490073731822160672.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=138" target="_blank" title="迪士尼"><img src="/static/index/img/1490073717776504773.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=139" target="_blank" title="飞科"><img src="/static/index/img/1490073705755280994.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=154" target="_blank" title="匡威"><img src="/static/index/img/1490073529881448780.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=176" target="_blank" title="途牛"><img src="/static/index/img/1490075080126940602.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=178" target="_blank" title="文轩网"><img src="/static/index/img/1490073253749057076.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=8&amp;brand=186" target="_blank" title="新百伦"><img src="/static/index/img/1490074308773778697.jpg"></a></div>
-            </div>
-        <div class="cate-promotion">
-                <a href="https://www.dscmall.cn/" target="_blank"><img src="/static/index/img/1490296765062943272.jpg" width="199" height="97"></a>
-            </div>
-    </div>
-</div>
-        </div>
-        <div class="clear"></div>
-    </div>
-                <div class="categorys-item" ectype="cateItem" data-id="860" data-eveval="0">
-        <div class="item item-content">
-                        <i class="iconfont icon-heal"></i>
-                        <div class="categorys-title">
-                <strong>
-                                <a href="https://demo.dscmall.cn/category.php?id=860" target="_blank">个人化妆、清洁用品</a>
-                                </strong>
-                                <span>
-                                                            <a href="https://demo.dscmall.cn/category.php?id=876" target="_blank">面部护肤</a>
-                    	
-                                                            <a href="https://demo.dscmall.cn/category.php?id=880" target="_blank">洗发护发</a>
-                    	
-                                        	
-                                        	
-                                        	
-                                        	
-                                        	
-                                    </span>
-                            </div>
-        </div>
-        <div class="categorys-items-layer" ectype="cateLayer">
-            <div class="cate-layer-con clearfix" ectype="cateLayerCon_860"><div class="cate-layer-left">
-        <div class="cate_channel">
-                <a href="#" target="_blank">清洁用品</a>
-                <a href="#" target="_blank">美妆商城</a>
-                <a href="#" target="_blank">官方旗舰店</a>
-                <a href="#" target="_blank">美妆特卖</a>
-                <a href="#" target="_blank">妆比社</a>
-                <a href="#" target="_blank">全球购美妆</a>
-            </div>
-        <div class="cate_detail">
-                <dl class="dl_fore1">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=876" target="_blank">面部护肤</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=877" target="_blank">清洁</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=878" target="_blank">护肤</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=879" target="_blank">面膜</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1177" target="_blank">洗面奶</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1178" target="_blank">BB霜</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1179" target="_blank">指甲油</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1180" target="_blank">洗面泥</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1181" target="_blank">水润护肤</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1182" target="_blank">卸妆水</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1183" target="_blank">雪花膏</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1184" target="_blank">爽肤水</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1185" target="_blank">清洁套装</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1186" target="_blank">剃须</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1187" target="_blank">洁面刷</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1188" target="_blank">修眉笔</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore2">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=880" target="_blank">洗发护发</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=881" target="_blank">洗发</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=882" target="_blank">护发</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=883" target="_blank">染发</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=884" target="_blank">造型</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore3">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=885" target="_blank">身体护肤</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=886" target="_blank">沐浴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=887" target="_blank">润肤</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=888" target="_blank">手足</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=889" target="_blank">美胸</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=890" target="_blank">套装</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore4">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=891" target="_blank">口腔护理</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=892" target="_blank">牙膏/牙粉</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=893" target="_blank">牙刷/牙线</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=894" target="_blank">漱口水</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=895" target="_blank">套装</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore5">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=896" target="_blank">香水彩妆</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=897" target="_blank">香水</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=898" target="_blank">底妆</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=899" target="_blank">腮红</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=900" target="_blank">眼部</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=901" target="_blank">美甲</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1349" target="_blank">精油放疗</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1350" target="_blank">假睫毛</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1351" target="_blank">彩妆套装</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1352" target="_blank">蜜粉</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1353" target="_blank">遮瑕</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1354" target="_blank">化妆棉</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1355" target="_blank">双眼皮贴</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1356" target="_blank">高光阴影</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1357" target="_blank">隔离</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1358" target="_blank">粉饼</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1359" target="_blank">气垫BB</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore6">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=1205" target="_blank">女性护理</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=1206" target="_blank">卫生巾</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1207" target="_blank">卫生护垫</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1208" target="_blank">私密护理</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1209" target="_blank">脱毛膏</a>
-                            </dd>
-        </dl>
-                <dl class="dl_fore7">
-            <dt><a href="https://demo.dscmall.cn/category.php?id=1210" target="_blank">清洁用品</a></dt>
-            <dd>
-                                <a href="https://demo.dscmall.cn/category.php?id=1211" target="_blank">纸品湿巾</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1212" target="_blank">衣物清洁</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1213" target="_blank">清洁工具</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1214" target="_blank">家庭清洁</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1215" target="_blank">一次性用品</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1216" target="_blank">驱蚊用品</a>
-                                <a href="https://demo.dscmall.cn/category.php?id=1217" target="_blank">皮具护理</a>
-                            </dd>
-        </dl>
-        
-        <div class="item-brands">
-            <ul>
-                            </ul>
-        </div>
-        <div class="item-promotions">
-                    </div>
-    </div>
-</div>
-<div class="cate-layer-rihgt">
-    <div class="cate-brand">
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=79" target="_blank" title="justyle"><img src="/static/index/img/1490072677495061584.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=81" target="_blank" title="宝姿"><img src="/static/index/img/1490072685002270742.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=102" target="_blank" title="欧亚马"><img src="/static/index/img/1490072941526335126.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=129" target="_blank" title="NINE WEST"><img src="/static/index/img/1490073930435480283.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=140" target="_blank" title="飞利浦"><img src="/static/index/img/1490073692774466710.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=159" target="_blank" title="麦斯威尔"><img src="/static/index/img/1490228075580091113.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=160" target="_blank" title="美的"><img src="/static/index/img/1490074901892372216.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=164" target="_blank" title="耐克"><img src="/static/index/img/1490073338357697604.jpg"></a></div>
-                    <div class="img"><a href="https://demo.dscmall.cn/category.php?id=860&amp;brand=189" target="_blank" title="佳沪数码-华为"><img src="/static/index/img/1490171981556005380.jpg"></a></div>
-            </div>
-        <div class="cate-promotion">
-                <a href="https://www.dscmall.cn/" target="_blank"><img src="/static/index/img/1490847656340816332.jpg" width="199" height="97"></a>
-            </div>
-    </div>
-</div>
-        </div>
-        <div class="clear"></div>
-    </div>
-                                                                                    </div>                    </div>
-                </div>
-                <div class="mall-search">
-                   <div class="dsc-search">
-                        <div class="form">
-                            <form id="searchForm" name="searchForm" method="get" action="search.php" onsubmit="return checkSearchForm(this)" class="search-form">
-                                <input autocomplete="off" name="keywords" type="text" id="keyword2" value="内衣" class="search-text">
-                                <input type="hidden" name="store_search_cmt" value="0">
-                                <button type="submit" class="button button-goods" onclick="checkstore_search_cmt(0)">搜商品</button>
-                                <button type="submit" class="button button-store" onclick="checkstore_search_cmt(1)">搜店铺</button>
-                            </form>
-                        </div>
+
+
+
+            <div class="mall-search">
+               <div class="dsc-search">
+                    <div class="form">
+                        <form id="searchForm" name="searchForm" method="get" action="search.php" onsubmit="return checkSearchForm(this)" class="search-form">
+                            <input autocomplete="off" name="keywords" type="text" id="keyword2" value="内衣" class="search-text">
+                            <input type="hidden" name="store_search_cmt" value="0">
+                            <button type="submit" class="button button-goods" onclick="checkstore_search_cmt(0)">搜商品</button>
+                            <button type="submit" class="button button-store" onclick="checkstore_search_cmt(1)">搜店铺</button>
+                        </form>
                     </div>
                 </div>
-                <div class="suspend-login">
-                    	<a href="https://demo.dscmall.cn/user.php">登录</a>
-    |
-    <a href="https://demo.dscmall.cn/user.php?act=register">注册</a>
-                    </div>
-                <div class="shopCart" id="ECS_CARTINFO">
-                    
-<div class="shopCart-con dsc-cm">
-	<a href="https://demo.dscmall.cn/flow.php">
-		<i class="iconfont icon-carts"></i>
-		<span></span>
-		<em class="count cart_num">0</em>
-	</a>
-</div>
-<div class="dorpdown-layer" ectype="dorpdownLayer"><img src="/static/index/css/loadGoods.gif" class="load"></div>
-
-<script type="text/javascript">
-function changenum(rec_id, diff, warehouse_id, area_id)
-{
-	var cValue = $('#cart_value').val();
-    var goods_number =Number($('#goods_number_' + rec_id).text()) + Number(diff);
- 
-	if(goods_number < 1)
-	{
-		return false;	
-	}
-	else
-	{
-		change_goods_number(rec_id,goods_number, warehouse_id, area_id, cValue);
-	}
-}
-function change_goods_number(rec_id, goods_number, warehouse_id, area_id, cValue)
-{
-	if(cValue != '' || cValue == 'undefined'){
-	   var cValue = $('#cart_value').val(); 
-	}   
-	Ajax.call('flow.php?step=ajax_update_cart', 'rec_id=' + rec_id +'&goods_number=' + goods_number +'&cValue=' + cValue +'&warehouse_id=' + warehouse_id +'&area_id=' + area_id, change_goods_number_response, 'POST','JSON');                
-}
-function change_goods_number_response(result)
-{    
-	var rec_id = result.rec_id;           
-    if (result.error == 0)
-    {
-       $('#goods_number_' +rec_id).val(result.goods_number);//更新数量
-       $('#goods_subtotal_' +rec_id).html(result.goods_subtotal);//更新小计
-       if (result.goods_number <= 0)
-        {
-			//数量为零则隐藏所在行
-            $('#tr_goods_' +rec_id).style.display = 'none';
-            $('#tr_goods_' +rec_id).innerHTML = '';
-        }
-        $('#total_desc').html(result.flow_info);//更新合计
-        if($('ECS_CARTINFO'))
-        
-
-		if(result.group.length > 0){
-			for(var i=0; i<result.group.length; i++){
-				$("#" + result.group[i].rec_group).html(result.group[i].rec_group_number);//配件商品数量
-				$("#" + result.group[i].rec_group_talId).html(result.group[i].rec_group_subtotal);//配件商品金额
-			}
-		}
-
-		$("#goods_price_" + rec_id).html(result.goods_price);
-		$(".cart_num").html(result.subtotal_number);
-	}
-	else if (result.message != '')
-	{
-		$('#goods_number_' +rec_id).val(result.cart_Num);//更新数量
-		alert(result.message);
-	}                
-}
-
-function deleteCartGoods(rec_id,index)
-{
-	Ajax.call('delete_cart_goods.php', 'id='+rec_id+'&index='+index, deleteCartGoodsResponse, 'POST', 'JSON');
-}
-
-/**
- * 接收返回的信息
- */
-function deleteCartGoodsResponse(res)
-{
-  if (res.error)
-  {
-    alert(res.err_msg);
-  }
-  else if(res.index==1)
-  {
-		Ajax.call('get_ajax_content.php?act=get_content', 'data_type=cart_list', return_cart_list, 'POST', 'JSON');
-  }
-  else
-  {
-	  $("#ECS_CARTINFO").html(res.content);
-	  $(".cart_num").html(res.cart_num);
-  }
-}
-
-function return_cart_list(result)
-{
-	$(".cart_num").html(result.cart_num);
-	$(".pop_panel").html(result.content);
-	tbplHeigth();
-}
-</script>                </div>
             </div>
-    	</div>
-        <div class="lift lift-mode-one lift-hide" ectype="lift" data-type="one" style="z-index: 100001; left: 265.5px; top: 50%;">
-            <div class="lift-list" ectype="liftList">
-            <div class="lift-item" ectype="liftItem" data-target="#h-need_0" title="推荐"><span>推荐</span><i class="lift-arrow"></i></div><div class="lift-item" ectype="liftItem" data-target="#h-brand_0" title="品牌"><span>品牌</span><i class="lift-arrow"></i></div><div class="lift-item" ectype="liftItem" data-target="#homeFloor_0" title="女装"><span>女装</span><i class="lift-arrow"></i></div><div class="lift-item" ectype="liftItem" data-target="#homeFloor_1" title="鞋靴"><span>鞋靴</span><i class="lift-arrow"></i></div><div class="lift-item" ectype="liftItem" data-target="#homeFloor_2" title="食品"><span>食品</span><i class="lift-arrow"></i></div><div class="lift-item" ectype="liftItem" data-target="#homeFloor_3" title="家用"><span>家用</span><i class="lift-arrow"></i></div><div class="lift-item" ectype="liftItem" data-target="#h-master_0" title="达人"><span>达人</span><i class="lift-arrow"></i></div><div class="lift-item" ectype="liftItem" data-target="#h-storeRec_0" title="店铺"><span>店铺</span><i class="lift-arrow"></i></div><div class="lift-item" ectype="liftItem" data-target="#guessYouLike" title="商品"><span>商品</span><i class="lift-arrow"></i></div><div class="lift-item lift-item-top" ectype="liftItem"><i class="iconfont icon-returntop"></i></div></div>
+
+
+            <div class="suspend-login">
+            	<a href="https://demo.dscmall.cn/user.php">登录</a>|<a href="https://demo.dscmall.cn/user.php?act=register">注册</a>
+            </div>
+
+            <div class="shopCart" id="ECS_CARTINFO">
+				<div class="shopCart-con dsc-cm">
+					<a href="https://demo.dscmall.cn/flow.php">
+						<i class="iconfont icon-carts"></i>
+						<span></span>
+						<em class="count cart_num">0</em>
+					</a>
+				</div>
+				<div class="dorpdown-layer" ectype="dorpdownLayer"><img src="/static/index/css/loadGoods.gif" class="load"></div>
+
+				<script type="text/javascript">
+					function changenum(rec_id, diff, warehouse_id, area_id)
+					{
+						var cValue = $('#cart_value').val();
+					    var goods_number =Number($('#goods_number_' + rec_id).text()) + Number(diff);
+					 
+						if(goods_number < 1)
+						{
+							return false;	
+						}
+						else
+						{
+							change_goods_number(rec_id,goods_number, warehouse_id, area_id, cValue);
+						}
+					}
+					function change_goods_number(rec_id, goods_number, warehouse_id, area_id, cValue)
+					{
+						if(cValue != '' || cValue == 'undefined'){
+						   var cValue = $('#cart_value').val(); 
+						}   
+						Ajax.call('flow.php?step=ajax_update_cart', 'rec_id=' + rec_id +'&goods_number=' + goods_number +'&cValue=' + cValue +'&warehouse_id=' + warehouse_id +'&area_id=' + area_id, change_goods_number_response, 'POST','JSON');                
+					}
+					function change_goods_number_response(result)
+					{    
+						var rec_id = result.rec_id;           
+					    if (result.error == 0)
+					    {
+					       $('#goods_number_' +rec_id).val(result.goods_number);//更新数量
+					       $('#goods_subtotal_' +rec_id).html(result.goods_subtotal);//更新小计
+					       if (result.goods_number <= 0)
+					        {
+								//数量为零则隐藏所在行
+					            $('#tr_goods_' +rec_id).style.display = 'none';
+					            $('#tr_goods_' +rec_id).innerHTML = '';
+					        }
+					        $('#total_desc').html(result.flow_info);//更新合计
+					        if($('ECS_CARTINFO'))
+					        
+
+							if(result.group.length > 0){
+								for(var i=0; i<result.group.length; i++){
+									$("#" + result.group[i].rec_group).html(result.group[i].rec_group_number);//配件商品数量
+									$("#" + result.group[i].rec_group_talId).html(result.group[i].rec_group_subtotal);//配件商品金额
+								}
+							}
+
+							$("#goods_price_" + rec_id).html(result.goods_price);
+							$(".cart_num").html(result.subtotal_number);
+						}
+						else if (result.message != '')
+						{
+							$('#goods_number_' +rec_id).val(result.cart_Num);//更新数量
+							alert(result.message);
+						}                
+					}
+
+					function deleteCartGoods(rec_id,index)
+					{
+						Ajax.call('delete_cart_goods.php', 'id='+rec_id+'&index='+index, deleteCartGoodsResponse, 'POST', 'JSON');
+					}
+
+					/**
+					 * 接收返回的信息
+					 */
+					function deleteCartGoodsResponse(res)
+					{
+					  if (res.error)
+					  {
+					    alert(res.err_msg);
+					  }
+					  else if(res.index==1)
+					  {
+							Ajax.call('get_ajax_content.php?act=get_content', 'data_type=cart_list', return_cart_list, 'POST', 'JSON');
+					  }
+					  else
+					  {
+						  $("#ECS_CARTINFO").html(res.content);
+						  $(".cart_num").html(res.cart_num);
+					  }
+					}
+
+					function return_cart_list(result)
+					{
+						$(".cart_num").html(result.cart_num);
+						$(".pop_panel").html(result.content);
+						tbplHeigth();
+					}
+				</script>
+			</div>
+		</div>
+	</div>
+	<div class="lift lift-mode-one lift-hide" ectype="lift" data-type="one" style="z-index: 100001; left: 265.5px; top: 50%;">
+        <div class="lift-list" ectype="liftList">
+        	<div class="lift-item" ectype="liftItem" data-target="#h-need_0" title="推荐">
+        		<span>推荐</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item" ectype="liftItem" data-target="#h-brand_0" title="品牌">
+        		<span>品牌</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item" ectype="liftItem" data-target="#homeFloor_0" title="女装">
+        		<span>女装</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item" ectype="liftItem" data-target="#homeFloor_1" title="鞋靴">
+        		<span>鞋靴</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item" ectype="liftItem" data-target="#homeFloor_2" title="食品">
+        		<span>食品</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item" ectype="liftItem" data-target="#homeFloor_3" title="家用">
+        		<span>家用</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item" ectype="liftItem" data-target="#h-master_0" title="达人">
+        		<span>达人</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item" ectype="liftItem" data-target="#h-storeRec_0" title="店铺">
+        		<span>店铺</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item" ectype="liftItem" data-target="#guessYouLike" title="商品">
+        		<span>商品</span><i class="lift-arrow"></i>
+        	</div>
+        	<div class="lift-item lift-item-top" ectype="liftItem"><i class="iconfont icon-returntop"></i>
+        	</div>
         </div>
-        
-        <input name="warehouse_id" type="hidden" value="2">
-    	<input name="area_id" type="hidden" value="19">
-        <input name="area_city" type="hidden" value="543">
-        <input name="temp" type="hidden" value="backup_tpl_1">
-        
-        
-    	<div ectype="bonusadv_box"><div class="ejectAdv" ectype="ejectAdv" style="display: none;">
-    <div class="ejectAdvbg"></div>
-    <div class="ejectAdvimg">
-            <a href="#" target="_blank"><img src="/static/index/css/bonusadv_1501618595.png"></a>
-        <a href="javascript:void(0);" class="ejectClose" ectype="ejectClose"></a>
     </div>
-</div>
-</div>
-    </div>
+
+    
+    <input name="warehouse_id" type="hidden" value="2">
+	<input name="area_id" type="hidden" value="19">
+    <input name="area_city" type="hidden" value="543">
+    <input name="temp" type="hidden" value="backup_tpl_1">
+    
+    
+	<div ectype="bonusadv_box">
+		<div class="ejectAdv" ectype="ejectAdv" style="display: none;">
+			<div class="ejectAdvbg"></div>
+			<div class="ejectAdvimg">
+	            <a href="#" target="_blank"><img src="/static/index/css/bonusadv_1501618595.png"></a>
+	        	<a href="javascript:void(0);" class="ejectClose" ectype="ejectClose"></a>
+	    	</div>
+		</div>
+	</div>
+	</div>
+
+
+
     
 <div class="mui-mbar-tabs">
 	<div class="quick_links_wrap" style="width: 40px;">
@@ -3298,6 +2720,13 @@ function return_cart_list(result)
     <input name="seller_kf_tel" value="4000-000-000" type="hidden">
     <input name="user_id" value="62" type="hidden">
 </div>
+
+<script>
+	var shownav = $('.shownav').length;
+	console.log(shownav);
+	if(shownav > 1){console.log(111); $('.shownav').css('display','none!important');console.log(2222);} 
+	
+</script>
 </div>
     
 

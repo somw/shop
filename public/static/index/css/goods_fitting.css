@@ -2,8 +2,8 @@
 .tm-dl-overlay{ position:absolute;display:none; z-index: 10000; width: 990px; height: 550px; left:50%; top: 50%; margin:-275px 0 0 -495px; position:fixed;}
 .tm-dl-overlay-mask {background-color:#000;opacity:0.5;filter:alpha(opacity=50); width: 100%; left: 0px; top: 0px; position: fixed; -moz-user-select: none; z-index: 9999; height: 100%; display:none;}
 .tm-dl-overlay-content {background-color:#fff}
-.tm-dl-overlay-close {position:absolute;right:-40px;top:0;background:url(../images/common/fittings_close.png) no-repeat; width:40px;height:40px;color:#fff;text-align:center;text-decoration:none;}
-.tm-dl-overlay-close:hover {position:absolute;right:-40px;top:0;background:url(../images/common/fittings_close.png) no-repeat; width:40px;height:40px;color:#fff;text-align:center;text-decoration:none}
+.tm-dl-overlay-close {position:absolute;right:-40px;top:0;background:url(../img/common/fittings_close.png) no-repeat; width:40px;height:40px;color:#fff;text-align:center;text-decoration:none;}
+.tm-dl-overlay-close:hover {position:absolute;right:-40px;top:0;background:url(../img/common/fittings_close.png) no-repeat; width:40px;height:40px;color:#fff;text-align:center;text-decoration:none}
 .tm-dl-overlay-close b { height:2px;border:4px solid #f16a68;position:absolute;left:-4px;border-left-width:0;border-top-color:#fff;border-bottom-color:#fff;font-size:0;top:14px}
 .tm-dl-overlay-close:hover b {border:4px solid #f16a68;position:absolute;left:-4px;border-left-width:0;border-top-color:#fff;border-bottom-color:#fff;font-size:0;top:14px}
 .tm-dl-overlay-close i {font-style:normal;font-size:16px;line-height:40px;text-align:center}
@@ -19,9 +19,9 @@
 .goods_fittings_main .header .tm-img a{ width:58px; height:58px; line-height:58px; display:block; text-align:center;}
 .goods_fittings_main .header .tm-img img{ vertical-align:middle; max-width:100%; max-height:100%; display:block;}
 
-.goods_fittings_main .header .tm-enable{ position:absolute; width:13px; height:13px; top:46px; right:0; background:#fff url(../images/check/checkbox-icon.png) no-repeat; cursor:pointer}
+.goods_fittings_main .header .tm-enable{ position:absolute; width:13px; height:13px; top:46px; right:0; background:#fff url(../img/check/checkbox-icon.png) no-repeat; cursor:pointer}
 .goods_fittings_main .header .tm-enable i{ font-style:normal; color:#fff; font-size:12px; text-align:center; display:none;}
-.goods_fittings_main .header .tm-enable.selected{ background: url(../images/check/checked-icon.png) no-repeat;}
+.goods_fittings_main .header .tm-enable.selected{ background: url(../img/check/checked-icon.png) no-repeat;}
 
 .goods_fittings_main .header .tm-combo-spliter{ float:left; line-height:60px; font-size:16px; margin:0 10px;}
 
@@ -84,13 +84,13 @@
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li{ float:left; border:1px solid #d2d2d2; padding:2px; margin:10px 10px 0 0; position:relative;}
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li:last-child{ margin-right:0;}
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li.selected,.goods_fittings_main .body .tm-combo-item .tm-meta dd li:hover{border-color: #f42424;}
-.goods_fittings_main .body .tm-combo-item .tm-meta dd li b{ position: absolute;bottom: 0;right: 0;display: none;width: 15px;height: 15px;background: url(../images/dsc-icon.png) 0 0 no-repeat;}
+.goods_fittings_main .body .tm-combo-item .tm-meta dd li b{ position: absolute;bottom: 0;right: 0;display: none;width: 15px;height: 15px;background: url(../img/dsc-icon.png) 0 0 no-repeat;}
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li.selected b{ display:block;}
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li a{ display:block; overflow:hidden;}
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li a:hover{ color:#555;}
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li a img,.goods_fittings_main .body .tm-combo-item .tm-meta dd li a i{ float:left;}
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li a i{ padding:0 10px; line-height:24px;}
-.goods_fittings_main .body .tm-combo-item .tm-meta dd li b{ position:absolute; bottom:0; right:0; display:none; width:15px; height:15px; background:url(../images/dsc-icon.png) 0 0 no-repeat;}
+.goods_fittings_main .body .tm-combo-item .tm-meta dd li b{ position:absolute; bottom:0; right:0; display:none; width:15px; height:15px; background:url(../img/dsc-icon.png) 0 0 no-repeat;}
 .goods_fittings_main .body .tm-combo-item .tm-meta dd li .fitt_spec_value{ display:none;}
 
 .goods_fittings_main .body .tm-combo-item .tm-meta .tb-service a {background-repeat:no-repeat;padding-left:22px;background-position:5px center}

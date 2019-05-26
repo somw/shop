@@ -12,9 +12,33 @@ class Goods extends Controller
             ['brand b','g.gs_brandid=b.brand_id','LEFT'],
             ['type t','g.gs_typeid=t.type_id','LEFT'],
             ['product p','g.gs_id=p.prod_goods_id','LEFT'],
+            ['recpos r','g.gs_typeid=r.rec_id','LEFT']
         ];
-        $goodslist = db('goods') -> alias('g')-> field('g.*,c.shopcate_name,b.brand_name,t.type_name,SUM(p.prod_goods_num) gn') -> join($join) ->group('g.gs_id')->order('g.gs_id desc') ->paginate(15);
-        $this->assign('goodslist', $goodslist);
+        $goodslist = db('goods') -> alias('g')-> field('g.*,r.rec_name,c.shopcate_name,b.brand_name,t.type_name,SUM(p.prod_goods_num) gn') -> join($join) ->group('g.gs_id')->order('g.gs_id desc') ->paginate(15);
+
+        // dump($goodslist);die;
+        $goodsarr = array();
+        foreach ($goodslist as $k => $v) {
+            $goodsarr[]=$v['gs_id'];
+            // dump($goodsarr);die;
+        }
+        $recpositem = db('recpos_item')->where(array('value_type'=>1))->select();
+        $recposArrs = array();
+        foreach ($recpositem as $k => $v) {
+            if (in_array($v['value_id'], $goodsarr)) {
+                $recposArrs[] = $v;
+            }
+        }
+        dump($recposArrs);die;
+
+        //     dump($recpositem);die;
+
+        // dump($goodsarr);die;
+        
+        
+        $this->assign([
+            'goodslist'=>$goodslist,
+        ]);
         return view('lst');
 
     }

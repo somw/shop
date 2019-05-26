@@ -4,7 +4,7 @@
 
 /* floor color start */
 .box_hd_arrow{ position: absolute;top: 0;left: 0;width: 0;height: 0;border-top: 19px solid #fff;border-right: 19px solid transparent;}
-.box_hd_dec{ background:url(../images/sprite_index.png) no-repeat; width: 28px; height: 28px; position:absolute; left:-4px; top:-4px;}
+.box_hd_dec{ background:url(../img/sprite_index.png) no-repeat; width: 28px; height: 28px; position:absolute; left:-4px; top:-4px;}
 
 .floorOne.floor-color-type-1 .floor-hd,
 .floorTwo.floor-color-type-1 .floor-hd,

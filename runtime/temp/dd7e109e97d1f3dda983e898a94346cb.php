@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:62:"D:\aaaweb\shop\public/../application/admin\view\brand\lst.html";i:1551281420;s:55:"D:\aaaweb\shop\application\admin\view\common\_meta.html";i:1551281420;s:53:"D:\aaaweb\shop\application\admin\view\common\top.html";i:1551281420;s:54:"D:\aaaweb\shop\application\admin\view\common\list.html";i:1557543461;s:57:"D:\aaaweb\shop\application\admin\view\common\_footer.html";i:1551281420;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:64:"B:\aaaweb\shop\public/../application/admin\view\recpos\edit.html";i:1558838559;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1558838559;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1558838559;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1558838559;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1558838559;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -91,10 +91,9 @@
         </div>
     </div>
 </div>
-
 <div class="main-container container-fluid">
     <div class="page-container">
-        <!-- Page Sidebar -->
+                    <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -401,7 +400,6 @@
 <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
-
             <!-- Page Breadcrumb -->
             <div class="page-breadcrumbs">
                 <ul class="breadcrumb">
@@ -409,71 +407,59 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('brand/lst'); ?>">品牌管理</a>
+                        <a href="<?php echo url('recpos/lst'); ?>">推荐位管理</a>
                     </li>
-                    <li class="active">添加品牌</li>
+                    <li class="active">修改推荐位</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                <button type="button" tooltip="添加品牌" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('brand/add'); ?>'"> <i class="fa fa-plus"></i> Add
-                </button>
+                
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">修改推荐位</span>
+                            </div>
                             <div class="widget-body">
-                                <div class="flip-scroll">
-                                    <table class="table table-bordered table-hover">
-                                        <thead class="">
-                                            <tr>
-                                                <th class="text-center">品牌ID</th>
-                                                <th class="text-center">品牌名称</th>
-                                                <th class="text-center">品牌地址</th>
-                                                <th class="text-center">品牌logo</th>
-                                                <th class="text-center">品牌描述</th>
-                                                <th class="text-center">状态</th>
-                                                <th class="text-center">操作</th>
-                                            </tr>
-                                        </thead>
-                                        <?php if(is_array($brandlist) || $brandlist instanceof \think\Collection || $brandlist instanceof \think\Paginator): $i = 0; $__LIST__ = $brandlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$brand): $mod = ($i % 2 );++$i;?>
-                                        <tbody>
-                                            <tr>
-                                                <td align="center"><?php echo $brand['brand_id']; ?></td>
-                                                <td><?php echo $brand['brand_name']; ?></td>
-                                                <td align="center"><?php echo $brand['brand_url']; ?></td>
-                                                <td align="center">
-                                                <?php if($brand['brand_img'] != ''): ?>
-                                                    <img height="30" src="/static/uploads/<?php echo $brand['brand_img']; ?>">
-                                                 <?php else: ?>
-                                                    暂无图片
-                                                <?php endif; ?>
-                                                </td>
-                                                <td><?php echo cut_str($brand['brand_description'],50); ?></td>
-                                                <td align="center">
-                                                <?php if($brand['brand_status'] == 1): ?>
-                                                    显示
-                                                <?php else: ?>
-                                                    禁用
-                                                <?php endif; ?>
-                                               
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" method="post">
+                                        <input type="hidden" name="rec_id" value="<?php echo $recedit['rec_id']; ?>">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="rec_name"  type="text"  required="" value="<?php echo $recedit['rec_name']; ?>">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
 
-                                                </td>
-                                                <td align="center">
-                                                    <a href="<?php echo url('edit',array('brand_id'=>$brand['brand_id'])); ?>" class="btn btn-primary btn-sm shiny">
-                                                        <i class="fa fa-edit"></i> 编辑
-                                                    </a>
-                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('brand_id'=>$brand['brand_id'])); ?>')" class="btn btn-danger btn-sm shiny">
-                                                        <i class="fa fa-trash-o"></i> 删除
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <?php endforeach; endif; else: echo "" ;endif; ?>
-                                    </table>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位类型</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio" style="float: left; padding-right: 10px;">
+                                                    <label>
+                                                        <input name="rec_type"  type="radio" value="1" <?php if($recedit['rec_type'] == 1): ?> checked="checked" <?php endif; ?> class="colored-blue">
+                                                        <span class="text">商品</span>
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="rec_type"  type="radio" value="2" <?php if($recedit['rec_type'] == 2): ?> checked="checked" <?php endif; ?> class="colored-blue">
+                                                        <span class="text">分类</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                            
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div><?php echo $brandlist->render(); ?></div>
                             </div>
                         </div>
                     </div>
@@ -483,7 +469,7 @@
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-	</div>	
+    </div>  
 </div>
 
 <!--Basic Scripts-->

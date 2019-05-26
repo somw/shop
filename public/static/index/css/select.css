@@ -7,7 +7,7 @@
 .right-extra .u_cloose dd .get_item{ position:relative; height:23px; line-height:23px; border:1px dotted #d2d2d2; padding:0 0 0 8px; margin-right:10px; float:left;}
 .right-extra .u_cloose dd .get_item b{ font-weight:normal;}
 .right-extra .u_cloose dd .get_item em{ color:#f42424;}
-.right-extra .u_cloose dd .get_item a{ display: block; float:right; width: 15px;height: 15px; background: url(../images/common/search.png) no-repeat 1px -143px; margin:4px 5px;}
+.right-extra .u_cloose dd .get_item a{ display: block; float:right; width: 15px;height: 15px; background: url(../img/common/search.png) no-repeat 1px -143px; margin:4px 5px;}
 .right-extra .u_cloose dd .get_item:hover{ border-color:#f42424;}
 .right-extra .u_cloose dd .get_item:hover a{ background-color:#f42424; background-position:1px -161px;}
 .right-extra .u_cloose .give_up_all{ float:right; margin-right:0; line-height:25px;}
@@ -29,7 +29,7 @@
 .wrap_brand .brand_img_word:hover{ position:relative; z-index:5; border-color:#f42424;}
 .wrap_brand .brand_img_word:hover a{ border-color:#f42424;color:#f42424;}
 .wrap_brand .brand_img_word:hover .logo{ display:none;}
-.wrap_brand .brand_img_word i{ display:none; width:12px; height:12px; background:url(../images/dsc-icon.png) no-repeat; position:absolute; top:1px; right:1px;}
+.wrap_brand .brand_img_word i{ display:none; width:12px; height:12px; background:url(../img/dsc-icon.png) no-repeat; position:absolute; top:1px; right:1px;}
 
 .zimu_list{ background: #ffffff;max-height: 100px;overflow: hidden;display: none;margin-top: 10px;position: relative;}
 .zimu_list ul{ height:auto;}
@@ -37,8 +37,8 @@
 .zimu_list ul li a{ text-decoration: none; color: #005aa0; max-width:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:inline-block;}
 .zimu_list ul li:hover a{ color:#f42424;}
 
-.zimu_list .choose_ico{ width: 12px;height: 12px;margin:4px 6px 0 0;display: block;background: url(../images/check/checkbox_12x12.png) no-repeat; float:left;}
-.zimu_list .is_yes .choose_ico{ background: url(../images/check/checked_12x12.png) no-repeat;}
+.zimu_list .choose_ico{ width: 12px;height: 12px;margin:4px 6px 0 0;display: block;background: url(../img/check/checkbox_12x12.png) no-repeat; float:left;}
+.zimu_list .is_yes .choose_ico{ background: url(../img/check/checked_12x12.png) no-repeat;}
 
 .enter_yes_no{ text-align:center; display:none; margin-top:10px;}
 .enter_yes_no .ct_auto{ display:block; height:25px; width:110px; margin:0 auto;}
@@ -57,7 +57,7 @@
 .s-l-value .color_list_color .color_divdd dd{ height:20px; width:20px; text-align:center; line-height:20px; margin-right:0; position:relative;}
 .s-l-value .color_list_color .color_divdd dd span{ height:18px; width:18px; display:block; border:1px solid #dcdcdc;}
 
-.multiple .selected b{ background: url(../images/common/selected-icon.png) 6px 6px no-repeat;border: 1px solid #f42424;height: 18px;width: 18px;position: absolute;top: 0px;left: 0px;z-index: 100;}
+.multiple .selected b{ background: url(../img/common/selected-icon.png) 6px 6px no-repeat;border: 1px solid #f42424;height: 18px;width: 18px;position: absolute;top: 0px;left: 0px;z-index: 100;}
 
 /*操作*/
 .s-line .s-l-opt{ position:absolute; top:15px; right:10px; width:75px; height:auto; line-height:22px; overflow:hidden; zoom:1;}
@@ -76,8 +76,8 @@
 .s-l-value .item_list dd{ float:left; margin-right:40px; width:auto; height:28px; white-space:nowrap;}
 .s-l-value .item_list dd strong{ font-weight:normal;}
 .s-l-value .item_list .get_me a{ cursor:pointer;}
-.s-l-value .item_list .get_me span{ background: url(../images/check/checkbox_12x12.png) no-repeat; display: block; float: left; height: 12px; margin:9px 5px 0 0; width: 12px;}
-.s-l-value .item_list .selected span{ background: url(../images/check/checked_12x12.png) no-repeat;}
+.s-l-value .item_list .get_me span{ background: url(../img/check/checkbox_12x12.png) no-repeat; display: block; float: left; height: 12px; margin:9px 5px 0 0; width: 12px;}
+.s-l-value .item_list .selected span{ background: url(../img/check/checked_12x12.png) no-repeat;}
 
 .tw_buttom{ text-align:center; padding:10px 0 5px; display:none;}
 .tw_buttom span{ width:48px; height:23px; line-height:23px; border:1px solid #d2d2d2; background-color:#fff; color:#8c8c8c; display:inline-block; font-size:12px; cursor:pointer;}
