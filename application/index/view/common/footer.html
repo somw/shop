@@ -50,7 +50,7 @@
 			<a {if condition="$arts['ar_url'] neq ''"} target="_black" {/if} href="{:url('index/Article/index',array('ar_id'=>$arts['ar_id']))}">{$arts.ar_title}</a>
 			{/volist}
         </p>
-    
+
     	<p>
     		<span>{$configs.banquan}&nbsp;&nbsp;</span><span>{$configs.icpbenan}</span>
     		<a href="#">{$configs.icp}</a>&nbsp;<a href="#">{$configs.powered}</a>
@@ -74,9 +74,9 @@
     <input name="user_id" value="62" type="hidden">
 </div>
 
-<script>
+<!-- <script>
 	var shownav = $('.shownav').length;
 	console.log(shownav);
-	if(shownav > 1){console.log(111); $('.shownav').css('display','none!important');console.log(2222);} 
-	
-</script>
+	if(shownav > 1){console.log(111); $('.shownav').css('display','none!important');console.log(2222);}
+
+</script> -->

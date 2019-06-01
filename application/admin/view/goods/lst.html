@@ -39,9 +39,9 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center" width="4%">ID</th>
-                                                <th class="text-center" width="10%">属性名称</th>
-                                                <th class="text-center">商品编号</th>
-                                                <th class="text-center">推荐位</th>
+                                                <th class="text-center" width="15%">属性名称</th>
+                                                <th class="text-center" width="6%">商品编号</th>
+                                                <th class="text-center" width="6%">推荐位</th>
                                                 <th class="text-center" width="10%">缩略图</th>
                                                 <th class="text-center" width="6%">市场价</th>
                                                 <th class="text-center" width="6%">本店价</th>
@@ -53,16 +53,26 @@
                                                 <th class="text-center" width="4%">单位</th>
                                                 <th class="text-center" width="4%">库存量</th>
                                                 <th class="text-center" width="22%">操作</th>
-                                                
+
                                             </tr>
                                         </thead>
                                         {volist name="goodslist" id="gs"}
                                         <tbody>
                                             <tr>
                                                 <td align="center">{$gs.gs_id}</td>
-                                                <td>{$gs.gs_name|cut_str=###,3}</td>
+                                                <td>{$gs.gs_name|cut_str=###,30}</td>
                                                 <td>{$gs.gs_code}</td>
-                                                <td>{$gs.rec_name}</td>
+                                                <td><?php
+                                                    $recArr = array();
+                                                    foreach($recgoods as $k => $v){
+                                                        if($v['value_id'] == $gs['gs_id']){
+                                                            $recArr[] = $v['rec_name'];
+                                                        }
+                                                    }
+                                                    echo implode(' , ',$recArr);
+                                                    ?>
+
+                                                </td>
                                                 <td align="center">
                                                 {if condition="$gs['gs_img'] neq ''"}<img src="__UPLOADS__/{$gs.gs_img}" height="30">{else /}无图片{/if}
                                                 </td>
@@ -101,7 +111,7 @@
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-	</div>	
+	</div>
 </div>
 
 {include file="common/_footer"}
