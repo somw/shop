@@ -23,11 +23,14 @@ class Shopcatetree{
 	// 获取子栏目ID
 	public function childrenids($shopcateid,$obj){
 		$data=$obj->field('shopcate_id,shopcate_pid')->select();
-		return $this->_childrenids($data,$shopcateid); 
+		return $this->_childrenids($data,$shopcateid,TRUE); 
 	}
 
-	private function _childrenids($data,$shopcateid){
+	private function _childrenids($data,$shopcateid,$clear=FALSE){
 		static $arr=array();
+		if ($clear) {
+			$arr=array();
+		}
 		foreach ($data as $k => $v) {
 			if ($v['shopcate_pid'] == $shopcateid) {
 				$arr[] = $v['shopcate_id'];

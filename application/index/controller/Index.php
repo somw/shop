@@ -31,12 +31,12 @@ class Index extends Base
             $map['gs_shopcateid'] = array('IN',$sonIds);
 
             $map['gs_id'] = array('IN',$rgArr);
-            // dump($map);die;
-            $newGoodsrec = db('goods')->where($map)->limit(6)->select();
-            dump($newGoodsrec);
+            dump($map);die;
+            $recShopcate[$k]['newGoodsrec'] = db('goods')->where($map)->limit(6)->select();
+            // dump($recShopcate);die;
 
         }
-        // dump($newGoodsrec);die;
+        dump($recShopcate);die;
         $this->assign([
         	'show'=> 1, //首页导航默认展开，其他页面默认收缩
         	'recShopcate'=>$recShopcate,
