@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\goods\edit.html";i:1559436161;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1559436161;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1559436161;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1559436161;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1559436161;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\goods\edit.html";i:1559465078;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1559436161;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1559436161;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1559436161;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1559436161;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -504,7 +504,7 @@
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">所属栏目</label>
                                                 <div class="col-sm-6">
                                                     <select name="gs_shopcateid">
-                                                        <option>请选择</option>
+                                                        <option value="0">请选择</option>
                                                         <?php if(is_array($shopcateRes) || $shopcateRes instanceof \think\Collection || $shopcateRes instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcateRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
                                                         <option <?php if($gsedit['gs_shopcateid'] == $shopcate['shopcate_id']): ?> selected="selected" <?php endif; ?> value="<?php echo $shopcate['shopcate_id']; ?>"><?php echo str_repeat('-',$shopcate['lever']*8)?><?php echo $shopcate['shopcate_name']; ?></option>
                                                         <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -516,7 +516,7 @@
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">所属品牌</label>
                                                 <div class="col-sm-6">
                                                     <select name="gs_brandid">
-                                                        <option>请选择</option>
+                                                        <option value="0">请选择</option>
                                                         <?php if(is_array($brandRes) || $brandRes instanceof \think\Collection || $brandRes instanceof \think\Paginator): $i = 0; $__LIST__ = $brandRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$brand): $mod = ($i % 2 );++$i;?>
                                                         <option <?php if($gsedit['gs_brandid'] == $brand['brand_id']): ?> selected="selected" <?php endif; ?> value="<?php echo $brand['brand_id']; ?>"><?php echo $brand['brand_name']; ?></option>
                                                         <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -582,8 +582,8 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">商品类型</label>
                                                 <div class="col-sm-6">
-                                                    <select name="gs_typeid" disabled="disabled">
-                                                        <option>请选择</option>
+                                                    <select name="gs_typeid" <?php if($gsedit['gs_typeid'] != 0): ?> disabled="disabled" <?php endif; ?>> >
+                                                        <option value="0">请选择</option>
                                                         <?php if(is_array($typeRes) || $typeRes instanceof \think\Collection || $typeRes instanceof \think\Paginator): $i = 0; $__LIST__ = $typeRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$type): $mod = ($i % 2 );++$i;?>
                                                         <option <?php if($gsedit['gs_typeid'] == $type['type_id']): ?> selected="selected" <?php endif; ?> value="<?php echo $type['type_id']; ?>"><?php echo $type['type_name']; ?></option>
                                                         <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -656,7 +656,7 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right"></label>
                                                 <div class="col-sm-6">
-                                                    <a href="#" onclick="addrow(this)" style="display: inline-block; width: 20px;margin-right: 20px; ">[+]</a>
+                                                    <a href="#" onclick="rowphoto(this)" style="display: inline-block; width: 20px;margin-right: 20px; ">[+]</a>
                                                     <input name="goods_img[]" type="file" class="form-group" style="border: none;box-shadow: none;width: 50%;display: inline-block;">
                                                 </div>
                                             </div>
@@ -793,6 +793,17 @@
                 });
 
             }
+        }
+    }
+
+    function rowphoto(o){
+        var div=$(o).parent().parent();
+        if ($(o).html() == '[+]') {
+            var newdiv=div.clone();
+            newdiv.find('a').html('[-]');
+            div.after(newdiv);
+        }else{
+            div.remove();
         }
     }
 

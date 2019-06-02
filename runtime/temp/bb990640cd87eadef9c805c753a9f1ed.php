@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:64:"B:\aaaweb\shop\public/../application/admin\view\index\index.html";i:1559436161;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1559436161;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1559436161;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1559436161;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1559436161;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\recpos\add.html";i:1559436161;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1559436161;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1559436161;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1559436161;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1559436161;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -91,14 +91,10 @@
         </div>
     </div>
 </div>
-
-
-
-	<!-- /头部 -->
-	
-	<div class="main-container container-fluid">
-		<div class="page-container">
-			<!-- Page Sidebar -->
+<div class="main-container container-fluid">
+	<div class="page-container">
+		            <!-- Page Sidebar -->
+       <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -402,32 +398,78 @@
     <!-- /Sidebar Menu -->
 </div>
 <!-- /Page Sidebar -->
-            <!-- Page Content -->
-            <div class="page-content">
-                <!-- Page Breadcrumb -->
-                <div class="page-breadcrumbs">
-                    <ul class="breadcrumb">
-                        <li class="active">控制面板</li>
-                    </ul>
-                </div>
-                <!-- /Page Breadcrumb -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo url('recpos/lst'); ?>">推荐位管理</a>
+                    </li>
+                    <li class="active">新增推荐位</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
 
-                <!-- Page Body -->
-                <div class="page-body">
-                    
-				<div style="text-align:center; line-height:1000%; font-size:24px;">
-                童老师THinkPHP5第四季 实战开发大型B2C商城项目<br /><p style="color:#f00;">ThinkPHP交流群⑯：383432579</p></div>
-                </div>
+            <!-- Page Body -->
+            <div class="page-body">
                 
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增推荐位</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" method="post">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" placeholder="" name="rec_name"  type="text"  required="">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位类型</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio" style="float: left; padding-right: 10px;">
+                                                    <label>
+                                                        <input name="rec_type"  type="radio" value="1" checked="checked" class="colored-blue">
+                                                        <span class="text">商品</span>
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="rec_type"  type="radio" value="2" class="colored-blue">
+                                                        <span class="text">分类</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>                        
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-                <!-- /Page Body -->
+            <!-- /Page Body -->
         </div>
-            <!-- /Page Content -->
+        <!-- /Page Content -->
 	</div>	
+</div>
 
-
-<!--Basic Scripts-->
 <!--Basic Scripts-->
 <script src="/static/admin/js/bootstrap.js"></script>
 <!--Beyond Scripts-->

@@ -113,7 +113,7 @@
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">所属栏目</label>
                                                 <div class="col-sm-6">
                                                     <select name="gs_shopcateid">
-                                                        <option>请选择</option>
+                                                        <option value="0">请选择</option>
                                                         {volist name="shopcateRes" id="shopcate"}
                                                         <option {if condition="$gsedit['gs_shopcateid'] eq $shopcate['shopcate_id']"} selected="selected" {/if} value="{$shopcate.shopcate_id}"><?php echo str_repeat('-',$shopcate['lever']*8)?>{$shopcate.shopcate_name}</option>
                                                         {/volist}
@@ -125,7 +125,7 @@
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">所属品牌</label>
                                                 <div class="col-sm-6">
                                                     <select name="gs_brandid">
-                                                        <option>请选择</option>
+                                                        <option value="0">请选择</option>
                                                         {volist name="brandRes" id="brand"}
                                                         <option {if condition="$gsedit['gs_brandid'] eq $brand['brand_id']"} selected="selected" {/if} value="{$brand.brand_id}">{$brand.brand_name}</option>
                                                         {/volist}
@@ -191,8 +191,8 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right">商品类型</label>
                                                 <div class="col-sm-6">
-                                                    <select name="gs_typeid" disabled="disabled">
-                                                        <option>请选择</option>
+                                                    <select name="gs_typeid" {if condition="$gsedit['gs_typeid'] neq 0"} disabled="disabled" {/if}> >
+                                                        <option value="0">请选择</option>
                                                         {volist name="typeRes" id="type"}
                                                         <option {if condition="$gsedit['gs_typeid'] eq $type['type_id']"} selected="selected" {/if} value="{$type.type_id}">{$type.type_name}</option>
                                                         {/volist}
@@ -272,7 +272,7 @@
                                             <div class="form-group">
                                                 <label for="username" class="col-sm-2 control-label no-padding-right"></label>
                                                 <div class="col-sm-6">
-                                                    <a href="#" onclick="addrow(this)" style="display: inline-block; width: 20px;margin-right: 20px; ">[+]</a>
+                                                    <a href="#" onclick="rowphoto(this)" style="display: inline-block; width: 20px;margin-right: 20px; ">[+]</a>
                                                     <input name="goods_img[]" type="file" class="form-group" style="border: none;box-shadow: none;width: 50%;display: inline-block;">
                                                 </div>
                                             </div>
@@ -406,6 +406,17 @@
                 });
 
             }
+        }
+    }
+
+    function rowphoto(o){
+        var div=$(o).parent().parent();
+        if ($(o).html() == '[+]') {
+            var newdiv=div.clone();
+            newdiv.find('a').html('[-]');
+            div.after(newdiv);
+        }else{
+            div.remove();
         }
     }
 

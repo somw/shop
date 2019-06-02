@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:65:"B:\aaaweb\shop\public/../application/admin\view\shopcate\add.html";i:1559436161;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1559436161;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1559436161;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1559436161;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1559436161;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\recpos\lst.html";i:1559436161;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1559436161;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1559436161;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1559436161;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1559436161;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -91,9 +91,10 @@
         </div>
     </div>
 </div>
+
 <div class="main-container container-fluid">
-	<div class="page-container">
-		            <!-- Page Sidebar -->
+    <div class="page-container">
+        <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -400,6 +401,7 @@
 <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
+
             <!-- Page Breadcrumb -->
             <div class="page-breadcrumbs">
                 <ul class="breadcrumb">
@@ -407,112 +409,56 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('shopcate/lst'); ?>">商品管理</a>
+                        <a href="<?php echo url('recpos/lst'); ?>">推荐位类型管理</a>
                     </li>
-                    <li class="active">新增商品分类</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                
+                <button type="button" tooltip="添加推荐位类型" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('recpos/add'); ?>'"> <i class="fa fa-plus"></i> Add
+                </button>
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
-                            <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">新增商品分类</span>
-                            </div>
                             <div class="widget-body">
-                                <div id="horizontal-form">
-                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">上级商品分类</label>
-                                            <div class="col-sm-6">
-                                                <select name="shopcate_pid" id="">
-                                                    <option>顶级商品分类</option>
-                                                    <?php if(is_array($shopcatelist) || $shopcatelist instanceof \think\Collection || $shopcatelist instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcatelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
-                                                    <option value="<?php echo $shopcate['shopcate_id']; ?>"><?php echo str_repeat('-',$shopcate['lever']*8)?><?php echo $shopcate['shopcate_name']; ?></option>
-                                                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">商品分类名称</label>
-                                            <div class="col-sm-6">
-                                                <input class="form-control" id="username" placeholder="" name="shopcate_name"  type="text" value="">
-                                            </div>
-                                            <p class="help-block col-sm-4 red">* 必填</p>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">推荐位</label>
-                                            
-                                            <div class="col-sm-6">
-                                                <?php if(is_array($shopCateRecpos) || $shopCateRecpos instanceof \think\Collection || $shopCateRecpos instanceof \think\Paginator): $i = 0; $__LIST__ = $shopCateRecpos;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcaterec): $mod = ($i % 2 );++$i;?>
-                                                <label style="padding-left: 5px;">
-                                                    <input type="checkbox" name="recpos[]" value="<?php echo $shopcaterec['rec_id']; ?>" class="colored-blue">
-                                                    <span class="text"><?php echo $shopcaterec['rec_name']; ?></span>
-                                                </label>
-                                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                            </div>
-                                            
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">商品图片</label>
-                                            <div class="col-sm-6">
-                                                <input name="shopcate_img" type="file">
-                                            </div>
-                                            <p class="help-block col-sm-4 red">* 必填</p>
-                                        </div>
-
-                                        
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">关键词</label>
-                                            <div class="col-sm-6">
-                                                <textarea class="form-control" name="shopcate_keywords"></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">描述</label>
-                                            <div class="col-sm-6">
-                                                <textarea class="form-control" name="shopcate_description"></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">状态</label>
-                                            <div class="col-sm-6">
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input value="1" name="shopcate_showcates" checked="checked" class="colored-blue"  type="radio">
-                                                        <span class="text">显示</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input value="0" name="shopcate_showcates" class="colored-blue" type="radio">
-                                                        <span class="text">隐藏</span>
-                                                    </label>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                       
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-default">保存信息</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                            <tr>
+                                                <th class="text-center" width="8%">ID</th>
+                                                <th class="text-center">推荐位名称</th>
+                                                <th class="text-center">推荐位类型</th>
+                                                <th class="text-center" width="20%">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <?php if(is_array($recposlst) || $recposlst instanceof \think\Collection || $recposlst instanceof \think\Paginator): $i = 0; $__LIST__ = $recposlst;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$recpos): $mod = ($i % 2 );++$i;?>
+                                        <tbody>
+                                            <tr>
+                                                <td align="center"><?php echo $recpos['rec_id']; ?></td>
+                                                <td><?php echo $recpos['rec_name']; ?></td>                                                
+                                                <td align="center">
+                                                <?php if($recpos['rec_type'] == 1): ?>
+                                                    推荐位商品
+                                                <?php else: ?>
+                                                    推荐位分类
+                                                <?php endif; ?>
+                                                </td>
+                                                <td align="center">
+                                                    <a href="<?php echo url('edit',array('rec_id'=>$recpos['rec_id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('rec_id'=>$recpos['rec_id'])); ?>')" class="btn btn-danger btn-sm shiny">
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    </table>
                                 </div>
+                                <div><?php echo $recposlst->render(); ?></div>
                             </div>
                         </div>
                     </div>
