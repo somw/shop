@@ -17,7 +17,6 @@ class Article extends Controller
     {
         $cate = new catetree();
     	if (request()->isPost()) {
-    		$data=input('post.');
             $data['ar_addtime']=time();
             if ($data['ar_url'] && stripos($data['ar_url'],'http://') === false) {
                 $data['ar_url'] = 'http://'.$data['ar_url'];
@@ -87,10 +86,10 @@ class Article extends Controller
             return;
         }
 
-        $arid=input('ar_id');
+        $arid=input('ar_id');dump($arid);die;
         $aredit=db('article')->find($arid);
         $this->assign('aredit',$aredit);
-
+			
         $catedb=db('cate');
         $catelist = $catedb->select();
         $catelist = $cate ->catetree($catelist);

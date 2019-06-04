@@ -181,10 +181,10 @@
 					                        </a>
 					                    </div>
 					                </div>
-
+									<?php foreach($v['children'] as $k1 => $v1):?>
 					                <div class="f-r-main" ectype="floor_cat_347" style="display: none;">
 					                    <ul class="p-list">
-					                    	<?php foreach($v['bestshopcate'] as $k2 => $v2):?>
+					                    	<?php foreach($v1['bestshopcate'] as $k2 => $v2):?>
 					                    	<li class="opacity_img">
 											    <div class="product">
 											        <div class="p-img"><a href="goods.php?id=801" target="_blank"><img src="__UPLOADS__/{$v2.gs_midimg}" width="140" height="140"></a></div>
@@ -198,7 +198,7 @@
 											<?php endforeach;?>
 					                    </ul>
 					                </div>
-
+									<?php endforeach;?>
 					            </div>
 					        </div>
 					    </div>

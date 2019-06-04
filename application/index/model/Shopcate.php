@@ -34,8 +34,8 @@ class Shopcate extends Model
                 $recarr[] = $_recarr;
             }
         }
-        // dump($recarr);die;
-    return $recarr;
+        // dump(json_decode(json_encode($recarr),true));die;
+    return json_decode(json_encode($recarr),true);
 
     }
     

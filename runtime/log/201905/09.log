@@ -1,0 +1,865 @@
+---------------------------------------------------------------
+[ 2019-05-09T14:38:40+08:00 ] 127.0.0.1 GET m.com/admin
+[运行时间：0.046800s] [吞吐率：21.37req/s] [内存消耗：1,326.59kb] [文件加载：40]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\aaaweb\shop\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:38:40+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.031000s] [吞吐率：32.26req/s] [内存消耗：1,112.60kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:39:13+08:00 ] 127.0.0.1 GET m.com/admin/article/lst.html
+[运行时间：0.046800s] [吞吐率：21.37req/s] [内存消耗：2,011.60kb] [文件加载：50]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/lst_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Article->lst[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [1045]SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)[D:\aaaweb\shop\thinkphp\library\think\db\Connection.php:295]
+---------------------------------------------------------------
+[ 2019-05-09T14:40:06+08:00 ] 127.0.0.1 GET m.com/admin/article/lst.html
+[运行时间：0.062400s] [吞吐率：16.03req/s] [内存消耗：2,296.45kb] [文件加载：55]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/lst_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Article->lst[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\lst.html [ array (
+  0 => 'arlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_article` `a` INNER JOIN `tp_cate` `c` ON `a`.`ar_cateid`=`c`.`cate_id` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`cate_name` FROM `tp_article` `a` INNER JOIN `tp_cate` `c` ON `a`.`ar_cateid`=`c`.`cate_id` ORDER BY `ar_id` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:40:07+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.033000s] [吞吐率：30.30req/s] [内存消耗：1,112.86kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:40:09+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/17.html
+[运行时间：0.072000s] [吞吐率：13.89req/s] [内存消耗：2,214.97kb] [文件加载：52]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/17_html' => '',
+  'ar_id' => '17',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\edit.html [ array (
+  0 => 'aredit',
+  1 => 'catelist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cate` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:40:10+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.028000s] [吞吐率：35.71req/s] [内存消耗：1,112.60kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:40:15+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/18.html
+[运行时间：0.062400s] [吞吐率：16.03req/s] [内存消耗：2,067.91kb] [文件加载：50]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/18_html' => '',
+  'ar_id' => '18',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\edit.html [ array (
+  0 => 'aredit',
+  1 => 'catelist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 18 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cate` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` [ RunTime:0.015600s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:40:15+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.031200s] [吞吐率：32.05req/s] [内存消耗：1,112.60kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:41:39+08:00 ] 127.0.0.1 GET m.com/admin/article/lst.html
+[运行时间：0.062400s] [吞吐率：16.03req/s] [内存消耗：2,157.37kb] [文件加载：53]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/lst_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Article->lst[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\lst.html [ array (
+  0 => 'arlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_article` `a` INNER JOIN `tp_cate` `c` ON `a`.`ar_cateid`=`c`.`cate_id` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`cate_name` FROM `tp_article` `a` INNER JOIN `tp_cate` `c` ON `a`.`ar_cateid`=`c`.`cate_id` ORDER BY `ar_id` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:41:39+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.025000s] [吞吐率：40.00req/s] [内存消耗：1,112.86kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:41:41+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/18.html
+[运行时间：0.062000s] [吞吐率：16.13req/s] [内存消耗：2,067.91kb] [文件加载：50]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/18_html' => '',
+  'ar_id' => '18',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\edit.html [ array (
+  0 => 'aredit',
+  1 => 'catelist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 18 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cate` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:41:41+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.023000s] [吞吐率：43.48req/s] [内存消耗：1,112.60kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:41:47+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/17.html
+[运行时间：0.049800s] [吞吐率：20.08req/s] [内存消耗：2,067.69kb] [文件加载：50]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/17_html' => '',
+  'ar_id' => '17',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\edit.html [ array (
+  0 => 'aredit',
+  1 => 'catelist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cate` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:41:47+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.031200s] [吞吐率：32.05req/s] [内存消耗：1,112.60kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:41:50+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.033200s] [吞吐率：30.12req/s] [内存消耗：1,112.60kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:42:02+08:00 ] 127.0.0.1 GET m.com/admin/article/lst.html
+[运行时间：0.046800s] [吞吐率：21.37req/s] [内存消耗：2,157.14kb] [文件加载：53]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'lst',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/lst_html' => '',
+)
+[ info ] [ RUN ] app\admin\controller\Article->lst[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\lst.html [ array (
+  0 => 'arlist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `tp_article` `a` INNER JOIN `tp_cate` `c` ON `a`.`ar_cateid`=`c`.`cate_id` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`cate_name` FROM `tp_article` `a` INNER JOIN `tp_cate` `c` ON `a`.`ar_cateid`=`c`.`cate_id` ORDER BY `ar_id` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:42:03+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.024000s] [吞吐率：41.67req/s] [内存消耗：1,112.86kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:42:04+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/17.html
+[运行时间：0.053000s] [吞吐率：18.87req/s] [内存消耗：2,067.47kb] [文件加载：50]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/17_html' => '',
+  'ar_id' => '17',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\edit.html [ array (
+  0 => 'aredit',
+  1 => 'catelist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cate` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:42:04+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.023000s] [吞吐率：43.48req/s] [内存消耗：1,112.60kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:42:38+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/17.html
+[运行时间：0.046800s] [吞吐率：21.37req/s] [内存消耗：1,915.66kb] [文件加载：45]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/17_html' => '',
+  'ar_id' => '17',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:42:54+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/17.html
+[运行时间：0.049800s] [吞吐率：20.08req/s] [内存消耗：1,915.66kb] [文件加载：45]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/17_html' => '',
+  'ar_id' => '17',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:43:02+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/17.html
+[运行时间：0.063400s] [吞吐率：15.77req/s] [内存消耗：2,018.67kb] [文件加载：51]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/17_html' => '',
+  'ar_id' => '17',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: save[D:\aaaweb\shop\application\admin\controller\Article.php:92]
+---------------------------------------------------------------
+[ 2019-05-09T14:43:21+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/17.html
+[运行时间：0.067400s] [吞吐率：14.84req/s] [内存消耗：2,067.81kb] [文件加载：50]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/17_html' => '',
+  'ar_id' => '17',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\aaaweb\shop\public/../application/admin\view\article\edit.html [ array (
+  0 => 'aredit',
+  1 => 'catelist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=127.0.0.1;dbname=tpshop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_article` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_article` WHERE  `ar_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cate` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cate` [ RunTime:0.015600s ]
+---------------------------------------------------------------
+[ 2019-05-09T14:43:22+08:00 ] 127.0.0.1 GET m.com/static/admin/fonts/fontawesome-webfont.woff2?v=4.3.0
+[运行时间：0.024000s] [吞吐率：41.67req/s] [内存消耗：1,112.86kb] [文件加载：35]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'admin',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/static/admin/css/font-awesome.css',
+  'accept-encoding' => 'identity',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/static/admin/fonts/fontawesome-webfont_woff2' => '',
+  'v' => '4.3.0',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-05-09T14:44:05+08:00 ] 127.0.0.1 GET m.com/admin/article/edit/ar_id/17.html
+[运行时间：0.031200s] [吞吐率：32.05req/s] [内存消耗：1,295.16kb] [文件加载：39]
+[ info ] [ LANG ] D:\aaaweb\shop\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'cookie' => 'pgv_pvi=9741248512',
+  'connection' => 'close',
+  'referer' => 'http://m.com/admin/article/lst.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
+  'host' => 'm.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/article/edit/ar_id/17_html' => '',
+  'ar_id' => '17',
+)
+[ info ] [ RUN ] app\admin\controller\Article->edit[ D:\aaaweb\shop\application\admin\controller\Article.php ]
+[ info ] [ LOG ] INIT File

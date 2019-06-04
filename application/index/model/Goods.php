@@ -38,7 +38,7 @@ class Goods extends Model
 
         $map['gs_id'] = array('IN',$rgArr);
         // dump($map);die;
-        $recShopcateArr = db('goods')->where($map)->limit(6)->select();
+        $recShopcateArr = $this->where($map)->limit(6)->select();
         // dump($recShopcate);die;
         // 
         return $recShopcateArr;

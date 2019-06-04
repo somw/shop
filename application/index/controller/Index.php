@@ -12,10 +12,14 @@ class Index extends Base
         foreach ($recShopcate as $k => $v) {
         	// 获取当前顶级分类下被设为 首页推荐 的二级分类
         	$recShopcate[$k]['children'] = model('shopcate')->getRecShopcate(4,$v['shopcate_id']);
-            foreach ($recShopcate[$k]['children'] as $k1 => $v1) {
-                $recShopcate[$k]['children'][$k1]['bestshopcate'] = model('goods')->getIndexRecposGoos($v1['shopcate_id'],6);
-            }
 
+            foreach ($recShopcate[$k]['children'] as $k1 => $v1) {
+                // var_dump($recShopcate[$k]['children'][$k1]);
+
+                $recShopcate[$k]['children'][$k1]['bestshopcate'] = model('goods')->getIndexRecposGoos($v1['shopcate_id'],6);
+                // var_dump($recShopcate);
+                // exit;
+            }
 
             $recShopcate[$k]['newGoodsrec'] = model('goods')->getIndexRecposGoos($v['shopcate_id'],3);
         	// 获取新品推荐
