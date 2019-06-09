@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:9:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1559463658;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1559436161;s:58:"B:\aaaweb\shop\application\index\view\common\site_nav.html";i:1559436161;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1559436161;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1559436161;s:59:"B:\aaaweb\shop\application\index\view\common\homeindex.html";i:1559436161;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1559436161;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1559436161;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1559436161;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:9:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1560048001;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1560041555;s:58:"B:\aaaweb\shop\application\index\view\common\site_nav.html";i:1560041555;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1560041555;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1560041555;s:59:"B:\aaaweb\shop\application\index\view\common\homeindex.html";i:1560041555;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1560041555;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1560041555;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1560041555;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -1208,14 +1208,10 @@ $(function(){
 					                        </a>
 					                    </div>
 					                </div>
-					                <?php foreach($v['children'] as $k1 => $v1):?>
+									<?php foreach($v['children'] as $k1 => $v1):?>
 					                <div class="f-r-main" ectype="floor_cat_347" style="display: none;">
 					                    <ul class="p-list">
-					                    	<?php foreach($v['newGoodsrec'] as $k2 => $v2):
-					                    		if($v1['shopcate_id'] == $v2['gs_shopcateid']):
-
-					                    		?>
-
+					                    	<?php foreach($v1['bestshopcate'] as $k2 => $v2):?>
 					                    	<li class="opacity_img">
 											    <div class="product">
 											        <div class="p-img"><a href="goods.php?id=801" target="_blank"><img src="/static/uploads/<?php echo $v2['gs_midimg']; ?>" width="140" height="140"></a></div>
@@ -1226,85 +1222,24 @@ $(function(){
 											        </div>
 											    </div>
 											</li>
-											<?php endif;endforeach;?>
+											<?php endforeach;?>
 					                    </ul>
 					                </div>
-					            	<?php endforeach;?>
+									<?php endforeach;?>
 					            </div>
 					        </div>
 					    </div>
 				        <div class="floor-fd">
 				        	<div class="floor-fd-brand clearfix">
+				        		<?php foreach($v['brand']['brand'] as $k1 => $v1):?>
 		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=72" target="_blank">
+					                <a href="<?php echo $v1['brand_url']?>" target="_blank">
 					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490072313895957648.jpg" title="ELLE HOME"></div>
+					                    <div class="img"><img src="/static/uploads/<?php echo $v1['brand_img']?>" title="<?php echo $v1['brand_name']?>"></div>
 					                    <div class="link"></div>
 					                </a>
 					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=76" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490072373278367315.jpg" title="金利来"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=79" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490072677495061584.jpg" title="justyle"></div>
-					                    <div class="link"></div>
-					                </a>
-		            			</div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=82" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490072694695600078.jpg" title="李宁"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=86" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490072765604121481.jpg" title="康比特"></div>
-					                    <div class="link"></div>
-					                </a>
-		            			</div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=106" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490072981305868823.jpg" title="开普特"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=122" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490073982547710498.jpg" title="Five Plus"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=149" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490073591535005714.jpg" title="鸿星尔克"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=152" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490228100138579787.jpg" title="杰克琼斯"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=154" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="/static/index/img/1490073529881448780.jpg" title="匡威"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
+					        	<?php endforeach;?>
 		                    </div>
 		                </div>
 		            </div>

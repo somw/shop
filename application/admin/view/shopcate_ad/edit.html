@@ -3,8 +3,8 @@
 <body>
 {include file="/common/top"}
 <div class="main-container container-fluid">
-	<div class="page-container">
-		            <!-- Page Sidebar -->
+    <div class="page-container">
+                    <!-- Page Sidebar -->
        {include file="/common/list"}
         <!-- Page Content -->
         <div class="page-content">
@@ -15,9 +15,9 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="{:url('shopcate_brand/lst')}">关联管理</a>
+                        <a href="{:url('shopcate_ad/lst')}">关联左图管理</a>
                     </li>
-                    <li class="active">添加关联品牌</li>
+                    <li class="active">添加关联左图</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -29,70 +29,54 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">新增关联品牌</span>
+                                <span class="widget-caption">新增关联左图</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
                                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="ca_id" value="{$caedit.ca_id}">
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联品牌</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联左图</label>
                                             <div class="col-sm-6">
                                                 <select name="cb_shopcateid">
                                                     <option>请选择</option>
                                                     {volist name="shopcateRes" id="scate"}
-                                                    <option value="{$scate.shopcate_id}">{$scate.shopcate_name}</option>
+                                                    <option {if condition="$scate['shopcate_id'] eq $caedit['ca_shopcateid']"} selected="selected" {/if} value="{$scate.shopcate_id}">{$scate.shopcate_name}</option>
                                                     {/volist}
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联品牌</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">图片</label>
                                             <div class="col-sm-6">
-                                                {volist name='brandRes' id='brand'}
-                                                <label style="padding-left: 5px;">
-                                                    <input type="checkbox" name="cb_brandid[]" value="{$brand.brand_id}" class="colored-blue">
-                                                    <span class="text">{$brand.brand_name}</span>
-                                                </label>
-                                                {/volist}
+                                                <input id="username" name="ca_img" type="file">
+                                                {if condition="$caedit['ca_img'] neq ''"}
+                                                <img src="__UPLOADS__/{$caedit.ca_img}">
+                                                {else/}
+                                                暂无图片
+                                                {/if}
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">推广图</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">图片链接</label>
                                             <div class="col-sm-6">
-                                                <input id="username" name="cb_proimg" type="file">
+                                                <input class="form-control" id="username" name="cb_link" type="text" value="{$caedit.ca_link}">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">推广图链接</label>
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">图片定位</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="username" name="cb_prourl" type="text">
+                                                <select name="ca_position">
+                                                    <option>请选择</option>
+                                                    <option {if condition="$caedit['ca_position'] eq 'A'"} selected="selected" {/if} value="A">A</option>
+                                                    <option {if condition="$caedit['ca_position'] eq 'B'"} selected="selected" {/if} value="B">B</option>
+                                                    <option {if condition="$caedit['ca_position'] eq 'C'"} selected="selected" {/if} value="C">C</option>
+                                                </select>
                                             </div>
                                         </div>
-
-
-                                        <div class="form-group">
-                                            <label for="username" class="col-sm-2 control-label no-padding-right">状态</label>
-                                            <div class="col-sm-6">
-                                                <div class="radio" style="float: left; padding-right: 10px;">
-                                                    <label>
-                                                        <input value="1" name="cb_status" checked="checked" class="colored-blue"  type="radio">
-                                                        <span class="text">显示</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input value="0" name="cb_status" class="colored-blue" type="radio">
-                                                        <span class="text">隐藏</span>
-                                                    </label>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
@@ -110,7 +94,7 @@
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-	</div>
+    </div>
 </div>
 
 {include file="common/_footer"}

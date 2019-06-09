@@ -204,76 +204,15 @@
 					    </div>
 				        <div class="floor-fd">
 				        	<div class="floor-fd-brand clearfix">
+				        		<?php foreach($v['brand']['brand'] as $k1 => $v1):?>
 		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=72" target="_blank">
+					                <a href="<?php echo $v1['brand_url']?>" target="_blank">
 					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490072313895957648.jpg" title="ELLE HOME"></div>
+					                    <div class="img"><img src="__UPLOADS__/<?php echo $v1['brand_img']?>" title="<?php echo $v1['brand_name']?>"></div>
 					                    <div class="link"></div>
 					                </a>
 					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=76" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490072373278367315.jpg" title="金利来"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=79" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490072677495061584.jpg" title="justyle"></div>
-					                    <div class="link"></div>
-					                </a>
-		            			</div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=82" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490072694695600078.jpg" title="李宁"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=86" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490072765604121481.jpg" title="康比特"></div>
-					                    <div class="link"></div>
-					                </a>
-		            			</div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=106" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490072981305868823.jpg" title="开普特"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=122" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490073982547710498.jpg" title="Five Plus"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=149" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490073591535005714.jpg" title="鸿星尔克"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=152" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490228100138579787.jpg" title="杰克琼斯"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
-		                        <div class="item">
-					                <a href="https://demo.dscmall.cn/brandn.php?id=154" target="_blank">
-					                    <div class="link-l"></div>
-					                    <div class="img"><img src="__INDEX__/img/1490073529881448780.jpg" title="匡威"></div>
-					                    <div class="link"></div>
-					                </a>
-					            </div>
+					        	<?php endforeach;?>
 		                    </div>
 		                </div>
 		            </div>

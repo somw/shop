@@ -17,31 +17,14 @@ class Index extends Base
                 // var_dump($recShopcate[$k]['children'][$k1]);
 
                 $recShopcate[$k]['children'][$k1]['bestshopcate'] = model('goods')->getIndexRecposGoos($v1['shopcate_id'],6);
-                // var_dump($recShopcate);
-                // exit;
+                
             }
 
             $recShopcate[$k]['newGoodsrec'] = model('goods')->getIndexRecposGoos($v['shopcate_id'],3);
-        	// 获取新品推荐
-        	// 1、获取当前主分类下所有的子分类ID
-            // $recShopcatetree = new Shopcatetree();
-            // $sonIds = $recShopcatetree->childrenids($v['shopcate_id'],db('shopcate'));
-            // // dump($sonIds);die;
-            
-            // // 2、获取新品推荐
-            // $_recposgoods = db('recpos_item')->where(array('recpos_id'=>3,'value_type'=>1))->select();
-            // // dump($_recposgoods);die;
-            // $rgArr = array();
-            // foreach ($_recposgoods as $k1 => $v1) {
-            //     $rgArr[] = $v1['value_id'];
-            // }
-            // // dump($rgArr);die;
-            // $map['gs_shopcateid'] = array('IN',$sonIds);
 
-            // $map['gs_id'] = array('IN',$rgArr);
-            // // dump($map);die;
-            // $recShopcate[$k]['newGoodsrec'] = db('goods')->where($map)->limit(24)->select();
-            // dump($recShopcate);die;
+            $recShopcate[$k]['brand'] = model('shopcate_brand')->getshopcateBrand($v['shopcate_id'],TRUE);
+
+            $recShopcate[$k] = model('shopcate_ad')->getshopcateAd($v['shopcate_id']);
 
         }
         // dump($recShopcate);die;

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:63:"B:\aaaweb\shop\public/../application/admin\view\data\index.html";i:1560041555;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:69:"B:\aaaweb\shop\public/../application/admin\view\shopcate_ad\edit.html";i:1560055426;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -91,10 +91,9 @@
         </div>
     </div>
 </div>
-
 <div class="main-container container-fluid">
     <div class="page-container">
-        <!-- Page Sidebar -->
+                    <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -407,7 +406,6 @@
 <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
-
             <!-- Page Breadcrumb -->
             <div class="page-breadcrumbs">
                 <ul class="breadcrumb">
@@ -415,171 +413,91 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="">链接管理</a>
+                        <a href="<?php echo url('shopcate_ad/lst'); ?>">关联左图管理</a>
                     </li>
-                    <li class="active">添加链接</li>
+                    <li class="active">添加关联左图</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                <a id="export" class="btn btn-sm btn-azure btn-addon" href="javascript:;" autocomplete="off">立即备份</a>
-                <a id="optimize" href="<?php echo url('data/optimize'); ?>" class="btn btn-sm btn-azure btn-addon">优化表</a>
-                <a id="repair" href="<?php echo url('data/repair'); ?>" class="btn btn-sm btn-azure btn-addon">修复表</a>
-                <a  href="<?php echo url('data/importlist'); ?>" class="btn btn-sm btn-azure btn-addon">还原数据库</a>
+
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增关联左图</span>
+                            </div>
                             <div class="widget-body">
-                                <div class="flip-scroll">
-                                    <form id="export-form" method="post" action="<?php echo url('data/export'); ?>">
-                                    <table class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 23px;" class="sorting_disabled">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="ca_id" value="<?php echo $caedit['ca_id']; ?>">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联左图</label>
+                                            <div class="col-sm-6">
+                                                <select name="cb_shopcateid">
+                                                    <option>请选择</option>
+                                                    <?php if(is_array($shopcateRes) || $shopcateRes instanceof \think\Collection || $shopcateRes instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcateRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$scate): $mod = ($i % 2 );++$i;?>
+                                                    <option <?php if($scate['shopcate_id'] == $caedit['ca_shopcateid']): ?> selected="selected" <?php endif; ?> value="<?php echo $scate['shopcate_id']; ?>"><?php echo $scate['shopcate_name']; ?></option>
+                                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                                                    <label style="font-weight: 300; ">
-                                                        <input class="checkeds" checked="checked" type="checkbox" value="">
-                                                        <span class="text"></span>
-                                                    </label>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">图片</label>
+                                            <div class="col-sm-6">
+                                                <input id="username" name="ca_img" type="file">
+                                                <?php if($caedit['ca_img'] != ''): ?>
+                                                <img src="/static/uploads/<?php echo $caedit['ca_img']; ?>">
+                                                <?php else: ?>
+                                                暂无图片
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
 
-                                                </th>
-                                                <th>表名</th>
-                                                <th>数据量</th>
-                                                <th>数据大小</th>
-                                                <th>创建时间</th>
-                                                <th>备份状态</th>
-                                                <th>操作</th>
-                                            </tr> 
-                                        </thead>
-                                        <tbody>
-                                            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): if( count($list)==0 ) : echo "" ;else: foreach($list as $key=>$table): ?>   
-                                            <tr>            
-                                                <td>
-                                                    <label>
-                                                    <input class="ids" checked="checked" type="checkbox" name="tables[]" value="<?php echo $table['name']; ?>"><span class="text"></span></label>
-                                                </td>
-                                                <td><?php echo $table['name']; ?></td>
-                                                <td><?php echo $table['rows']; ?></td>
-                                                <td><?php echo format_bytes($table['data_length']); ?></td>
-                                                <td><?php echo $table['create_time']; ?></td>
-                                                <td class="info" style="background: none;">未备份</td>
-                                                <td>
-                                                    <a href="<?php echo url('data/optimize',['tables'=>$table['name']]); ?>">优化表</a>&nbsp;
-                                                    <a href="<?php echo url('data/repair',['tables'=>$table['name']]); ?>">修复表</a>
-                                                </td>
-                                            </tr>
-                                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                                        </tbody>
-                                    </table>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">图片链接</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" name="cb_link" type="text" value="<?php echo $caedit['ca_link']; ?>">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">图片定位</label>
+                                            <div class="col-sm-6">
+                                                <select name="ca_position">
+                                                    <option>请选择</option>
+                                                    <option <?php if($caedit['ca_position'] == 'A'): ?> selected="selected" <?php endif; ?> value="A">A</option>
+                                                    <option <?php if($caedit['ca_position'] == 'B'): ?> selected="selected" <?php endif; ?> value="B">B</option>
+                                                    <option <?php if($caedit['ca_position'] == 'C'): ?> selected="selected" <?php endif; ?> value="C">C</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
-                                <div></div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-
     </div>
 </div>
 
-    <!--Basic Scripts-->
+<!--Basic Scripts-->
 <script src="/static/admin/js/bootstrap.js"></script>
 <!--Beyond Scripts-->
 <script src="/static/admin/js/beyond.js"></script>
 </body>
 </html>
-
-<script>
-    layui.use(['jquery','layer'],function(){
-        window.$ = layui.$;
-        var layer = layui.layer;
-        //备份表方法
-        $("#export").click(function(){
-            $(this).html("正在发送备份请求...");
-            $.post(
-                $("#export-form").attr("action"),
-                $("#export-form").serialize(), 
-                function(data){
-               
-                    if(data.code==1){
-                        $("#export").html( "开始备份，请不要关闭本页面！");
-                        backup(data.data.tab);
-                        window.onbeforeunload = function(){ return "正在备份数据库，请不要关闭！" }
-                    }else{
-                        layer.tips(data.msg, "#export", {
-                            tips: [1, '#3595CC'],
-                            time: 4000
-                        });
-                        $("#export").html("立即备份");
-                    }
-              
-            }, "json");
-            return false;  
-        }); 
-
-        //递归备份表
-        function backup(tab,status){
-            status && showmsg(tab.id, "开始备份...(0%)");
-            $.get( $("#export-form").attr("action"), tab, function(data){
-                // console.log(data)
-                if(data.code==1){
-                    showmsg(tab, data.msg);
-
-                    if(!$.isPlainObject(data.data.tab)){
-                        $("#export").html("备份完成");
-                        window.onbeforeunload = function(){ return null }
-                        return;
-                    } 
-
-                    backup(data.data.tab, tab.id != data.data.tab.id);
-                } else {
-                    $("#export").html("立即备份");
-                }
-            }, "json");
-        }
-
-        //修改备份状态
-        function showmsg(tab, msg){
-            $("table tbody tr").eq(tab.id).find(".info").html(msg)
-        }
-
-        //优化表
-        $("#optimize").click(function(){
-            $.post(this.href, $("#export-form").serialize(), function(data){
-           
-                layer.tips(data.msg, "#optimize", {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-    
-            }, "json");
-            return false;    
-        });
-
-        //修复表
-        $("#repair").on("click",function(e){
-
-            $.post(this.href, $("#export-form").serialize(), function(data){
-                layer.tips(data.msg, "#repair", {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-            }, "json");
-            return false; 
-        });
-    });
-
-    $(".checkeds").click(function(){
-        if ($(this).is(':checked')) {
-            $('.ids').prop('checked','checked');
-        } else{
-            $('.ids').prop('checked',false);
-        }
-    });
-</script>

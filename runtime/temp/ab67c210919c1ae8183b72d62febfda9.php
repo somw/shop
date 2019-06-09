@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\data\importlist.html";i:1559436161;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1559436161;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1559436161;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1559436161;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1559436161;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\data\importlist.html";i:1560041555;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -221,6 +221,12 @@
                 <li>
                     <a href="<?php echo url('shopcate_words/add'); ?>">
                         <span class="menu-text">添加关联词</span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('shopcate_ad/add'); ?>">
+                        <span class="menu-text">添加关联图片</span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>

@@ -38,6 +38,7 @@
                                             <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联词</label>
                                             <div class="col-sm-6">
                                                 <select name="cw_shopcateid">
+                                                    <option>请选择</option>
                                                     {volist name="shopcateRes" id="scate"}
                                                     <option value="{$scate.shopcate_id}">{$scate.shopcate_name}</option>
                                                     {/volist}
