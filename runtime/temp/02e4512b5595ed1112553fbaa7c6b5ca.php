@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:9:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1560048001;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1560041555;s:58:"B:\aaaweb\shop\application\index\view\common\site_nav.html";i:1560041555;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1560041555;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1560041555;s:59:"B:\aaaweb\shop\application\index\view\common\homeindex.html";i:1560041555;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1560041555;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1560041555;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1560041555;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:9:{s:64:"B:\aaaweb\shop\public/../application/index\view\index\index.html";i:1560068244;s:55:"B:\aaaweb\shop\application\index\view\common\_meta.html";i:1560041555;s:58:"B:\aaaweb\shop\application\index\view\common\site_nav.html";i:1560041555;s:56:"B:\aaaweb\shop\application\index\view\common\header.html";i:1560041555;s:53:"B:\aaaweb\shop\application\index\view\common\nav.html";i:1560041555;s:59:"B:\aaaweb\shop\application\index\view\common\homeindex.html";i:1560041555;s:59:"B:\aaaweb\shop\application\index\view\common\mui_right.html";i:1560041555;s:56:"B:\aaaweb\shop\application\index\view\common\footer.html";i:1560041555;s:57:"B:\aaaweb\shop\application\index\view\common\_footer.html";i:1560041555;}*/ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -1140,25 +1140,76 @@ $(function(){
 					            </ul>
 					        </div>
 					    </div>
+						<?php if($v['shopcate_id'] == 5): ?>
 					    <div class="floor-bd bd-mode-01">
-					    	<div class="bd-left">
+					    	<div class="bd-left">					    		
 					    		<div class="floor-left-slide">
 					    			<div class="bd">
 					    				<div class="tempWrap" style="overflow:hidden; position:relative; width:232px">
 					    					<ul style="width: 696px; left: -232px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-					    						<li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255003388359.jpg"></a></li>
-					    						<li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255671031591.jpg"></a></li>
-					    						<li style="float: left; width: 232px;"><a href=""><img src="/static/index/img/1494985255859372374.jpg"></a></li>
+					    						<?php foreach($v['ad']['A'] as $k1 => $v1):?>
+					    						<li style="float: left; width: 232px;"><a href=""><img src="/static/uploads/<?php echo $v1['ca_img']?>"></a></li>
+					    						<?php endforeach;?>
 					    					</ul>
 					    				</div>
 					    			</div>
 					    			<div class="hd"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div>
 					    		</div>
+					    		
 					    		<div class="floor-left-adv">
-					    			<a href="" target="_blank"><img src="/static/index/img/1494984993812175408.jpg"></a>
-					    			<a href="" target="_blank"><img src="/static/index/img/1494984993892207941.jpg"></a>
+
+					    			<a href="" target="_blank"><img src="/static/uploads/<?php echo $v['ad']['B'][0]['ca_img'];?>"></a>
+					    			<a href="" target="_blank"><img src="/static/uploads/<?php echo $v['ad']['C'][0]['ca_img'];?>"></a>
 					    		</div>
 					    	</div>
+					    	<?php elseif($v['shopcate_id'] == 6): ?>
+					    	<div class="floor-bd bd-mode-02">
+								<div class="bd-left">
+			                        <div class="floor-left-slide">
+						                <div class="bd">
+						                    <div class="tempWrap" style="overflow:hidden; position:relative; width:474px">
+						                    	<ul style="width: 1422px; left: 0px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
+						                    		<?php foreach($v['ad']['A'] as $k1 => $v1):?>
+						                    		<li style="float: left; width: 474px;"><a href=""><<img src="/static/uploads/<?php echo $v1['ca_img']?>"></a></li>
+						                    		<?php endforeach;?>
+						                    	</ul>
+						                    </div>
+						                </div>
+						                <div class="hd">
+						                	<ul>
+						                		<li class="on">1</li>
+						                		<li class="">2</li>
+						                		<li class="">3</li>
+						                	</ul>
+						                </div>
+	            					</div>
+	            					<div class="floor-left-adv">
+                                        <a href="" target="_blank"><img src="/static/uploads/<?php echo $v['ad']['B'][0]['ca_img'];?>"></a>
+					    				<a href="" target="_blank"><img src="/static/uploads/<?php echo $v['ad']['C'][0]['ca_img'];?>"></a>
+                                    </div>
+                                </div>
+					    	<?php elseif($v['shopcate_id'] == 1): ?>
+							<div class="floor-bd bd-mode-04">
+								<div class="bd-left">
+									<div class="floor-left-adv">
+										<a href="" target="_blank"><img src="/static/uploads/<?php echo $v['ad']['B'][0]['ca_img'];?>"></a>
+					    				<a href="" target="_blank"><img src="/static/uploads/<?php echo $v['ad']['C'][0]['ca_img'];?>"></a>
+					    			</div>
+					    			<div class="floor-left-slide">
+						                <div class="bd">
+						                    <div class="tempWrap" style="overflow:hidden; position:relative; width:474px">
+						                    	<ul style="width: 1422px; left: -474px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
+						                    		<?php foreach($v['ad']['A'] as $k1 => $v1):?>
+						                    		<li style="float: left; width: 474px;"><a href=""><<img src="/static/uploads/<?php echo $v1['ca_img']?>"></a></li>
+						                    		<?php endforeach;?>
+						                    	</ul>
+						                	</div>
+						                </div>
+						                <div class="hd"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div>
+					                </div>
+					           </div>
+
+					    	<?php endif; ?>
 					    	<div class="bd-right">
 					    		<div class="floor-tabs-content clearfix">
 					    			<div class="f-r-main f-r-m-adv">

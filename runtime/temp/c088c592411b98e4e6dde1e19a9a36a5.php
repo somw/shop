@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:65:"B:\aaaweb\shop\public/../application/admin\view\shopcate\lst.html";i:1560041555;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:60:"B:\aaaweb\shop\public/../application/admin\view\nav\lst.html";i:1560041555;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -415,9 +415,9 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('shopcate/lst'); ?>">商品管理</a>
+                        <a href="<?php echo url('nav/lst'); ?>">导航管理</a>
                     </li>
-                    <li class="active">商品分类列表</li>
+                    <li class="active">导航列表</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -425,12 +425,9 @@
             <!-- Page Body -->
             <div class="page-body">
                 <form action="" method="post">
-                <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('shopcate/add'); ?>'"> <i class="fa fa-plus"></i>新增商品分类
+                <button type="button" tooltip="添加导航" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('nav/add'); ?>'"> <i class="fa fa-plus"></i> Add
                 </button>
-                <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('shopcate/add'); ?>'">批量删除
-                </button>
-                <button type="submit" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" >更新排序
-                </button>
+                <button type="submit" tooltip="添加导航" class="btn btn-sm btn-azure btn-addon" >更新排序</button>
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
@@ -439,47 +436,43 @@
                                     <table class="table table-bordered table-hover">
                                         <thead class="">
                                             <tr>
+                                                <th class="text-center" width="4%">导航ID</th>
+                                                <th class="text-center">导航名称</th>
+                                                <th class="text-center">导航地址</th>
+                                                <th class="text-center" width="6%">导航位置</th>
                                                 <th class="text-center" width="4%">排序</th>
-                                                <th class="text-center" width="6%">商品ID</th>
-                                                <th class="text-center">商品分类名称</th>
-                                                <th class="text-center">图片</th>
-                                                <th class="text-center">关键词</th>
-                                                <th class="text-center">描述</th>
-                                                <th class="text-center" width="6%">状态</th>
-                                                <th class="text-center" width="20%">操作</th>
+                                                <th class="text-center" width="4%">新标签</th>
+                                                <th class="text-center" width="10%">操作</th>
                                             </tr>
                                         </thead>
-                                        <?php if(is_array($shopcatelist) || $shopcatelist instanceof \think\Collection || $shopcatelist instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcatelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
+                                        <?php if(is_array($navlist) || $navlist instanceof \think\Collection || $navlist instanceof \think\Paginator): $i = 0; $__LIST__ = $navlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
                                         <tbody>
                                             <tr>
-                                                <td width="4%" align="center"><input type="text" style="width: 30px; text-align: center;" name="shopcate_sort[<?php echo $shopcate['shopcate_id']; ?>]" value="<?php echo $shopcate['shopcate_sort']; ?>"></td>
-                                                <td align="center"><?php echo $shopcate['shopcate_id']; ?></td>
-                                                <td><?php echo str_repeat('-',$shopcate['lever']*8)?><?php echo $shopcate['shopcate_name']; ?></td>
+                                                <td align="center"><?php echo $nav['nav_id']; ?></td>
+                                                <td><?php echo $nav['nav_name']; ?></td>
+                                                <td align="center"><?php echo $nav['nav_url']; ?></td>
                                                 <td align="center">
-                                                <?php if($shopcate['shopcate_img'] != ''): ?>
-                                                    <img src="/static/uploads/<?php echo $shopcate['shopcate_img']; ?>" height="30">
-                                                <?php else: ?>
-                                                    暂无图片
+                                                <?php if($nav['nav_pos'] == 'top'): ?>
+                                                    顶部
+                                                <?php elseif($nav['nav_pos'] == 'mid'): ?>
+                                                    中间
+                                                <?php elseif($nav['nav_pos'] == 'bottom'): ?>
+                                                    底部
                                                 <?php endif; ?>
-
                                                 </td>
-                                                <td><?php echo $shopcate['shopcate_keywords']; ?></td>
-                                                <td><?php echo $shopcate['shopcate_description']; ?></td>
-                                                
+                                                <td width="4%" align="center"><input type="text" style="width: 30px; text-align: center;" name="nav_sort[<?php echo $nav['nav_id']; ?>]" value="<?php echo $nav['nav_sort']; ?>"></td>
                                                 <td align="center">
-                                                <?php if($shopcate['shopcate_showshopcate'] == 1): ?>
-                                                    显示
+                                                <?php if($nav['nav_open'] == 1): ?>
+                                                    是
                                                 <?php else: ?>
-                                                    禁用
+                                                    否
                                                 <?php endif; ?>
-                                               
-
                                                 </td>
                                                 <td align="center">
-                                                    <a href="<?php echo url('edit',array('shopcate_id'=>$shopcate['shopcate_id'])); ?>" class="btn btn-primary btn-sm shiny">
+                                                    <a href="<?php echo url('edit',array('nav_id'=>$nav['nav_id'])); ?>" class="btn btn-primary btn-sm shiny">
                                                         <i class="fa fa-edit"></i> 编辑
                                                     </a>
-                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('shopcate_id'=>$shopcate['shopcate_id'])); ?>')" class="btn btn-danger btn-sm shiny">
+                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('nav_id'=>$nav['nav_id'])); ?>')" class="btn btn-danger btn-sm shiny">
                                                         <i class="fa fa-trash-o"></i> 删除
                                                     </a>
                                                 </td>
@@ -488,6 +481,7 @@
                                         <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </table>
                                 </div>
+                                <div><?php echo $navlist->render(); ?></div>
                             </div>
                         </div>
                     </div>

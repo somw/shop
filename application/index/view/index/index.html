@@ -113,25 +113,76 @@
 					            </ul>
 					        </div>
 					    </div>
+						{if condition="$v['shopcate_id'] eq 5"}
 					    <div class="floor-bd bd-mode-01">
-					    	<div class="bd-left">
+					    	<div class="bd-left">					    		
 					    		<div class="floor-left-slide">
 					    			<div class="bd">
 					    				<div class="tempWrap" style="overflow:hidden; position:relative; width:232px">
 					    					<ul style="width: 696px; left: -232px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-					    						<li style="float: left; width: 232px;"><a href=""><img src="__INDEX__/img/1494985255003388359.jpg"></a></li>
-					    						<li style="float: left; width: 232px;"><a href=""><img src="__INDEX__/img/1494985255671031591.jpg"></a></li>
-					    						<li style="float: left; width: 232px;"><a href=""><img src="__INDEX__/img/1494985255859372374.jpg"></a></li>
+					    						<?php foreach($v['ad']['A'] as $k1 => $v1):?>
+					    						<li style="float: left; width: 232px;"><a href=""><img src="__UPLOADS__/<?php echo $v1['ca_img']?>"></a></li>
+					    						<?php endforeach;?>
 					    					</ul>
 					    				</div>
 					    			</div>
 					    			<div class="hd"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div>
 					    		</div>
+					    		
 					    		<div class="floor-left-adv">
-					    			<a href="" target="_blank"><img src="__INDEX__/img/1494984993812175408.jpg"></a>
-					    			<a href="" target="_blank"><img src="__INDEX__/img/1494984993892207941.jpg"></a>
+
+					    			<a href="" target="_blank"><img src="__UPLOADS__/<?php echo $v['ad']['B'][0]['ca_img'];?>"></a>
+					    			<a href="" target="_blank"><img src="__UPLOADS__/<?php echo $v['ad']['C'][0]['ca_img'];?>"></a>
 					    		</div>
 					    	</div>
+					    	{elseif condition="$v['shopcate_id'] eq 6"}
+					    	<div class="floor-bd bd-mode-02">
+								<div class="bd-left">
+			                        <div class="floor-left-slide">
+						                <div class="bd">
+						                    <div class="tempWrap" style="overflow:hidden; position:relative; width:474px">
+						                    	<ul style="width: 1422px; left: 0px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
+						                    		<?php foreach($v['ad']['A'] as $k1 => $v1):?>
+						                    		<li style="float: left; width: 474px;"><a href=""><<img src="__UPLOADS__/<?php echo $v1['ca_img']?>"></a></li>
+						                    		<?php endforeach;?>
+						                    	</ul>
+						                    </div>
+						                </div>
+						                <div class="hd">
+						                	<ul>
+						                		<li class="on">1</li>
+						                		<li class="">2</li>
+						                		<li class="">3</li>
+						                	</ul>
+						                </div>
+	            					</div>
+	            					<div class="floor-left-adv">
+                                        <a href="" target="_blank"><img src="__UPLOADS__/<?php echo $v['ad']['B'][0]['ca_img'];?>"></a>
+					    				<a href="" target="_blank"><img src="__UPLOADS__/<?php echo $v['ad']['C'][0]['ca_img'];?>"></a>
+                                    </div>
+                                </div>
+					    	{elseif condition="$v['shopcate_id'] eq 1"}
+							<div class="floor-bd bd-mode-04">
+								<div class="bd-left">
+									<div class="floor-left-adv">
+										<a href="" target="_blank"><img src="__UPLOADS__/<?php echo $v['ad']['B'][0]['ca_img'];?>"></a>
+					    				<a href="" target="_blank"><img src="__UPLOADS__/<?php echo $v['ad']['C'][0]['ca_img'];?>"></a>
+					    			</div>
+					    			<div class="floor-left-slide">
+						                <div class="bd">
+						                    <div class="tempWrap" style="overflow:hidden; position:relative; width:474px">
+						                    	<ul style="width: 1422px; left: -474px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
+						                    		<?php foreach($v['ad']['A'] as $k1 => $v1):?>
+						                    		<li style="float: left; width: 474px;"><a href=""><<img src="__UPLOADS__/<?php echo $v1['ca_img']?>"></a></li>
+						                    		<?php endforeach;?>
+						                    	</ul>
+						                	</div>
+						                </div>
+						                <div class="hd"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div>
+					                </div>
+					           </div>
+
+					    	{/if}
 					    	<div class="bd-right">
 					    		<div class="floor-tabs-content clearfix">
 					    			<div class="f-r-main f-r-m-adv">

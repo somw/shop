@@ -24,7 +24,7 @@ class Index extends Base
 
             $recShopcate[$k]['brand'] = model('shopcate_brand')->getshopcateBrand($v['shopcate_id'],TRUE);
 
-            $recShopcate[$k] = model('shopcate_ad')->getshopcateAd($v['shopcate_id']);
+            $recShopcate[$k]['ad'] = model('shopcate_ad')->getshopcateAd($v['shopcate_id']);
 
         }
         // dump($recShopcate);die;

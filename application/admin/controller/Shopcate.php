@@ -28,6 +28,7 @@ class Shopcate extends Controller
         $sortdb=model('shopcate');
     	if (request()->isPost()) {
     		$data=input('post.');
+            // dump($data);die;
             // 处理图片上传
             if ($_FILES['shopcate_img']['tmp_name']) {
                 $data['shopcate_img'] = $this->upload();

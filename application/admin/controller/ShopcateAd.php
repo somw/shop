@@ -25,7 +25,12 @@ class ShopcateAd extends Controller
     {
     	if (request()->isPost()) {
     		$data=input('post.');
-
+            if ($data['ca_position'] == 'B' || $data['ca_position'] == 'C') {
+                $cates = db('shopcate_ad')->where(array('ca_position'=>$data['ca_position'],'ca_shopcateid'=>$data['ca_shopcateid']))->select();
+                if ($cates) {
+                    $this->error('当前位置只能添加一条记录');
+                }
+            }
             if ($data['ca_link'] && stripos($data['ca_link'],'http://') === false) {
                 $data['ca_link'] = 'http://'.$data['ca_link'];
             }

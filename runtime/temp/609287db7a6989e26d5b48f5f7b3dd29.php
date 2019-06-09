@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\shopcate_ad\lst.html";i:1560054511;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"B:\aaaweb\shop\public/../application/admin\view\shopcate_ad\lst.html";i:1560069693;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -424,7 +424,7 @@
 
             <!-- Page Body -->
             <div class="page-body">
-                <button type="button" tooltip="添加左图" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('shopcate_brand/add'); ?>'"> <i class="fa fa-plus"></i> Add
+                <button type="button" tooltip="添加左图" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('shopcate_ad/add'); ?>'"> <i class="fa fa-plus"></i> Add
                 </button>
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">

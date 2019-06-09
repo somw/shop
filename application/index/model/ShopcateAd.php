@@ -11,17 +11,12 @@ class ShopcateAd extends Model
     	$ca_ad = $this->where(array('ca_shopcateid'=>$ca_id))->select();
         $arr = array();
         foreach ($ca_ad as $k => $v) {
-            if ($v['ca_position'] > 3) {
-                $arr[$k] = $v['ca_position'];
-
-            }
+            $arr[$v['ca_position']][]=$v;
              
         }
-        
-
-        dump($arr);die;
+        // dump($arr);die;
        
-    return $ca_ad;
+    return $arr;
     }
     
 }

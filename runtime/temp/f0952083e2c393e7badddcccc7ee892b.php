@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:65:"B:\aaaweb\shop\public/../application/admin\view\shopcate\lst.html";i:1560041555;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"B:\aaaweb\shop\public/../application/admin\view\shopcate_brand\add.html";i:1560052614;s:55:"B:\aaaweb\shop\application\admin\view\common\_meta.html";i:1560041555;s:53:"B:\aaaweb\shop\application\admin\view\common\top.html";i:1560041555;s:54:"B:\aaaweb\shop\application\admin\view\common\list.html";i:1560052041;s:57:"B:\aaaweb\shop\application\admin\view\common\_footer.html";i:1560041555;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -91,10 +91,9 @@
         </div>
     </div>
 </div>
-
 <div class="main-container container-fluid">
-    <div class="page-container">
-        <!-- Page Sidebar -->
+	<div class="page-container">
+		            <!-- Page Sidebar -->
        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
@@ -407,7 +406,6 @@
 <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
-
             <!-- Page Breadcrumb -->
             <div class="page-breadcrumbs">
                 <ul class="breadcrumb">
@@ -415,89 +413,102 @@
                         <a href="#">系统</a>
                     </li>
                     <li>
-                        <a href="<?php echo url('shopcate/lst'); ?>">商品管理</a>
+                        <a href="<?php echo url('shopcate_brand/lst'); ?>">关联管理</a>
                     </li>
-                    <li class="active">商品分类列表</li>
+                    <li class="active">添加关联品牌</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
 
             <!-- Page Body -->
             <div class="page-body">
-                <form action="" method="post">
-                <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('shopcate/add'); ?>'"> <i class="fa fa-plus"></i>新增商品分类
-                </button>
-                <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '<?php echo url('shopcate/add'); ?>'">批量删除
-                </button>
-                <button type="submit" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" >更新排序
-                </button>
+
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增关联品牌</span>
+                            </div>
                             <div class="widget-body">
-                                <div class="flip-scroll">
-                                    <table class="table table-bordered table-hover">
-                                        <thead class="">
-                                            <tr>
-                                                <th class="text-center" width="4%">排序</th>
-                                                <th class="text-center" width="6%">商品ID</th>
-                                                <th class="text-center">商品分类名称</th>
-                                                <th class="text-center">图片</th>
-                                                <th class="text-center">关键词</th>
-                                                <th class="text-center">描述</th>
-                                                <th class="text-center" width="6%">状态</th>
-                                                <th class="text-center" width="20%">操作</th>
-                                            </tr>
-                                        </thead>
-                                        <?php if(is_array($shopcatelist) || $shopcatelist instanceof \think\Collection || $shopcatelist instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcatelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$shopcate): $mod = ($i % 2 );++$i;?>
-                                        <tbody>
-                                            <tr>
-                                                <td width="4%" align="center"><input type="text" style="width: 30px; text-align: center;" name="shopcate_sort[<?php echo $shopcate['shopcate_id']; ?>]" value="<?php echo $shopcate['shopcate_sort']; ?>"></td>
-                                                <td align="center"><?php echo $shopcate['shopcate_id']; ?></td>
-                                                <td><?php echo str_repeat('-',$shopcate['lever']*8)?><?php echo $shopcate['shopcate_name']; ?></td>
-                                                <td align="center">
-                                                <?php if($shopcate['shopcate_img'] != ''): ?>
-                                                    <img src="/static/uploads/<?php echo $shopcate['shopcate_img']; ?>" height="30">
-                                                <?php else: ?>
-                                                    暂无图片
-                                                <?php endif; ?>
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">顶级栏目关联品牌</label>
+                                            <div class="col-sm-6">
+                                                <select name="cb_shopcateid">
+                                                    <option>请选择</option>
+                                                    <?php if(is_array($shopcateRes) || $shopcateRes instanceof \think\Collection || $shopcateRes instanceof \think\Paginator): $i = 0; $__LIST__ = $shopcateRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$scate): $mod = ($i % 2 );++$i;?>
+                                                    <option value="<?php echo $scate['shopcate_id']; ?>"><?php echo $scate['shopcate_name']; ?></option>
+                                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                                                </td>
-                                                <td><?php echo $shopcate['shopcate_keywords']; ?></td>
-                                                <td><?php echo $shopcate['shopcate_description']; ?></td>
-                                                
-                                                <td align="center">
-                                                <?php if($shopcate['shopcate_showshopcate'] == 1): ?>
-                                                    显示
-                                                <?php else: ?>
-                                                    禁用
-                                                <?php endif; ?>
-                                               
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">关联品牌</label>
+                                            <div class="col-sm-6">
+                                                <?php if(is_array($brandRes) || $brandRes instanceof \think\Collection || $brandRes instanceof \think\Paginator): $i = 0; $__LIST__ = $brandRes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$brand): $mod = ($i % 2 );++$i;?>
+                                                <label style="padding-left: 5px;">
+                                                    <input type="checkbox" name="cb_brandid[]" value="<?php echo $brand['brand_id']; ?>" class="colored-blue">
+                                                    <span class="text"><?php echo $brand['brand_name']; ?></span>
+                                                </label>
+                                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                                            </div>
+                                        </div>
 
-                                                </td>
-                                                <td align="center">
-                                                    <a href="<?php echo url('edit',array('shopcate_id'=>$shopcate['shopcate_id'])); ?>" class="btn btn-primary btn-sm shiny">
-                                                        <i class="fa fa-edit"></i> 编辑
-                                                    </a>
-                                                    <a href="#" onClick="warning('确实要删除吗', '<?php echo url('del',array('shopcate_id'=>$shopcate['shopcate_id'])); ?>')" class="btn btn-danger btn-sm shiny">
-                                                        <i class="fa fa-trash-o"></i> 删除
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <?php endforeach; endif; else: echo "" ;endif; ?>
-                                    </table>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推广图</label>
+                                            <div class="col-sm-6">
+                                                <input id="username" name="cb_proimg" type="file">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">推广图链接</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="username" name="cb_prourl" type="text">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">状态</label>
+                                            <div class="col-sm-6">
+                                                <div class="radio" style="float: left; padding-right: 10px;">
+                                                    <label>
+                                                        <input value="1" name="cb_status" checked="checked" class="colored-blue"  type="radio">
+                                                        <span class="text">显示</span>
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input value="0" name="cb_status" class="colored-blue" type="radio">
+                                                        <span class="text">隐藏</span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </form>
+
             </div>
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
-	</div>	
+	</div>
 </div>
 
 <!--Basic Scripts-->
