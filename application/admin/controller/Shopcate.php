@@ -126,7 +126,12 @@ class Shopcate extends Controller
         $sonids=$shopcatedel->childrenids($shopcate_id,$shopcate);
         $sonids[] = intval($shopcate_id);//获取一级栏目
 
+        $recitem=db('recpos_item');
         foreach ($sonids as $k => $v) {
+            $recitem->where(array('value_id'=>$v,'value_type'=>2))->delete();
+
+            db('goods')->where(array('gs_shopcateid'=>$v))-> delete();
+
             $shopcatedel=$shopcate->field('shopcate_id,shopcate_img')->where(array('shopcate_id'=>$v)) ->select();
             foreach ($shopcatedel as $k1 => $v1) {
                 $shopcatedelimg=IMG_UPLOADS.$v1['shopcate_img'];

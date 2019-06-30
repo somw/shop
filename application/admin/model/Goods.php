@@ -184,6 +184,8 @@ class Goods extends Model
         Goods::beforeDelete(function ($goods){
             //删除主图及其他图
             $goodsId=$goods->gs_id;
+            // 如果该商品设为了推荐，则删除其他推荐记录
+            db('recpos_item')->where(array('value_id'=>$goodsId,'value_type'=>1))->delete();
             if ($goods->gs_img) {
                 $delgsimg=[];
                 $delgsimg[]=IMG_UPLOADS.$goods->gs_img;
@@ -218,6 +220,7 @@ class Goods extends Model
                     }
                 }
             }
+            
             model('GoodsImg')->where('img_goodsid','=',$goodsId)->delete();
             //dump($goodsimgRes);die;
             //dump($goods);die;

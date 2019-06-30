@@ -42,6 +42,8 @@ class Shopcate extends Model
 
         });
 
+        
+
     }
 
 }
