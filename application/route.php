@@ -13,5 +13,6 @@ use think\Route;
 Route::rule('cate/:cate_id','index/Cate/index','get',['ext'=>'html'],['cate_id'=>'\d{1,3}']);
 Route::rule('article/:ar_id','index/Article/index','get',['ext'=>'html'],['ar_id'=>'\d{1,3}']);
 Route::rule('shopcate/:shopcate_id','index/shopcate/index','get',['ext'=>'html'],['shopcate_id'=>'\d{1,3}']);
+Route::rule('goods/:gs_id','index/goods/index','get',['ext'=>'html'],['gs_id'=>'\d{1,3}']);
 
 Route::rule('index','index/Index/index','get',['ext'=>'html']);

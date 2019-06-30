@@ -4,9 +4,9 @@ class Index extends Base
 {
     public function index()
     {	
+        
     	// 热卖商品
-    	// dump($this->config);die;
-        //$this->hotGoods(); 
+        // 调用首页推荐位
         $recShopcate = model('shopcate')->getRecShopcate(4,0);  //首页推荐 推荐位顶级分类
         // dump($recShopcate);die;
         foreach ($recShopcate as $k => $v) {
@@ -28,9 +28,14 @@ class Index extends Base
 
         }
         // dump($recShopcate);die;
+
+        // 调用首页商品
+        $indexGoodsRes = model('goods')->getRecposGoods(7,20);
+        // dump($indexGoodsRes);die;
         $this->assign([
         	'show'=> 1, //首页导航默认展开，其他页面默认收缩
         	'recShopcate'=>$recShopcate,
+            'indexGoodsRes'=>$indexGoodsRes,
         ]);
         return view();
     }

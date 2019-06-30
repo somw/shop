@@ -238,8 +238,8 @@
 					                    	<?php foreach($v1['bestshopcate'] as $k2 => $v2):?>
 					                    	<li class="opacity_img">
 											    <div class="product">
-											        <div class="p-img"><a href="goods.php?id=801" target="_blank"><img src="__UPLOADS__/{$v2.gs_midimg}" width="140" height="140"></a></div>
-											        <div class="p-name"><a href="goods.php?id=801" title="<?php echo $v2['gs_name']?>"><?php echo $v2['gs_name']?></a></div>
+											        <div class="p-img"><a href="{:url('index/goods/index',array('gs_id'=>$v2['gs_id']))}" target="_blank"><img src="__UPLOADS__/{$v2.gs_midimg}" width="140" height="140"></a></div>
+											        <div class="p-name"><a href="{:url('index/goods/index',array('gs_id'=>$v2['gs_id']))}" title="<?php echo $v2['gs_name']?>"><?php echo $v2['gs_name']?></a></div>
 											        <div class="p-price">
 											            <span class="shop-price"><em>¥</em><?php echo $v2['gs_shopp']?></span>
 											            <span class="original-price"><em>¥</em><?php echo $v2['gs_marktep']?></span>
@@ -274,7 +274,28 @@
 		<?php endforeach;?>
 	</div>
 
-
+	<div class="visual-item w1200" data-mode="guessYouLike" data-purebox="goods" ectype="visualItme" data-diff="0" style="display: block;">
+		<div class="view">
+            <div class="lift-channel clearfix" id="guessYouLike" data-type="range" data-lift="商品">
+                <div data-goodstitle="title"><div class="ftit"><h3>还没逛够</h3></div></div>
+                <ul>
+                	{volist name="indexGoodsRes" id="igres"}
+					<li class="opacity_img">
+					    <a href="{:url('index/goods/index',array('gs_id'=>$igres.gs_id))}" target="_blank">
+					        <div class="p-img"><img src="__UPLOADS__/{$igres.gs_midimg}"></div>
+					        <div class="p-name" title="{$igres.gs_name}">{$igres.gs_name}</div>
+					        <div class="p-price">
+					            <div class="shop-price">
+					            	<em>¥</em>{$igres.gs_marktep}</div>
+					            <div class="original-price">{$igres.gs_shopp}</div>
+					        </div>
+					    </a>
+					</li>
+					{/volist}
+				</ul>
+            <div class="spec" data-spec=""></div></div>
+        </div>
+    </div>
 
 
 

@@ -6,7 +6,7 @@
 -- Database : tpshop
 -- 
 -- Part : #1
--- Date : 2019-06-30 11:43:45
+-- Date : 2019-06-30 15:14:32
 -- -----------------------------
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -299,7 +299,7 @@ CREATE TABLE `tp_goods` (
   KEY `gs_brandid` (`gs_brandid`),
   KEY `gs_shopcateid` (`gs_shopcateid`,`gs_brandid`,`gs_typeid`) USING BTREE,
   KEY `gs_typeid` (`gs_typeid`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=167 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=162 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_goods`
@@ -440,8 +440,8 @@ INSERT INTO `tp_goods` VALUES ('133', '森马夹克 2016冬装新款男士飞行
 INSERT INTO `tp_goods` VALUES ('134', 'HLA/海澜之家撞色长袖T恤春季热卖圆领修身拼接T恤男 简约圆领 微弹修身 撞色拼接 触感柔软', 'ECS000784', '20190511/_P_1490174022605.jpg', '', '20190511/_thumb_P_1490174022801.jpg', '', '233.10', '218.22', '1', '5', '0', '66', '', '0.00', 'g');
 INSERT INTO `tp_goods` VALUES ('135', 'YOHO有货潮牌LAL/数字贴布连帽套头卫衣男女通用 吴亦凡亲着同款 春夏焕新季，3.21日00:0', 'ECS000787', '20190511/_P_1490174307606.jpg', '', '20190511/_thumb_P_1490174307249.jpg', '', '234.10', '219.22', '1', '17', '0', '66', '', '0.00', 'g');
 INSERT INTO `tp_goods` VALUES ('136', '裤子男士哈伦裤春季新款2017束脚裤修身韩版潮流小脚裤男裤休闲裤 弹力', 'ECS000786', '20190511/_P_1490174245373.jpg', '', '20190511/_thumb_P_1490174245021.jpg', '', '235.10', '220.22', '1', '17', '0', '346', '', '0.00', 'g');
-INSERT INTO `tp_goods` VALUES ('137', 'HLA/海澜之家休闲西服2017春季新品平驳领时尚西装男单西外套 平驳领型 胸针装饰 青春休闲 舒适', 'ECS000788', '20190511/_P_1490174348733.jpg', '', '20190511/_thumb_P_1490174348731.jpg', '', '236.10', '221.22', '1', '17', '0', '66', '', '0.00', 'g');
-INSERT INTO `tp_goods` VALUES ('138', '森马针织衫 冬季男圆领套头青年毛衣小清新线衫毛衫纯色韩版学生', 'ECS000789', '20190511/_P_1490174418377.jpg', '', '20190511/_thumb_P_1490174418305.jpg', '', '237.10', '222.22', '1', '17', '0', '66', '', '0.00', 'g');
+INSERT INTO `tp_goods` VALUES ('137', 'HLA/海澜之家休闲西服2017春季新品平驳领时尚西装男单西外套 平驳领型 胸针装饰 青春休闲 舒适', 'ECS000788', '20190511/_P_1490174348733.jpg', '', '20190511/_thumb_P_1490174348731.jpg', '', '236.10', '221.22', '0', '17', '0', '66', '', '0.00', 'g');
+INSERT INTO `tp_goods` VALUES ('138', '森马针织衫 冬季男圆领套头青年毛衣小清新线衫毛衫纯色韩版学生', 'ECS000789', '20190511/_P_1490174418377.jpg', '', '20190511/_thumb_P_1490174418305.jpg', '', '237.10', '222.22', '0', '17', '0', '66', '', '0.00', 'g');
 INSERT INTO `tp_goods` VALUES ('139', 'Apple/苹果 27” Retina 5K显示屏 iMac:3.3GHz处理器2TB存储', 'ECS000622', '20190511/_P_1489098631976.jpg', '', '20190511/_thumb_P_1489098631255.jpg', '', '238.10', '223.22', '1', '3', '0', '47', '', '0.00', 'g');
 INSERT INTO `tp_goods` VALUES ('140', 'Razer雷蛇 雨林狼蛛幻彩版 Ornata Chroma 机械式薄膜游戏键盘', 'ECS000617', '20190511/_P_1489097667511.jpg', '', '20190511/_thumb_P_1489097667603.jpg', '', '239.10', '224.22', '1', '3', '0', '214', '', '0.00', 'g');
 INSERT INTO `tp_goods` VALUES ('141', '火影 金钢 T2 1050Ti游戏本 i7-7700HQ游戏笔记本电脑 手提电脑 32色RGB键盘 ', 'ECS000711', '20190511/0_P_1490159412267.jpg', '', '20190511/0_thumb_P_1490159412072.jpg', '', '240.10', '225.22', '1', '3', '0', '47', '', '0.00', 'g');
@@ -465,10 +465,6 @@ INSERT INTO `tp_goods` VALUES ('158', '美宝莲 顺滑恒久眉笔流畅线条 
 INSERT INTO `tp_goods` VALUES ('159', '美宝莲 好气色潮色双搭轻垫霜提亮肌肤白皙气垫CC霜凸显好气色 提亮肌肤', 'ECS000891', '20190511/0_P_1490224462811.jpg', '', '20190511/0_thumb_P_1490224462894.jpg', '', '258.10', '243.22', '1', '7', '0', '496', '', '0.00', 'g');
 INSERT INTO `tp_goods` VALUES ('160', 'Voyo VBook V3奔腾版13.3英寸超薄固态Win10平板电脑二合一笔记本 送礼包 英特尔奔', 'ECS000717', '20190511/0_P_1490159924611.jpg', '', '20190511/0_thumb_P_1490159924785.jpg', '', '259.10', '244.22', '1', '3', '0', '25', '', '0.00', 'g');
 INSERT INTO `tp_goods` VALUES ('161', '宝莲 透净瞬洁净妆乳 120ml 卸妆乳 卸妆液卸妆无残留专柜正品 安全温和 彻底清洁 水润清爽', 'ECS000892', '20190511/0_P_1490224493316.jpg', '', '20190511/0_thumb_P_1490224493856.jpg', '', '260.10', '245.22', '1', '7', '0', '496', '', '0.00', 'g');
-INSERT INTO `tp_goods` VALUES ('162', '测试1', '156185848979014', '', '', '', '', '11.00', '11.00', '0', '521', '1', '0', '', '11.00', 'kg');
-INSERT INTO `tp_goods` VALUES ('163', '测试1', '156186004769759', '', '', '', '', '33.00', '33.00', '0', '523', '1', '0', '', '33.00', 'kg');
-INSERT INTO `tp_goods` VALUES ('165', '测试1', '156186493093853', '', '', '', '', '33.00', '33.00', '0', '526', '1', '0', '', '32.00', 'kg');
-INSERT INTO `tp_goods` VALUES ('166', '测试1', '156186560916956', '', '', '', '', '0.00', '0.00', '0', '528', '1', '0', '', '0.00', 'kg');
 
 -- -----------------------------
 -- Table structure for `tp_goods_attr`
@@ -683,7 +679,7 @@ CREATE TABLE `tp_recpos` (
   `rec_name` varchar(60) NOT NULL COMMENT '推荐位名称',
   `rec_type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '推荐位类型 1：商品 2：分类',
   PRIMARY KEY (`rec_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_recpos`
@@ -694,6 +690,7 @@ INSERT INTO `tp_recpos` VALUES ('3', '最新商品', '1');
 INSERT INTO `tp_recpos` VALUES ('4', '首页推荐', '2');
 INSERT INTO `tp_recpos` VALUES ('5', '商品分类', '2');
 INSERT INTO `tp_recpos` VALUES ('6', '精品推荐', '1');
+INSERT INTO `tp_recpos` VALUES ('7', '首页商品', '1');
 
 -- -----------------------------
 -- Table structure for `tp_recpos_item`
@@ -779,8 +776,8 @@ INSERT INTO `tp_recpos_item` VALUES ('3', '132', '1');
 INSERT INTO `tp_recpos_item` VALUES ('3', '133', '1');
 INSERT INTO `tp_recpos_item` VALUES ('3', '135', '1');
 INSERT INTO `tp_recpos_item` VALUES ('3', '136', '1');
-INSERT INTO `tp_recpos_item` VALUES ('3', '137', '1');
-INSERT INTO `tp_recpos_item` VALUES ('3', '138', '1');
+INSERT INTO `tp_recpos_item` VALUES ('6', '137', '1');
+INSERT INTO `tp_recpos_item` VALUES ('6', '138', '1');
 INSERT INTO `tp_recpos_item` VALUES ('6', '9', '1');
 INSERT INTO `tp_recpos_item` VALUES ('6', '12', '1');
 INSERT INTO `tp_recpos_item` VALUES ('6', '13', '1');
@@ -832,16 +829,10 @@ INSERT INTO `tp_recpos_item` VALUES ('6', '132', '1');
 INSERT INTO `tp_recpos_item` VALUES ('6', '133', '1');
 INSERT INTO `tp_recpos_item` VALUES ('6', '135', '1');
 INSERT INTO `tp_recpos_item` VALUES ('6', '136', '1');
-INSERT INTO `tp_recpos_item` VALUES ('6', '137', '1');
-INSERT INTO `tp_recpos_item` VALUES ('6', '138', '1');
-INSERT INTO `tp_recpos_item` VALUES ('1', '165', '1');
-INSERT INTO `tp_recpos_item` VALUES ('3', '165', '1');
-INSERT INTO `tp_recpos_item` VALUES ('6', '165', '1');
-INSERT INTO `tp_recpos_item` VALUES ('4', '528', '2');
-INSERT INTO `tp_recpos_item` VALUES ('4', '527', '2');
-INSERT INTO `tp_recpos_item` VALUES ('1', '166', '1');
-INSERT INTO `tp_recpos_item` VALUES ('3', '166', '1');
-INSERT INTO `tp_recpos_item` VALUES ('6', '166', '1');
+INSERT INTO `tp_recpos_item` VALUES ('3', '137', '1');
+INSERT INTO `tp_recpos_item` VALUES ('3', '138', '1');
+INSERT INTO `tp_recpos_item` VALUES ('7', '138', '1');
+INSERT INTO `tp_recpos_item` VALUES ('7', '137', '1');
 
 -- -----------------------------
 -- Table structure for `tp_shopcate`
@@ -857,7 +848,7 @@ CREATE TABLE `tp_shopcate` (
   `shopcate_sort` smallint(6) NOT NULL DEFAULT '50' COMMENT '排序',
   `shopcate_pid` smallint(6) NOT NULL DEFAULT '0' COMMENT '上级栏目id',
   PRIMARY KEY (`shopcate_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=529 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=520 DEFAULT CHARSET=utf8;
 
 -- -----------------------------
 -- Records of `tp_shopcate`
@@ -1380,8 +1371,6 @@ INSERT INTO `tp_shopcate` VALUES ('516', '家庭清洁', '', '', '', '1', '50', 
 INSERT INTO `tp_shopcate` VALUES ('517', '一次性用品', '', '', '', '1', '50', '86');
 INSERT INTO `tp_shopcate` VALUES ('518', '驱蚊用品', '', '', '', '1', '50', '86');
 INSERT INTO `tp_shopcate` VALUES ('519', '皮具护理', '', '', '', '1', '50', '86');
-INSERT INTO `tp_shopcate` VALUES ('528', '测试1', '', '', '', '1', '50', '527');
-INSERT INTO `tp_shopcate` VALUES ('527', '测试', '', '', '', '1', '50', '0');
 
 -- -----------------------------
 -- Table structure for `tp_shopcate_ad`

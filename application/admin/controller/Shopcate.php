@@ -121,7 +121,6 @@ class Shopcate extends Controller
     public function del($shopcate_id)
     {
         $shopcate=db('shopcate');
-
         $shopcatedel=new shopcatetree();
         $sonids=$shopcatedel->childrenids($shopcate_id,$shopcate);
         $sonids[] = intval($shopcate_id);//获取一级栏目
@@ -129,8 +128,12 @@ class Shopcate extends Controller
         $recitem=db('recpos_item');
         foreach ($sonids as $k => $v) {
             $recitem->where(array('value_id'=>$v,'value_type'=>2))->delete();
-
+            $goodsid = db('goods')->where('gs_shopcateid','=',$v)->select();
+            foreach ($goodsid as $k1 => $v1) {
+                $recitem->where(array('value_id'=>$v1['gs_id'],'value_type'=>1))->delete();
+            }
             db('goods')->where(array('gs_shopcateid'=>$v))-> delete();
+
 
             $shopcatedel=$shopcate->field('shopcate_id,shopcate_img')->where(array('shopcate_id'=>$v)) ->select();
             foreach ($shopcatedel as $k1 => $v1) {

@@ -1,6 +1,7 @@
 <?php
 namespace app\admin\model;
 use think\Model;
+use shopcatetree\Shopcatetree;
 
 class Shopcate extends Model
 {
@@ -41,9 +42,6 @@ class Shopcate extends Model
             }
 
         });
-
-        
-
     }
 
 }

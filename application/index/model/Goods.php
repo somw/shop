@@ -12,7 +12,7 @@ class Goods extends Model
             $hotIds[]=$v['value_id'];
         }
         $map['gs_id']=array('IN',$hotIds); 
-        $recRes=$this->field('gs_id,gs_name,gs_img')->where($map)->limit($limit)->select();
+        $recRes=$this->field('gs_id,gs_name,gs_img,gs_midimg,gs_marktep,gs_shopp')->where($map)->limit($limit)->select();
         // dump($hotGoodsRes);die;  
         return $recRes;
         
