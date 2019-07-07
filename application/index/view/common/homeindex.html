@@ -110,7 +110,7 @@
     })
 
     function GongCu(){
-        console.log(22222);
+        // console.log(22222);
         $.ajax({
             url:'{:url("index/getindexgh")}',
             data:{
@@ -120,7 +120,7 @@
             dataType:'json',
             type:'POST',
             success:function(data){
-                console.log(data);
+                // console.log(data);
                 $('.viptitle').children('.tit').empty();
                 $('.viptitle').children('.con').empty();
                 var list = data;
@@ -128,21 +128,20 @@
                     var div='';
                     div += '<a href="javascript:void(0);" class="tab_head_item">'+ list[i][0].cate_name +'</a>';
                     $('.viptitle').children('.tit').append(div);
-                    for(j=0; j<list.length; j++) {
-                        var ul = '';
-                        if (j=0) {
-                            ul += '<ul>';
-                        }else{
-                            ul += '<ul style="display:none;">';
-                        };
-                        console.log(list[j]);
-                        for(z=0; z<list[j].length; z++) {
 
-                        ul += '<li>';
-                        }
-                        
+                    var listChild = list[i], ul = '';
+                    if ( i==0 ){
+                        ul += '<ul>';
+                    } else {
+                        ul += '<ul style="display:none;">';
                     }
-                }
+                    // console.log(listChild);
+                    for ( j=0; j<listChild.length; j++ ){
+                        ul += '<li><a href="/article/' + listChild[j].ar_id + '.html" target="_blank">' + listChild[j].ar_title + '</a></li>';
+                    }
+                    ul += '</ul>';
+                    $('.viptitle').children('.con').append(ul);
+                };
             },
             error:function(){
                 alert('加载失败！');

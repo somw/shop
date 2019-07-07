@@ -4,13 +4,6 @@ class Index extends Base
 {
     public function index()
     {	
-        // // 公告和促销
-        // $gongh = model('article')->getartGC(19);
-        // $cuxiao = model('article')->getartGC(20);
-        // $cuxiao1 = model('article')->getartGC(24);
-        // // dump($cuxiao1);die;
-        // // 
-        
 
         // 获取首页大模块顶级分类数据开始
         $recShopcate = model('shopcate')->getRecShopcate(4,0);  //首页推荐 推荐位顶级分类
@@ -50,6 +43,7 @@ class Index extends Base
         return view();
     }
 
+    // 公告和促销
     public function getindexgh($cateid,$limit){
         $indexgc = array();
         foreach ($cateid as $k => $v) {

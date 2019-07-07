@@ -543,13 +543,24 @@ $(function(){
 	});
 	
 	//首页品牌 换一批切换
+
 	doc.on('click',"*[ectype='changeBrand']",function(){
-		var temp = '';
-		if($("input[name='temp']").length > 0){
-			temp = $("input[name='temp']").val();
-		}
-		
-		Ajax.call("get_ajax_content.php","act=ajax_change_brands&temp="+temp,changeBrandResponse,'GET','JSON');
+		page++;
+		$.ajax({
+			dataType:'json',
+			type:'POST',
+			url:url,
+			data:{page:page},
+			success:function(data){
+				var totalpage = data.totalpage;
+				if (totalpage<=page) {
+					page = 1;
+				}
+				$('#recommend_brands').children('ul').empty();
+				$('#recommend_brands').children('ul').html(data.brand);
+
+			},
+		})
 	});	
 	
 	function changeBrandResponse(result){
