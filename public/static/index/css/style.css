@@ -59,8 +59,8 @@ Date:2017-02-06 11:22:00
 .login-info .login-button:hover{ background-color:#f42424; color:#fff;}*/
 .vip-item{ width:100%; height:auto; position:relative;}
 .vip-item .tit{ background-color:#eee; height:24px; line-height:24px; font-weight:bold; color:#555; padding-left:18px;}
-.vip-item .tit .tab_head_item{ display:block; float:left; height:14px; line-height:14px; margin:5px 0; position:relative;}
-.vip-item .tit .tab_head_item:first-child{ padding-right:10px; border-right:1px solid #ccc; margin-right:12px;}
+.vip-item .tit .tab_head_item{ display:block; float:left; height:14px; line-height:14px; margin:5px 0; position:relative;padding-right:10px; border-right:1px solid #ccc; margin-right:12px;}
+.vip-item .tit .tab_head_item:last-child{  border-right:0; }
 .vip-item .tit .tab_head_item .news_tab_active{ width:26px; height:1px; background-color:#f42424; display:block; position:absolute; top:18px; left:-1px; display:none;}
 .vip-item .tit .tab_head_item.on .news_tab_active{ display:block;}
 .vip-item .tit .tab_head_item.on{ color:#f42424;}
@@ -2420,7 +2420,7 @@ a.browse:hover,a.comment:hover{ color:#f42424;}
 .coagent .coagent-warp{ height:36px; margin-top:20px; text-align:center; font-size:0;}
 .coagent .coagent-warp a{ display:inline-block; width:36px; height:36px; margin-right:20px;}
 .coagent .coagent-warp a:last-child{ margin-right:0;}
-.third-party-icon{ display:block; width:36px; height:36px; background:url(../images/login-icon.png) no-repeat;}
+.third-party-icon{ display:block; width:36px; height:36px; background:url(../img/login-icon.png) no-repeat;}
 .qq-icon{ background-position:0 0;}
 .weixin-icon{ background-position:0 -37px;}
 .weibo-icon{ background-position:0 -74px;}

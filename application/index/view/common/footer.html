@@ -73,21 +73,3 @@
     <input name="seller_kf_tel" value="4000-000-000" type="hidden">
     <input name="user_id" value="62" type="hidden">
 </div>
-
-<!-- <script>
-	var shownav = $('.shownav').length;
-	console.log(shownav);
-	if(shownav > 1){console.log(111); $('.shownav').css('display','none!important');console.log(2222);}
-
-</script> -->
-
-<script>
-	$(function(){
-		$('.viptitle').children('.con').before('<div class="tit"><a href="javascript:void(0);" class="tab_head_item">公告</a><a href="javascript:void(0);" class="tab_head_item">促销</a></div>');
-		$('.viptitle>.tit').on('mouseover','a',function(){
-				var aa = $('.viptitle>.tit>a').index(this);
-				$('.viptitle>.con>ul').eq(aa).css('display','block');
-				$('.viptitle>.con>ul').eq(aa).siblings().css('display','none');
-		});
-	})
-</script>

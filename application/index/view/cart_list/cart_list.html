@@ -8,7 +8,34 @@
 	</div>
 <div class="header header-cart">
     <div class="w w1200">
-		{include file="common/header"}
+		
+        <div class="logo">
+            <div class="logoImg"><a href="#"><img src="__INDEX__/img/logo.png"></a></div>
+            <div class="logoAdv"><a href="#"><img src="__INDEX__/img/ecsc-join.gif"></a></div>
+        </div>
+
+        <div class="dsc-search">
+            <div class="form">
+                <form id="searchForm" name="searchForm" method="get" action="search.php" onsubmit="return checkSearchForm()" class="search-form">
+                    <input autocomplete="off" onkeyup="lookup(this.value);" name="keywords" id="keyword" value="{$configs.search_value}" class="search-text" type="text">
+                    <input name="store_search_cmt" value="0" type="hidden">
+                    <button type="submit" class="button button-goods" onclick="checkstore_search_cmt(0)">搜商品</button>
+
+                    <!-- cart_list -->
+                    <button type="submit" class="button button-icon"><i>搜商店</i></button>
+
+                </form>
+
+                <div class="suggestions_box" id="suggestions" style="display:none;">
+                    <div class="suggestions_list" id="auto_suggestions_list">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
     </div>
 
 </div>

@@ -4,9 +4,15 @@ class Index extends Base
 {
     public function index()
     {	
+        // // 公告和促销
+        // $gongh = model('article')->getartGC(19);
+        // $cuxiao = model('article')->getartGC(20);
+        // $cuxiao1 = model('article')->getartGC(24);
+        // // dump($cuxiao1);die;
+        // // 
         
-    	// 热卖商品
-        // 调用首页推荐位
+
+        // 获取首页大模块顶级分类数据开始
         $recShopcate = model('shopcate')->getRecShopcate(4,0);  //首页推荐 推荐位顶级分类
         // dump($recShopcate);die;
         foreach ($recShopcate as $k => $v) {
@@ -27,18 +33,30 @@ class Index extends Base
             $recShopcate[$k]['ad'] = model('shopcate_ad')->getshopcateAd($v['shopcate_id']);
 
         }
-        // dump($recShopcate);die;
+        // 获取首页大模块数据结束
 
         // 调用首页商品
         $indexGoodsRes = model('goods')->getRecposGoods(7,20);
         // dump($indexGoodsRes);die;
+
         $this->assign([
         	'show'=> 1, //首页导航默认展开，其他页面默认收缩
         	'recShopcate'=>$recShopcate,
             'indexGoodsRes'=>$indexGoodsRes,
+            // 'gongh'=>$gongh,
+            // 'cuxiao'=>$cuxiao,
+            // 'cuxiao1'=>$cuxiao1,
         ]);
         return view();
     }
 
+    public function getindexgh($cateid,$limit){
+        $indexgc = array();
+        foreach ($cateid as $k => $v) {
+            $indexgc[]=model('article')->getartGC($v,$limit);
+        }
+        // dump($indexgc);die;
+        return $indexgc;
+    }
     
 }

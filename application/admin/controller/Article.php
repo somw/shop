@@ -17,6 +17,7 @@ class Article extends Controller
     {
         $cate = new catetree();
     	if (request()->isPost()) {
+            $data=input('post.');
             $data['ar_addtime']=time();
             if ($data['ar_url'] && stripos($data['ar_url'],'http://') === false) {
                 $data['ar_url'] = 'http://'.$data['ar_url'];

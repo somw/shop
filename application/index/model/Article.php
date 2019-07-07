@@ -21,5 +21,11 @@ class Article extends Model
         return $getConf;
     }
 
+    public function getartGC($cateid,$limit){
+        $arts = $this->alias('a')->field('a.*,c.cate_name')->join('cate c','a.ar_cateid=c.cate_id','LEFT')->where('ar_cateid','=',$cateid)->limit($limit)->order('ar_id decs')->select();
+
+        // dump($arts);die;
+        return $arts;
+    }
 
 }
