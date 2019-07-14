@@ -554,7 +554,7 @@ $(function(){
 			success:function(data){
 				var totalpage = data.totalpage;
 				if (totalpage<=page) {
-					page = 1;
+					page = 0;
 				}
 				$('#recommend_brands').children('ul').empty();
 				$('#recommend_brands').children('ul').html(data.brand);

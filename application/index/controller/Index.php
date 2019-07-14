@@ -31,11 +31,13 @@ class Index extends Base
         // 调用首页商品
         $indexGoodsRes = model('goods')->getRecposGoods(7,20);
         // dump($indexGoodsRes);die;
+        $alternateimg = model('alternate_img')->getalternateimg();
 
         $this->assign([
         	'show'=> 1, //首页导航默认展开，其他页面默认收缩
         	'recShopcate'=>$recShopcate,
             'indexGoodsRes'=>$indexGoodsRes,
+            'alternateimg'=>$alternateimg,
             // 'gongh'=>$gongh,
             // 'cuxiao'=>$cuxiao,
             // 'cuxiao1'=>$cuxiao1,

@@ -1,0 +1,102 @@
+{include file="/common/_meta"}
+</head>
+<body>
+{include file="/common/top"}
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+       {include file="/common/list"}
+        <!-- Page Content -->
+        <div class="page-content">
+
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                   <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="{:url('alternate_img/lst')}">轮播图管理</a>
+                    </li>
+                    <li class="active">添加品牌</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                <form action="" method="post">
+                <button type="button" tooltip="添加轮播图" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('alternate_img/add')}'"> <i class="fa fa-plus"></i> Add
+                </button>
+                <button type="submit" tooltip="更新排序" class="btn btn-sm btn-azure btn-addon" >更新排序 </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                            <tr>
+                                                <th class="text-center">排序</th>
+                                                <th class="text-center">ID</th>
+                                                <th class="text-center">标题</th>
+                                                <th class="text-center">链接地址</th>
+                                                <th class="text-center">轮播图图片</th>
+                                                <th class="text-center">状态</th>
+                                                <th class="text-center">操作</th>
+                                            </tr>
+                                        </thead>
+                                        {volist name="aimglist" id="aimg"}
+                                        <tbody>
+                                            <tr>
+                                                <td width="4%" align="center"><input type="text" style="width: 30px; text-align: center;" name="aimg_sort[{$aimg.aimg_id}]" value="{$aimg.aimg_sort}"></td>
+                                                <td align="center">{$aimg.aimg_id}</td>
+                                                <td>{$aimg.aimg_title}</td>
+                                                <td align="center">{$aimg.aimg_link}</td>
+                                                <td align="center">
+                                                {if condition="$aimg['aimg_img'] neq ''"}
+                                                    <img height="30" src="__UPLOADS__/{$aimg.aimg_img}">
+                                                 {else /}
+                                                    暂无图片
+                                                {/if}
+                                                </td>
+                                                
+                                                <td align="center">
+                                                {if condition="$aimg['aimg_status'] eq 1"}
+                                                    显示
+                                                {else /}
+                                                    隐藏
+                                                {/if}
+                                               
+
+                                                </td>
+                                                <td align="center">
+                                                    <a href="{:url('edit',array('aimg_id'=>$aimg['aimg_id']))}" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <a href="#" onClick="warning('确实要删除吗', '{:url('del',array('aimg_id'=>$aimg['aimg_id']))}')" class="btn btn-danger btn-sm shiny">
+                                                        <i class="fa fa-trash-o"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        {/volist}
+                                    </table>
+                                </div>
+                                <div>{$aimglist->render()}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+	</div>	
+</div>
+
+{include file="common/_footer"}
+</body>
+</html>

@@ -3,21 +3,15 @@
         <div class="banner home-banner">
             <div class="bd">
                 <ul data-type="range" data-slide="fold" style="position: relative; width: 1903px; height: 500px;">
-                    <li style="background-image: url(&quot;https://demo.dscmall.cn/data/gallery_album/1/original_img/1536773209297708549.jpg&quot;); background-position: center center; background-repeat: no-repeat; position: absolute; width: 1903px; left: 0px; top: 0px; display: none;">
+                    {volist name="alternateimg" id="alimg"}
+                    <li style="background-image: url(&quot;__UPLOADS__/{$alimg.aimg_img}&quot;); background-position: center center; background-repeat: no-repeat; position: absolute; width: 1903px; left: 0px; top: 0px; display: none;">
                         <div class="banner-width">
                             <a href="" target="_blank" style="height:500px;"></a>
                         </div>
                     </li>
-                    <li style="background-image: url(&quot;https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984992503176615.jpg&quot;); background-position: center center; background-repeat: no-repeat; position: absolute; width: 1903px; left: 0px; top: 0px; display: none;">
-                        <div class="banner-width">
-                            <a href="" target="_blank" style="height:500px;"></a>
-                        </div>
-                    </li>
-                    <li style="background-image: url(&quot;https://demo.dscmall.cn/data/gallery_album/2/original_img/1494984991783527346.jpg&quot;); background-position: center center; background-repeat: no-repeat; position: absolute; width: 1903px; left: 0px; top: 0px;">
-                        <div class="banner-width">
-                            <a href="" target="_blank" style="height:500px;"></a>
-                        </div>
-                    </li>
+                    {/volist}
+                    
+                   
                 </ul>
                 <div class="spec" data-spec=""></div>
             </div>
