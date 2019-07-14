@@ -6,7 +6,17 @@ class Index extends Base
     {	
 
         // 获取首页大模块顶级分类数据开始
-        $recShopcate = model('shopcate')->getRecShopcate(4,0);  //首页推荐 推荐位顶级分类
+        if (cache('recShopcate')) {
+            $recShopcate=cache('recShopcate');
+
+        }else{
+            $recShopcate = model('shopcate')->getRecShopcate(4,0);  //首页推荐 推荐位顶级分类
+
+            if ($this->config['cache']=='是') {
+                cache('recShopcate',$recShopcate);
+            }
+        }
+        
         // dump($recShopcate);die;
         foreach ($recShopcate as $k => $v) {
         	// 获取当前顶级分类下被设为 首页推荐 的二级分类

@@ -7,6 +7,7 @@ class Shopcate extends Model
     //顶级分类和二级分类获取
     public function getShopcates(){
         $shopCates=$this->where(array('shopcate_pid'=>0))->select();
+    
        
         foreach ($shopCates as $k => $v) {
         	$shopCates[$k]['children']=$this->where(array('shopcate_pid'=>$v['shopcate_id']))->select();
