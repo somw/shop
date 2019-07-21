@@ -87,7 +87,7 @@ class Article extends Controller
             return;
         }
 
-        $arid=input('ar_id');dump($arid);die;
+        $arid=input('ar_id');
         $aredit=db('article')->find($arid);
         $this->assign('aredit',$aredit);
 			
