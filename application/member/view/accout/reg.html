@@ -1,0 +1,184 @@
+{include file="common/_meta"}
+</head>
+
+<body class="bg-ligtGary">
+	<div class="register">
+        {include file="common/header"}
+        <div class="container">
+            <div class="w w1200">
+                <div class="register-wrap">
+                	<div class="register-adv">
+					<a href="#" target="_blank"><img width="400" height="324" src="__INDEX__/img/1488939821671881226.jpg" /></a>
+					</div>
+                    <div class="register-form">
+                    	<div class="form form-other">
+                            <form action="user.php" method="post" name="formUser" onsubmit="return mobileRegister();">
+                            	<div class="item">
+                                	<div class="item-label">用　户　名</div>
+                                	<div class="item-info">
+                                    	<input type="text" name="username" id="username" onblur="is_registered(this.value, 1);" class="text" value="" autocomplete="off" />
+                                    </div>
+                                    <div class="input-tip"><span id="username_notice_1"></span></div>
+                                </div>
+                                <div class="item">
+                                	<div class="item-label">设 置 密 码</div>
+                                	<div class="item-info">
+                                        <input type="password" style="display:none"/>
+                                    	<input type="password" name="password" id="pwd" class="text" value="" autocomplete="off" />
+                                    </div>
+                                    <div class="input-tip"><span id="phone_password"></span></div>
+                                </div>
+                                <div class="item">
+                                	<div class="item-label">确 认 密 码</div>
+                                	<div class="item-info">
+                                        <input type="password" style="display:none"/>
+                                    	<input type="password" name="confirm_password" id="pwdRepeat" class="text" value="" autocomplete="off" />
+                                    </div>
+                                    <div class="input-tip"><span id="phone_confirm_password"></span></div>
+                                </div>
+                                <div class="item" id="phone_yz">
+                                	<div class="item-label">手 机 号 码</div>
+                                	<div class="item-info">
+                                    	<input type="text" name="mobile_phone" id="mobile_phone" onblur="checkPhone(this.value);" class="text" value="" autocomplete="off" />
+                                        <a href="#" class="email_open ftx-05">或邮箱验证</a>
+                                    </div>
+                                    <div class="input-tip"><span id="phone_notice"></span></div>
+                                </div>
+                                <div class="item" id="email_yz" style="display:none;">
+                                	<div class="item-label">邮 箱 验 证</div>
+                                	<div class="item-info">
+                                    	<input type="text" name="email" id="regName" onblur="checkEmail(this.value);" class="text" value="" autocomplete="off" />
+                                        <a href="#" class="email_off ftx-05">或手机验证</a>
+                                    </div>
+                                    <div class="input-tip"><span id="email_notice"></span></div>
+                                </div>
+                                <div class="item item2">
+                                	<div class="item-checkbox">
+                                        <input type="checkbox" id="clause2" class="ui-solid-checkbox" checked="checked" value="1" name="mobileagreement">
+                                        <label class="ui-solid-label" for="clause2">我已阅读并同意<a href="#" class="ftx-05" target="_blank">《用户注册协议》</a></label>
+                                    </div>
+                                	<div class="input-tip"><span id="mobileagreement"></span></div>
+                                </div>
+                                <div class="item item2 item-button">
+									<input type="hidden" name="flag" id="flag" value='register' />
+									<input name="register_type" type="hidden" value="1" />
+									<input type="hidden" name="seccode" id="seccode" value="" />
+									<input name="act" type="hidden" value="act_register" >
+									<input name="register_mode" type="hidden" value="1" >
+									<input id="phone_code_callback" type="hidden" value="0" >
+									<input id="phone_captcha_verification" type="hidden" value="" />
+									<input id="phone_verification" type="hidden" value="0" />
+									<input id="email_verification" type="hidden" value="0" />
+									<input id="enabled_captcha" type="hidden" value="" />
+									<input type="submit" id="registsubmit" name="Submit" maxlength="8" class="btn sc-redBg-btn" value="立即注册"/>
+                                </div>
+                            </form>
+                    	</div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+
+
+<script type="text/javascript">
+    $("input[name='sel_question']").val('');
+    $("#seccode").val();
+</script>
+
+
+{include file="common/footer"}
+
+{include file="common/_footer"}
+
+<script type="text/javascript">
+
+
+$(function(){
+	if(document.getElementById("seccode")){
+		$("#seccode").val(0);
+	}
+	
+	$("form[name='formUser'] :input[name='register_type']").val(1);
+	
+	//验证码切换
+	$(".changeNextone").click(function(){
+		$("#captcha_img").attr('src', 'captcha.php?'+Math.random());
+	});
+	$(".changeNexttwo").click(function(){
+		$("#authcode_img").attr('src', 'captcha.php?'+Math.random());
+	});
+	
+	var is_passwd_questions = $("form[name='getPassword'] :input[name='is_passwd_questions']").val();
+	
+	if(typeof(is_passwd_questions) == 'undefined'){
+		$("#form_getPassword1").hide();
+		$("#form_getPassword2").hide();
+		$("#form_getPassword1").siblings().css({'width':'50%'});
+	}
+	
+	/*$(".email_open").click(function(){
+		$("#email_yz").show();
+		$(this).parent().hide();
+		$("#email_yz").find(".tx_rm").show();
+	});
+	
+	$(".email_off").click(function(){
+		$("#email_yz").hide();
+		$(this).parent().hide();
+		$("#phone_yz").find(".tx_rm").show();
+	});*/
+	
+	$(".email_open").click(function(){
+	
+		var email = $("#regName").val();
+		
+		if(email){
+			checkEmail(email);
+		}else{
+			$("#phone_notice").html('');
+			$("#code_notice").html('');
+			$("#phone_verification").val(0);
+		}
+		
+		$("#mobile_phone").val("");
+		$("#email_yz").show();
+		$("#email_yz").find(".tx_rm").show();
+		
+		$("#phone_yz").hide();
+		$("#code_mobile").hide();
+		
+		$("form[name='formUser'] :input[name='register_type']").val(0);
+		$("#registsubmit").attr("disabled", false);
+	});
+	
+	$(".email_off").click(function(){
+		
+		var mobile_phone = $("#mobile_phone").val();
+		
+		if(mobile_phone){
+			checkPhone(mobile_phone);
+		}else{
+			$("#email_notice").html('');
+			$("#email_verification").val(0);
+		}
+		
+		$("#regName").val("");
+		$("#email_yz").hide();
+		$("#phone_yz").find(".tx_rm").show();
+		
+		$("#phone_yz").show();
+		$("#code_mobile").show();
+		
+		$("form[name='formUser'] :input[name='register_type']").val(1);
+		$("#registsubmit").attr("disabled", false);
+	});
+	
+	
+	$.divselect("#divselect","#passwd_quesetion");
+	$.divselect("#divselect2","#passwd_quesetion2");
+});
+</script>
+</body>
+</html>
+
