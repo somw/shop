@@ -3,7 +3,22 @@
 
 <body class="bg-ligtGary">
 	<div class="register">
-        {include file="common/header"}
+
+        <div class="loginRegister-header">
+	        <div class="w w1200">
+	            <div class="logo">
+	                <div class="logoImg"><a href="/" class="logo"><img src="__INDEX__/img/user_login_logo.png"></a></div>
+	                <div class="logo-span">
+	                    <b style="background:url(__INDEX__/img/login_logo_pic.png) no-repeat;"></b>
+	                </div>
+	            </div>
+	            <div class="header-href">
+	                <span>已注册可<a href="{:url('member/accout/login')}" class="jump">在此登录</a></span>
+	            </div>
+	        </div>
+	    </div>
+
+
         <div class="container">
             <div class="w w1200">
                 <div class="register-wrap">
@@ -12,11 +27,11 @@
 					</div>
                     <div class="register-form">
                     	<div class="form form-other">
-                            <form action="user.php" method="post" name="formUser" onsubmit="return mobileRegister();">
+                            <form action="" method="post" name="formUser" onsubmit="return mobileRegister();">
                             	<div class="item">
                                 	<div class="item-label">用　户　名</div>
                                 	<div class="item-info">
-                                    	<input type="text" name="username" id="username" onblur="is_registered(this.value, 1);" class="text" value="" autocomplete="off" />
+                                    	<input type="text" name="user_name" id="username" onblur="is_registered(this.value, 1);" class="text" value="" autocomplete="off" />
                                     </div>
                                     <div class="input-tip"><span id="username_notice_1"></span></div>
                                 </div>
@@ -24,7 +39,7 @@
                                 	<div class="item-label">设 置 密 码</div>
                                 	<div class="item-info">
                                         <input type="password" style="display:none"/>
-                                    	<input type="password" name="password" id="pwd" class="text" value="" autocomplete="off" />
+                                    	<input type="password" name="user_password" id="pwd" class="text" value="" autocomplete="off" />
                                     </div>
                                     <div class="input-tip"><span id="phone_password"></span></div>
                                 </div>
@@ -32,26 +47,47 @@
                                 	<div class="item-label">确 认 密 码</div>
                                 	<div class="item-info">
                                         <input type="password" style="display:none"/>
-                                    	<input type="password" name="confirm_password" id="pwdRepeat" class="text" value="" autocomplete="off" />
+                                    	<input type="password" name="" id="pwdRepeat" class="text" value="" autocomplete="off" />
                                     </div>
                                     <div class="input-tip"><span id="phone_confirm_password"></span></div>
                                 </div>
+
                                 <div class="item" id="phone_yz">
                                 	<div class="item-label">手 机 号 码</div>
                                 	<div class="item-info">
-                                    	<input type="text" name="mobile_phone" id="mobile_phone" onblur="checkPhone(this.value);" class="text" value="" autocomplete="off" />
-                                        <a href="#" class="email_open ftx-05">或邮箱验证</a>
+                                    	<input type="text" name="user_phone" id="mobile_phone" onblur="checkPhone(this.value);" class="text" value="" autocomplete="off" />
+                                        <a href="javascript:void(0);" class="meswitch"  ectype="meSwitch" data-type="phone" >或邮箱验证</a>
                                     </div>
                                     <div class="input-tip"><span id="phone_notice"></span></div>
                                 </div>
+
                                 <div class="item" id="email_yz" style="display:none;">
                                 	<div class="item-label">邮 箱 验 证</div>
                                 	<div class="item-info">
-                                    	<input type="text" name="email" id="regName" onblur="checkEmail(this.value);" class="text" value="" autocomplete="off" />
-                                        <a href="#" class="email_off ftx-05">或手机验证</a>
+                                    	<input type="text" name="user_email" id="regName" onblur="checkEmail(this.value);" class="text" value="" autocomplete="off" />
+                                        <a href="javascript:void(0);" class="meswitch" ectype="meSwitch" data-type="email" >或手机验证</a>
                                     </div>
                                     <div class="input-tip"><span id="email_notice"></span></div>
                                 </div>
+
+                                <div class="item" id="code_email" style="display:none;">
+	                                <div class="item-label">邮箱验证码</div>
+	                                <div class="item-info">
+	                                    <input type="text" name="" id="send_code" class="text text-2" value="" autocomplete="off">
+	                                    <a href="javascript:sendChangeEmail(1);" id="zemail" class="sms-btn">获取验证码</a>
+	                                </div>
+	                                <div class="input-tip"></div>
+	                            </div>
+
+	                            <div class="item" id="code_mobile">
+	                                <div class="item-label">手机验证码</div>
+	                                <div class="item-info">
+	                                    <input type="text" name="" id="send_code" class="text text-2" value="" autocomplete="off">
+	                                    <a href="javascript:sendChangeEmail(1);" id="zemail" class="sms-btn">获取验证码</a>
+	                                </div>
+	                                <div class="input-tip"></div>
+	                            </div>
+
                                 <div class="item item2">
                                 	<div class="item-checkbox">
                                         <input type="checkbox" id="clause2" class="ui-solid-checkbox" checked="checked" value="1" name="mobileagreement">
@@ -84,90 +120,42 @@
 <script type="text/javascript">
 
 
+
 $(function(){
 	if(document.getElementById("seccode")){
 		$("#seccode").val(0);
 	}
 	
-	$("form[name='formUser'] :input[name='register_type']").val(1);
-	
-	//验证码切换
-	$(".changeNextone").click(function(){
-		$("#captcha_img").attr('src', 'captcha.php?'+Math.random());
-	});
-	$(".changeNexttwo").click(function(){
-		$("#authcode_img").attr('src', 'captcha.php?'+Math.random());
-	});
-	
-	var is_passwd_questions = $("form[name='getPassword'] :input[name='is_passwd_questions']").val();
-	
-	if(typeof(is_passwd_questions) == 'undefined'){
-		$("#form_getPassword1").hide();
-		$("#form_getPassword2").hide();
-		$("#form_getPassword1").siblings().css({'width':'50%'});
-	}
-	
-	/*$(".email_open").click(function(){
-		$("#email_yz").show();
-		$(this).parent().hide();
-		$("#email_yz").find(".tx_rm").show();
-	});
-	
-	$(".email_off").click(function(){
-		$("#email_yz").hide();
-		$(this).parent().hide();
-		$("#phone_yz").find(".tx_rm").show();
-	});*/
-	
-	$(".email_open").click(function(){
-	
-		var email = $("#regName").val();
 		
-		if(email){
-			checkEmail(email);
+		//邮箱验证和手机验证切换
+	$("*[ectype='meSwitch']").on("click",function(){
+		console.log(1111);
+		var type = $(this).data("type");
+		
+		if(type == "phone"){
+			$("#email_yz,#code_email").show(); //邮箱验证 邮箱号和邮箱验证码显示
+			$("#phone_yz,#code_mobile").hide(); //邮箱验证 手机号码和短信隐藏
+			
+			$("input[name='register_type']").val(0); //邮箱验证标识
+			$("input[name='mobile_phone']").val(""); //手机号码清空
+			$("input[name='mobile_phone'],input[name='mobile_code']").addClass("ignore"); //邮箱验证 邮箱和邮箱验证码添加验证标识
+			$("input[name='email'],input[name='send_code']").removeClass("ignore"); //邮箱验证 手机号码和短信去除验证标识
 		}else{
-			$("#phone_notice").html('');
-			$("#code_notice").html('');
-			$("#phone_verification").val(0);
+			$("#email_yz,#code_email").hide(); //手机验证 邮箱号和邮箱验证码隐藏
+			$("#phone_yz,#code_mobile").show(); //手机验证 手机号码和短信显示
+			
+			$("input[name='register_type']").val(1); //手机注册标识
+			$("input[name='mobile_phone'],input[name='mobile_code']").removeClass("ignore"); //手机验证 手机号码和短信验证标识
+			$("input[name='email'],input[name='send_code']").addClass("ignore"); //手机验证 邮箱和邮箱验证码去除验证标识
 		}
-		
-		$("#mobile_phone").val("");
-		$("#email_yz").show();
-		$("#email_yz").find(".tx_rm").show();
-		
-		$("#phone_yz").hide();
-		$("#code_mobile").hide();
-		
-		$("form[name='formUser'] :input[name='register_type']").val(0);
-		$("#registsubmit").attr("disabled", false);
 	});
-	
-	$(".email_off").click(function(){
 		
-		var mobile_phone = $("#mobile_phone").val();
-		
-		if(mobile_phone){
-			checkPhone(mobile_phone);
-		}else{
-			$("#email_notice").html('');
-			$("#email_verification").val(0);
-		}
-		
-		$("#regName").val("");
-		$("#email_yz").hide();
-		$("#phone_yz").find(".tx_rm").show();
-		
-		$("#phone_yz").show();
-		$("#code_mobile").show();
-		
-		$("form[name='formUser'] :input[name='register_type']").val(1);
-		$("#registsubmit").attr("disabled", false);
-	});
-	
-	
+	注册问题下拉
 	$.divselect("#divselect","#passwd_quesetion");
-	$.divselect("#divselect2","#passwd_quesetion2");
 });
+
+
+
 </script>
 </body>
 </html>
