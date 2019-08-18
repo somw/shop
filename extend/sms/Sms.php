@@ -1,6 +1,8 @@
 <?php
 namespace Sms;
-class SendCode{
+
+header("Content-Type: text/html; charset=utf-8");
+class Sms{
     private $url = 'http://139.196.108.241:8080';
  
     private function post_curls($url, $post)
@@ -69,8 +71,9 @@ class SendCode{
 //$state 必填参数   状态  1:验证码短信  2:营销短信  3:语音验证码
  
  
-$send = new SendCode();
+// $send = new SendCode();
  
-$re = $send->send('您的账号','您的密码','手机号','短信内容',time(),1);
+// $re = $send->send('您的账号','您的密码','手机号','短信内容',time(),1);
  
-print_r($re);
+// print_r($re);
+// 
