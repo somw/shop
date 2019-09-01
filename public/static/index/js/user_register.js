@@ -133,55 +133,55 @@ $(function(){
 				required : true
 			}
 		},
-		messages:{
-			username:{
-				required : username_empty,
-				StringminLength : msg_un_length,
-				StringLength : username_shorter,
-				stringCheck : msg_un_format,
-				remote : msg_un_registered
-			},
-			password :{
-				required : password_empty,
-				minlength : password_shorter
-			},
-			confirm_password :{
-				required : msg_confirm_pwd_blank,
-				equalTo : confirm_password_invalid
-			},
-			mobile_phone:{
-				required : msg_phone_blank,
-				isMobile : mobile_phone_invalid,
-				notequalTo : mobile_phone_username_equalTo,
-				remote : msg_phone_registered
-			},
-			captcha :{
-				required : msg_identifying_code,
-				remote : msg_identifying_not_correct
-			},
-			mobile_code :{
-				required : msg_mobile_code_blank,
-				remote : msg_mobile_code_not_correct
-			},
-			email :{
-				required : msg_email_blank,
-				email : msg_email_format,
-				remote : msg_email_registered
-			},
-			mobileagreement:{
-				required : agreement
-			},
-			send_code :{
-				required : msg_email_code,
-				remote : msg_email_code_not
-			},
-			sel_question :{
-				required : select_password_question
-			},
-			passwd_answer:{
-				required : null_password_question
-			}
-		},
+		// messages:{
+		// 	username:{
+		// 		required : username_empty,
+		// 		StringminLength : msg_un_length,
+		// 		StringLength : username_shorter,
+		// 		stringCheck : msg_un_format,
+		// 		remote : msg_un_registered
+		// 	},
+		// 	password :{
+		// 		required : password_empty,
+		// 		minlength : password_shorter
+		// 	},
+		// 	confirm_password :{
+		// 		required : msg_confirm_pwd_blank,
+		// 		equalTo : confirm_password_invalid
+		// 	},
+		// 	mobile_phone:{
+		// 		required : msg_phone_blank,
+		// 		isMobile : mobile_phone_invalid,
+		// 		notequalTo : mobile_phone_username_equalTo,
+		// 		remote : msg_phone_registered
+		// 	},
+		// 	captcha :{
+		// 		required : msg_identifying_code,
+		// 		remote : msg_identifying_not_correct
+		// 	},
+		// 	mobile_code :{
+		// 		required : msg_mobile_code_blank,
+		// 		remote : msg_mobile_code_not_correct
+		// 	},
+		// 	email :{
+		// 		required : msg_email_blank,
+		// 		email : msg_email_format,
+		// 		remote : msg_email_registered
+		// 	},
+		// 	mobileagreement:{
+		// 		required : agreement
+		// 	},
+		// 	send_code :{
+		// 		required : msg_email_code,
+		// 		remote : msg_email_code_not
+		// 	},
+		// 	sel_question :{
+		// 		required : select_password_question
+		// 	},
+		// 	passwd_answer:{
+		// 		required : null_password_question
+		// 	}
+		// },
 		success:function(label){
 			label.removeClass().addClass("succeed").html("<i></i>");
 		},
@@ -333,24 +333,36 @@ $(function(){
 });
 
 //获取邮箱验证码
-function sendChangeEmail(type){
-	var obj = $("input[name='email']"),
-		email = obj.val(),
-		where = "";
-		
-	if(!type){
-		type = 0;
-	}	
-	
-	if(email != ""){
-		where = "&email=" + email;
-	}else{
-		obj.parents("#code_email").find(".input-tip").html("<label class='error'>" + msg_email_blank + "</label>");
-	}
+function sendChangeEmail(){
+	var obj = $("input[name='e_email']");
+		email = obj.val();
+		$.ajax({
+			type:'POST',
+			dataType:'json',
+			url:email_url,
+			data:{email:email},
+			success: function(data) {
+				$("#zemail").html(data.msg);
+			}
 
-	Ajax.call( 'user.php?act=user_email_send', 'type=' + type + where, function(result){
-		if(result.replace(/\r\n/g,'') == 'ok'){
-			pbDialog(json_languages.Mailbox_sent,"",1);
-		}
-	} , 'GET', 'TEXT', true, true );
+
+		});
+}
+
+function sendChangePhone(){
+	//console.log(1118888);
+	var obj = $("input[name='mobile_phone']");
+		phoneNum = obj.val();
+		$.ajax({
+			type:'POST',
+			dataType:'json',
+			url:phone_url,
+			data:{phoneNum:phoneNum},
+			success: function(data) {
+				// console.log(data);
+				$("#zphone").html(data.msg);
+			}
+
+
+		});
 }

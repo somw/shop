@@ -34,7 +34,7 @@ class Accout extends Controller
 		$send = new Sms();
 	    $account = '18522268833';
 	    $pswd = 'Zhai1230';
-	    $mobile = '13821656007';
+	    $mobile = '18522268833';
 	    $code = mt_rand(100000,999999);
 	    $msg = '您的登录密码是：'.$code.'，打死不要告诉别人！';
 	    //$ts  可选参数，时间戳，格式yyyyMMddHHmmss
@@ -44,13 +44,22 @@ class Accout extends Controller
 	    // dump($re);die;
 	    if (!is_null($re)) {
 	    	if (isset($re['result']) && $re['result'] == 0) {
-	    		echo '短信发送成功！';
+	    		// echo '短信发送成功！';
+	    		//$msg = "{'status':0,'msg':'短信发送成功'}";
+	    		$msg = ['status'=>0, 'msg' => '短信发送成功'];
+	    		return json($msg);
 	    	}else{
-	    		echo $re['result_msg'];
+	    		// echo $re['result_msg'];
+	    		// $msg = "{'status':1,'msg':".$re['result_msg']."}";
+	    		$msg = ['status'=>1, 'msg' => $re['result_msg']];
+	    		return json($msg);
 	    	}
 	    	
 	    }else{
-	    	echo $re;
+	    	// echo $re;
+	    	//$msg = "{'status':2,'msg':'内部错误'}";
+	    	$msg = ['status'=>2, 'msg' => '内部错误'];
+	    	return json($msg);
 	    }
 	}
 

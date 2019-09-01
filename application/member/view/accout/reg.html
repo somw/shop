@@ -62,31 +62,31 @@
                                 </div>
 
                                 <div class="item" id="email_yz" style="display:none;">
-                                	<div class="item-label">邮 箱</div>
+                                	<div class="item-label">电 子 邮 箱</div>
                                 	<div class="item-info">
-                                    	<input type="text" name="user_email" id="regName" onblur="checkEmail(this.value);" class="text" value="" autocomplete="off" />
+                                    	<input type="text" name="user_email" id="e_email" onblur="checkEmail(this.value);" class="text" value="" autocomplete="off" />
                                         <a href="javascript:void(0);" class="meswitch" ectype="meSwitch" data-type="email" >或手机验证</a>
                                     </div>
                                     <div class="input-tip"><span id="email_notice"></span></div>
                                 </div>
 
-                                <div class="item" id="code_email" style="display:none;">
-	                                <div class="item-label">邮箱验证码</div>
+	                            <div class="item" id="code_mobile">
+	                                <div class="item-label">手机验证码</div>
 	                                <div class="item-info">
-	                                    <input type="text" name="" id="send_code" class="text text-2" value="" autocomplete="off">
-	                                    <a href="javascript:sendChangeEmail(1);" id="zemail" class="sms-btn">获取验证码</a>
+	                                    <input type="text" name="mobile_code" id="mobile_code" class="text text-2" value="" autocomplete="off">
+	                                    <a href="javascript:sendChangePhone();" id="zphone" class="sms-btn">获取验证码</a>
 	                                </div>
 	                                <div class="input-tip"></div>
 	                            </div>
 
-	                            <div class="item" id="code_mobile">
-	                                <div class="item-label">手机验证码</div>
-	                                <div class="item-info">
-	                                    <input type="text" name="" id="send_code" class="text text-2" value="" autocomplete="off">
-	                                    <a href="javascript:sendChangeEmail(1);" id="zemail" class="sms-btn">获取验证码</a>
-	                                </div>
-	                                <div class="input-tip"></div>
-	                            </div>
+                                <div class="item" id="code_email" style="display:none;">
+                                    <div class="item-label">邮箱验证码</div>
+                                    <div class="item-info">
+                                        <input type="text" name="send_code" id="send_code" class="text text-2" value="" autocomplete="off">
+                                        <a href="javascript:sendChangeEmail();" id="zemail" class="sms-btn">获取验证码</a>
+                                    </div>
+                                    <div class="input-tip"></div>
+                                </div>
 
                                 <div class="item item2">
                                 	<div class="item-checkbox">
@@ -108,8 +108,11 @@
 
 
 <script type="text/javascript">
+    var phone_url = "{:url('member/Accout/sendMsg')}";
+    var email_url = "{:url('member/Accout/sendMail')}";
     $("input[name='sel_question']").val('');
     $("#seccode").val();
+
 </script>
 
 
@@ -129,7 +132,7 @@ $(function(){
 		
 		//邮箱验证和手机验证切换
 	$("*[ectype='meSwitch']").on("click",function(){
-		console.log(1111);
+		// console.log(1111);
 		var type = $(this).data("type");
 		
 		if(type == "phone"){
@@ -150,7 +153,7 @@ $(function(){
 		}
 	});
 		
-	注册问题下拉
+	//注册问题下拉
 	$.divselect("#divselect","#passwd_quesetion");
 });
 
