@@ -32,7 +32,7 @@ class Accout extends Controller
 	public function sendMsg(){
 
 		$send = new Sms();
-	    $account = '18522268833';
+	    $account = '18522268832';
 	    $pswd = 'Zhai1230';
 	    $mobile = '18522268833';
 	    $code = mt_rand(100000,999999);
@@ -67,7 +67,7 @@ class Accout extends Controller
 		
 		$to = 'zhaizhai817@163.com';
 		$title = '你好';
-		$content = '你好222222111aaaaa';
+		$content = '1232你好222222111aaaaa';
 
 
 		$mail = new PHPMailer();
@@ -79,10 +79,10 @@ class Accout extends Controller
 	    // 是否需要身份验证
 	    $mail->SMTPAuth=TRUE;
 	    /*  邮件服务器上的账号是什么 -> 到163注册一个账号即可 */
-	    $mail->From="zhai817@163.com";
+	    $mail->From="zhaizhai817@126.com";
 	    $mail->FromName="zhai817";
-	    $mail->Host="smtp.163.com";  //发送邮件的服务协议地址
-	    $mail->Username="zhai817";
+	    $mail->Host="smtp.126.com";  //发送邮件的服务协议地址
+	    $mail->Username="zhaizhai817";
 	    $mail->Password="ming1230";
 	    // 发邮件端口号默认25
 	    $mail->Port = 25;
@@ -93,12 +93,18 @@ class Accout extends Controller
 	    $mail->Subject=$title;
 	    // 邮件内容
 	    $mail->Body=$content;
+
+	    $sendRes = $mail->Send();
 	    
-	    if (!($mail->Send())){
-	    	echo "NO";
-	    	echo $mail->ErrorInfo;
+	    if (!$sendRes){
+	    	$res = ['status'=>1, 'msg'=>'发送失败','msgErr'=>$mail->ErrorInfo];
+	    	return json($res);
+	    	// echo "NO";
+	    	// echo $mail->ErrorInfo;
 	    } else {
-	    	echo "OK";
+	    	$res = ['status'=>0,'msg'=>'发送成功'];
+	    	return json($res);
+	    	// echo "OK";
 	    }
 
 

@@ -349,7 +349,7 @@ function sendChangeEmail(){
 		});
 }
 
-function sendChangePhone(){
+function sendChangePhone(obj2){
 	//console.log(1118888);
 	var obj = $("input[name='mobile_phone']");
 		phoneNum = obj.val();
@@ -360,9 +360,35 @@ function sendChangePhone(){
 			data:{phoneNum:phoneNum},
 			success: function(data) {
 				// console.log(data);
-				$("#zphone").html(data.msg);
+				// $("#zphone").html(data.msg);
+				$('#btn').val(data.msg)
+				invokeSettime(obj2);
 			}
 
 
 		});
+}
+
+
+function invokeSettime(obj) {
+	var countdown=60;
+	settime(obj);
+	function settime(obj) {
+		if (countdown == 0) {
+			// $(obj).attr("disabled",false);
+			$(obj).val("获取验证码");
+			countdown = 60;
+			return;
+		} else {
+			// $(obj).attr("disabled",true);
+			$(obj).off("click");
+			$(obj).val( "" + countdown + "s 重新发送");
+			countdown--;
+			if (countdown == 0) {
+				$(obj).val("重新发送");
+			}
+		}
+		setTimeout(function(){
+			settime(obj)},1000);
+	}
 }
