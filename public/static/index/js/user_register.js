@@ -28,7 +28,7 @@ $(function(){
 					cache: false,
 					async:false,
 					type:'POST',
-					url:'user.php?act=is_registered',
+					url:is_registered,
 					data:{
 						username:function(){
 							return $("input[name='username']").val();
@@ -349,7 +349,7 @@ function sendChangeEmail(){
 		});
 }
 
-function sendChangePhone(obj2){
+function sendChangePhone(){
 	//console.log(1118888);
 	var obj = $("input[name='mobile_phone']");
 		phoneNum = obj.val();
@@ -362,13 +362,33 @@ function sendChangePhone(obj2){
 				// console.log(data);
 				// $("#zphone").html(data.msg);
 				$('#btn').val(data.msg)
-				invokeSettime(obj2);
+				// if (data.msg == 0) {
+					$.cookie('toval',10);
+					timekeeping();
+				// }
+				// invokeSettime(obj2);
 			}
-
 
 		});
 }
 
+function timekeeping() {
+    $('#btn').attr('disabled',true); //按钮设置为禁止
+    var interval = setInterval(function(){
+    	toval = $.cookie('toval');
+    	toval--;
+    	$('#btn').val('请稍等'+toval+'秒');
+    	if (toval == 0) {
+    		clearInterval(interval);
+    		$.cookie('toval',toval,{ expires: -1 });
+    		$('#btn').val('重新发送');
+    		$('#btn').attr('disabled',false);
+    	}else{
+    		$.cookie('toval',toval);
+    	}
+    },1000);
+
+}
 
 function invokeSettime(obj) {
 	var countdown=60;

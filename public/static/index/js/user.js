@@ -540,6 +540,7 @@ function is_registered( username, register_mode )
         return false;
     }
     Ajax.call( 'user.php?act=is_registered', 'username=' + username + "&mode=" + register_mode, registed_callback , 'GET', 'JSON', true, true );
+    
 }
 
 function is_extend_field(val, id, form){

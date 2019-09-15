@@ -106,8 +106,9 @@ class Accout extends Controller
 	    	return json($res);
 	    	// echo "OK";
 	    }
+	}
 
-
-
+	public function isRegistered(){
+		echo '11';
 	}
 }
